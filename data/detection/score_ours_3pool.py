@@ -15,11 +15,11 @@ SCR = Path(os.environ.get("ASSA_SCRATCH", "/tmp/assa-scratch"))   # scorer worki
 POOLS = ROOT / "data/corpus-manifests/tier_b"                      # unpacked corpus
 STAGE = HH / "staging"
 sys.path.insert(0, str(HH))
+sys.path.insert(0, str(ROOT / "experiments/code"))   # score_ours imports workload.taxonomy at module level
+from workload.taxonomy import canonical_path, bucket_key, layer_of
 import importlib.util
 _spec = importlib.util.spec_from_file_location("score_ours", HH / "score_ours.py")
 so = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(so)
-sys.path.insert(0, str(ROOT / "experiments/code"))
-from workload.taxonomy import canonical_path, bucket_key, layer_of
 
 WRITE = so.WRITE
 MAN = json.load(open(OUT / "FINAL_3POOL_SPLIT_MANIFEST.json"))

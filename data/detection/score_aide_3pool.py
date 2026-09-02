@@ -39,6 +39,28 @@ def snap_root(rd: Path):
     return None
 
 
+ATTACK_POOL_DIRS = ("attacks", "attacks_lockedpop_cseries")
+
+
+def attack_snap(rid, local_run_dir):
+    """Resolve an attack's snapshot tree.
+
+    The manifest records where the run was scored from. For 26 of the 55 that is
+    a p2_mass_attack_lane* tree on the collection host, which the release does
+    not ship -- its recorded path is a <REPO_ROOT> placeholder and resolves to
+    nothing. The same trees travel in the corpus under tier_b, so fall back
+    there before giving up.
+    """
+    if local_run_dir:
+        direct = snap_root(Path(local_run_dir))
+        if direct is not None:
+            return direct
+    for sub in ATTACK_POOL_DIRS:
+        cand = snap_root(POOLS / sub / rid)
+        if cand is not None:
+            return cand
+    return None
+
 def aide_one(rid, snap, outdir):
     if snap is None:
         return {"status": "data_insufficient", "reasons": ["no_snapshots"], "binary_decision": None, "native_score": None}
@@ -71,9 +93,9 @@ def main():
     for a in pool3:
         rid = a["run_id"]
         if a["aide_snapshot_source"] == "local_repo":
-            snap = snap_root(Path(w3atk[rid]["local_run_dir"]))
+            snap = attack_snap(rid, w3atk[rid].get("local_run_dir"))
         else:
-            snap = snap_root(STAGE / rid)
+            snap = snap_root(STAGE / rid) or attack_snap(rid, None)
         res = aide_one(rid, snap, SCR / "aide_runs" / rid)
         rows.append({"run_id": rid, "side": "attack", "profile": a["profile"],
                      "op_signature": a["op_signature"], "tier": a["tier"], **res})
@@ -84,9 +106,18 @@ def main():
                      "scenario_id": c["scenario_id"], "performs_write": c["performs_self_state_write"], **res})
     atk = [r for r in rows if r["side"] == "attack"]; cl = [r for r in rows if r["side"] == "clean"]
     ae = [r for r in atk if r["status"] == "passed"]; ce = [r for r in cl if r["status"] == "passed"]
-    if not ae or not ce:
-        fail_closed(f"no evaluable runs (attack {len(ae)}/{len(atk)}, clean {len(ce)}/{len(cl)}); "
-                    "the staging trees are present but yielded no snapshots")
+    # Refuse a partial population. "At least one of each" would let a run that
+    # resolved 29 of 55 attack snapshots overwrite the frozen result with a
+    # smaller, plausible-looking one. The published coverage is the contract:
+    # every attack and every clean run is evaluable (FINAL_3POOL_REPORT.json
+    # records AIDE coverage 55/55; its TPR of 52/55 is a detection rate, not
+    # a coverage shortfall).
+    EXPECTED_ATTACK_EVALUABLE, EXPECTED_CLEAN_EVALUABLE = 55, 60
+    if len(ae) < EXPECTED_ATTACK_EVALUABLE or len(ce) < EXPECTED_CLEAN_EVALUABLE:
+        fail_closed(f"partial population: attack {len(ae)}/{len(atk)} evaluable "
+                    f"(need {EXPECTED_ATTACK_EVALUABLE}), clean {len(ce)}/{len(cl)} "
+                    f"(need {EXPECTED_CLEAN_EVALUABLE}). Unresolved snapshots mean an "
+                    "input root is incomplete, not that coverage is genuinely lower.")
     (OUT / "scored_aide_3pool.json").write_text(json.dumps(
         {"detector": "AIDE", "design": "3pool train-free snapshot delta; TPR 55 / FPR gen2-60", "rows": rows}, indent=2) + "\n")
     cw = [r for r in ce if r.get("performs_write")]; cnw = [r for r in ce if not r.get("performs_write")]

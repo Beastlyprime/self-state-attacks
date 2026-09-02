@@ -118,9 +118,25 @@ def run_feature(rundir, scenario, profile, label, run_kind):
     return feat, ops
 
 
+# tier_b subdirectories that a run can live in once the corpus is unpacked
+ARCHIVE_SUBDIRS = ("attacks", "attacks_lockedpop_cseries",
+                   "twins", "twins_lockedpop_cseries",
+                   "clean_train", "clean_heldout")
+
+
 def locate(rid):
-    for c in [STAGE / rid] + [Path(p) for p in glob.glob(str(RES / f"p2_mass_attack_lane*/**/{rid}"), recursive=True)] \
-             + [Path(p) for p in glob.glob(str(RES / f"p2_l0_*/**/{rid}"), recursive=True)]:
+    """Find a run's libsinsp substrate.
+
+    The collection-host trees (p2_mass_attack_lane*, p2_l0_*) are not published;
+    the same runs travel in the corpus under tier_b, which is where the 23
+    matched twins live. Staging first, so runs that were scored from it keep
+    resolving there.
+    """
+    candidates = [STAGE / rid]
+    candidates += [Path(p) for p in glob.glob(str(RES / f"p2_mass_attack_lane*/**/{rid}"), recursive=True)]
+    candidates += [Path(p) for p in glob.glob(str(RES / f"p2_l0_*/**/{rid}"), recursive=True)]
+    candidates += [ARCHIVE / sub / rid for sub in ARCHIVE_SUBDIRS]
+    for c in candidates:
         if c.is_dir() and (c / "graph/libsinsp/libsinsp_events.jsonl").is_file():
             return c
     return None

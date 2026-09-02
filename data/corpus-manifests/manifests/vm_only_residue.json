@@ -1,5 +1,5 @@
 {
-  "note": "Data present on VMs but intentionally NOT pulled into this archive. NOT deleted on the VMs; flagged so the user can decide on a bulk sync / larger disk. GB10 had 2.9 TB free, so headroom was NOT the limiter for these — they are out-of-scope-by-task or provenance-caveated.",
+  "note": "Data present on VMs but intentionally NOT pulled into this archive. NOT deleted on the VMs; flagged so the user can decide on a bulk sync / larger disk. <ANALYSIS_HOST> had 2.9 TB free, so headroom was NOT the limiter for these — they are out-of-scope-by-task or provenance-caveated.",
   "residue": [
     {
       "item": "gen2-176 clean TRAINING raw capture.scap",

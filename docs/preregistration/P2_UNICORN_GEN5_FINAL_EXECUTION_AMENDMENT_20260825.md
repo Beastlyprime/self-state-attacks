@@ -3,8 +3,19 @@
 Date: 2026-08-25. This amendment was written after the 291-graph adapter
 preflight and before running the official UNICORN parser, analyzer, or modeler.
 No WL label, HistoSketch, cluster model, anomaly verdict, TPR, or FPR had been
-observed when this amendment was made. The initial failed gate report is
-retained as `GATES_REPORT_INITIAL_FAILED.json`.
+observed when this amendment was made.
+
+Two caveats on how much weight this document can carry. First, it is a
+**pre-score amendment, not a preregistration**: it was written after the
+preflight it responds to, and the ordering above rests on this statement rather
+than on evidence a reader can independently check from the release. Second, the
+gate reports it was written against — including the initial failed one — are
+implementation records kept in the development repository and are deliberately
+not part of this release, so the preflight outcome cannot be re-inspected here
+either. What the release does bind is the text: `score_unicorn_gen5_3pool.py`
+records the SHA-256 of this file and of the role-typing preregistration into
+`UNICORN_GEN5_FINAL_REPORT.json`, so the protocol the scored rows were produced
+under is fixed and verifiable, even though its timing is asserted.
 
 ## Why an amendment was necessary
 

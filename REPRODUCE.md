@@ -1,7 +1,9 @@
 # Reproduction
 
 This document is explicit about three different things people mean by
-"reproduce", because only the first is possible from this repository alone.
+"reproduce", because only Level 1 holds for every reported number. Level 2 works
+for two steps from a bare clone; Level 3 needs the archived corpus, and some arms
+need more than that.
 
 | Level | What it means | Possible here |
 |---|---|---|
@@ -40,12 +42,13 @@ python3 experiments/code/dataset_builder/canonical_matrix_audit.py --output /tmp
 ```
 
 Rebuilds the catalog from the taxonomy and the canonical attack suite:
-`paper_cells` is 23, `summary.concrete_operations` is 43, and the per-cell
-operation counts are the N column of Table 12.
+`summary.paper_cells` is 23, `summary.concrete_operations` is 43, and the
+`operation_count` of each entry in the top-level `paper_cells` list is the N
+column of Table 12.
 
 This is a **structural** rebuild only. Run without `--bindings`, it reports
-`gate.structural_passed = true` alongside `production_complete = false` and all
-43 operations as `unbound`, because it has been given no execution records to
+`gate.structural_passed = true` alongside `gate.production_complete = false` and
+all 43 operations as `unbound`, because it has been given no execution records to
 bind them to. It reproduces Tables 5 and 12; it does not attest that the catalog
 was fully realised in production. That accounting is in
 `data/superseded/COVERAGE_23CELL_RECOMPUTE.json`.
@@ -86,27 +89,29 @@ re-derives its output from a bare clone:
 `build_manifest.py`, `data/provenance/p5_analyze.py`,
 `data/recovery/rollback-cost/bin/p4_recovery_cost.py`.
 
-Two of them need **only** the corpus, nothing else, and reproduce their shipped
-outputs exactly:
+One of them needs **only** the corpus, nothing else, and genuinely recomputes
+its shipped output — Table 9:
 
 ```bash
 tar -I zstd -xf selfstate-corpus-provenance-inputs.tar.zst -C data/provenance/ \
   --transform 's|^provenance-inputs|inputs|'
-python3 data/provenance/p5_analyze.py           # Table 9, ~3 min, pure Python
-
-tar -I zstd -xf selfstate-corpus-tier_a.tar.zst -C data/corpus-manifests/
-python3 data/detection/merge_falco_3pool.py     # the Falco rows of Tables 8/14
-
-git diff --stat data/provenance/ data/detection/    # expect no change
+python3 data/provenance/p5_analyze.py           # ~3 min, pure Python
+git diff --stat data/provenance/                # expect no change
 ```
 
-`p5_analyze.py` refuses to emit a partial result: if the volume is missing
-bundles it exits non-zero with a population mismatch rather than reporting a
-smaller, plausible-looking count.
+It refuses to emit a partial result: if the volume is missing bundles it exits
+non-zero with a population mismatch rather than reporting a smaller,
+plausible-looking count.
 
-`merge_falco_3pool.py` normalises the detector's rule names on read — the corpus
-keeps the name Falco actually ran under, which differs from the one the paper
-uses — so the rows it writes match the frozen file rather than the raw label.
+`merge_falco_3pool.py` is a partial case and we state the limit rather than
+imply otherwise. With `tier_a` unpacked it reassembles the **55 attack
+decisions** from the three published replay results, and normalises the rule
+names on read (the corpus keeps the name Falco actually ran under, which differs
+from the one the paper uses). The **60 clean decisions are carried forward** from
+the shipped `scored_falco_3pool.json`: the held-out clean replay ran on the guest
+and its raw output was never archived, so Falco's false-positive rate is
+checkable but not recomputable. Re-running the script therefore reproduces the
+shipped file byte-for-byte, which for the clean side is a copy, not evidence.
 
 The prevention replay (`data/prevention/bin/`) is a live kernel probe, not a data
 transformation: it needs a privileged container with AppArmor enforcing and a
@@ -121,7 +126,7 @@ supply, and we state that rather than imply otherwise:
 | Scorer | Still needs |
 |---|---|
 | `score_stide_3pool.py` | the pinned STIDE implementation, expected at `/tmp/assa-stage-g-lid-ds` (commit `587d1587…`, recorded in the split manifest's `monitor_versions`) |
-| `score_unicorn_gen5_3pool.py` | three pinned Python 2 checkouts at `/tmp/assa-stage-g-unicorn-{parsers,analyzer,modeler}-py2-final` and the container image `assa-stage-g/unicorn-python2:2.7.18`. The commit hashes are asserted by the scorer and recorded in `data/detection/unicorn/UNICORN_GEN5_FINAL_REPORT.json`; **we do not publish the upstream URLs or an image recipe**, so this arm is not re-runnable from this release alone |
+| `score_unicorn_gen5_3pool.py` | three pinned Python 2 checkouts — `/tmp/assa-stage-g-unicorn-parsers-py2-final`, `/tmp/assa-stage-g-unicorn-modeler-py2-final` and `/tmp/assa-stage-g-unicorn-analyzer` (the analyzer default carries no suffix; all three are `--*-repo` flags) and the container image `assa-stage-g/unicorn-python2:2.7.18`. The commit hashes are asserted by the scorer and recorded in `data/detection/unicorn/UNICORN_GEN5_FINAL_REPORT.json`; **we do not publish the upstream URLs or an image recipe**, so this arm is not re-runnable from this release alone |
 | `score_aide_3pool.py` | a working AIDE container (`assa-stage-g/aide:0.19.3`) and a writable scratch directory, overridable with `ASSA_SCRATCH` |
 
 `rebuild_supervised_3pool.py` additionally needs the four numerical packages at
@@ -143,7 +148,7 @@ exception when an input path is missing, which is safe but less informative.
 
 ### Obtaining the corpus
 
-The archive is **22.6 GB unpacked / 3.1 GB compressed in 12 volumes**, scoped to
+The archive is **19.5 GB unpacked / 3.1 GB compressed in 12 volumes**, scoped to
 the populations the paper's results are computed from, and published as one
 record of zstd volumes.
 `data/corpus-manifests/ARCHIVE_MANIFEST.json` describes the tiers and
@@ -177,7 +182,7 @@ tar -I zstd -xf selfstate-corpus-aux.tar.zst               -C data/
 
 Redaction in the archive is confined to metadata. Every file under
 `state_snapshots/` is byte-identical to what the collector wrote, verified over
-all 12,667 of them. Its `ARCHIVE_SHA256SUMS.txt` holds release checksums over the
+all 11,729 of them. Its `ARCHIVE_SHA256SUMS.txt` holds release checksums over the
 redacted copy; acquisition-time hashes are in `manifests/`.
 
 > **Archive DOI:** _to be assigned._ Until the record is published, the corpus is

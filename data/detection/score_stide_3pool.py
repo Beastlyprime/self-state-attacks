@@ -10,13 +10,14 @@ ROOT = Path(os.environ.get("ASSA_ROOT", str(Path(__file__).resolve().parents[2])
 HH = ROOT / "data/superseded"
 OUT = ROOT / "data/detection"
 SCR = Path(os.environ.get("ASSA_SCRATCH", str(ROOT / ".scratch")))
-POOLS = SCR / "pools"
+POOLS = ROOT / "data/corpus-manifests/tier_b"       # unpacked corpus
+POOL_DIR = {"train": "clean_train", "heldout": "clean_heldout"}
 STAGE = HH / "staging"
 sys.path.insert(0, str(ROOT))
 from experiments.code.measurement.stage_g_harness.stide_bridge import run as stide_run
 
 STIDE_REPO = Path("/tmp/assa-stage-g-lid-ds")
-CORE = json.loads((HH.parent / "p2_detection_20260820/P2_STIDE_STOPPING_RULE_PREREGISTRATION.json").read_text())
+CORE = json.loads((ROOT / "data/aux/P2_STIDE_STOPPING_RULE_PREREGISTRATION.json").read_text())
 PF = CORE["profile_freeze"]
 MAN = json.load(open(OUT / "FINAL_3POOL_SPLIT_MANIFEST.json"))
 REATTR_REL = "graph/reattributed/resolution_spine_effective/syscalls.jsonl"
@@ -44,7 +45,7 @@ def main():
 
     train_by_prof = defaultdict(list)
     for r in pool1:
-        train_by_prof[r["profile"]].append(POOLS / "train" / r["run_id"] / REATTR_REL)
+        train_by_prof[r["profile"]].append(POOLS / POOL_DIR["train"] / r["run_id"] / REATTR_REL)
 
     # test runs per profile with their substrate path + side
     test_runs = []
@@ -54,7 +55,7 @@ def main():
                           STAGE / a["run_id"] / STREAM_REL[stream], a))
     for c in pool2:
         test_runs.append((c["run_id"], c["profile"], "clean",
-                          POOLS / "heldout" / c["run_id"] / REATTR_REL, c))
+                          POOLS / POOL_DIR["heldout"] / c["run_id"] / REATTR_REL, c))
 
     rows = []
     for prof in ("W1", "W2", "W3", "W4"):

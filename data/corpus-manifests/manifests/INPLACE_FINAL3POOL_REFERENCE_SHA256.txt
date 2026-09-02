@@ -1,1 +1,1 @@
-# In-place reference SHAs (files NOT copied into archive; live on GB10 result dirs)
+# In-place reference SHAs (files NOT copied into archive; live on <ANALYSIS_HOST> result dirs)

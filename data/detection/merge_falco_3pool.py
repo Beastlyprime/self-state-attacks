@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """Materialize Falco clean and attack decisions for the final three-pool evaluation.
 
+NOT a full re-derivation. The 55 attack decisions are reassembled from the three
+replay results under ATTACK_SOURCES. The 60 clean decisions are carried forward
+from the scored file this script rewrites: the held-out clean replay ran on the
+guest and its raw output (/tmp/falco_3pool_result.json, written by
+falco_remote.py) was never archived, so the clean-side FPR cannot be recomputed
+from the release. Re-running this reproduces the shipped rows exactly, but for
+the clean side that is a copy, not a recomputation.
+
 The fresh Falco replay file contains the 60 held-out clean runs. Attack decisions
 come from the frozen D2 replays (38 + 6 runs) and the compatible W3 expansion
 (11 runs). This merger selects exactly the 55 manifest attacks, rejects missing
@@ -40,7 +48,7 @@ def sha256(path):
 
 def main():
     manifest = json.loads(MANIFEST.read_text())
-    current = json.loads(SCORED.read_text())
+    carried = json.loads(SCORED.read_text())   # clean side: carried forward, not re-derived
     clean_meta = {
         row["run_id"]: row
         for row in manifest["pools"]["pool2_clean_heldout_test_gen2_60"]["records"]
@@ -51,7 +59,7 @@ def main():
     }
 
     clean_rows = []
-    for row in current["rows"]:
+    for row in carried["rows"]:
         rid = row["run_id"]
         if rid not in clean_meta:
             continue
@@ -124,7 +132,8 @@ def main():
         "rows": sorted(clean_rows + list(selected.values()), key=lambda row: (row["side"], row["run_id"])),
     }
     SCORED.write_text(json.dumps(output, indent=2) + "\n")
-    print("Falco clean", sum(bool(r["binary_decision"]) for r in clean_rows), "/", len(clean_rows))
+    print("Falco clean", sum(bool(r["binary_decision"]) for r in clean_rows), "/", len(clean_rows),
+          "(carried forward from the shipped rows -- the guest-side clean replay was not archived)")
     print("Falco attack", sum(bool(r["binary_decision"]) for r in selected.values()), "/", len(selected))
 
 

@@ -2,7 +2,7 @@
   "schema_version": "assa.p2_supervised_arm.v1",
   "derivation_generation": "p2_supervised_arm_expanded_20260825",
   "design": "SUPERVISED_ARM_DESIGN_20260823.md",
-  "analysis_kind": "defensive; offline analysis host (aarch64 GB10) for all fitting; the only VM interaction was a read-only two-hop-SSH PULL of graph/normalized + graph/libsinsp + state_snapshots from .91 (file-op + um twins) and .69 (MCAW twins)",
+  "analysis_kind": "defensive; offline analysis host (aarch64 <ANALYSIS_HOST>) for all fitting; the only VM interaction was a read-only two-hop-SSH PULL of graph/normalized + graph/libsinsp + state_snapshots from .91 (file-op + um twins) and .69 (MCAW twins)",
   "comparability": "EXPANDED. NEW generation. Locked-pop 17 pos / 43 neg carried VERBATIM from frozen p2_supervised_arm_20260823 (byte-identical rows). NOT comparable to the withdrawn synthetic V/C/I. The locked-pop 0.82 is the reference the expansion is measured against.",
   "provisional_flags": [
     "(a) The expanded population is NOT frozen (freeze prerequisites pending).",

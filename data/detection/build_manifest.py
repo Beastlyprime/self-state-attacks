@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """Build FINAL_3POOL_SPLIT_MANIFEST.json (Phase 1) with anti-leakage asserts + availability matrix."""
-import json, hashlib, os
+import json, hashlib, os, sys
 from pathlib import Path
 from collections import defaultdict, Counter
 
 ROOT = Path(os.environ.get("ASSA_ROOT", str(Path(__file__).resolve().parents[2])))
 SCR = Path(os.environ.get("ASSA_SCRATCH", str(ROOT / ".scratch")))
-POOLS = SCR / "pools"
+POOLS = ROOT / "data/corpus-manifests/tier_b"          # unpacked corpus
+POOL_DIR = {"train": "clean_train", "heldout": "clean_heldout", "twins": "twins"}
+FREEZES = ROOT / "data/corpus-manifests/tier_a/job_reports"
 HH = ROOT / "data/superseded"
 OUT = ROOT / "data/detection"
 OUT.mkdir(exist_ok=True)
 
-TRAIN = json.load(open(SCR / "P2_CLEAN_TRAINING_FREEZE_GEN2.json"))
-HELD = json.load(open(SCR / "P2_HELDOUT_CLEAN_FREEZE_GEN2.json"))
+TRAIN = json.load(open(FREEZES / "P2_CLEAN_TRAINING_FREEZE_GEN2.json"))
+HELD = json.load(open(FREEZES / "P2_HELDOUT_CLEAN_FREEZE_GEN2.json"))
 W3 = json.load(open(HH / "W3THICK_POPULATION_MANIFEST.json"))
 
 CONTRACT = W3["generation_contract"]  # config e991fbe1 / rules e3b75979 / uid 997
@@ -29,6 +31,23 @@ def scenario_of(case_id):
 def exists(*p):
     return os.path.exists(os.path.join(*p))
 
+
+ATTACK_DIRS = ("attacks", "attacks_lockedpop_cseries")
+TWIN_DIRS = ("twins", "twins_lockedpop_cseries")
+
+
+def pool_dir(rid, candidates):
+    """Locate a run in the unpacked corpus.
+
+    The frozen manifest records fileop attacks by their p2_mass_attack_lane* path
+    on the collection host, which the release does not ship; the same trees
+    travel in the corpus under tier_b. Returns None when nothing matches.
+    """
+    for sub in candidates:
+        d = POOLS / sub / rid
+        if d.is_dir():
+            return d
+    return None
 
 def uid_of_syscalls(path):
     """modal process.uid over a sample (co-admissibility runner-uid check; ignores root setup rows)."""
@@ -52,7 +71,7 @@ def uid_of_syscalls(path):
 pool1 = []
 for r in TRAIN["records"]:
     rid = r["run_id"]
-    d = POOLS / "train" / rid
+    d = POOLS / POOL_DIR["train"] / rid
     pool1.append({
         "run_id": rid, "profile": r["profile"], "scenario_id": r["task_id"], "task_id": r["task_id"],
         "tier": "clean", "polarity": "benign", "role": "training_fit_only",
@@ -70,7 +89,7 @@ pool2 = []
 rep_ctr = defaultdict(int)
 for r in HELD["records"]:
     rid = r["run_id"]; scn = r["task_id"]; rep_ctr[scn] += 1
-    d = POOLS / "heldout" / rid
+    d = POOLS / POOL_DIR["heldout"] / rid
     pool2.append({
         "run_id": rid, "profile": r["profile"], "scenario_id": scn, "task_id": scn,
         "replicate_index": rep_ctr[scn], "fold_id": f"scn::{scn}",
@@ -94,25 +113,32 @@ for a in W3["attacks"]:
     stide_stream = a["stide_stream"]
     fileop = a["aide_snapshot_source"] == "local_repo"
     # attack substrate presence
+    atk_reattr = exists(STAGE, rid, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
+    atk_norm = exists(STAGE, rid, "graph/normalized/syscalls.jsonl")
+    atk_lib = exists(STAGE, rid, "graph/libsinsp/libsinsp_events.jsonl")
+    atk_snap = exists(STAGE, rid, "state_snapshots/before_a")
     if fileop:
         lr = a["local_run_dir"]
-        atk_reattr = exists(STAGE, rid, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
-        atk_norm = exists(STAGE, rid, "graph/normalized/syscalls.jsonl")
-        atk_snap = exists(lr, "state_snapshots/before_a") or exists(lr, "semantic/state_snapshots/before_a")
-        atk_lib = exists(STAGE, rid, "graph/libsinsp/libsinsp_events.jsonl")
-        tw_dir = lr.replace("__poisoned", "__clean")
-        tw_reattr = exists(tw_dir, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
-        tw_lib = exists(tw_dir, "graph/libsinsp/libsinsp_events.jsonl")
-        tw_snap = exists(tw_dir, "state_snapshots/before_a") or exists(tw_dir, "semantic/state_snapshots/before_a")
+        atk_snap = (exists(lr, "state_snapshots/before_a")
+                    or exists(lr, "semantic/state_snapshots/before_a"))
+        if not atk_snap:
+            ad = pool_dir(rid, ATTACK_DIRS)
+            atk_snap = bool(ad) and exists(ad, "state_snapshots/before_a")
+            atk_reattr = atk_reattr or (bool(ad) and exists(ad, "graph/reattributed/resolution_spine_effective/syscalls.jsonl"))
+            atk_lib = atk_lib or (bool(ad) and exists(ad, "graph/libsinsp/libsinsp_events.jsonl"))
+    twin_rid = rid.replace("__poisoned", "__clean")
+    twd = pool_dir(twin_rid, TWIN_DIRS)
+    if twd is None and fileop:
+        legacy = a["local_run_dir"].replace("__poisoned", "__clean")
+        tw_reattr = exists(legacy, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
+        tw_lib = exists(legacy, "graph/libsinsp/libsinsp_events.jsonl")
+        tw_snap = (exists(legacy, "state_snapshots/before_a")
+                   or exists(legacy, "semantic/state_snapshots/before_a"))
     else:
-        atk_reattr = exists(STAGE, rid, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
-        atk_norm = exists(STAGE, rid, "graph/normalized/syscalls.jsonl")
-        atk_snap = exists(STAGE, rid, "state_snapshots/before_a")
-        atk_lib = exists(STAGE, rid, "graph/libsinsp/libsinsp_events.jsonl")
-        twd = POOLS / "twins" / rid.replace("__poisoned", "__clean")
-        tw_reattr = exists(twd, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
-        tw_lib = exists(twd, "graph/libsinsp/libsinsp_events.jsonl")
-        tw_snap = exists(twd, "state_snapshots/before_a")
+        base = twd if twd is not None else POOLS / POOL_DIR["twins"] / twin_rid
+        tw_reattr = exists(base, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
+        tw_lib = exists(base, "graph/libsinsp/libsinsp_events.jsonl")
+        tw_snap = exists(base, "state_snapshots/before_a")
     if tw_reattr and tw_lib:
         tw_status = "full"
     elif tw_snap:
@@ -167,8 +193,8 @@ asserts = {
 
 # uid co-admissibility spot check (sample 6 train, 6 heldout, 6 attack)
 uid_checks = []
-for grp, items, base in [("train", pool1[:3] + pool1[-3:], POOLS / "train"),
-                         ("heldout", pool2[:3] + pool2[-3:], POOLS / "heldout")]:
+for grp, items, base in [("train", pool1[:3] + pool1[-3:], POOLS / POOL_DIR["train"]),
+                         ("heldout", pool2[:3] + pool2[-3:], POOLS / POOL_DIR["heldout"])]:
     for it in items:
         p = base / it["run_id"] / "graph/reattributed/resolution_spine_effective/syscalls.jsonl"
         uid_checks.append({"pool": grp, "run_id": it["run_id"], "uid": uid_of_syscalls(p)})
@@ -221,7 +247,13 @@ manifest = {
 canon = json.dumps(manifest, sort_keys=True, separators=(",", ":")).encode()
 addr = hashlib.sha256(canon).hexdigest()[:12]
 manifest["manifest_content_address"] = addr
-(OUT / "FINAL_3POOL_SPLIT_MANIFEST.json").write_text(json.dumps(manifest, indent=2) + "\n")
+_failed = sorted(k for k, v in asserts.items() if not v)
+if _failed:
+    for k, v in asserts.items():
+        print(("[PASS] " if v else "[FAIL] ") + k)
+    sys.exit("fail-closed: refusing to overwrite the frozen manifest -- these asserts "
+             "did not hold: " + ", ".join(_failed) + ". A failed availability assert "
+             "means an input root is incomplete, not that the population changed.")
 
 print("=== FINAL_3POOL manifest content-address:", addr)
 print("POOL1 (train):", len(pool1), dict(Counter(x["profile"] for x in pool1)))
@@ -234,3 +266,24 @@ print("\n=== ASSERTS ===")
 for k, v in asserts.items():
     print(f"  [{'PASS' if v else 'FAIL'}] {k}")
 print("\nall asserts pass:", all(asserts.values()))
+
+
+SHIPPED = OUT / "FINAL_3POOL_SPLIT_MANIFEST.json"
+if SHIPPED.exists():
+    # Five scorers read this manifest for their populations, so it is never
+    # rewritten in place. It records substrate availability as of the freeze; the
+    # published archive was assembled afterwards, when pull_graphs.py had
+    # retrieved graphs that did not exist then, so a recomputation legitimately
+    # reports HIGHER availability (e.g. more twins reaching "full"). Both are
+    # true of their own moment; the frozen one is what the results were computed
+    # against. FRESH_AVAILABILITY_MATRIX_POSTD1.json is the post-D1 record.
+    if json.loads(SHIPPED.read_text()) == manifest:
+        print("\nrecomputed manifest is identical to the shipped one")
+    else:
+        side = OUT / "FINAL_3POOL_SPLIT_MANIFEST.recomputed.json"
+        side.write_text(json.dumps(manifest, indent=2) + "\n")
+        print(f"\nrecomputed manifest differs from the shipped one -- wrote {side.name} "
+              "instead of overwriting it. Expected: the archive carries graphs pulled "
+              "after the freeze, so availability reads higher. Diff the two to see it.")
+else:
+    SHIPPED.write_text(json.dumps(manifest, indent=2) + "\n")

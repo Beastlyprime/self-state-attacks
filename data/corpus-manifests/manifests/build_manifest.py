@@ -57,7 +57,7 @@ def main():
     manifest = {
         "archive": str(ARCH),
         "created": datetime.datetime.utcnow().isoformat() + "Z",
-        "purpose": "Durable GB10-local persistence of irreplaceable P2 measurement data (VM/job-tmp were ephemeral).",
+        "purpose": "Durable <ANALYSIS_HOST>-local persistence of irreplaceable P2 measurement data (VM/job-tmp were ephemeral).",
         "two_hop_source": "<COLLECTOR_HOST> -> assa@<GUEST_HOSTS> (read-only)",
         "totals": {"files": total_files, "bytes": total_bytes, "gb": round(total_bytes / 1e9, 3)},
         "tiers": tiers,
