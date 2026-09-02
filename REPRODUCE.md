@@ -177,7 +177,7 @@ tar -I zstd -xf selfstate-corpus-aux.tar.zst               -C data/
 
 Redaction in the archive is confined to metadata. Every file under
 `state_snapshots/` is byte-identical to what the collector wrote, verified over
-all 9,086 of them. Its `ARCHIVE_SHA256SUMS.txt` holds release checksums over the
+all 12,667 of them. Its `ARCHIVE_SHA256SUMS.txt` holds release checksums over the
 redacted copy; acquisition-time hashes are in `manifests/`.
 
 > **Archive DOI:** _to be assigned._ Until the record is published, the corpus is
