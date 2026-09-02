@@ -86,19 +86,27 @@ re-derives its output from a bare clone:
 `build_manifest.py`, `data/provenance/p5_analyze.py`,
 `data/recovery/rollback-cost/bin/p4_recovery_cost.py`.
 
-One of them needs **only** the corpus, nothing else. After unpacking
-`selfstate-corpus-provenance-inputs.tar.zst`, `data/provenance/p5_analyze.py`
-rewrites `P5_NAMEABILITY_ATTRIBUTION_REPORT.json` **byte-identically** to the
-shipped file, so Table 9 is recomputed rather than merely checked:
+Two of them need **only** the corpus, nothing else, and reproduce their shipped
+outputs exactly:
 
 ```bash
-python3 data/provenance/p5_analyze.py          # ~3 min, pure Python
-git diff --stat data/provenance/                # expect no change
+tar -I zstd -xf selfstate-corpus-provenance-inputs.tar.zst -C data/provenance/ \
+  --transform 's|^provenance-inputs|inputs|'
+python3 data/provenance/p5_analyze.py           # Table 9, ~3 min, pure Python
+
+tar -I zstd -xf selfstate-corpus-tier_a.tar.zst -C data/corpus-manifests/
+python3 data/detection/merge_falco_3pool.py     # the Falco rows of Tables 8/14
+
+git diff --stat data/provenance/ data/detection/    # expect no change
 ```
 
-It refuses to emit a partial result: if the volume is missing bundles it exits
-non-zero with a population mismatch rather than reporting a smaller,
-plausible-looking count.
+`p5_analyze.py` refuses to emit a partial result: if the volume is missing
+bundles it exits non-zero with a population mismatch rather than reporting a
+smaller, plausible-looking count.
+
+`merge_falco_3pool.py` normalises the detector's rule names on read — the corpus
+keeps the name Falco actually ran under, which differs from the one the paper
+uses — so the rows it writes match the frozen file rather than the raw label.
 
 The prevention replay (`data/prevention/bin/`) is a live kernel probe, not a data
 transformation: it needs a privileged container with AppArmor enforcing and a

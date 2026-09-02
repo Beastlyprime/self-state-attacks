@@ -11,16 +11,16 @@
   "design": "fresh held-out clean replay plus frozen compatible attack replays; exact manifest population",
   "source_results": [
     {
-      "path": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "path": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "sha256": "9e549c85b2044e1037268166078bc558bc75464dac794707264e8229e14ba3c4"
     },
     {
-      "path": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result_69.json",
+      "path": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
       "sha256": "b668b9819f52379a85d776c8b96a620b814d4f31f9b444a3fc4a37e8fabbb0be"
     },
     {
-      "path": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
-      "sha256": "443b4feeaaa5cc56da9fcaad475abcd526c20d9f2f6c677d28ca0b442afb39b4"
+      "path": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
+      "sha256": "6297c1add2b530636cf6577daa00703640be91b59a28fea6782dcd54a7cca9b2"
     }
   ],
   "rows": [
@@ -42,7 +42,7 @@
         }
       },
       "rules_sha256": "8c286a9a755230adecef494cbc1f3905bfabcb4ba2e809d61c95ef8b11e2d7cc",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -63,7 +63,7 @@
         }
       },
       "rules_sha256": "a5fb53d0bb646564273bfc7b25612a20df38f085f545adca20ecd4db1c303009",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -84,7 +84,7 @@
         }
       },
       "rules_sha256": "db28080fab0625e289e5cf0f0571772ce4d401bb0d1e15ab3342255991e134cf",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -105,7 +105,7 @@
         }
       },
       "rules_sha256": "6e94c0dd76b5d5274117507d57e7f6fb7c1505e77c1eead4017d36727b43e488",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -126,7 +126,7 @@
         }
       },
       "rules_sha256": "9e3b1b1dce14b5bb4fba33fbcf46bfcddf754e4b4820ae7a79f769e2146e1208",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -147,7 +147,7 @@
         }
       },
       "rules_sha256": "e663f71992d85aac4c23039b8570b9f954130df077606c816469c1c78d6e541f",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -168,7 +168,7 @@
         }
       },
       "rules_sha256": "c1f0aa16fca3fc4ea949ad72506cc5980f9350bf31c5e728fed5d095bf18197e",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -189,7 +189,7 @@
         }
       },
       "rules_sha256": "aed5a501f91e55c5004824796126922b9841ca3a398c6d3125dc7e8324f7fd69",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -210,7 +210,7 @@
         }
       },
       "rules_sha256": "f2e62db1621fd9a3b1926b2cba0c1cf5f166039ad7b78325183e45cd38f84684",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -231,7 +231,7 @@
         }
       },
       "rules_sha256": "9f7b5ecfabd586447782c5ee6a6943bc0272b270dee35ccfde3a495f430067a8",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -252,7 +252,7 @@
         }
       },
       "rules_sha256": "2d8e3a8d2225a523ff9692f9c324d5eea7ce87ff8e70935537bce69ba288d762",
-      "source_result": "experiments/results/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+      "source_result": "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -273,7 +273,7 @@
         }
       },
       "rules_sha256": "d10a95d52c3bcc1dfe21954fd6a4500d8e99652028f26ea00c9238a42f378cae",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result_69.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -294,7 +294,7 @@
         }
       },
       "rules_sha256": "20e4a8cdd6907c377b5b45c138a354eac46f2885905a988d68473fc5a9b30442",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result_69.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -315,7 +315,7 @@
         }
       },
       "rules_sha256": "01cccbe474172e26872b1e736d8cd465e69806d6b56ae0488e38cce0089a5cb2",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result_69.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -336,7 +336,7 @@
         }
       },
       "rules_sha256": "1146c28260ed5c69434c62e2af8182dcaf2218a7f826048591a444729de30772",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result_69.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -357,7 +357,7 @@
         }
       },
       "rules_sha256": "b8b6fc6d63a5e5dbb7fa25cc1066104ad0d11b46d95f243bc66c6e810fd6f3fa",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result_69.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -378,7 +378,7 @@
         }
       },
       "rules_sha256": "add02392cd22b13d108449baf06432155bda064e49bc13c4f0d3155b3c2386f1",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result_69.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -397,7 +397,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "341b8d585410d6a794d91ed4df455524cbfed68e8c085980a64833a324eb7fdf",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -416,7 +416,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "19dcfedada974a43831a9001ae83d8108d51ddb0fc97d94111f6c7fbbebd7bb4",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -435,7 +435,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "fcd1cea81956e04945e6a61227f4763636c9ea393f9093ef788faa3cf0a07a43",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -454,7 +454,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "192d70cb67e6b00b30a5abf26b56077e76ec161aed4a8c34d50defcb25daf150",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -473,7 +473,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "79461fce1ec21cf16d7f94a29a5a117723099ba94e2c34889fc73637a2f16c76",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -492,7 +492,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "7d69f3f24e813eb4f8425ab103033c3fb52c83a8fa4149908e905515e58acde7",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -513,7 +513,7 @@
         }
       },
       "rules_sha256": "b1f25a47d6d19386dae438262abfd4a67d2691dc1ae8a57a0d7817aa24d32caf",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -534,7 +534,7 @@
         }
       },
       "rules_sha256": "7175163cf343c77e03cc0d02acec671037006dcb1842b7672e9f0a7c03e5a83b",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -555,7 +555,7 @@
         }
       },
       "rules_sha256": "478c9ff1dc8dbd8d7ecc209abacb9d3feeb3d60676578362880f10616278b237",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -576,7 +576,7 @@
         }
       },
       "rules_sha256": "2b4c8b3683ad3c7cf183609d46c10f9d7bf43b72144c6a4c6fc6a1a825c1155b",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -597,7 +597,7 @@
         }
       },
       "rules_sha256": "f69bfef7c737cc4a5f2a0cd136591175f3c2669f7a39b37cf3c6a2d204ce21e7",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -618,7 +618,7 @@
         }
       },
       "rules_sha256": "a237e8e2d14ba559da53769515d87933c96e93cd8795823b78b9014f2145f45d",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -639,7 +639,7 @@
         }
       },
       "rules_sha256": "46eccad625326de2a83d0888c504c09a871b399f79caa942d279ccfa411b6688",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -660,7 +660,7 @@
         }
       },
       "rules_sha256": "3f7009518e98bd6b751a8faba2e29f8e465397db33ef2cdcfa36d90c7a1abf57",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -681,7 +681,7 @@
         }
       },
       "rules_sha256": "4b3dae9d31ce68ecdcf64e56a7215d8f535c222176d2ee37fe39502c3591ccef",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -702,7 +702,7 @@
         }
       },
       "rules_sha256": "802a50cf436a391173158cd060324dd22cf004122ea8ab369591c6c02f2296b8",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -723,7 +723,7 @@
         }
       },
       "rules_sha256": "eb2a5345abcd775f82e4613653cb6c3bf4d418b976d284672378905f19f7d25f",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -744,7 +744,7 @@
         }
       },
       "rules_sha256": "1a8af11c65eb0015c6132aad945eba29039a3805668e0fe416079a1b5eb4cc23",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -765,7 +765,7 @@
         }
       },
       "rules_sha256": "48c00c056e064a3d366d128d40235ba2192ec06a900348ca88c3150de045d30e",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -786,7 +786,7 @@
         }
       },
       "rules_sha256": "f0592b96f9e6bec6c25dccb76a22c9af36849d737dfe495658d3c6840642d04e",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -807,7 +807,7 @@
         }
       },
       "rules_sha256": "29b342ed1744c7cedaac38bc53445aff499b3b5a624b85046cb29d2fee0b7f2c",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -828,7 +828,7 @@
         }
       },
       "rules_sha256": "eafcd807ae35ef8c239d4f2290a752b35129c266d3ba7aa6e3a89e4aada9f6b4",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -849,7 +849,7 @@
         }
       },
       "rules_sha256": "f8c168969adf2964f0081ead7237b6f3da8f27c7f7aed7170bc3fe5eabb41be2",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -870,7 +870,7 @@
         }
       },
       "rules_sha256": "d2d96375c26428e79dca9c97885ee4f751805bb0c6328da5a4b79454287804e7",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -891,7 +891,7 @@
         }
       },
       "rules_sha256": "7f0dfb8e554bb399e306b03a4171f014a4e1bd5566eededae266200bbfd068ee",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -912,7 +912,7 @@
         }
       },
       "rules_sha256": "53012ca125df63b0eeceb6189985abb6852d15859aa2ef7a65227dce5e5ce8c8",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -933,7 +933,7 @@
         }
       },
       "rules_sha256": "911d61cb92efa9bbc8abd208831cce868c1d80922968a03ff9e598d5cb615425",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -954,7 +954,7 @@
         }
       },
       "rules_sha256": "4724497efce7b81f34bbbf7090d67b445beb50b28f4c88eb2a5baa512b703055",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -975,7 +975,7 @@
         }
       },
       "rules_sha256": "4af9a4d5cc19590adffa0c79fc1b4bbd890af370ae912689f45f3ba917c31fd9",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -996,7 +996,7 @@
         }
       },
       "rules_sha256": "f25010796c008e56cd263edcb50ddc25f93265549183cdf7bababa9377fc6f76",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1017,7 +1017,7 @@
         }
       },
       "rules_sha256": "8de83108f52eac1908cb39c4da2ace4a5756447fd14ace790836818bec23cd83",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1038,7 +1038,7 @@
         }
       },
       "rules_sha256": "ddac8d6aff4b599297f8d37a1a4a30a8f9f369e40d95341dbd77b7a168d87dfe",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1057,7 +1057,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "86c2ef93c69edbe1dbf2a60b58e5ee7448b20bf8f6fdd4d7d5ac73f0fc10711b",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1076,7 +1076,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "ffe4feef2414583cf8a0757802a72ba934b8255040d85dafce8591e755f20357",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1095,7 +1095,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "b0cc979de772fd09545ef5356b1e6e6b209112629b2827856f5b10277753e083",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1114,7 +1114,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "e320e8fc206891095932266d5a91d2d3e14d2961a7dca43bd5eddc4059e4a06d",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1133,7 +1133,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "9e588bae6772d1ead436d50261eebf56050f1b3573a824997329c4f4cac8b557",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {
@@ -1152,7 +1152,7 @@
         "qualifying_rule_counts": {}
       },
       "rules_sha256": "dccc2d48343c47a2b621f5415cde76dc9660400343255b432229c033c08edf2d",
-      "source_result": "experiments/results/DURABLE_ARCHIVE_20260825/tier_a/job_reports/d2_tpr_result.json",
+      "source_result": "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
       "source_generation": "p2_attack_tpr_gen1"
     },
     {

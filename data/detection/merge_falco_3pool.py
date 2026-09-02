@@ -10,6 +10,19 @@ import hashlib
 import json
 from pathlib import Path
 
+# The corpus keeps the rule names the detector actually ran under ("OuterClaw ..."),
+# while this repository and the paper call the same system ASSA. Normalise on read
+# so the merged rows are stable regardless of which copy of the inputs is used.
+def canon_rule_counts(counts):
+    return {k.replace("OuterClaw", "ASSA").replace("outerclaw", "assa"): v
+            for k, v in (counts or {}).items()}
+
+
+def canon_native_score(score):
+    if not isinstance(score, dict) or "qualifying_rule_counts" not in score:
+        return score
+    return {**score, "qualifying_rule_counts": canon_rule_counts(score["qualifying_rule_counts"])}
+
 OUT = Path(__file__).resolve().parent
 ROOT = OUT.parents[1]
 MANIFEST = OUT / "FINAL_3POOL_SPLIT_MANIFEST.json"
@@ -56,7 +69,7 @@ def main():
             "binary_decision": row["binary_decision"],
             "all_custom_rule_events": row.get("all_custom_rule_events"),
             "qualifying_canonical_mutation_events": row.get("qualifying_canonical_mutation_events"),
-            "qualifying_rule_counts": row.get("qualifying_rule_counts", {}),
+            "qualifying_rule_counts": canon_rule_counts(row.get("qualifying_rule_counts")),
             "rules_sha256": row.get("rules_sha256"),
         })
 
@@ -84,7 +97,7 @@ def main():
                 "tier": meta["tier"],
                 "status": "passed",
                 "binary_decision": decision,
-                "native_score": row.get("native_score"),
+                "native_score": canon_native_score(row.get("native_score")),
                 "rules_sha256": row.get("rules_sha256"),
                 "source_result": rel,
                 "source_generation": payload.get("generation_id"),
