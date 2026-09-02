@@ -153,7 +153,7 @@ def scenario_of(lander_key):
 
 
 def main():
-    census = json.load(open(f"{RES}/p2_attack_tpr_expanded_v2_20260822/EXPANDED_LANDED_CENSUS_V2_20260822.json"))
+    census = json.load(open(f"{RES}/aux/EXPANDED_LANDED_CENSUS_V2_20260822.json"))
     libs = glob.glob(f"{RES}/p2_l0_*_20260822/**/graph/libsinsp/libsinsp_events.jsonl", recursive=True)
     byrun = {}
     for p in libs:

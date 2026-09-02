@@ -63,6 +63,45 @@ supports that as well as a paired one would. What the pairing language would
 additionally license — a per-pair comparison — the design does not support, and
 the paper does not perform one.
 
+### Recomputing section 5.2 does not reproduce it — and the corpus is the better data
+
+`rebuild_supervised_3pool.py` now runs end to end from the released corpus, and
+its output **differs from the shipped figures**. The cause is in the substrate
+the published numbers were computed from, not in the script:
+
+| Twin | libsinsp stream on the collection host | in the corpus |
+|---|---|---|
+| `MCAW101_w1_release_helper_tool_redirect__clean` | **0 bytes** | 5.57 MB |
+| `MCAW201_w2_model_q_false_memory__clean` | **0 bytes** | 5.16 MB |
+| `MCAW402_w4_blanket_approval_false_memory__clean` | **0 bytes** | 4.32 MB |
+| `C520_w3_alert_webhook_runbook__clean` | 7.86 MB | 8.89 MB |
+| the other 19 of 23 | — | byte-identical |
+
+Three of the 23 negative-side runs contributed an empty syscall stream to the
+published fit; a later graph pull filled them in, and the corpus ships the
+complete versions. Recomputing on complete data moves four figures the paper
+states in section 5.2:
+
+| Paper | Published | Recomputed from the corpus |
+|---|---|---|
+| size-and-timing nested-CV AUC on twins | .598, CI [.460, .742] | **.619, CI [.531, .755]** |
+| L1 logistic on substrate B | .499 | .439 |
+| RuleFit on substrate B | .492 | .241 |
+| workload placebo on the natural corpus | .815 | .773 |
+
+The direction of the argument is unchanged — matched-pair separability stays
+weak, and substrate B gets weaker, not stronger. What does change is one
+specific claim: the published confidence interval includes chance, and the
+recomputed one does not.
+
+**Nothing here overwrites the published figures.** `rebuild_supervised_3pool.py`
+and `supervised/paired_vs_b1b2.py` write
+`FINAL_3POOL_SUPERVISED.recomputed.json` and `paired_vs_b1b2.recomputed.json`
+and leave the shipped files alone, so both numbers are available and the
+discrepancy is visible rather than resolved by whichever script ran last.
+Deciding which figure the paper should carry is the authors' call, not the
+artifact's.
+
 ## Populations, catalog, and measurement quality
 
 | Paper | Produced by | Read from |

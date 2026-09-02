@@ -28,8 +28,8 @@ def fail_closed(message: str):
     evidence.
     """
     sys.exit(f"fail-closed: {message}\n"
-             "  Nothing was written. See ANON_EXPORT_README.md, section\n"
-             "  'What can be reproduced here, and what cannot'.")
+             "  Nothing was written. See REPRODUCE.md, 'Level 3 -- what needs\n"
+             "  the corpus', for what this scorer still cannot reach.")
 
 
 def snap_root(rd: Path):

@@ -59,7 +59,7 @@ def main():
     # locked-pop 17 poisoned run_ids (from frozen b1b2 detail) + new poisoned run_ids
     fz = json.load(open(f"{RES}/detection/b1b2/REPORT.json"))
     # map frozen lander_key -> run_id via census
-    census = json.load(open(f"{RES}/p2_attack_tpr_expanded_v2_20260822/EXPANDED_LANDED_CENSUS_V2_20260822.json"))
+    census = json.load(open(f"{RES}/aux/EXPANDED_LANDED_CENSUS_V2_20260822.json"))
     lk2rid = {L["lander_key"]: L["run_id"] for L in census["landers"]}
     locked_lk = [e["lander"] for e in fz["detail"]["attack_B1"]]
     locked_rids = [lk2rid[lk] for lk in locked_lk if lk in lk2rid]

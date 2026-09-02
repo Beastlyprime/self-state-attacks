@@ -89,19 +89,29 @@ re-derives its output from a bare clone:
 `build_manifest.py`, `data/provenance/p5_analyze.py`,
 `data/recovery/rollback-cost/bin/p4_recovery_cost.py`.
 
-One of them needs **only** the corpus, nothing else, and genuinely recomputes
-its shipped output — Table 9:
+Two of them need **only** the corpus and genuinely recompute their shipped
+output. The test we apply is stricter than re-running: delete the output first,
+so a byte-identical result cannot come from the file itself.
 
 ```bash
 tar -I zstd -xf selfstate-corpus-provenance-inputs.tar.zst -C data/provenance/ \
   --transform 's|^provenance-inputs|inputs|'
-python3 data/provenance/p5_analyze.py           # ~3 min, pure Python
-git diff --stat data/provenance/                # expect no change
+tar -I zstd -xf selfstate-corpus-tier_b-clean_train.tar.zst   -C data/corpus-manifests/
+tar -I zstd -xf selfstate-corpus-tier_b-clean_heldout.tar.zst -C data/corpus-manifests/
+tar -I zstd -xf selfstate-corpus-staging.tar.zst              -C data/superseded/
+
+rm data/provenance/P5_NAMEABILITY_ATTRIBUTION_REPORT.json
+python3 data/provenance/p5_analyze.py           # Table 9, ~3 min, pure Python
+
+rm data/detection/scored_ours_3pool.json
+python3 data/detection/score_ours_3pool.py      # the B1/B2 rows of Tables 8 and 14
+
+git diff --stat data/                           # expect no change
 ```
 
-It refuses to emit a partial result: if the volume is missing bundles it exits
-non-zero with a population mismatch rather than reporting a smaller,
-plausible-looking count.
+Both come back byte-identical. `p5_analyze.py` additionally refuses to emit a
+partial result: if the volume is missing bundles it exits non-zero with a
+population mismatch rather than reporting a smaller, plausible-looking count.
 
 `merge_falco_3pool.py` is a partial case and we state the limit rather than
 imply otherwise. With `tier_a` unpacked it reassembles the **55 attack
@@ -110,8 +120,18 @@ names on read (the corpus keeps the name Falco actually ran under, which differs
 from the one the paper uses). The **60 clean decisions are carried forward** from
 the shipped `scored_falco_3pool.json`: the held-out clean replay ran on the guest
 and its raw output was never archived, so Falco's false-positive rate is
-checkable but not recomputable. Re-running the script therefore reproduces the
-shipped file byte-for-byte, which for the clean side is a copy, not evidence.
+checkable but not recomputable. Apply the delete-first test and it fails
+outright — that is the honest signature of a carried-forward side.
+
+`rebuild_supervised_3pool.py` also runs to completion from the corpus, but its
+result **differs from the published figures**, because three of the 23 twins
+contributed an empty syscall stream to the original fit and the corpus ships the
+complete streams. It writes `FINAL_3POOL_SUPERVISED.recomputed.json` and leaves
+the shipped file untouched; `docs/results.md` has the four affected numbers and
+the reasoning. `score_aide_3pool.py` and `score_stide_3pool.py` resolve their
+full populations from the corpus but still need, respectively, the AIDE
+container image and the pinned STIDE implementation, so neither can be executed
+from this release.
 
 The prevention replay (`data/prevention/bin/`) is a live kernel probe, not a data
 transformation: it needs a privileged container with AppArmor enforcing and a

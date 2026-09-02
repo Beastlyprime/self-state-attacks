@@ -636,13 +636,33 @@ def main():
     # ================= SUBSTRATE B (twin base) =================
     out["substrate_b_twin_base"] = run_substrate_b()
 
-    json.dump(out, open(OUTDIR / "FINAL_3POOL_SUPERVISED.json", "w"), indent=2)
+    # Never overwrite the published numbers. Recomputing from the released corpus
+    # does NOT reproduce them, and the reason is a data defect in the substrate
+    # they were computed from, not in this script: three of the 23 twins
+    # (MCAW101, MCAW201, MCAW402) had a zero-byte libsinsp stream in the
+    # collection-host trees, and C520's was shorter than the copy that was
+    # later pulled. The corpus ships the complete streams, so the recomputation
+    # is arguably the better estimate -- but it is not what the paper reports,
+    # and silently replacing a published figure is not this script's call.
+    # See docs/results.md, "Recomputing section 5.2 does not reproduce it".
+    shipped = OUTDIR / "FINAL_3POOL_SUPERVISED.json"
+    if shipped.exists() and json.load(open(shipped)) != out:
+        side = OUTDIR / "FINAL_3POOL_SUPERVISED.recomputed.json"
+        json.dump(out, open(side, "w"), indent=2)
+        _verdict = (f"\nrecomputation DIFFERS from the shipped file -- wrote {side.name} "
+                    f"and left the published one untouched.\n"
+                    f"  shipped    nested-CV AUC {json.load(open(shipped))['substrate_a_twin_base']['nested_cv_auc']}\n"
+                    f"  recomputed nested-CV AUC {out['substrate_a_twin_base']['nested_cv_auc']}\n"
+                    f"  see docs/results.md, 'Recomputing section 5.2 does not reproduce it'.")
+    else:
+        json.dump(out, open(shipped, "w"), indent=2)
+        _verdict = "\nrecomputation matches the shipped file"
     print(json.dumps({"validation": validation,
                       "A_twin": {"auc": auc_a, "ci": ci_a, "TPR": sup_tpr_twin, "FPR_twin": sup_fpr_twin,
                                  "mcnemar": {k: {"attack": mcn[k]["attack_side"], "twin": mcn[k]["twin_side"]} for k in mcn}},
                       "A_gen60": {"TPR": sup_tpr_b, "FPR": sup_fpr_60, "auc": auc_b},
                       "controls": ctrl}, indent=2))
-    print("WROTE", OUTDIR / "FINAL_3POOL_SUPERVISED.json")
+    print(_verdict)
 
 
 def run_substrate_b():

@@ -140,7 +140,7 @@ def evaluate_b(run_sets, y, g, tag, models, caps=None):
 
 
 def main():
-    census = json.load(open(f"{RES}/p2_attack_tpr_expanded_v2_20260822/EXPANDED_LANDED_CENSUS_V2_20260822.json"))
+    census = json.load(open(f"{RES}/aux/EXPANDED_LANDED_CENSUS_V2_20260822.json"))
     # STIDE's substrate is the NORMALIZED syscall stream: graph/libsinsp/libsinsp_events.jsonl
     # (schema assa.libsinsp_events.v1) carries neither `sequence_eligible` nor
     # `syscall.success`, so it cannot reproduce STIDE's eligibility gate. The field pair

@@ -113,7 +113,16 @@ def main():
         }
         out["unmatched"][tag] = unmatched
 
-    json.dump(out, open(OUT, "w"), indent=2)
+    # Same non-overwrite rule as rebuild_supervised_3pool.py: recomputing from
+    # the released corpus does not reproduce the shipped figures, because three
+    # twins' libsinsp streams were empty in the substrate those figures were
+    # computed from. See docs/results.md.
+    if os.path.exists(OUT) and json.load(open(OUT)) != out:
+        side = OUT.replace(".json", ".recomputed.json")
+        json.dump(out, open(side, "w"), indent=2)
+        print(f"recomputation DIFFERS from the shipped file -- wrote {side}, left the published one untouched")
+    else:
+        json.dump(out, open(OUT, "w"), indent=2)
     print(json.dumps({k: out[k] for k in out if k.startswith("vs_") or k == "unmatched"}, indent=2))
     print(f"WROTE {OUT}")
 

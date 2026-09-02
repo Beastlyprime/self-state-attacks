@@ -75,8 +75,8 @@ def fail_closed(message: str):
     otherwise be written out as legitimate and destroy the published evidence.
     """
     sys.exit(f"fail-closed: {message}\n"
-             "  Nothing was written. See ANON_EXPORT_README.md, section\n"
-             "  'What can be reproduced here, and what cannot'.")
+             "  Nothing was written. See REPRODUCE.md, 'Level 3 -- what needs\n"
+             "  the corpus', for what this scorer still cannot reach.")
 
 
 def train_dir(rid): return POOLS / "clean_train" / rid
