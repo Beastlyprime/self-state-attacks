@@ -87,9 +87,15 @@ python3 -m pytest
 
 ## The raw telemetry corpus
 
-The per-run syscall captures, provenance graphs, SCAP captures, detector staging
-trees and UNICORN sketch models total roughly 18 GB and are archived separately.
-`data/corpus-manifests/` records their provenance and checksums.
+The per-run provenance graphs, state snapshots and native SCAP captures behind
+every reported number are archived separately: **19 GB**, scoped to what the
+paper's results are computed from. `data/corpus-manifests/` records their
+provenance and checksums, and [`REPRODUCE.md`](REPRODUCE.md) says where each
+volume unpacks to.
+
+The analyzer's own intermediate output — the UNICORN sketch and profile models,
+another 18 GB — is not archived: it is regenerable from the shipped graphs, and
+the scored rows it produced are in `data/detection/unicorn/`.
 
 > **Archive DOI:** _to be assigned — see [`REPRODUCE.md`](REPRODUCE.md) for the
 > current access route._

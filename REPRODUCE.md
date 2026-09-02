@@ -91,11 +91,32 @@ exception when an input path is missing, which is safe but less informative.
 
 ### Obtaining the corpus
 
-The raw telemetry is roughly 18 GB and is archived outside this repository.
+The archive is **19 GB**, scoped to the populations the paper's results are
+computed from, and published as one record of zstd volumes.
 `data/corpus-manifests/ARCHIVE_MANIFEST.json` describes the tiers and
-`manifests/` records per-file provenance and checksums.
+`manifests/` records per-file acquisition provenance and checksums.
 
-> **Archive DOI:** _to be assigned._ Until the archive is published, the corpus is
+| Volume | Populations | Unpack to |
+|---|---|---|
+| `tier_b-clean_train` | clean training, 176/176 | `data/corpus-manifests/` |
+| `tier_b-clean_heldout` | clean held-out, 60/60 | `data/corpus-manifests/` |
+| `tier_b-attacks` + `tier_b-attacks_lockedpop_cseries` | attacks, 55/55 | `data/corpus-manifests/` |
+| `tier_b-twins` + `tier_b-twins_lockedpop_cseries` | 55 matched clean branches | `data/corpus-manifests/` |
+| `tier_c` | SCAP captures for the Falco replay | `data/corpus-manifests/` |
+| `tier_a`, `manifests` | manifests the scorers read, acquisition provenance | `data/corpus-manifests/` |
+| `staging` | the 11 W3 attack graphs the UNICORN scorer reads | `data/superseded/staging/` |
+| `aux` | STIDE stopping-rule preregistration; the landed census the provenance analysis reads | `data/aux/` |
+
+```bash
+for v in selfstate-corpus-*.tar.zst; do tar -I zstd -xf "$v" -C data/corpus-manifests/; done
+```
+
+Redaction in the archive is confined to metadata. Every file under
+`state_snapshots/` is byte-identical to what the collector wrote, verified over
+all 9,086 of them. Its `ARCHIVE_SHA256SUMS.txt` holds release checksums over the
+redacted copy; acquisition-time hashes are in `manifests/`.
+
+> **Archive DOI:** _to be assigned._ Until the record is published, the corpus is
 > available on request.
 
 ### Collecting new telemetry
