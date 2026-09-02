@@ -120,6 +120,13 @@ supply, and we state that rather than imply otherwise:
 the end of `requirements.txt`, which are **not** pinned to the versions that
 produced the published numbers — see the note there.
 
+`data/detection/supervised/*.py` — the §5.2 matched-control analysis — reads the
+frozen B1/B2 operating points, now published at `data/detection/b1b2/`, but also
+the mass-attack lane trees (`p2_mass_attack_lane*`) and the earlier
+supervised-arm generation, which are **not** published. §5.2's shipped outputs
+are checkable against `data/detection/supervised/SHA256SUMS.txt`; they are not
+re-derivable from this release.
+
 **Running them here is safe.** Every one exits non-zero and leaves the shipped
 outputs untouched. Three report the problem explicitly, stopping with a
 `fail-closed:` message that names the absent input — `score_aide_3pool.py`,

@@ -26,8 +26,9 @@ sys.path.insert(0, CODE)
 from workload.taxonomy import canonical_path, bucket_key, layer_of
 
 RES = _REPO_ROOT + "/data"
-FROZEN = f"{RES}/p2_b1b2_size_timing_libsinsp_20260822"
-OUT = f"{RES}/p2_supervised_arm_expanded_20260825"
+HERE = os.path.dirname(os.path.abspath(__file__))
+FROZEN = f"{RES}/detection/b1b2"
+OUT = HERE
 WRITE = {"write", "pwrite", "pwritev", "writev", "pwrite64"}
 DT_FLOOR = 1e-3  # 1 ms floor, verbatim trace_baseline.py
 

@@ -28,7 +28,7 @@ follow.
 | **Table 8, Table 14** — Falco | `DET/falco_remote.py`, `DET/merge_falco_3pool.py`, `experiments/code/measurement/stage_g_harness/falco_rules.py` | `DET/scored_falco_3pool.json` |
 | **Table 8, Table 14** — STIDE | `DET/score_stide_3pool.py` → `stage_g_harness/{stide_bridge,stide_core_tail,stide_saturation}.py` | `DET/scored_stide_3pool.json` |
 | **Table 8, Table 14** — UNICORN | `DET/score_unicorn_gen5_3pool.py` → `stage_g_harness/{unicorn_adapter_role,unicorn_role_typing}.py` | `DET/unicorn/UNICORN_GEN5_FINAL_REPORT.json`; per-run verdicts in `SCORED_ROWS.json`, per-run pipeline status in `SKETCH_STATUS.json` |
-| **Table 8, Table 14** — B1 pooled / B2 per-profile | `DET/score_ours_3pool.py`, reusing the Eq. 1 detector math verbatim from `data/superseded/score_ours.py` | `DET/scored_ours_3pool.json` |
+| **Table 8, Table 14** — B1 pooled / B2 per-profile | `DET/score_ours_3pool.py`, reusing the Eq. 1 detector math verbatim from `data/superseded/score_ours.py` | `DET/scored_ours_3pool.json`. The frozen operating points these are calibrated against are in `DET/b1b2/REPORT.json`, produced by `DET/b1b2/run_size_timing_libsinsp.py`; three `DET/supervised/*.py` scripts assert their populations against it |
 | **Table 8, Table 14** — L1 logistic / CART / FIGS | `DET/rebuild_supervised_3pool.py` | `DET/FINAL_3POOL_SUPERVISED.json` |
 | **Table 8, Table 14** — assembled comparison | `DET/final_aggregate.py` | `DET/FINAL_3POOL_REPORT.json`, and **`DET/FINAL_3POOL_HEADTOHEAD_TABLE.md`**, which carries every point estimate and interval from both tables in one place |
 | **Table 9** — provenance on 21 landings vs 21 matched clean branches | `data/provenance/p5_analyze.py` | `P5_NAMEABILITY_ATTRIBUTION_REPORT.json` / `.md` |

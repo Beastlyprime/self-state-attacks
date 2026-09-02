@@ -57,7 +57,7 @@ def collect(run_ids):
 
 def main():
     # locked-pop 17 poisoned run_ids (from frozen b1b2 detail) + new poisoned run_ids
-    fz = json.load(open(f"{RES}/p2_b1b2_size_timing_libsinsp_20260822/REPORT.json"))
+    fz = json.load(open(f"{RES}/detection/b1b2/REPORT.json"))
     # map frozen lander_key -> run_id via census
     census = json.load(open(f"{RES}/p2_attack_tpr_expanded_v2_20260822/EXPANDED_LANDED_CENSUS_V2_20260822.json"))
     lk2rid = {L["lander_key"]: L["run_id"] for L in census["landers"]}

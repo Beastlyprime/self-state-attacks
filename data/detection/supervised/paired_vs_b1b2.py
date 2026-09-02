@@ -19,7 +19,7 @@ from pathlib import Path as _Path
 _REPO_ROOT = str(_Path(__file__).resolve().parents[3])
 
 RES = _REPO_ROOT + "/data"
-FROZEN = f"{RES}/p2_b1b2_size_timing_libsinsp_20260822/REPORT.json"
+FROZEN = f"{RES}/detection/b1b2/REPORT.json"
 FEAT = f"{HERE}/features_substrate_a.json"
 OUT = f"{HERE}/paired_vs_b1b2.json"
 B1_FPR_TARGET = 0.1395
