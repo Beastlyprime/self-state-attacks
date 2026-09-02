@@ -6,7 +6,8 @@ uncomputable writes as data_insufficient.
 import json, os, sys
 from pathlib import Path
 
-RES = Path("data")
+ROOT = Path(os.environ.get("ASSA_ROOT", str(Path(__file__).resolve().parents[2])))
+RES = ROOT/"data"          # runnable from any cwd, like the other scorers
 INPUTS = RES/"provenance/inputs"
 CENSUS = INPUTS/"EXPANDED_LANDED_CENSUS_V2_20260822.json"
 

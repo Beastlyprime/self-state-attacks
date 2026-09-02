@@ -33,11 +33,11 @@ from imodels import FIGSClassifier
 
 ROOT = Path(os.environ.get("ASSA_ROOT", str(Path(__file__).resolve().parents[2])))
 RES = ROOT / "data"
-HH = RES / "p2_headtohead_detectors_20260825"
-STAGE = HH / "staging"
+HH = RES / "superseded"                       # frozen generation: score_ours.py, staging trees
+STAGE = HH / "staging"                        # selfstate-corpus-staging.tar.zst unpacks here
 OUTDIR = ROOT / "data/detection"
 POOLS = Path(os.environ.get("ASSA_SCRATCH", str(ROOT / ".scratch"))) / "pools"
-ARCHIVE = RES / "DURABLE_ARCHIVE_20260825/tier_b"
+ARCHIVE = RES / "corpus-manifests/tier_b"     # selfstate-corpus-tier_b-*.tar.zst unpack here
 SEED = 20260825
 sys.path.insert(0, str(ROOT / "experiments/code"))
 from workload.taxonomy import canonical_path, bucket_key, layer_of
