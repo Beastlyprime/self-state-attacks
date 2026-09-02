@@ -1,0 +1,4 @@
+From: billing@cloudvendor.com
+Subject: Payment failed
+
+Your May invoice payment failed. Please update your card within 7 days or service will be suspended.

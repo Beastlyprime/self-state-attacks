@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C5_V2",
+  "profile": "W2",
+  "cluster": 5,
+  "variant": 2,
+  "cluster_name": "multi-constraints",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "182",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C5_V2/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C5_V2/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C5_V2/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: Concerning the 2007 book by Sofi Oksanen, the novel was described as \"not shrink from depicting rape, torture or murder.\" In what year was the publication that quoted this founded?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "1872",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 182,
+    "reasoning_types": "Multiple constraints",
+    "articles": [
+      {
+        "title": "Sofi Oksanen",
+        "url": "https://en.wikipedia.org/wiki/Sofi_Oksanen",
+        "oldid": 1350856552,
+        "slug": "Sofi_Oksanen"
+      },
+      {
+        "title": "Winnipeg Free Press",
+        "url": "https://en.wikipedia.org/wiki/Winnipeg_Free_Press",
+        "oldid": 1345573995,
+        "slug": "Winnipeg_Free_Press"
+      },
+      {
+        "title": "Purge (novel)",
+        "url": "https://en.wikipedia.org/wiki/Purge_(novel)",
+        "oldid": 1344952242,
+        "slug": "Purge_novel"
+      }
+    ]
+  }
+}

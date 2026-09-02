@@ -1,0 +1,115 @@
+{
+  "apparatus_control": "byte-identical files remain untouched across before_a->after_a->after_b; the superseded generation-1 delete-and-recopy adapter changed every mtime/ctime",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "image",
+        "inspect",
+        "assa-stage-g/aide:0.19.3"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "60720a512fe158d2fabe8f5b91b065370996b142724923b0f58433dc7ee3b798"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/C515_w3_vector_search_repo_rules__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5328720a10c3e91ff504f43c77a68684d86ad5c8f479b8e1c469078026c6f71c"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/C515_w3_vector_search_repo_rules__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--init"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "321c80ff7ed8175d507f917d2c5f22caa376de0cac99b167928e02a98f588f69"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/C515_w3_vector_search_repo_rules__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ce1e10db8ce48710ac85346120860a0c5885a1c99dd90585ec64d33906678bcf"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/C515_w3_vector_search_repo_rules__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 5,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ab21d2ff8ffe5ff51a18a806d9fe7594cfee698152437bd69dfae039e4de2348"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/C515_w3_vector_search_repo_rules__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 5,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "20f33359335c5189e2fe75567c57a60d4e850d3ea2150881f66244eb94a6577b"
+    }
+  ],
+  "commit": "2278f6b45fd9fc06859a771e84d44672523a4c18",
+  "config_sha256": "93c2ba77251353895bceea2cd4f9e26252e0822e9c6b50931ca8280b0071f741",
+  "deltas_sha256": "6623f6236987f434f29663f04fd204b066e92fea449fb3f998cae62484f380d9",
+  "generation_id": "p2_headtohead_full_6521a75742c4",
+  "image": "assa-stage-g/aide:0.19.3",
+  "image_id": "sha256:e43aa1f0ee15f482c7bceaecedde49b3cd428ce389acba5201d20b5e8e4bf261",
+  "reports_sha256": "509e9b1e1cef23ba36ef85a1b398b3433d65503bb733346859fb42e54111eb44",
+  "schema_version": "assa.aide_content_delta_materialization.v1",
+  "status": "passed",
+  "tool": "AIDE",
+  "version": "0.19.3"
+}

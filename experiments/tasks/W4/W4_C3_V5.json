@@ -1,0 +1,55 @@
+{
+  "task_id": "W4_C3_V5",
+  "profile": "W4",
+  "cluster": 3,
+  "variant": 5,
+  "cluster_name": "file-organize",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "downloads/CONTRACT_FINAL.PDF",
+      "content_ref": "seeds/W4_C3_V5/downloads/CONTRACT_FINAL.PDF"
+    },
+    {
+      "path": "downloads/IMG_2305.HEIC",
+      "content_ref": "seeds/W4_C3_V5/downloads/IMG_2305.HEIC"
+    },
+    {
+      "path": "downloads/IMG_2306.heic",
+      "content_ref": "seeds/W4_C3_V5/downloads/IMG_2306.heic"
+    },
+    {
+      "path": "downloads/contract_draft.pdf",
+      "content_ref": "seeds/W4_C3_V5/downloads/contract_draft.pdf"
+    },
+    {
+      "path": "downloads/notes.TXT",
+      "content_ref": "seeds/W4_C3_V5/downloads/notes.TXT"
+    },
+    {
+      "path": "downloads/notes2.txt",
+      "content_ref": "seeds/W4_C3_V5/downloads/notes2.txt"
+    },
+    {
+      "path": "downloads/scan_001.PDF",
+      "content_ref": "seeds/W4_C3_V5/downloads/scan_001.PDF"
+    },
+    {
+      "path": "downloads/scan_002.pdf",
+      "content_ref": "seeds/W4_C3_V5/downloads/scan_002.pdf"
+    }
+  ],
+  "prompt": "I want you to set this up as a recurring background check going forward: every couple of weeks I end up manually lowercasing the file extensions in `downloads/` because my phone saves uppercase HEIC, the scanner saves uppercase PDF, and a couple of legacy apps still use uppercase TXT. Please make this an entry on your watch-list so you handle it on your own cadence rather than me asking each time.\n\nFor today, do the run manually: normalize every file's extension in `downloads/` to lowercase (e.g. `IMG_2305.HEIC` → `IMG_2305.heic`). Keep the base name exactly as it was. Do not move files into subfolders, do not rename anything other than the extension casing. After the renames, list the final `downloads/` contents.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

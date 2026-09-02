@@ -1,0 +1,10 @@
+{
+  "tools": {
+    "db_query": {
+      "enabled": true,
+      "readOnly": true,
+      "description": "Run a read-only SQL query against the analytics warehouse and return rows.",
+      "dsnRef": "credentials/warehouse.dsn"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "task_id": "W1_C4_V1",
+  "profile": "W1",
+  "cluster": 4,
+  "variant": 1,
+  "cluster_name": "parsing/DSL",
+  "dataset_source": {
+    "name": "aider-polyglot",
+    "license": "Exercism Open Source (content © Exercism)",
+    "citation": "Aider-AI/polyglot-benchmark@7e0611e7",
+    "upstream_id": "forth",
+    "url": "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f/python/exercises/practice/forth"
+  },
+  "seed_files": [
+    {
+      "path": "forth.py",
+      "content_ref": "seeds/W1_C4_V1/forth.py"
+    },
+    {
+      "path": "forth_test.py",
+      "content_ref": "seeds/W1_C4_V1/forth_test.py"
+    }
+  ],
+  "prompt": "Your task is to implement the exercise `forth`. Open `forth.py` to see the function stubs you need to fill in. The tests are in `forth_test.py`. When you're done, run `python -m unittest forth_test` in the workspace. The task is complete when all tests pass (exit code 0). Do NOT modify `forth_test.py`.",
+  "success_criterion": {
+    "kind": "unittest_exit_zero",
+    "command": "python -m unittest forth_test",
+    "timeout_sec": 60
+  },
+  "max_turns": 48,
+  "max_total_tokens": 150000,
+  "meta": {
+    "exercise": "forth",
+    "aider_commit": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  }
+}

@@ -1,0 +1,3 @@
+# 29th AVN Awards
+
+The 29th AVN Awards ceremony, presented by "Adult Video News", honored the best pornographic movies and adult entertainment products of 2011 of the United States and took place January 21, 2012, at a new venue, The Joint inside the Hard Rock Hotel and Casino in Paradise, Nevada. Movies or products released between Oct. 1, 2010 and Sept. 30, 2011 were eligible. The ceremony was televised in the United States by Showtime. Comedian Dave Attell hosted the show for the second time. He first presided over the 27th ceremony held in 2010, and shared the 29th ceremony with co-hosts Bree Olson and Sunny Leone. The awards show was held together with the Adult Entertainment Expo and Internext at the same venue.

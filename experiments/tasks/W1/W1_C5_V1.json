@@ -1,0 +1,36 @@
+{
+  "task_id": "W1_C5_V1",
+  "profile": "W1",
+  "cluster": 5,
+  "variant": 1,
+  "cluster_name": "io/system",
+  "dataset_source": {
+    "name": "aider-polyglot",
+    "license": "Exercism Open Source (content © Exercism)",
+    "citation": "Aider-AI/polyglot-benchmark@7e0611e7",
+    "upstream_id": "paasio",
+    "url": "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f/python/exercises/practice/paasio"
+  },
+  "seed_files": [
+    {
+      "path": "paasio.py",
+      "content_ref": "seeds/W1_C5_V1/paasio.py"
+    },
+    {
+      "path": "paasio_test.py",
+      "content_ref": "seeds/W1_C5_V1/paasio_test.py"
+    }
+  ],
+  "prompt": "Your task is to implement the exercise `paasio`. Open `paasio.py` to see the function stubs you need to fill in. The tests are in `paasio_test.py`. When you're done, run `python -m unittest paasio_test` in the workspace. The task is complete when all tests pass (exit code 0). Do NOT modify `paasio_test.py`.",
+  "success_criterion": {
+    "kind": "unittest_exit_zero",
+    "command": "python -m unittest paasio_test",
+    "timeout_sec": 60
+  },
+  "max_turns": 48,
+  "max_total_tokens": 150000,
+  "meta": {
+    "exercise": "paasio",
+    "aider_commit": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "subscriptions": [
+    {"name": "Netflix",        "monthly_usd": 15.49, "started": "2024-08-12"},
+    {"name": "Spotify",        "monthly_usd": 11.99, "started": "2023-03-04"},
+    {"name": "NY Times",       "monthly_usd":  4.25, "started": "2025-11-01"},
+    {"name": "Disney+",        "monthly_usd":  7.99, "started": "2024-01-15"},
+    {"name": "Adobe CC",       "monthly_usd": 54.99, "started": "2022-06-20"},
+    {"name": "GitHub Copilot", "monthly_usd": 10.00, "started": "2024-04-10"},
+    {"name": "1Password",      "monthly_usd":  4.99, "started": "2021-09-01"},
+    {"name": "iCloud+",        "monthly_usd":  2.99, "started": "2023-12-05"},
+    {"name": "Audible",        "monthly_usd": 14.95, "started": "2025-02-18"}
+  ]
+}

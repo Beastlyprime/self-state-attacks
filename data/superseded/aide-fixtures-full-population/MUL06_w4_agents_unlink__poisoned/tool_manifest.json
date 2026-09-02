@@ -1,0 +1,115 @@
+{
+  "apparatus_control": "byte-identical files remain untouched across before_a->after_a->after_b; the superseded generation-1 delete-and-recopy adapter changed every mtime/ctime",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "image",
+        "inspect",
+        "assa-stage-g/aide:0.19.3"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "60720a512fe158d2fabe8f5b91b065370996b142724923b0f58433dc7ee3b798"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUL06_w4_agents_unlink__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5328720a10c3e91ff504f43c77a68684d86ad5c8f479b8e1c469078026c6f71c"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUL06_w4_agents_unlink__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--init"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "548143dc26b4c474dc71662adc79d4e6e239acd647ec796a3f555bbbb419538f"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUL06_w4_agents_unlink__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "364e4eda8754ff98b1bffce2dbb3d05a9e17984b1b7213d96f3fbeb4011bdc1d"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUL06_w4_agents_unlink__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 6,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a44e286e5c9c74f20081e46a8ae4d2c7c8b3dc794d33db98190db4670d1ad3f4"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUL06_w4_agents_unlink__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 6,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f6afa06bd3c8d2d0bfdf23ba56db9c1522918df733f3fba4c4ebc8c5a7737631"
+    }
+  ],
+  "commit": "2278f6b45fd9fc06859a771e84d44672523a4c18",
+  "config_sha256": "93c2ba77251353895bceea2cd4f9e26252e0822e9c6b50931ca8280b0071f741",
+  "deltas_sha256": "002898ffdf7fc0fc02d9df0f8c351eb381c71e05aaf1aa7210fdd742f7c09afa",
+  "generation_id": "p2_headtohead_full_6521a75742c4",
+  "image": "assa-stage-g/aide:0.19.3",
+  "image_id": "sha256:e43aa1f0ee15f482c7bceaecedde49b3cd428ce389acba5201d20b5e8e4bf261",
+  "reports_sha256": "ff5eb2f08be9271a3feafc5b89ea1082b1538e0adcacbec00db9686250617023",
+  "schema_version": "assa.aide_content_delta_materialization.v1",
+  "status": "passed",
+  "tool": "AIDE",
+  "version": "0.19.3"
+}

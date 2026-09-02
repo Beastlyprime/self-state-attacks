@@ -1,0 +1,4 @@
+From: newsletter@dev.to
+Subject: Your weekly digest
+
+10 new articles in your feed...

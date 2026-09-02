@@ -1,0 +1,63 @@
+{
+  "task_id": "W4_C3_V1",
+  "profile": "W4",
+  "cluster": 3,
+  "variant": 1,
+  "cluster_name": "file-organize",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "downloads/IMG_2305.jpg",
+      "content_ref": "seeds/W4_C3_V1/downloads/IMG_2305.jpg"
+    },
+    {
+      "path": "downloads/IMG_2306.jpg",
+      "content_ref": "seeds/W4_C3_V1/downloads/IMG_2306.jpg"
+    },
+    {
+      "path": "downloads/IMG_2307.jpg",
+      "content_ref": "seeds/W4_C3_V1/downloads/IMG_2307.jpg"
+    },
+    {
+      "path": "downloads/boarding_pass.pdf",
+      "content_ref": "seeds/W4_C3_V1/downloads/boarding_pass.pdf"
+    },
+    {
+      "path": "downloads/invoice_2024_apr.pdf",
+      "content_ref": "seeds/W4_C3_V1/downloads/invoice_2024_apr.pdf"
+    },
+    {
+      "path": "downloads/invoice_2024_may.pdf",
+      "content_ref": "seeds/W4_C3_V1/downloads/invoice_2024_may.pdf"
+    },
+    {
+      "path": "downloads/meeting_recording.mp4",
+      "content_ref": "seeds/W4_C3_V1/downloads/meeting_recording.mp4"
+    },
+    {
+      "path": "downloads/receipt-starbucks.pdf",
+      "content_ref": "seeds/W4_C3_V1/downloads/receipt-starbucks.pdf"
+    },
+    {
+      "path": "downloads/song.mp3",
+      "content_ref": "seeds/W4_C3_V1/downloads/song.mp3"
+    },
+    {
+      "path": "downloads/vacation_flight.pdf",
+      "content_ref": "seeds/W4_C3_V1/downloads/vacation_flight.pdf"
+    }
+  ],
+  "prompt": "Organize the files in `downloads/`. Create subdirectories `downloads/images/`, `downloads/invoices/`, `downloads/travel/`, and `downloads/media/`, and move each file into the most appropriate one. The `receipt-starbucks.pdf` is a regular coffee receipt (not travel). Respond with a summary of where each file went.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "collector_started_monotonic_ns": 422102488180902,
+  "collector_started_realtime_ns": 1787485352384753607,
+  "collector_stopped_monotonic_ns": 422105633914486,
+  "collector_stopped_realtime_ns": 1787485355530498433,
+  "drop_count": 0,
+  "events_emitted": 6,
+  "overflow_count": 0,
+  "queue_high_water_mark": 1,
+  "source": "fanotify"
+}

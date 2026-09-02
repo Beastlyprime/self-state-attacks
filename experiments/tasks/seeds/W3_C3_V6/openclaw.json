@@ -1,0 +1,26 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "model": "gpt-4",
+      "temperature": 0.7,
+      "maxTokens": 4096
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "port": 18789
+  },
+  "session": {
+    "store": "~/.openclaw/agents/default/sessions"
+  },
+  "safety": {
+    "threshold": 0.95,
+    "requireConfirmation": true
+  },
+  "api": {
+    "endpoint": "https://api.openai.com/v1",
+    "timeout": 30
+  }
+}

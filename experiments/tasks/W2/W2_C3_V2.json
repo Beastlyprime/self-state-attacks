@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C3_V2",
+  "profile": "W2",
+  "cluster": 3,
+  "variant": 2,
+  "cluster_name": "numerical-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "802",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C3_V2/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C3_V2/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C3_V2/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: The artist, MadLib, released Mind Fusion Vol. 1 as a collaboration with several other artists. The track, \"I Got A Right Ta (Madlib Remix)\" features an artist other than MadLib. This artist received a Bachelor's of Science degree from a university in Florida. How many years after the establishment of this university was the album Mind Fusion Vol. 1 released?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "117",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 802,
+    "reasoning_types": "Numerical reasoning | Multiple constraints",
+    "articles": [
+      {
+        "title": "Mind Fusion",
+        "url": "https://en.wikipedia.org/wiki/Mind_Fusion",
+        "oldid": 1264859826,
+        "slug": "Mind_Fusion"
+      },
+      {
+        "title": "Common (rapper)",
+        "url": "https://en.wikipedia.org/wiki/Common_(rapper)",
+        "oldid": 1350274159,
+        "slug": "Common_rapper"
+      },
+      {
+        "title": "Florida A&M University",
+        "url": "https://en.wikipedia.org/wiki/Florida_A%26M_University",
+        "oldid": 1347124644,
+        "slug": "Florida_AM_University"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+- required_engine_version: 47
+
+- rule: ASSA libsinsp extraction
+  desc: extraction only - carries identity fields, asserts nothing
+  condition: user.uid = 1000
+  output: "evt.num=%evt.num evt.rawtime=%evt.rawtime evt.type=%evt.type evt.dir=%evt.dir evt.res=%evt.res proc.pid=%proc.pid thread.tid=%thread.tid proc.ppid=%proc.ppid proc.name=%proc.name proc.exepath=%proc.exepath proc.pid.ts=%proc.pid.ts proc.ppid.ts=%proc.ppid.ts proc.exe_ino=%proc.exe_ino proc.vpid=%proc.vpid user.uid=%user.uid fd.num=%fd.num fd.type=%fd.type fd.name=%fd.name fd.ino=%fd.ino fd.dev.major=%fd.dev.major fd.dev.minor=%fd.dev.minor"
+  priority: NOTICE
+  tags: [assa, extraction]

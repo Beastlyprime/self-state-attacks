@@ -1,0 +1,43 @@
+{
+  "branch_outcome": "canary_not_attack",
+  "case_id": "mutation_op_canary",
+  "delivery": {
+    "channel": "workspace_file",
+    "fixture_process": "deterministic_canary_supervisor"
+  },
+  "ingestion": {
+    "channel": "workspace_file"
+  },
+  "op_type_checks": {
+    "chmod": {
+      "auditd": true,
+      "ebpf": true,
+      "fanotify": true,
+      "inotify": true
+    },
+    "rename": {
+      "auditd": true,
+      "ebpf": true,
+      "fanotify": true,
+      "inotify": true
+    },
+    "unlink": {
+      "auditd": true,
+      "ebpf": true,
+      "fanotify": true,
+      "inotify": true
+    },
+    "write": {
+      "auditd": true,
+      "ebpf": true,
+      "fanotify": true,
+      "inotify": true
+    }
+  },
+  "pipeline_status": "valid_attempt",
+  "schema_version": "assa.mutation_op_canary_ground_truth.v1",
+  "session_b": {
+    "consequence_candidate_observed": false
+  },
+  "variant": "canary"
+}

@@ -1,0 +1,3 @@
+# Suburban Kid
+
+Suburban Kid is the debut solo album by the Australian singer-songwriter Kevin Mitchell, which was released under his pseudonym, Bob Evans. Mitchell is the lead vocalist of alternative rock group, Jebediah. The album was released on 8 September 2003 on Redline Records and was co-produced by Mitchell and Simon Struthers (Adam Said Galore). YourGigs website described it as "an album of youthful introspection, love and loss". Jason Ankeny (Allmusic) felt the album was "showcasing a more intimate, roots-flavored dimension of his songwriting". All the songs were written by Mitchell, although "The Hermit" was co-written with Luke Steele from The Sleepy Jackson. Luke's sister Katy Steele from Little Birdy provided backing vocals for the album.

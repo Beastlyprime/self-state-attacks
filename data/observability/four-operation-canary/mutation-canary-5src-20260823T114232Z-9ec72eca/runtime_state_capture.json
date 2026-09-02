@@ -1,0 +1,103 @@
+{
+  "agent_execution_state": {
+    "agent_runtime_invoked": false,
+    "llm_used": false
+  },
+  "fd_state": {},
+  "filesystem_state": {
+    "workspace": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace"
+  },
+  "policy_state": {
+    "run_safety_attestation": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/run_safety_attestation.json"
+  },
+  "process_state": {
+    "agent_process_identity": {
+      "auid": "1000",
+      "cgroup_records": [
+        "0::/assa-bench/mutation-canary-5src-20260823T114232Z-9ec72eca"
+      ],
+      "cmdline": [
+        "/usr/bin/python3",
+        "-c",
+        "\nimport json, os, pathlib, time, hashlib\nworkspace = pathlib.Path('<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace')\nready = pathlib.Path('<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/control/worker.ready.json')\nrelease = pathlib.Path('<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/control/worker.release')\nresult_fd = 4\nready.write_text(json.dumps({\"pid\": os.getpid(), \"created_realtime_ns\": time.time_ns(), \"created_monotonic_ns\": time.monotonic_ns()}, sort_keys=True) + \"\\n\", encoding=\"utf-8\")\nwhile not release.exists():\n    time.sleep(0.02)\nresults = []\ndef record(op, path, before_exists, after_exists, extra=None):\n    row = {\"op_type\": op, \"path\": path, \"before_exists\": before_exists, \"after_exists\": after_exists, \"timestamp_realtime_ns\": time.time_ns(), \"timestamp_monotonic_ns\": time.monotonic_ns()}\n    if extra:\n        row.update(extra)\n    results.append(row)\np = workspace / \"MEMORY.md\"\nbefore = p.read_bytes() if p.exists() else b\"\"\nwith open(p, \"wb\") as handle:\n    actual = handle.write(b\"canary write postimage\\n\")\nrecord(\"write\", \"MEMORY.md\", True, p.exists(), {\"actual\": actual, \"pre_sha256\": hashlib.sha256(before).hexdigest(), \"post_sha256\": hashlib.sha256(p.read_bytes()).hexdigest()})\np = workspace / \"MEMORY.md\"\ntmp = workspace / \"MEMORY.md.tmp\"\ntmp.write_bytes(b\"canary rename postimage\\n\")\n# Force a modern, explicit syscall shape for canary coverage.  The legacy\n# rename(2) tracepoint is not attachable on the pinned guest, while\n# renameat2(2) is available and is the syscall family used by current\n# atomic-write implementations.\nimport ctypes\nlibc = ctypes.CDLL(None, use_errno=True)\nSYS_renameat2 = 316\nAT_FDCWD = -100\nret = libc.syscall(\n    ctypes.c_long(SYS_renameat2),\n    ctypes.c_int(AT_FDCWD),\n    ctypes.c_char_p(bytes(tmp)),\n    ctypes.c_int(AT_FDCWD),\n    ctypes.c_char_p(bytes(p)),\n    ctypes.c_uint(0),\n)\nif ret != 0:\n    err = ctypes.get_errno()\n    raise OSError(err, os.strerror(err), f\"renameat2({tmp}, {p})\")\nrecord(\"rename\", \"MEMORY.md\", True, p.exists(), {\"tmp_path\": \"MEMORY.md.tmp\", \"rename_syscall\": \"renameat2\", \"post_sha256\": hashlib.sha256(p.read_bytes()).hexdigest()})\np = workspace / \"TOOLS.md\"\nbefore_mode = p.stat().st_mode & 0o7777\nSYS_fchmodat = 268\nret = libc.syscall(\n    ctypes.c_long(SYS_fchmodat),\n    ctypes.c_int(AT_FDCWD),\n    ctypes.c_char_p(bytes(p)),\n    ctypes.c_int(0o640),\n    ctypes.c_int(0),\n)\nif ret != 0:\n    err = ctypes.get_errno()\n    raise OSError(err, os.strerror(err), f\"fchmodat({p})\")\nrecord(\"chmod\", \"TOOLS.md\", True, p.exists(), {\"chmod_syscall\": \"fchmodat\", \"mode_before\": before_mode, \"mode_after\": p.stat().st_mode & 0o7777})\np = workspace / \"HEARTBEAT.md\"\nbefore_sha = hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None\nSYS_unlinkat = 263\nret = libc.syscall(\n    ctypes.c_long(SYS_unlinkat),\n    ctypes.c_int(AT_FDCWD),\n    ctypes.c_char_p(bytes(p)),\n    ctypes.c_int(0),\n)\nif ret != 0:\n    err = ctypes.get_errno()\n    raise OSError(err, os.strerror(err), f\"unlinkat({p})\")\nrecord(\"unlink\", \"HEARTBEAT.md\", True, p.exists(), {\"unlink_syscall\": \"unlinkat\", \"pre_sha256\": before_sha})\nos.write(result_fd, json.dumps({\"pid\": os.getpid(), \"operations\": results}, sort_keys=True).encode(\"utf-8\"))\nos.close(result_fd)\ntime.sleep(0.2)\n"
+      ],
+      "comm": "python3",
+      "euid": 1000,
+      "exe": "/usr/bin/python3.10",
+      "gid": 1000,
+      "namespace_ids": {
+        "cgroup": "cgroup:[4026531835]",
+        "ipc": "ipc:[4026531839]",
+        "mnt": "mnt:[4026531841]",
+        "net": "net:[4026531840]",
+        "pid": "pid:[4026531836]",
+        "pid_for_children": "pid:[4026531836]",
+        "time": "time:[4026531834]",
+        "user": "user:[4026531837]",
+        "uts": "uts:[4026531838]"
+      },
+      "pgid": 227382,
+      "pid": 227405,
+      "ppid": 227385,
+      "process_start_time_ticks": 42210243,
+      "ses": "1533",
+      "sid": 227382,
+      "tid": 227405,
+      "uid": 1000
+    },
+    "supervisor_process_identity": {
+      "auid": "1000",
+      "cgroup_records": [
+        "0::/user.slice/user-1000.slice/session-1533.scope"
+      ],
+      "cmdline": [
+        "python3",
+        "experiments/code/dataset_builder/mutation_canary_five_source.py"
+      ],
+      "comm": "python3",
+      "euid": 0,
+      "exe": "/usr/bin/python3.10",
+      "gid": 0,
+      "namespace_ids": {
+        "cgroup": "cgroup:[4026531835]",
+        "ipc": "ipc:[4026531839]",
+        "mnt": "mnt:[4026531841]",
+        "net": "net:[4026531840]",
+        "pid": "pid:[4026531836]",
+        "pid_for_children": "pid:[4026531836]",
+        "time": "time:[4026531834]",
+        "user": "user:[4026531837]",
+        "uts": "uts:[4026531838]"
+      },
+      "pgid": 227382,
+      "pid": 227385,
+      "ppid": 227383,
+      "process_start_time_ticks": 42210205,
+      "ses": "1533",
+      "sid": 227382,
+      "tid": 227385,
+      "uid": 0
+    }
+  },
+  "retained_field_groups": [
+    "pid_start_time_lineage_uid_auid_ses_cgroup_namespace",
+    "self_state_path_inode_dev_mode_uid_gid_mtime_ctime_xattr",
+    "open_flags_fd_inode_offset_close_lifetime_or_buffer_attribution",
+    "syscall_args_return_errno_for_read_write_rename_unlink_chmod",
+    "active_dac_immutable_apparmor_landlock_audit_network_policy_state",
+    "before_after_consequence_snapshot_manifest_with_full_bytes",
+    "tool_calls_session_logs_model_proxy_requests_and_gateway_messages"
+  ],
+  "schema_version": "assa.runtime_state_capture.v1",
+  "snapshot_state": {
+    "state_snapshots": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/state_snapshots"
+  },
+  "syscall_state": {
+    "raw_streams": {
+      "auditd": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/auditd.jsonl",
+      "ebpf": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/ebpf.jsonl",
+      "fanotify": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/fanotify.jsonl",
+      "inotify": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/inotify.jsonl"
+    }
+  }
+}

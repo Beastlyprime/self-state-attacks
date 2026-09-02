@@ -1,0 +1,23 @@
+{
+  "cgroup_id": 222012,
+  "exit_status": 0,
+  "health": {
+    "bytes": 466,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/health/ebpf_lifecycle.json",
+    "sha256": "e9ce6c4383f7941a8f79d2d9b74800d53b8889c9cd731c207e9dd9ff1d996d28"
+  },
+  "raw": {
+    "bytes": 14076,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/ebpf_lifecycle.jsonl",
+    "sha256": "a40edf09f203a46f71f06553c09c19ac755850d02b62da596f2e427ce29c6280"
+  },
+  "scope": "cgroup_id",
+  "stderr": {
+    "bytes": 0,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/ebpf_lifecycle.stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

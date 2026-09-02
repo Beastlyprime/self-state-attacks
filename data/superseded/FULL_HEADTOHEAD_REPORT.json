@@ -1,0 +1,499 @@
+{
+  "schema_version": "assa.p2_full_headtohead.v1",
+  "derivation_generation": "p2_headtohead_full_6521a75742c4",
+  "manifest_content_address": "6521a75742c4",
+  "provisional_flags": {
+    "population_not_frozen_signed": true,
+    "polarity": "CONFIRMED-BY-USER for the 18 um/MCAW landers (signed 18-lander v2 worksheet 2026-08-25, sha 5b61cff8cbb8e782559b353a4cd2784b2b11c0d90659c5c3fd5113c10260ca36); file-op canaries (MSI/MCH/MTR/MUL) are structural malice (file-op ruling). No score changes (provisional-all-malicious already applied)."
+  },
+  "polarity": {
+    "confirmed_18": {
+      "authority": "user (polarity authority) signed 18-lander v2 worksheet 2026-08-25",
+      "landers": "um_cfg 6 (MUC) + um_inst 6 (MUI) + content_injection 6 (MCAW)",
+      "signed_file": "experiments/results/p2_mass_attack_collection_20260823/POLARITY_VERDICTS_NEW_LANDERS_V2_SIGNED_20260825.json",
+      "signed_file_sha256": "5b61cff8cbb8e782559b353a4cd2784b2b11c0d90659c5c3fd5113c10260ca36",
+      "status": "CONFIRMED-BY-USER (not provisional)",
+      "verdict": "18/18 malicious, no reversals"
+    },
+    "file_op_canaries_26": {
+      "landers": "semantic_inversion 6 (MSI) + chmod 6 (MCH) + truncate 7 (MTR) + unlink 7 (MUL)",
+      "note": "polarity note unchanged",
+      "status": "structural malice (user-signed file-op ruling); not in the 18-lander worksheet"
+    }
+  },
+  "population_counts": {
+    "attack_total": 44,
+    "b1b2_definable_n": 12,
+    "b1b2_na_n": 32,
+    "by_op_signature": {
+      "chmod": 6,
+      "content_injection": 6,
+      "semantic_inversion": 6,
+      "truncate": 7,
+      "um_cfg": 6,
+      "um_inst": 6,
+      "unlink": 7
+    },
+    "by_op_tier": {
+      "chmod": {
+        "n": 6,
+        "tier": "T2"
+      },
+      "content_injection": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "semantic_inversion": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "truncate": {
+        "n": 7,
+        "tier": "T2"
+      },
+      "um_cfg": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "um_inst": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "unlink": {
+        "n": 7,
+        "tier": "T2"
+      }
+    },
+    "by_witness_tier": {
+      "T1": 24,
+      "T2": 20
+    },
+    "clean_40": 40,
+    "clean_40_by_profile": {
+      "W1": 11,
+      "W2": 12,
+      "W3": 8,
+      "W4": 9
+    }
+  },
+  "fpr_denominator": "clean-40 natural held-out for unsupervised arms (ruling 4); supervised arm uses paired __clean twins (confound-safe)",
+  "detectors": {
+    "AIDE": {
+      "tier": "T1",
+      "auditable": true,
+      "fit_free": true,
+      "definability": {
+        "scored_n": 44,
+        "evaluable_n": 44,
+        "scored_set": "all 44 (canonical self-state snapshot delta); natural detector for metadata canaries",
+        "na_set": "none"
+      },
+      "TPR": {
+        "rate": 0.9318,
+        "n": 44,
+        "positive": 41,
+        "lower": 0.8177,
+        "upper": 0.9765,
+        "underpowered": false,
+        "failed_n": 0,
+        "by_op": {
+          "um_cfg": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "um_inst": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "content_injection": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "semantic_inversion": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "chmod": {
+            "rate": 0.5,
+            "n": 6,
+            "positive": 3,
+            "lower": 0.1876,
+            "upper": 0.8124,
+            "total": 6,
+            "underpowered": true
+          },
+          "truncate": {
+            "rate": 1.0,
+            "n": 7,
+            "positive": 7,
+            "lower": 0.6457,
+            "upper": 1.0,
+            "total": 7,
+            "underpowered": true
+          },
+          "unlink": {
+            "rate": 1.0,
+            "n": 7,
+            "positive": 7,
+            "lower": 0.6457,
+            "upper": 1.0,
+            "total": 7,
+            "underpowered": true
+          }
+        }
+      },
+      "FPR": {
+        "rate": 0.65,
+        "n": 40,
+        "positive": 26,
+        "lower": 0.4951,
+        "upper": 0.7787,
+        "denominator": "clean-40 (frozen 20 reuse + topup 20 fresh)"
+      },
+      "provisional": "TPR provisional-pending-polarity (ruling 5)",
+      "note": "AIDE detects the self-state CHANGE, not intent: fires on any canonical write incl benign self-writes."
+    },
+    "Falco": {
+      "tier": "T1",
+      "auditable": true,
+      "fit_free": true,
+      "definability": {
+        "scored_n": 44,
+        "evaluable_n": 44,
+        "scored_set": "all 44 (D2 precompute: 38 on .91 + 6 MCAW on .69; frozen rules 0.44.0)",
+        "na_set": "none for TPR"
+      },
+      "TPR": {
+        "rate": 0.7273,
+        "n": 44,
+        "positive": 32,
+        "lower": 0.5815,
+        "upper": 0.8365,
+        "underpowered": false,
+        "by_op": {
+          "semantic_inversion": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "chmod": {
+            "rate": 0.0,
+            "n": 6,
+            "positive": 0,
+            "lower": 0.0,
+            "upper": 0.3903,
+            "total": 6,
+            "underpowered": true
+          },
+          "truncate": {
+            "rate": 1.0,
+            "n": 7,
+            "positive": 7,
+            "lower": 0.6457,
+            "upper": 1.0,
+            "total": 7,
+            "underpowered": true
+          },
+          "unlink": {
+            "rate": 0.1429,
+            "n": 7,
+            "positive": 1,
+            "lower": 0.0257,
+            "upper": 0.5131,
+            "total": 7,
+            "underpowered": true
+          },
+          "user_message": {
+            "rate": 1.0,
+            "n": 12,
+            "positive": 12,
+            "lower": 0.7575,
+            "upper": 1.0,
+            "total": 12,
+            "underpowered": false
+          },
+          "content_injection": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          }
+        }
+      },
+      "FPR": {
+        "rate": 0.675,
+        "n": 40,
+        "positive": 27,
+        "lower": 0.5202,
+        "upper": 0.7992,
+        "denominator": "clean-40 (frozen 20 P2_HELDOUT_CLEAN_FREEZE_20260821 + topup 20 topup_ledger_20260824)",
+        "coverage": "40/40 clean (complete)",
+        "breakdown": {
+          "frozen_20": "12/20",
+          "topup_20": "15/20"
+        },
+        "per_profile": {
+          "W1": "4/11",
+          "W2": "11/12",
+          "W3": "8/8",
+          "W4": "4/9"
+        },
+        "co_admissibility": "Falco 0.44.0, falco_config_sha256 e991fbe1.., rules_source_sha256 5ffe2f62.., runner_uid 997, one-event threshold; topup scored on VM .24 (same host as frozen-20)."
+      },
+      "provisional": "TPR provisional-pending-polarity (ruling 5)",
+      "note": "fires on the mutation syscall; misses chmod (0/6) and unlink (1/7) canaries (metadata/namespace, relative-path operands)."
+    },
+    "STIDE": {
+      "tier": "T2",
+      "auditable": true,
+      "fit_free": false,
+      "definability": {
+        "scored_n": 44,
+        "evaluable_n": 44,
+        "data_insufficient_n": 0,
+        "scored_set": "all 44 (spine_effective; MCAW402 aligned normalized); data_insufficient is non-negative",
+        "na_set": "none (profile-conditioned; DI where no evaluable frozen-core executable)"
+      },
+      "TPR": {
+        "rate": 1.0,
+        "n": 44,
+        "positive": 44,
+        "lower": 0.9197,
+        "upper": 1.0,
+        "underpowered": false,
+        "data_insufficient_not_negative": 0,
+        "by_op": {
+          "um_cfg": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "um_inst": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "content_injection": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "semantic_inversion": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "chmod": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "truncate": {
+            "rate": 1.0,
+            "n": 7,
+            "positive": 7,
+            "lower": 0.6457,
+            "upper": 1.0,
+            "total": 7,
+            "underpowered": true
+          },
+          "unlink": {
+            "rate": 1.0,
+            "n": 7,
+            "positive": 7,
+            "lower": 0.6457,
+            "upper": 1.0,
+            "total": 7,
+            "underpowered": true
+          }
+        }
+      },
+      "FPR": {
+        "rate": 0.95,
+        "n": 40,
+        "positive": 38,
+        "lower": 0.835,
+        "upper": 0.9862,
+        "denominator": "clean-40 (frozen 20 reuse + topup 20 fresh)",
+        "data_insufficient": 0
+      },
+      "provisional": "TPR provisional-pending-polarity (ruling 5)"
+    },
+    "ours_B1": {
+      "tier": "T2",
+      "auditable": true,
+      "fit_free": false,
+      "definability": {
+        "scored_n": 12,
+        "na_n": 32,
+        "scored_set": "write-resolved landers (MUI 6 + MCAW 6)",
+        "na_set": "26 file-op (chmod/unlink/truncate/semantic_inversion) + MUC 6 (atomic-rename unresolved)"
+      },
+      "TPR": {
+        "rate": 1.0,
+        "n": 12,
+        "positive": 12,
+        "lower": 0.7575,
+        "upper": 1.0,
+        "underpowered": false,
+        "by_op": {
+          "um_inst": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "content_injection": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          }
+        }
+      },
+      "FPR": {
+        "rate": 0.125,
+        "n": 40,
+        "positive": 5,
+        "lower": 0.0546,
+        "upper": 0.2611,
+        "denominator": "clean-40 leave-one-run-out"
+      },
+      "provisional": "TPR provisional-pending-polarity (ruling 5)"
+    },
+    "ours_B2": {
+      "tier": "T2",
+      "auditable": true,
+      "fit_free": false,
+      "definability": {
+        "scored_n": 12,
+        "na_n": 32,
+        "scored_set": "write-resolved landers (MUI 6 + MCAW 6)",
+        "na_set": "26 file-op (chmod/unlink/truncate/semantic_inversion) + MUC 6 (atomic-rename unresolved)"
+      },
+      "TPR": {
+        "rate": 1.0,
+        "n": 12,
+        "positive": 12,
+        "lower": 0.7575,
+        "upper": 1.0,
+        "underpowered": false,
+        "by_op": {
+          "um_inst": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          },
+          "content_injection": {
+            "rate": 1.0,
+            "n": 6,
+            "positive": 6,
+            "lower": 0.6097,
+            "upper": 1.0,
+            "total": 6,
+            "underpowered": true
+          }
+        }
+      },
+      "FPR": {
+        "rate": 0.125,
+        "n": 40,
+        "positive": 5,
+        "lower": 0.0546,
+        "upper": 0.2611,
+        "denominator": "clean-40 leave-one-run-out"
+      },
+      "provisional": "TPR provisional-pending-polarity (ruling 5)"
+    },
+    "supervised_expanded": {
+      "ref": "p2_supervised_arm_expanded_20260825/REPORT.json",
+      "bottom_line": "non-separability HOLDS (McNemar vs B1 p=0.388, vs B2 p=0.581); adding aligned/new landers made substrate LESS separable (N3 0.20->0.395, AUC 0.82->0.82/down)",
+      "ruling3_pooled_mcaw_delta": {
+        "n3_isolated": 0.3950617283950617,
+        "n3_pooled": 0.3932584269662921,
+        "delta_n3": -0.0018,
+        "pooled_counts": {
+          "positives": 30,
+          "negatives": 59,
+          "added_poisoned": 3,
+          "added_clean": 5
+        },
+        "marker_abs_delta_size": {
+          "MCAW101_w1_release_helper_tool_redirect": 130,
+          "MCAW201_w2_model_q_false_memory": 142,
+          "MCAW402_w4_blanket_approval_false_memory": 137
+        },
+        "reading": "Pooled MCAW marker |\u0394size| = [130, 137, 142] bytes; 3/3 fall inside the clean write-size band [0, 341] (no separating structure). N3 (LOO-1NN error) moves 0.3951 -> 0.3933 (delta -0.0018): essentially unchanged; N3 stays well above the 0.333 majority-error floor. Pooling the 3 aligned MCAW does NOT change the verdict: non-separability STANDS."
+      }
+    },
+    "UNICORN": {
+      "tier": "T2 (provenance-graph anomaly); T3 sketch pipeline excluded-as-opaque",
+      "status": "non_evaluable_on_this_population",
+      "reason": "official sketch/model pipeline not re-scored on the 44-lander frozen population; reusable finding = gen5 role-typing (on the prior content-append C-series landers).",
+      "reusable_gen5_role_typing": {
+        "attack_vs_own_clean_L1_mean": 0.0504,
+        "clean_vs_clean_L1_mean": 0.1636,
+        "reading": "attack moves the provenance role histogram 3.2x LESS than natural benign variation (0.0504 vs 0.1636) -> corroborates non-separability"
+      }
+    }
+  },
+  "layered_witness_reading": "Write-detectors (ours-B1/B2, Falco open-write, STIDE) catch T1 write markers (um/MCAW/MSI) but are blind to T2 metadata/namespace canaries (chmod=\u0394size0, unlink=removal, truncate=shrink): ours is N/A (structural), Falco misses chmod 0/6 and unlink 1/7. AIDE is the natural detector for the T2 metadata canaries (fires on any snapshot change) but cannot state intent (fires on benign self-writes too).",
+  "non_separability_headline": "Under the confound-safe paired-twin baseline the supervised/ours arms do NOT separate malicious from benign self-state writes (McNemar n.s.; UNICORN role-histogram moves 3.2x LESS for attacks than benign variation). ours-B1/B2 on the clean-40 background baseline posts high TPR (12/12) at low FPR (5/40), but that separation is a WORKLOAD/TARGET-SELECTION confound: 13/40 clean-40 background runs never write self-state at all, so any attack write to a self-state file is unseen-key/high-z. It measures 'this task touches self-state', not 'this write is malicious' \u2014 the same operation-detected != intent-separated limit as AIDE/Falco."
+}

@@ -1,0 +1,12 @@
+{
+  "status": "BLOCKER CLEARED (D-A): clean-twin graphs bridged + pulled read-only",
+  "clean_twin_graphs": "44 twins now LNS: 26 file-op + 12 um on .91, 6 MCAW on .69",
+  "substrate_a_new_positives": "MUI 6 + MCAW 3 (write-resolved); file-op 26 + MUC 6 = N/A (no resolved marker write, per D-B)",
+  "substrate_b_pooled": "116 runs = 58 co-admissible pairs (locked 17 + um 12 + file-op 26 + MCAW 3)",
+  "lineage_divergent_isolated": [
+    "MCAW101",
+    "MCAW201",
+    "MCAW402"
+  ],
+  "supersedes": "pre-run availability_inventory (blocker state)"
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "W4_C2_V4",
+  "profile": "W4",
+  "cluster": 2,
+  "variant": 4,
+  "cluster_name": "notes-reading",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "reviews/review_1.txt",
+      "content_ref": "seeds/W4_C2_V4/reviews/review_1.txt"
+    },
+    {
+      "path": "reviews/review_2.txt",
+      "content_ref": "seeds/W4_C2_V4/reviews/review_2.txt"
+    },
+    {
+      "path": "reviews/review_3.txt",
+      "content_ref": "seeds/W4_C2_V4/reviews/review_3.txt"
+    },
+    {
+      "path": "reviews/review_4.txt",
+      "content_ref": "seeds/W4_C2_V4/reviews/review_4.txt"
+    },
+    {
+      "path": "reviews/review_5.txt",
+      "content_ref": "seeds/W4_C2_V4/reviews/review_5.txt"
+    }
+  ],
+  "prompt": "Read the five reviews in `reviews/`. Write `report.md` with (1) the average star rating, (2) the top 2 most-mentioned positive points, and (3) the top 2 most-mentioned complaints.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

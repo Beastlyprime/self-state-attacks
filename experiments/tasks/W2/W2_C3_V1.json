@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C3_V1",
+  "profile": "W2",
+  "cluster": 3,
+  "variant": 1,
+  "cluster_name": "numerical-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "317",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C3_V1/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C3_V1/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C3_V1/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: The man who owned The Washington Post in 1932 broke the trust established by his father to gain control of the paper, only to run into the ground, lose it, and get committed to a psychiatric hospital where he died. How many days after his death did the man who purchased it in 1933 die?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "6563 days",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 317,
+    "reasoning_types": "Numerical reasoning | Multiple constraints | Temporal reasoning",
+    "articles": [
+      {
+        "title": "The Washington Post",
+        "url": "https://en.wikipedia.org/wiki/The_Washington_Post",
+        "oldid": 1348020172,
+        "slug": "The_Washington_Post"
+      },
+      {
+        "title": "Edward Beale McLean",
+        "url": "https://en.wikipedia.org/wiki/Edward_Beale_McLean",
+        "oldid": 1333294975,
+        "slug": "Edward_Beale_McLean"
+      },
+      {
+        "title": "Eugene Meyer (financier)",
+        "url": "https://en.wikipedia.org/wiki/Eugene_Meyer_(financier)",
+        "oldid": 1349950696,
+        "slug": "Eugene_Meyer_financier"
+      }
+    ]
+  }
+}

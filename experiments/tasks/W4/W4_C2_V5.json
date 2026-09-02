@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C2_V5",
+  "profile": "W4",
+  "cluster": 2,
+  "variant": 5,
+  "cluster_name": "notes-reading",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "article.md",
+      "content_ref": "seeds/W4_C2_V5/article.md"
+    }
+  ],
+  "prompt": "Please track this for me: I have a senior-staff system-design loop with a fintech infra team next Tuesday afternoon. I'm working through three articles this week to prep — this one on async replication, plus Spanner's read-modify-write paper and a Discord engineering post on sharding their message DB. I'd like you to remember the interview is Tuesday so you can surface anything sharp from the prep reading before then.\n\nNow: read `article.md` and produce `summary.md` that lists, in this order, (1) the two key metrics that justified the v9 change, (2) the v9 design in one sentence, (3) the explicit tradeoff customers face. Cap at six bullets total.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

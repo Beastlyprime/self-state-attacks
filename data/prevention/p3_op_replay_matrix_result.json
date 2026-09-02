@@ -1,0 +1,667 @@
+{
+  "schema": "assa.p3.op_replay_matrix.v1",
+  "discipline": {
+    "no_agent_runtime": true,
+    "no_collector": true,
+    "no_model_request": true,
+    "real_errno": true,
+    "attacker_principal": "agent_owner (== workspace+file owner)"
+  },
+  "host": {
+    "uname": "6.14.0-1015-nvidia",
+    "machine": "aarch64",
+    "agent_uid": 1000,
+    "in_container_root": true,
+    "landlock_available": true
+  },
+  "mechanisms": [
+    "none",
+    "dac_self",
+    "dac_chown_root",
+    "chattr_immutable",
+    "apparmor",
+    "landlock"
+  ],
+  "operations": [
+    "open_write",
+    "append",
+    "truncate",
+    "rename_over",
+    "unlink",
+    "chmod"
+  ],
+  "cells": [
+    {
+      "mechanism": "none",
+      "operation": "open_write",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": true,
+      "post_size": 29,
+      "install_info": {},
+      "raw_op": {
+        "op": "open_write",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "none",
+      "operation": "append",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": true,
+      "post_size": 76,
+      "install_info": {},
+      "raw_op": {
+        "op": "append",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "none",
+      "operation": "truncate",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 0,
+      "install_info": {},
+      "raw_op": {
+        "op": "truncate",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "none",
+      "operation": "rename_over",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": true,
+      "post_size": 29,
+      "install_info": {},
+      "raw_op": {
+        "op": "rename_over",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "none",
+      "operation": "unlink",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": false,
+      "post_corrupted": null,
+      "post_size": null,
+      "install_info": {},
+      "raw_op": {
+        "op": "unlink",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "none",
+      "operation": "chmod",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": true,
+      "post_size": 29,
+      "install_info": {},
+      "raw_op": {
+        "op": "chmod",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "dac_self",
+      "operation": "open_write",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {},
+      "raw_op": {
+        "op": "open_write",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "dac_self",
+      "operation": "append",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {},
+      "raw_op": {
+        "op": "append",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "dac_self",
+      "operation": "truncate",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {},
+      "raw_op": {
+        "op": "truncate",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "dac_self",
+      "operation": "rename_over",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": true,
+      "post_size": 29,
+      "install_info": {},
+      "raw_op": {
+        "op": "rename_over",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "dac_self",
+      "operation": "unlink",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": false,
+      "post_corrupted": null,
+      "post_size": null,
+      "install_info": {},
+      "raw_op": {
+        "op": "unlink",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "dac_self",
+      "operation": "chmod",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": true,
+      "post_size": 29,
+      "install_info": {},
+      "raw_op": {
+        "op": "chmod",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "dac_chown_root",
+      "operation": "open_write",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {},
+      "raw_op": {
+        "op": "open_write",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "dac_chown_root",
+      "operation": "append",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {},
+      "raw_op": {
+        "op": "append",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "dac_chown_root",
+      "operation": "truncate",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {},
+      "raw_op": {
+        "op": "truncate",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "dac_chown_root",
+      "operation": "rename_over",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": true,
+      "post_corrupted": true,
+      "post_size": 29,
+      "install_info": {},
+      "raw_op": {
+        "op": "rename_over",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "dac_chown_root",
+      "operation": "unlink",
+      "op_errno": null,
+      "op_landed": true,
+      "effect_landed": true,
+      "post_exists": false,
+      "post_corrupted": null,
+      "post_size": null,
+      "install_info": {},
+      "raw_op": {
+        "op": "unlink",
+        "landed": true
+      }
+    },
+    {
+      "mechanism": "dac_chown_root",
+      "operation": "chmod",
+      "op_errno": "EPERM",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {},
+      "raw_op": {
+        "op": "chmod",
+        "landed": false,
+        "errno": 1,
+        "errno_name": "EPERM"
+      }
+    },
+    {
+      "mechanism": "chattr_immutable",
+      "operation": "open_write",
+      "op_errno": "EPERM",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "immutable_set": true
+      },
+      "raw_op": {
+        "op": "open_write",
+        "landed": false,
+        "errno": 1,
+        "errno_name": "EPERM"
+      }
+    },
+    {
+      "mechanism": "chattr_immutable",
+      "operation": "append",
+      "op_errno": "EPERM",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "immutable_set": true
+      },
+      "raw_op": {
+        "op": "append",
+        "landed": false,
+        "errno": 1,
+        "errno_name": "EPERM"
+      }
+    },
+    {
+      "mechanism": "chattr_immutable",
+      "operation": "truncate",
+      "op_errno": "EPERM",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "immutable_set": true
+      },
+      "raw_op": {
+        "op": "truncate",
+        "landed": false,
+        "errno": 1,
+        "errno_name": "EPERM"
+      }
+    },
+    {
+      "mechanism": "chattr_immutable",
+      "operation": "rename_over",
+      "op_errno": "EPERM",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "immutable_set": true
+      },
+      "raw_op": {
+        "op": "rename_over",
+        "landed": false,
+        "errno": 1,
+        "errno_name": "EPERM"
+      }
+    },
+    {
+      "mechanism": "chattr_immutable",
+      "operation": "unlink",
+      "op_errno": "EPERM",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "immutable_set": true
+      },
+      "raw_op": {
+        "op": "unlink",
+        "landed": false,
+        "errno": 1,
+        "errno_name": "EPERM"
+      }
+    },
+    {
+      "mechanism": "chattr_immutable",
+      "operation": "chmod",
+      "op_errno": "EPERM",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "immutable_set": true
+      },
+      "raw_op": {
+        "op": "chmod",
+        "landed": false,
+        "errno": 1,
+        "errno_name": "EPERM"
+      }
+    },
+    {
+      "mechanism": "apparmor",
+      "operation": "open_write",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "apparmor_loaded": true,
+        "apparmor_err": ""
+      },
+      "raw_op": {
+        "op": "open_write",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "apparmor",
+      "operation": "append",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "apparmor_loaded": true,
+        "apparmor_err": ""
+      },
+      "raw_op": {
+        "op": "append",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "apparmor",
+      "operation": "truncate",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "apparmor_loaded": true,
+        "apparmor_err": ""
+      },
+      "raw_op": {
+        "op": "truncate",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "apparmor",
+      "operation": "rename_over",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "apparmor_loaded": true,
+        "apparmor_err": ""
+      },
+      "raw_op": {
+        "op": "rename_over",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "apparmor",
+      "operation": "unlink",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "apparmor_loaded": true,
+        "apparmor_err": ""
+      },
+      "raw_op": {
+        "op": "unlink",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "apparmor",
+      "operation": "chmod",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "apparmor_loaded": true,
+        "apparmor_err": ""
+      },
+      "raw_op": {
+        "op": "chmod",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "landlock",
+      "operation": "open_write",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "landlock_bin": "/work/p3_op_matrix_scratch/landlock_launcher"
+      },
+      "raw_op": {
+        "op": "open_write",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "landlock",
+      "operation": "append",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "landlock_bin": "/work/p3_op_matrix_scratch/landlock_launcher"
+      },
+      "raw_op": {
+        "op": "append",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "landlock",
+      "operation": "truncate",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "landlock_bin": "/work/p3_op_matrix_scratch/landlock_launcher"
+      },
+      "raw_op": {
+        "op": "truncate",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "landlock",
+      "operation": "rename_over",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "landlock_bin": "/work/p3_op_matrix_scratch/landlock_launcher"
+      },
+      "raw_op": {
+        "op": "rename_over",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "landlock",
+      "operation": "unlink",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "landlock_bin": "/work/p3_op_matrix_scratch/landlock_launcher"
+      },
+      "raw_op": {
+        "op": "unlink",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    },
+    {
+      "mechanism": "landlock",
+      "operation": "chmod",
+      "op_errno": "EACCES",
+      "op_landed": false,
+      "effect_landed": false,
+      "post_exists": true,
+      "post_corrupted": false,
+      "post_size": 47,
+      "install_info": {
+        "landlock_bin": "/work/p3_op_matrix_scratch/landlock_launcher"
+      },
+      "raw_op": {
+        "op": "chmod",
+        "landed": false,
+        "errno": 13,
+        "errno_name": "EACCES"
+      }
+    }
+  ]
+}

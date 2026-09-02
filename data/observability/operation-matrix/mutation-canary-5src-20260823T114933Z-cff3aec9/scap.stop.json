@@ -1,0 +1,38 @@
+{
+  "capture": {
+    "bytes": 1478112,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/capture.scap",
+    "sha256": "dfe2af1b389a09baa4d0e7eb2671d0b5bfb4303ed7a7bd40cf3e89a0ac15e5c7"
+  },
+  "command": [
+    "sysdig",
+    "--modern-bpf",
+    "-v",
+    "-w",
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/capture.scap"
+  ],
+  "driver_event_count": 26269,
+  "drop_count": 0,
+  "event_count": 17064,
+  "exit_status": 0,
+  "health_status": "complete",
+  "invalid_reasons": [],
+  "started_monotonic_ns": 422524213671616,
+  "started_realtime_ns": 1787485774110255843,
+  "stderr": {
+    "bytes": 115,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/scap.stderr.log",
+    "sha256": "aeeaa7b8e35431bc747c126b9397c366eb2902e83be0301664f0e40d5302691e"
+  },
+  "stdout": {
+    "bytes": 0,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/scap.stdout.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stopped_monotonic_ns": 422526295233765,
+  "stopped_realtime_ns": 1787485776191818372,
+  "valid": true
+}

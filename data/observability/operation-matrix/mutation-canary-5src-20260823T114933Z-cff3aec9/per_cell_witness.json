@@ -1,0 +1,344 @@
+{
+  "cell_count": 16,
+  "cells": {
+    "chmod@self_state.config": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "chmod",
+      "path": "chmod__openclaw.json",
+      "target_role": "self_state.config"
+    },
+    "chmod@self_state.instruction": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "chmod",
+      "path": "chmod__TOOLS.md",
+      "target_role": "self_state.instruction"
+    },
+    "chmod@self_state.memory.log": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "chmod",
+      "path": "memory/chmod__2026-01-01.md",
+      "target_role": "self_state.memory.log"
+    },
+    "chmod@self_state.memory.root": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "chmod",
+      "path": "chmod__MEMORY.md",
+      "target_role": "self_state.memory.root"
+    },
+    "rename@self_state.config": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "rename",
+      "path": "rename__openclaw.json",
+      "target_role": "self_state.config"
+    },
+    "rename@self_state.instruction": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "rename",
+      "path": "rename__TOOLS.md",
+      "target_role": "self_state.instruction"
+    },
+    "rename@self_state.memory.log": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "rename",
+      "path": "memory/rename__2026-01-01.md",
+      "target_role": "self_state.memory.log"
+    },
+    "rename@self_state.memory.root": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "rename",
+      "path": "rename__MEMORY.md",
+      "target_role": "self_state.memory.root"
+    },
+    "unlink@self_state.config": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "unlink",
+      "path": "unlink__openclaw.json",
+      "target_role": "self_state.config"
+    },
+    "unlink@self_state.instruction": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "unlink",
+      "path": "unlink__TOOLS.md",
+      "target_role": "self_state.instruction"
+    },
+    "unlink@self_state.memory.log": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "unlink",
+      "path": "memory/unlink__2026-01-01.md",
+      "target_role": "self_state.memory.log"
+    },
+    "unlink@self_state.memory.root": {
+      "attributable_sources": [
+        "inotify",
+        "auditd",
+        "graph"
+      ],
+      "checks": {
+        "auditd": true,
+        "ebpf": "not_path_attributable",
+        "fanotify": "not_path_attributable",
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "unlink",
+      "path": "unlink__MEMORY.md",
+      "target_role": "self_state.memory.root"
+    },
+    "write@self_state.config": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "ebpf",
+        "graph"
+      ],
+      "checks": {
+        "auditd": "not_path_attributable",
+        "ebpf": true,
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "write",
+      "path": "write__openclaw.json",
+      "target_role": "self_state.config"
+    },
+    "write@self_state.instruction": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "ebpf",
+        "graph"
+      ],
+      "checks": {
+        "auditd": "not_path_attributable",
+        "ebpf": true,
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "write",
+      "path": "write__TOOLS.md",
+      "target_role": "self_state.instruction"
+    },
+    "write@self_state.memory.log": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "ebpf",
+        "graph"
+      ],
+      "checks": {
+        "auditd": "not_path_attributable",
+        "ebpf": true,
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "write",
+      "path": "memory/write__2026-01-01.md",
+      "target_role": "self_state.memory.log"
+    },
+    "write@self_state.memory.root": {
+      "attributable_sources": [
+        "inotify",
+        "fanotify",
+        "ebpf",
+        "graph"
+      ],
+      "checks": {
+        "auditd": "not_path_attributable",
+        "ebpf": true,
+        "fanotify": true,
+        "graph": true,
+        "inotify": true
+      },
+      "graph_witnessed": true,
+      "observed_on_all_attributable": true,
+      "op_type": "write",
+      "path": "write__MEMORY.md",
+      "target_role": "self_state.memory.root"
+    }
+  },
+  "per_source_attributability": {
+    "auditd": [
+      "rename",
+      "chmod",
+      "unlink"
+    ],
+    "ebpf": [
+      "write"
+    ],
+    "fanotify": [
+      "write",
+      "chmod"
+    ],
+    "inotify": [
+      "write",
+      "rename",
+      "chmod",
+      "unlink"
+    ]
+  },
+  "schema_version": "assa.mutation_matrix_per_cell_witness.v1",
+  "summary": {
+    "all_attributable_observed": 16,
+    "all_cells_graph_witnessed": true,
+    "graph_witnessed": 16
+  },
+  "worker_reported_ops": 0
+}

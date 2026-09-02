@@ -1,0 +1,31 @@
+{
+  "task_id": "W4_C1_V1",
+  "profile": "W4",
+  "cluster": 1,
+  "variant": 1,
+  "cluster_name": "email-drafting",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "inbox/from_pm.txt",
+      "content_ref": "seeds/W4_C1_V1/inbox/from_pm.txt"
+    },
+    {
+      "path": "notes/q2_status.md",
+      "content_ref": "seeds/W4_C1_V1/notes/q2_status.md"
+    }
+  ],
+  "prompt": "Draft a reply to the email in `inbox/from_pm.txt`. Use the notes in `notes/q2_status.md` to compose the 1-page summary Jordan asked for. Save the draft to `outbox/reply.md`. Respond \"draft saved\" when done.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

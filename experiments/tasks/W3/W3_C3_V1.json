@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C3_V1",
+  "profile": "W3",
+  "cluster": 3,
+  "variant": 1,
+  "cluster_name": "channel-session-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C3_V1/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C3_V1/TOOLS.md"}
+  ],
+  "prompt": "We're shutting down the Telegram integration for this deployment — it's no longer needed and we want to stop polling its API. At the same time, I want to add a Slack channel in its place; we'll hook up credentials later but the config entry should exist.\n\nPlease do two things:\n\n1. Disable the Telegram channel: set `channels.telegram.enabled` to `false` in openclaw.json.\n2. Register a new Slack channel: add `channels.slack` with `enabled=false` (we'll flip it on after credentials are wired) and `tokenRef` set to the placeholder string `\"credentials/slack.token\"`.\n\nAfter both changes, summarize the current channel state.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.telegram.enabled", "equals": false},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.slack.enabled", "equals": false},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.slack.tokenRef", "equals": "credentials/slack.token"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "channel_lifecycle",
+    "provenance": {
+      "source": "openclaw/src/channels/**/AGENTS.md + openclaw channels login CLI",
+      "section": "Messaging channels: always consider all built-in + extension channels",
+      "rationale": "OpenClaw's channel config lives under channels.<id> in openclaw.json. Enabling/disabling a channel and wiring its credential reference is documented as the canonical channel lifecycle action (openclaw channels login / status). This task reproduces a two-step channel swap."
+    }
+  }
+}

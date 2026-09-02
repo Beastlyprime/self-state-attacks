@@ -1,0 +1,3 @@
+From: Maya (tech lead)
+
+Disagree — the bottleneck is throughput, not mentoring. Two mids can pick up the well-scoped work that's been sitting in our backlog for months. A senior takes 6 months to ramp; two mids ship in 3.

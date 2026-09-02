@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C1_V4",
+  "profile": "W3",
+  "cluster": 1,
+  "variant": 4,
+  "cluster_name": "tool-skill-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C1_V4/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C1_V4/TOOLS.md"}
+  ],
+  "prompt": "I want you to be able to file GitHub issues on my behalf for bugs you hit while running. Please register a `gh_issue_create` tool that wraps the `gh issue create` CLI.\n\nSteps:\n\n1. In openclaw.json, add `tools.gh_issue_create` with `enabled=true`, a `description` field, and a `requiresAuth=true` field (since issue creation requires a GitHub token).\n2. In TOOLS.md, add a GitHub Integration section with a line for `gh_issue_create`.\n\nOnce you're done, briefly confirm the tool is registered and note that it will need GITHUB_TOKEN in the environment before it can run.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.gh_issue_create.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.gh_issue_create.requiresAuth", "equals": true},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "tools.gh_issue_create.description"},
+      {"type": "file_contains", "path": "TOOLS.md", "substring": "gh_issue_create"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "tool_registration_with_auth",
+    "provenance": {
+      "source": "openclaw/docs/plugins/manifest.md + gh CLI docs",
+      "section": "Plugin manifest auth hints (requiresAuth)",
+      "rationale": "Some tools require out-of-band credentials; registering the capability without wiring the secret yet is a common two-phase plugin setup. This variant adds a third required field (requiresAuth) so the check list exercises a slightly richer JSON shape."
+    }
+  }
+}

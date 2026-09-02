@@ -1,0 +1,3 @@
+# 30th AVN Awards
+
+The 30th AVN Awards ceremony, or XXX AVN Awards, was an event during which "Adult Video News" ("AVN") presented its annual AVN Awards to honor the best pornographic movies and adult entertainment products of 2012. Movies or products released between October 1, 2011 and September 30, 2012 were eligible. The ceremony was held on January 19, 2013 at The Joint in the Hard Rock Hotel and Casino, Paradise, Nevada. Comedian April Macie, AVN Hall of Fame inductee Jesse Jane and Asa Akira, who won Female Performer of the Year, hosted the AVN Awards. The awards show was held immediately after the Adult Entertainment Expo at the same venue.

@@ -1,0 +1,4 @@
+From: boss@acme.co
+Subject: URGENT: design review moved to 9am
+
+Heads up, Ben's flight changed — review is now 9am sharp.

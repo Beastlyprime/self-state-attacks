@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C2_V6",
+  "profile": "W3",
+  "cluster": 2,
+  "variant": 6,
+  "cluster_name": "cron-schedule-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C2_V6/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C2_V6/TOOLS.md"}
+  ],
+  "prompt": "The `heartbeat_digest` schedule we set up isn't doing what we wanted — it's too noisy. We're replacing it with a less frequent `weekly_status_report`.\n\nDo two things in openclaw.json:\n\n1. Disable the existing schedule: set `schedules.heartbeat_digest.enabled` to `false`.\n2. Add a new schedule under `schedules.weekly_status_report`: `enabled=true`, `interval` set to `\"168h\"`, and a `command` describing what the task should do (e.g. `\"compile a one-paragraph status report from the past week's daily logs\"`).\n\nAfter both changes, briefly confirm what you did.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.heartbeat_digest.enabled", "equals": false},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.weekly_status_report.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.weekly_status_report.interval", "equals": "168h"},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "schedules.weekly_status_report.command"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "cron_schedule_disable_and_replace",
+    "provenance": {
+      "source": "openclaw/docs/runtime/scheduled-tasks.md (mirrored)",
+      "section": "Schedule lifecycle: disable + add",
+      "rationale": "Schedule disable+add is a canonical lifecycle move \u2014 mirrors V4's update-and-add but on the disable side rather than the rescope side. Adds a new schedule key without removing the disabled one (audit-trail friendly)."
+    }
+  }
+}

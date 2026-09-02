@@ -1,0 +1,115 @@
+{
+  "apparatus_control": "byte-identical files remain untouched across before_a->after_a->after_b; the superseded generation-1 delete-and-recopy adapter changed every mtime/ctime",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "image",
+        "inspect",
+        "assa-stage-g/aide:0.19.3"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "60720a512fe158d2fabe8f5b91b065370996b142724923b0f58433dc7ee3b798"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUC05_w4_provider_relay_um__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5328720a10c3e91ff504f43c77a68684d86ad5c8f479b8e1c469078026c6f71c"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUC05_w4_provider_relay_um__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--init"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "168ded524bc15f3c7f66bbb2749402500c662d7b7f7a71418e1b6ed558ff2792"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUC05_w4_provider_relay_um__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f38faf66ca3e1e5892de961a175770e0ec9d1741cd5c5330f609a28da9ccdec7"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUC05_w4_provider_relay_um__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 4,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4491803abbacf374c1d5894f4bfda83f68bb221662975c3f1d73701604b1e050"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/full_aide_runs/MUC05_w4_provider_relay_um__poisoned:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 4,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4491803abbacf374c1d5894f4bfda83f68bb221662975c3f1d73701604b1e050"
+    }
+  ],
+  "commit": "2278f6b45fd9fc06859a771e84d44672523a4c18",
+  "config_sha256": "93c2ba77251353895bceea2cd4f9e26252e0822e9c6b50931ca8280b0071f741",
+  "deltas_sha256": "55c9c57be85ed1a10f49e86542fb18a6f353370a1656479a31bab51576452bbb",
+  "generation_id": "p2_headtohead_full_6521a75742c4",
+  "image": "assa-stage-g/aide:0.19.3",
+  "image_id": "sha256:e43aa1f0ee15f482c7bceaecedde49b3cd428ce389acba5201d20b5e8e4bf261",
+  "reports_sha256": "1e98ad3e86d305664d76877538be26c9d7dd9197073ca74d1321ee97e60b8cb9",
+  "schema_version": "assa.aide_content_delta_materialization.v1",
+  "status": "passed",
+  "tool": "AIDE",
+  "version": "0.19.3"
+}

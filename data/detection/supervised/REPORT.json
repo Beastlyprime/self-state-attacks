@@ -1,0 +1,97 @@
+{
+  "schema_version": "assa.p2_supervised_arm.v1",
+  "derivation_generation": "p2_supervised_arm_expanded_20260825",
+  "design": "SUPERVISED_ARM_DESIGN_20260823.md",
+  "analysis_kind": "defensive; offline analysis host (aarch64 GB10) for all fitting; the only VM interaction was a read-only two-hop-SSH PULL of graph/normalized + graph/libsinsp + state_snapshots from .91 (file-op + um twins) and .69 (MCAW twins)",
+  "comparability": "EXPANDED. NEW generation. Locked-pop 17 pos / 43 neg carried VERBATIM from frozen p2_supervised_arm_20260823 (byte-identical rows). NOT comparable to the withdrawn synthetic V/C/I. The locked-pop 0.82 is the reference the expansion is measured against.",
+  "provisional_flags": [
+    "(a) The expanded population is NOT frozen (freeze prerequisites pending).",
+    "(b) Polarity is provisional-all-malicious (user standing ruling; morning sign-off pending)."
+  ],
+  "headline": {
+    "substrate_a_best_auc": {"A1_l1_logreg_with_identity": 0.8176, "A3_l1_logreg_core": 0.7860, "A4_abs_delta_size": 0.7671},
+    "moved_off_locked_pop_0_82": "NO — drifted DOWN (A1 0.912->0.818, A3 0.825->0.786, A4 0.805->0.767). Overlap N3 rose 0.20->0.395 (above the new 0.333 majority-error floor): the expanded substrate is LESS separable.",
+    "c2_placebo_voids_trees": "YES, still. FIGS A3 placebo 0.8125 [0.664,0.931] (CI excludes 0.5); the abs_delta_size / L1 rule survives (placebo 0.35-0.63, CIs include 0.5).",
+    "paired_mcnemar_verdict": "NON-SEPARABILITY HOLDS. Supervised abs_delta_size rule does not detect significantly more attacks than unsupervised B1/B2 (attack-side McNemar p=0.388 vs B1, p=0.581 vs B2) at the larger, better-powered N.",
+    "substrate_b_verdict": "No supervised signal on the syscall n-gram substrate (L1-LR 0.433, RuleFit 0.456; below chance, volume-matched) — same null as locked-pop."
+  },
+  "rulings_applied": {
+    "D_A": "clean-twin graphs bridged and PULLED read-only (44 twins: 26 file-op + 12 um on .91, 6 MCAW on .69).",
+    "D_B": "substrate A is a WRITE size+timing detector; UNDEFINED (N/A) for attacks with no resolved marker write. N/A: 26 file-op (chmod/unlink/truncate/semantic_inversion) + MUC 6 (openclaw.json atomic-rename, unresolved). Substrate-A new positives = MUI 6 + MCAW 3 (write-resolved).",
+    "substrate_B": "uses whole syscall stream; includes all co-admissible new landers + twins.",
+    "negatives": "paired __clean twins only (now available); clean-40 never used (host confound)."
+  },
+  "co_admissibility": {
+    "method": "libsinsp_extract config.sha256 + rules.sha256 + ebpf object hash + monitor versions (auditd/scap/fanotify/inotify) vs locked-pop reference",
+    "locked_pop_reference": {"libsinsp_config_sha8": "e991fbe1", "libsinsp_rules_sha8": "e3b75979", "ebpf_object_sha8": "95c923f1", "scap": "libscap-sysdig-modern-bpf", "auditd": "auditctl version 3.0.7"},
+    "matching": "all .91 bundles (file-op + um) match; MCAW102/202/401 + all twins match",
+    "divergent": {"landers": ["MCAW101", "MCAW201", "MCAW402"], "field": "libsinsp rules.sha256 = 30982105 (poisoned only; their twins match e3b75979)", "action": "ISOLATED into a separate expanded-only stratum, never pooled; also their normalized stream yields 0 sequence_eligible syscalls, corroborating the divergence"},
+    "attestation_gap": {"lander": "MUI06_w4_agents_post_mirror_um__clean", "issue": "five_source_graph_bridge.json absent (NOBRIDGE); its poisoned sibling and all batchmates match lineage; retained with this note"}
+  },
+  "substrate_a": {
+    "population": {"positives": 27, "negatives": 54, "locked_pos": 17, "locked_neg": 43,
+      "new_positive_operations": 10, "new_landers": 9,
+      "new_positive_breakdown": "MUI 6 landers/6 ops; MCAW 3 landers/4 ops (MCAW401 has 2 marker files)",
+      "new_negatives": 11, "cv_scenarios": 18, "excluded_new": 0},
+    "cv": "leave-one-scenario-out; channel/profile variants of one base case share a fold; new base scenarios = tools_cred_relay_um, agents_post_mirror_um, automerge_instruction_backdoor, citation_tool_redirect, engagement_persona_drift",
+    "power_mdes": {"auc_mdes": 0.6889, "majority_class_floor": 0.6667, "null_se": 0.0685, "frozen_before_modelling": true},
+    "overlap_profile": {"A1": {"F1": 0.6593, "F2": 0.0293, "N1": 0.1790, "N2": 0.3265, "N3": 0.3951, "T1": 0.5185},
+      "reading": "N3 0.3951 vs majority-error floor 0.3333 -> LOO-1NN does worse than base rate; substrate carries little separating structure at the expanded N. Locked-pop had N3 0.20."},
+    "supervised_cv_auc": {
+      "A1_l1_logreg": {"auc": 0.8176, "ci": [0.7455, 0.897], "tpr_at_B1_fpr": 0.4815, "tpr_at_B2_fpr": 0.7778},
+      "A2_l1_logreg": {"auc": 0.7682, "ci": [0.7026, 0.8399], "tpr_at_B1_fpr": 0.4074},
+      "A3_l1_logreg": {"auc": 0.7860, "ci": [0.7092, 0.8655], "tpr_at_B1_fpr": 0.4074, "tpr_at_B2_fpr": 0.6296},
+      "A4_abs_delta_size": {"auc": 0.7671, "ci": [0.6772, 0.8506], "tpr_at_B1_fpr": 0.4444, "tpr_at_B2_fpr": 0.5926},
+      "trees": {"A1_cart": 0.6392, "A1_figs": 0.6955, "A3_cart": 0.6653, "A3_figs": 0.7095}
+    },
+    "controls": {
+      "C1a_global_perm": {"A3_l1": 0.3793, "range": "0.27-0.48 (<=0.5, ok)"},
+      "C1b_within_scenario_perm": {"A3_l1": 0.5460, "range": "0.38-0.58"},
+      "C2_marker_placebo": {"placebo_positives": "24 of 54 clean rows",
+        "figs_A3": {"auc": 0.8125, "ci": [0.6643, 0.9307]}, "cart_A2": {"auc": 0.7792, "ci": [0.6459, 0.8896]},
+        "figs_A2": {"auc": 0.7875, "ci": [0.6697, 0.8978]},
+        "l1_A2": {"auc": 0.6292, "ci": [0.459, 0.7922]}, "l1_A3": {"auc": 0.6083, "ci": [0.428, 0.7708]},
+        "A4_abs_delta_size": {"auc": 0.3542, "ci": [0.2106, 0.5263]},
+        "reading": "trees VOID (CI excludes 0.5); abs_delta_size / L1 survive (CI includes 0.5)"},
+      "C3_positive_control": {"A3_l1": {"auc": 0.8505, "ci": [0.7627, 0.935]}, "reading": "harness recovers an injected effect; a null is not a broken harness"}
+    },
+    "readable_rule": {"A3_l1_standardised_coefficients": {"abs_delta_size": 0.9813, "n_writes": -0.3143, "size_after": 0.1452, "delta_size": 0.0976},
+      "named_rule": "alert iff |Delta_size| >= t on a self-state write; still the single surviving named feature"},
+    "op_signature_slice_positives": {
+      "lockedpop": {"n": 17, "abs_delta_size_min_med_max": [184, 259, 396]},
+      "MUI": {"n": 6, "abs_delta_size_min_med_max": [231, 275, 323], "underpowered": true},
+      "MCAW": {"n": 4, "abs_delta_size_min_med_max": [122, 149, 357], "underpowered": true,
+        "note": "MCAW content injections (automerge backdoor 122, citation redirect 145) fall BELOW the locked-pop floor of 184, inside the clean write-size band; this is the real driver of the N3 rise and AUC drop, corroborated across overlap + AUC, though the per-family cell is underpowered (n<8)"},
+      "file_op": {"n": 0, "status": "N/A for substrate A (no resolved marker write)"},
+      "MUC": {"n": 0, "status": "N/A for substrate A (openclaw.json atomic rename unresolved)"}
+    },
+    "paired_vs_b1b2": {
+      "b1b2_scorer_validation": "re-fit on expanded clean pool; reproduces frozen locked-pop operating points EXACTLY (B1 TPR 0.3529/FPR 0.1395; B2 TPR 0.3529/FPR 0.2093)",
+      "operating_points_expanded": {"B1": {"TPR": 0.2963, "FPR": 0.1296}, "B2": {"TPR": 0.3333, "FPR": 0.3519}, "ours_abs_delta_size": {"TPR": 0.4444, "FPR": 0.1481}},
+      "mcnemar_vs_B1": {"attack_side": {"ours_only": 8, "theirs_only": 4, "p": 0.3877}, "clean_side": {"ours_only": 7, "theirs_only": 6, "p": 1.0}},
+      "mcnemar_vs_B2": {"attack_side": {"ours_only": 8, "theirs_only": 5, "p": 0.5811}, "clean_side": {"ours_only": 3, "theirs_only": 14, "p": 0.0127, "note": "favours ours but driven by B2 per-profile baseline degrading to FPR 0.352 at this N, not a detection gain"}},
+      "verdict": "attack-side non-separability HOLDS at the larger N; supervised does not beat unsupervised on detection"
+    }
+  },
+  "substrate_b": {
+    "pooled_population": {"runs": 116, "poisoned": 58, "clean": 58, "scenarios": 35,
+      "pairs": "locked-pop 17 + um 12 (MUI6+MUC6) + file-op 26 + MCAW 3 (co-admissible)"},
+    "ngram": {"n": 6, "min_df": 2, "vocab": "train-fold only", "eligibility": "sequence_eligible AND syscall.success"},
+    "results": {"l1_logreg": {"auc": 0.4325, "ci": [0.3283, 0.5497]}, "rulefit": {"auc": 0.4557, "ci": [0.3672, 0.5419]}},
+    "control_C1a_permuted": {"l1_logreg": 0.6736, "rulefit": 0.6442,
+      "caveat": "at 116 runs over 35 folds the permuted AUC has very large variance (as in the locked-pop run); the control establishes no systematic leak, not a tight calibration"},
+    "volume_diagnostic": {"eligible_syscalls_median": {"poisoned": 5925.5, "clean": 6160.5}, "unique_ngrams_median": {"poisoned": 686.0, "clean": 682.0}, "reading": "volume-matched; nothing could separate on run size"},
+    "brl_status": "NON-TERMINATING: BayesianRuleListClassifier did not converge within a 500s wall-clock bound on the pooled set (116 runs); dropped. Same caveat class as the locked-pop CORELS substitution — a null here means 'these searches (L1-LR, RuleFit) found no rule', not 'no rule exists'.",
+    "isolated_divergent_stratum": {"runs": 6, "poisoned": 3, "clean": 3, "landers": ["MCAW101", "MCAW201", "MCAW402"], "note": "not fit (underpowered + lineage-divergent); poisoned runs yield 0 sequence_eligible syscalls under the divergent rules"},
+    "verdict": "No supervised signal on the n-gram substrate at the expanded N (AUC below chance, volume-matched) — non-separability holds; consistent with locked-pop."
+  },
+  "reproducibility": {"global_rng_seed_pinned_before_every_fit": true, "determinism_check": "passed on expanded matrix; FIGS defect (ignores random_state) mitigated by global-seed pin"},
+  "hard_guards_observed": [
+    "offline analysis host for all fitting; only VM interaction was the read-only pull",
+    "no .24, no capture, no config change, no git push",
+    "N/A (no resolved marker write) recorded as definability exclusion, not fabricated as positive",
+    "lineage-divergent MCAW isolated, not pooled silently",
+    "BRL bounded at 500s, not blocked indefinitely",
+    "no detector tuned on poisoned data beyond the pre-committed LOSO protocol"
+  ]
+}

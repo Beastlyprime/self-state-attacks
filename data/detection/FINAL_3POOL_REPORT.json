@@ -1,0 +1,1540 @@
+{
+  "schema_version": "assa.final_3pool_report.v3",
+  "created": "2026-08-25",
+  "manifest_content_address": "44c2b92d35fc",
+  "design": "user-approved codex 3-pool: clean TRAIN gen2-176 (fit only), natural clean TEST gen2-60 (FPR only, scenario-clustered), attack TEST 55 (+twins secondary). Supersedes leaky clean-40 leave-one-out.",
+  "independent_units": {
+    "clean": "20 held-out scenarios, 3 replicates each (60 executions)",
+    "attack": "52 folds for 55 confirmed attack landings",
+    "write_conditional_clean": "12 scenarios, 32 executions",
+    "no_write_clean": "11 scenarios, 28 executions",
+    "b1b2_definable_attack": "20 folds, 23 attack operations",
+    "unicorn_evaluable": "39 attack folds / 41 operations and 20 clean scenarios / 47 executions"
+  },
+  "uncertainty_policy": "Point estimates are per execution/attack operation. Confidence intervals resample the independent scenario or attack fold and retain all correlated observations. For boundary cells, cluster-any Wilson intervals are also reported because percentile bootstrap intervals degenerate when every cluster has the same outcome.",
+  "detectors": {
+    "AIDE": {
+      "tier": "snapshot delta",
+      "coverage": "55/55",
+      "tpr": {
+        "k": 52,
+        "n": 55,
+        "rate": 0.9455,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          0.875,
+          1.0
+        ],
+        "cluster_any_wilson": {
+          "k": 49,
+          "n": 52,
+          "rate": 0.9423,
+          "lo": 0.8436,
+          "hi": 0.9802
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 32,
+          "n": 60,
+          "rate": 0.5333,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.3333,
+            0.7333
+          ],
+          "cluster_any_wilson": {
+            "k": 12,
+            "n": 20,
+            "rate": 0.6,
+            "lo": 0.3866,
+            "hi": 0.7812
+          }
+        },
+        "write_conditional": {
+          "k": 32,
+          "n": 32,
+          "rate": 1.0,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            1.0,
+            1.0
+          ],
+          "cluster_any_wilson": {
+            "k": 12,
+            "n": 12,
+            "rate": 1.0,
+            "lo": 0.7575,
+            "hi": 1
+          }
+        },
+        "no_write": {
+          "k": 0,
+          "n": 28,
+          "rate": 0.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "cluster_any_wilson": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0,
+            "lo": 0,
+            "hi": 0.2588
+          }
+        }
+      }
+    },
+    "Falco": {
+      "tier": "rule based",
+      "coverage": "55/55",
+      "tpr": {
+        "k": 43,
+        "n": 55,
+        "rate": 0.7818,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          0.6667,
+          0.8868
+        ],
+        "cluster_any_wilson": {
+          "k": 40,
+          "n": 52,
+          "rate": 0.7692,
+          "lo": 0.6387,
+          "hi": 0.8628
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 21,
+          "n": 60,
+          "rate": 0.35,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.2,
+            0.4833
+          ],
+          "cluster_any_wilson": {
+            "k": 11,
+            "n": 20,
+            "rate": 0.55,
+            "lo": 0.3421,
+            "hi": 0.7418
+          }
+        },
+        "write_conditional": {
+          "k": 21,
+          "n": 32,
+          "rate": 0.6562,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            0.5862,
+            0.7188
+          ],
+          "cluster_any_wilson": {
+            "k": 11,
+            "n": 12,
+            "rate": 0.9167,
+            "lo": 0.6461,
+            "hi": 0.9851
+          }
+        },
+        "no_write": {
+          "k": 0,
+          "n": 28,
+          "rate": 0.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "cluster_any_wilson": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0,
+            "lo": 0,
+            "hi": 0.2588
+          }
+        }
+      },
+      "provenance": "55 attack rows materialized from frozen D2 38 + D2-.69 6 + W3 11; fresh clean replay",
+      "version": "0.44.0",
+      "threshold": "one qualifying canonical self-state mutation rule event",
+      "falco_config_sha256": "e991fbe11a012497560255e137004694b51ef3f488dff30e3f01a331155aa5a2",
+      "scorer_config_sha256": "af945357011ac4ab582e212d9f0af0175593a64e5a9f65eb384e34ba4744bedf",
+      "binary_sha256": "bfe9aa94ef68bbd1a9be0e2fb8e143ce178f4405c406aab305e1bf8ad9c09f3a"
+    },
+    "STIDE": {
+      "tier": "sequence anomaly",
+      "coverage": "55/55",
+      "tpr": {
+        "k": 55,
+        "n": 55,
+        "rate": 1.0,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          1.0,
+          1.0
+        ],
+        "cluster_any_wilson": {
+          "k": 52,
+          "n": 52,
+          "rate": 1.0,
+          "lo": 0.9312,
+          "hi": 1
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 58,
+          "n": 60,
+          "rate": 0.9667,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.9167,
+            1.0
+          ],
+          "cluster_any_wilson": {
+            "k": 20,
+            "n": 20,
+            "rate": 1.0,
+            "lo": 0.8389,
+            "hi": 1
+          }
+        },
+        "write_conditional": {
+          "k": 32,
+          "n": 32,
+          "rate": 1.0,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            1.0,
+            1.0
+          ],
+          "cluster_any_wilson": {
+            "k": 12,
+            "n": 12,
+            "rate": 1.0,
+            "lo": 0.7575,
+            "hi": 1
+          }
+        },
+        "no_write": {
+          "k": 26,
+          "n": 28,
+          "rate": 0.9286,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.8333,
+            1.0
+          ],
+          "cluster_any_wilson": {
+            "k": 11,
+            "n": 11,
+            "rate": 1.0,
+            "lo": 0.7412,
+            "hi": 1
+          }
+        }
+      },
+      "stream_policy": "frozen per-run selection: 54 resolution_spine_effective + MCAW402 normalized"
+    },
+    "UNICORN": {
+      "tier": "provenance graph anomaly",
+      "coverage": "41/55 attack; 47/60 natural clean; 134/176 training sketches",
+      "tpr": {
+        "k": 35,
+        "n": 41,
+        "rate": 0.8537,
+        "n_clusters": 39,
+        "cluster_bootstrap_ci95": [
+          0.7317,
+          0.9512
+        ],
+        "cluster_any_wilson": {
+          "k": 33,
+          "n": 39,
+          "rate": 0.8462,
+          "lo": 0.7027,
+          "hi": 0.9275
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 35,
+          "n": 47,
+          "rate": 0.7447,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.5366,
+            0.9149
+          ],
+          "cluster_any_wilson": {
+            "k": 14,
+            "n": 20,
+            "rate": 0.7,
+            "lo": 0.481,
+            "hi": 0.8545
+          }
+        },
+        "write_conditional": {
+          "k": 27,
+          "n": 27,
+          "rate": 1.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            1.0,
+            1.0
+          ],
+          "cluster_any_wilson": {
+            "k": 11,
+            "n": 11,
+            "rate": 1.0,
+            "lo": 0.7412,
+            "hi": 1
+          }
+        },
+        "no_write": {
+          "k": 8,
+          "n": 20,
+          "rate": 0.4,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.1364,
+            0.7222
+          ],
+          "cluster_any_wilson": {
+            "k": 5,
+            "n": 11,
+            "rate": 0.4545,
+            "lo": 0.2127,
+            "hi": 0.7199
+          }
+        }
+      },
+      "score_distribution_test": {
+        "attack_n": 39,
+        "clean_n": 20,
+        "independent_unit": "attack fold / clean scenario; replicate scores averaged within unit",
+        "p_two_sided": 0.04343149692678279,
+        "score": "minimum STD at which official grid verdict becomes NORMAL (5.0 right-censored)",
+        "status": "computed",
+        "u": 514.0
+      },
+      "per_profile": {
+        "W1": {
+          "attack_coverage": "10/14",
+          "clean_coverage": "11/15",
+          "fpr_natural": {
+            "cluster_any_wilson": {
+              "hi": 0.43448246478317476,
+              "k": 0,
+              "lo": 0,
+              "n": 5,
+              "rate": 0.0
+            },
+            "cluster_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "k": 0,
+            "n": 11,
+            "n_clusters": 5,
+            "rate": 0.0
+          },
+          "score_distribution_test": {
+            "attack_n": 10,
+            "clean_n": 5,
+            "independent_unit": "attack fold / clean scenario",
+            "p_two_sided": 0.0034087051005568156,
+            "score": "minimum STD at which official grid verdict becomes NORMAL (5.0 right-censored)",
+            "status": "computed",
+            "u": 49.0
+          },
+          "tpr": {
+            "cluster_any_wilson": {
+              "hi": 0.6873262302663417,
+              "k": 4,
+              "lo": 0.16818032970623614,
+              "n": 10,
+              "rate": 0.4
+            },
+            "cluster_bootstrap_ci95": [
+              0.1,
+              0.7
+            ],
+            "k": 4,
+            "n": 10,
+            "n_clusters": 10,
+            "rate": 0.4
+          }
+        },
+        "W2": {
+          "attack_coverage": "11/14",
+          "clean_coverage": "14/15",
+          "fpr_natural": {
+            "cluster_any_wilson": {
+              "hi": 1,
+              "k": 5,
+              "lo": 0.5655175352168251,
+              "n": 5,
+              "rate": 1.0
+            },
+            "cluster_bootstrap_ci95": [
+              1.0,
+              1.0
+            ],
+            "k": 14,
+            "n": 14,
+            "n_clusters": 5,
+            "rate": 1.0
+          },
+          "score_distribution_test": {
+            "attack_n": 11,
+            "clean_n": 5,
+            "independent_unit": "attack fold / clean scenario",
+            "p_two_sided": 0.13167991485846467,
+            "score": "minimum STD at which official grid verdict becomes NORMAL (5.0 right-censored)",
+            "status": "computed",
+            "u": 41.0
+          },
+          "tpr": {
+            "cluster_any_wilson": {
+              "hi": 1,
+              "k": 11,
+              "lo": 0.7411670330319684,
+              "n": 11,
+              "rate": 1.0
+            },
+            "cluster_bootstrap_ci95": [
+              1.0,
+              1.0
+            ],
+            "k": 11,
+            "n": 11,
+            "n_clusters": 11,
+            "rate": 1.0
+          }
+        },
+        "W3": {
+          "attack_coverage": "9/13",
+          "clean_coverage": "13/15",
+          "fpr_natural": {
+            "cluster_any_wilson": {
+              "hi": 1,
+              "k": 5,
+              "lo": 0.5655175352168251,
+              "n": 5,
+              "rate": 1.0
+            },
+            "cluster_bootstrap_ci95": [
+              1.0,
+              1.0
+            ],
+            "k": 13,
+            "n": 13,
+            "n_clusters": 5,
+            "rate": 1.0
+          },
+          "score_distribution_test": {
+            "attack_n": 7,
+            "clean_n": 5,
+            "independent_unit": "attack fold / clean scenario",
+            "p_two_sided": 1.0,
+            "score": "minimum STD at which official grid verdict becomes NORMAL (5.0 right-censored)",
+            "status": "computed",
+            "u": 18.0
+          },
+          "tpr": {
+            "cluster_any_wilson": {
+              "hi": 1,
+              "k": 7,
+              "lo": 0.6456695649333126,
+              "n": 7,
+              "rate": 1.0
+            },
+            "cluster_bootstrap_ci95": [
+              1.0,
+              1.0
+            ],
+            "k": 9,
+            "n": 9,
+            "n_clusters": 7,
+            "rate": 1.0
+          }
+        },
+        "W4": {
+          "attack_coverage": "11/14",
+          "clean_coverage": "9/15",
+          "fpr_natural": {
+            "cluster_any_wilson": {
+              "hi": 0.9637758913675698,
+              "k": 4,
+              "lo": 0.37553462976252533,
+              "n": 5,
+              "rate": 0.8
+            },
+            "cluster_bootstrap_ci95": [
+              0.5714285714285714,
+              1.0
+            ],
+            "k": 8,
+            "n": 9,
+            "n_clusters": 5,
+            "rate": 0.8888888888888888
+          },
+          "score_distribution_test": {
+            "attack_n": 11,
+            "clean_n": 5,
+            "independent_unit": "attack fold / clean scenario",
+            "p_two_sided": 0.14874531700732022,
+            "score": "minimum STD at which official grid verdict becomes NORMAL (5.0 right-censored)",
+            "status": "computed",
+            "u": 40.5
+          },
+          "tpr": {
+            "cluster_any_wilson": {
+              "hi": 1,
+              "k": 11,
+              "lo": 0.7411670330319684,
+              "n": 11,
+              "rate": 1.0
+            },
+            "cluster_bootstrap_ci95": [
+              1.0,
+              1.0
+            ],
+            "k": 11,
+            "n": 11,
+            "n_clusters": 11,
+            "rate": 1.0
+          }
+        }
+      },
+      "interpretability_gate": {
+        "data_insufficient": {
+          "all": 27,
+          "attack": 14,
+          "clean": 13,
+          "heldout_total": 115
+        },
+        "passed": true,
+        "rule": "data_insufficient < 50% of all held-out test graphs"
+      },
+      "preregistered_outcome": {
+        "absolute_tpr_fpr_delta_le_0_20": true,
+        "falsification_condition_tpr_minus_fpr_gt_0_20_and_p_lt_0_05": false,
+        "pooled_cluster_level_score_distributions_not_distinguishable_at_0_05": false,
+        "reading": "mixed: the operating-point delta is within 0.20, but cluster-level boundary scores differ; the preregistered falsification condition is not met"
+      },
+      "generation": "p2_unicorn_role_typing_gen5_final_3pool_amended_v1_1_20260825"
+    },
+    "ours_B1_pooled": {
+      "tier": "write size and timing",
+      "definable_n": 23,
+      "definable_folds": 20,
+      "conditional_tpr": {
+        "k": 19,
+        "n": 23,
+        "rate": 0.8261,
+        "n_clusters": 20,
+        "cluster_bootstrap_ci95": [
+          0.5926,
+          1.0
+        ],
+        "cluster_any_wilson": {
+          "k": 18,
+          "n": 20,
+          "rate": 0.9,
+          "lo": 0.699,
+          "hi": 0.9721
+        }
+      },
+      "end_to_end_recall_55": {
+        "k": 19,
+        "n": 55,
+        "rate": 0.3455,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          0.2182,
+          0.4815
+        ],
+        "cluster_any_wilson": {
+          "k": 18,
+          "n": 52,
+          "rate": 0.3462,
+          "lo": 0.2315,
+          "hi": 0.482
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 10,
+          "n": 60,
+          "rate": 0.1667,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.05,
+            0.3167
+          ],
+          "cluster_any_wilson": {
+            "k": 6,
+            "n": 20,
+            "rate": 0.3,
+            "lo": 0.1455,
+            "hi": 0.519
+          }
+        },
+        "write_conditional": {
+          "k": 10,
+          "n": 32,
+          "rate": 0.3125,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            0.1111,
+            0.5333
+          ],
+          "cluster_any_wilson": {
+            "k": 6,
+            "n": 12,
+            "rate": 0.5,
+            "lo": 0.2538,
+            "hi": 0.7462
+          }
+        },
+        "no_write": {
+          "k": 0,
+          "n": 28,
+          "rate": 0.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "cluster_any_wilson": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0,
+            "lo": 0,
+            "hi": 0.2588
+          }
+        }
+      }
+    },
+    "ours_B2_per_profile": {
+      "tier": "write size and timing",
+      "definable_n": 23,
+      "definable_folds": 20,
+      "conditional_tpr": {
+        "k": 20,
+        "n": 23,
+        "rate": 0.8696,
+        "n_clusters": 20,
+        "cluster_bootstrap_ci95": [
+          0.7083,
+          1.0
+        ],
+        "cluster_any_wilson": {
+          "k": 19,
+          "n": 20,
+          "rate": 0.95,
+          "lo": 0.7639,
+          "hi": 0.9911
+        }
+      },
+      "end_to_end_recall_55": {
+        "k": 20,
+        "n": 55,
+        "rate": 0.3636,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          0.2407,
+          0.4912
+        ],
+        "cluster_any_wilson": {
+          "k": 19,
+          "n": 52,
+          "rate": 0.3654,
+          "lo": 0.248,
+          "hi": 0.5013
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 7,
+          "n": 60,
+          "rate": 0.1167,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.2667
+          ],
+          "cluster_any_wilson": {
+            "k": 3,
+            "n": 20,
+            "rate": 0.15,
+            "lo": 0.0524,
+            "hi": 0.3604
+          }
+        },
+        "write_conditional": {
+          "k": 7,
+          "n": 32,
+          "rate": 0.2188,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.4688
+          ],
+          "cluster_any_wilson": {
+            "k": 3,
+            "n": 12,
+            "rate": 0.25,
+            "lo": 0.0889,
+            "hi": 0.5323
+          }
+        },
+        "no_write": {
+          "k": 0,
+          "n": 28,
+          "rate": 0.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "cluster_any_wilson": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0,
+            "lo": 0,
+            "hi": 0.2588
+          }
+        }
+      }
+    },
+    "Supervised_L1_Logistic": {
+      "tier": "supervised write size and timing",
+      "coverage": "23/55",
+      "training": {
+        "benign_executions": 176,
+        "malicious_executions": 23,
+        "attack_evaluation": "randomized_five_fold_scenario_grouped_cross_validation",
+        "outer_random_seed": 20260825,
+        "outer_stratification": "approximately_by_workload_profile",
+        "outer_fold_composition": [
+          {
+            "fold": 1,
+            "attack_executions": 5,
+            "attack_scenarios": 3,
+            "heldout_scenarios": [
+              "scn::C512_w3_audit_rotate_runbook",
+              "scn::MCAW201_w2_model_q_false_memory",
+              "scn::MUI02_w1_agents_post_mirror_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 3
+            },
+            "by_op_signature": {
+              "content_injection": 4,
+              "um_inst": 1
+            }
+          },
+          {
+            "fold": 2,
+            "attack_executions": 5,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C514_w3_slack_post_vendor_package",
+              "scn::MUI01_w1_tools_cred_relay_um",
+              "scn::MUI04_w2_agents_post_mirror_um",
+              "scn::MUI05_w4_tools_cred_relay_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 2,
+              "um_inst": 3
+            }
+          },
+          {
+            "fold": 3,
+            "attack_executions": 4,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C510_w3_db_query_vendor_package",
+              "scn::C531_w3_release_notes_tool_integration",
+              "scn::MCAW102_w1_automerge_instruction_backdoor",
+              "scn::MUI06_w4_agents_post_mirror_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 3,
+              "um_inst": 1
+            }
+          },
+          {
+            "fold": 4,
+            "attack_executions": 4,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C521_w3_metrics_scrape_integration",
+              "scn::C530_w3_heartbeat_liveness_policy",
+              "scn::MCAW202_w2_citation_tool_redirect",
+              "scn::MCAW402_w4_blanket_approval_false_memory"
+            ],
+            "by_profile": {
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 4
+            }
+          },
+          {
+            "fold": 5,
+            "attack_executions": 5,
+            "attack_scenarios": 5,
+            "heldout_scenarios": [
+              "scn::C515_w3_vector_search_repo_rules",
+              "scn::C520_w3_alert_webhook_runbook",
+              "scn::MCAW101_w1_release_helper_tool_redirect",
+              "scn::MCAW401_w4_engagement_persona_drift",
+              "scn::MUI03_w2_tools_cred_relay_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 4,
+              "um_inst": 1
+            }
+          }
+        ],
+        "threshold_selection": "maximum_Youden_J_on_5fold_scenario_grouped_training_predictions",
+        "heldout_natural_workload_used_for_training_or_threshold": false,
+        "matched_twins_used_for_training": false
+      },
+      "feature_variant": "A1",
+      "conditional_tpr": {
+        "k": 15,
+        "n": 23,
+        "rate": 0.6522,
+        "n_clusters": 20,
+        "cluster_bootstrap_ci95": [
+          0.4167,
+          0.9
+        ],
+        "cluster_any_wilson": {
+          "k": 14,
+          "n": 20,
+          "rate": 0.7,
+          "lo": 0.481,
+          "hi": 0.8545
+        }
+      },
+      "end_to_end_recall_55": {
+        "k": 15,
+        "n": 55,
+        "rate": 0.2727,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          0.1538,
+          0.4
+        ],
+        "cluster_any_wilson": {
+          "k": 14,
+          "n": 52,
+          "rate": 0.2692,
+          "lo": 0.1677,
+          "hi": 0.4025
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 7,
+          "n": 60,
+          "rate": 0.1167,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.05,
+            0.2
+          ],
+          "cluster_any_wilson": {
+            "k": 6,
+            "n": 20,
+            "rate": 0.3,
+            "lo": 0.1455,
+            "hi": 0.519
+          }
+        },
+        "write_conditional": {
+          "k": 7,
+          "n": 32,
+          "rate": 0.2188,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            0.0938,
+            0.3529
+          ],
+          "cluster_any_wilson": {
+            "k": 6,
+            "n": 12,
+            "rate": 0.5,
+            "lo": 0.2538,
+            "hi": 0.7462
+          }
+        },
+        "no_write": {
+          "k": 0,
+          "n": 28,
+          "rate": 0.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "cluster_any_wilson": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0,
+            "lo": 0,
+            "hi": 0.2588
+          }
+        }
+      },
+      "auc_status": "not_reported_scores_come_from_distinct_outer_models"
+    },
+    "Supervised_CART": {
+      "tier": "supervised write size and timing",
+      "coverage": "23/55",
+      "training": {
+        "benign_executions": 176,
+        "malicious_executions": 23,
+        "attack_evaluation": "randomized_five_fold_scenario_grouped_cross_validation",
+        "outer_random_seed": 20260825,
+        "outer_stratification": "approximately_by_workload_profile",
+        "outer_fold_composition": [
+          {
+            "fold": 1,
+            "attack_executions": 5,
+            "attack_scenarios": 3,
+            "heldout_scenarios": [
+              "scn::C512_w3_audit_rotate_runbook",
+              "scn::MCAW201_w2_model_q_false_memory",
+              "scn::MUI02_w1_agents_post_mirror_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 3
+            },
+            "by_op_signature": {
+              "content_injection": 4,
+              "um_inst": 1
+            }
+          },
+          {
+            "fold": 2,
+            "attack_executions": 5,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C514_w3_slack_post_vendor_package",
+              "scn::MUI01_w1_tools_cred_relay_um",
+              "scn::MUI04_w2_agents_post_mirror_um",
+              "scn::MUI05_w4_tools_cred_relay_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 2,
+              "um_inst": 3
+            }
+          },
+          {
+            "fold": 3,
+            "attack_executions": 4,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C510_w3_db_query_vendor_package",
+              "scn::C531_w3_release_notes_tool_integration",
+              "scn::MCAW102_w1_automerge_instruction_backdoor",
+              "scn::MUI06_w4_agents_post_mirror_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 3,
+              "um_inst": 1
+            }
+          },
+          {
+            "fold": 4,
+            "attack_executions": 4,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C521_w3_metrics_scrape_integration",
+              "scn::C530_w3_heartbeat_liveness_policy",
+              "scn::MCAW202_w2_citation_tool_redirect",
+              "scn::MCAW402_w4_blanket_approval_false_memory"
+            ],
+            "by_profile": {
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 4
+            }
+          },
+          {
+            "fold": 5,
+            "attack_executions": 5,
+            "attack_scenarios": 5,
+            "heldout_scenarios": [
+              "scn::C515_w3_vector_search_repo_rules",
+              "scn::C520_w3_alert_webhook_runbook",
+              "scn::MCAW101_w1_release_helper_tool_redirect",
+              "scn::MCAW401_w4_engagement_persona_drift",
+              "scn::MUI03_w2_tools_cred_relay_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 4,
+              "um_inst": 1
+            }
+          }
+        ],
+        "threshold_selection": "maximum_Youden_J_on_5fold_scenario_grouped_training_predictions",
+        "heldout_natural_workload_used_for_training_or_threshold": false,
+        "matched_twins_used_for_training": false
+      },
+      "feature_variant": "A1",
+      "conditional_tpr": {
+        "k": 15,
+        "n": 23,
+        "rate": 0.6522,
+        "n_clusters": 20,
+        "cluster_bootstrap_ci95": [
+          0.4194,
+          0.9
+        ],
+        "cluster_any_wilson": {
+          "k": 14,
+          "n": 20,
+          "rate": 0.7,
+          "lo": 0.481,
+          "hi": 0.8545
+        }
+      },
+      "end_to_end_recall_55": {
+        "k": 15,
+        "n": 55,
+        "rate": 0.2727,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          0.1538,
+          0.4
+        ],
+        "cluster_any_wilson": {
+          "k": 14,
+          "n": 52,
+          "rate": 0.2692,
+          "lo": 0.1677,
+          "hi": 0.4025
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 3,
+          "n": 60,
+          "rate": 0.05,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.1333
+          ],
+          "cluster_any_wilson": {
+            "k": 2,
+            "n": 20,
+            "rate": 0.1,
+            "lo": 0.0279,
+            "hi": 0.301
+          }
+        },
+        "write_conditional": {
+          "k": 3,
+          "n": 32,
+          "rate": 0.0938,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.2333
+          ],
+          "cluster_any_wilson": {
+            "k": 2,
+            "n": 12,
+            "rate": 0.1667,
+            "lo": 0.047,
+            "hi": 0.448
+          }
+        },
+        "no_write": {
+          "k": 0,
+          "n": 28,
+          "rate": 0.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "cluster_any_wilson": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0,
+            "lo": 0,
+            "hi": 0.2588
+          }
+        }
+      },
+      "auc_status": "not_reported_scores_come_from_distinct_outer_models"
+    },
+    "Supervised_FIGS": {
+      "tier": "supervised write size and timing",
+      "coverage": "23/55",
+      "training": {
+        "benign_executions": 176,
+        "malicious_executions": 23,
+        "attack_evaluation": "randomized_five_fold_scenario_grouped_cross_validation",
+        "outer_random_seed": 20260825,
+        "outer_stratification": "approximately_by_workload_profile",
+        "outer_fold_composition": [
+          {
+            "fold": 1,
+            "attack_executions": 5,
+            "attack_scenarios": 3,
+            "heldout_scenarios": [
+              "scn::C512_w3_audit_rotate_runbook",
+              "scn::MCAW201_w2_model_q_false_memory",
+              "scn::MUI02_w1_agents_post_mirror_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 3
+            },
+            "by_op_signature": {
+              "content_injection": 4,
+              "um_inst": 1
+            }
+          },
+          {
+            "fold": 2,
+            "attack_executions": 5,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C514_w3_slack_post_vendor_package",
+              "scn::MUI01_w1_tools_cred_relay_um",
+              "scn::MUI04_w2_agents_post_mirror_um",
+              "scn::MUI05_w4_tools_cred_relay_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 2,
+              "um_inst": 3
+            }
+          },
+          {
+            "fold": 3,
+            "attack_executions": 4,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C510_w3_db_query_vendor_package",
+              "scn::C531_w3_release_notes_tool_integration",
+              "scn::MCAW102_w1_automerge_instruction_backdoor",
+              "scn::MUI06_w4_agents_post_mirror_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 3,
+              "um_inst": 1
+            }
+          },
+          {
+            "fold": 4,
+            "attack_executions": 4,
+            "attack_scenarios": 4,
+            "heldout_scenarios": [
+              "scn::C521_w3_metrics_scrape_integration",
+              "scn::C530_w3_heartbeat_liveness_policy",
+              "scn::MCAW202_w2_citation_tool_redirect",
+              "scn::MCAW402_w4_blanket_approval_false_memory"
+            ],
+            "by_profile": {
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 4
+            }
+          },
+          {
+            "fold": 5,
+            "attack_executions": 5,
+            "attack_scenarios": 5,
+            "heldout_scenarios": [
+              "scn::C515_w3_vector_search_repo_rules",
+              "scn::C520_w3_alert_webhook_runbook",
+              "scn::MCAW101_w1_release_helper_tool_redirect",
+              "scn::MCAW401_w4_engagement_persona_drift",
+              "scn::MUI03_w2_tools_cred_relay_um"
+            ],
+            "by_profile": {
+              "W1": 1,
+              "W2": 1,
+              "W3": 2,
+              "W4": 1
+            },
+            "by_op_signature": {
+              "content_injection": 4,
+              "um_inst": 1
+            }
+          }
+        ],
+        "threshold_selection": "maximum_Youden_J_on_5fold_scenario_grouped_training_predictions",
+        "heldout_natural_workload_used_for_training_or_threshold": false,
+        "matched_twins_used_for_training": false
+      },
+      "feature_variant": "A1",
+      "conditional_tpr": {
+        "k": 13,
+        "n": 23,
+        "rate": 0.5652,
+        "n_clusters": 20,
+        "cluster_bootstrap_ci95": [
+          0.3478,
+          0.8
+        ],
+        "cluster_any_wilson": {
+          "k": 13,
+          "n": 20,
+          "rate": 0.65,
+          "lo": 0.4329,
+          "hi": 0.8188
+        }
+      },
+      "end_to_end_recall_55": {
+        "k": 13,
+        "n": 55,
+        "rate": 0.2364,
+        "n_clusters": 52,
+        "cluster_bootstrap_ci95": [
+          0.1296,
+          0.3571
+        ],
+        "cluster_any_wilson": {
+          "k": 13,
+          "n": 52,
+          "rate": 0.25,
+          "lo": 0.1523,
+          "hi": 0.3821
+        }
+      },
+      "fpr_natural": {
+        "overall": {
+          "k": 3,
+          "n": 60,
+          "rate": 0.05,
+          "n_clusters": 20,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.1333
+          ],
+          "cluster_any_wilson": {
+            "k": 2,
+            "n": 20,
+            "rate": 0.1,
+            "lo": 0.0279,
+            "hi": 0.301
+          }
+        },
+        "write_conditional": {
+          "k": 3,
+          "n": 32,
+          "rate": 0.0938,
+          "n_clusters": 12,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.2333
+          ],
+          "cluster_any_wilson": {
+            "k": 2,
+            "n": 12,
+            "rate": 0.1667,
+            "lo": 0.047,
+            "hi": 0.448
+          }
+        },
+        "no_write": {
+          "k": 0,
+          "n": 28,
+          "rate": 0.0,
+          "n_clusters": 11,
+          "cluster_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "cluster_any_wilson": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0,
+            "lo": 0,
+            "hi": 0.2588
+          }
+        }
+      },
+      "auc_status": "not_reported_scores_come_from_distinct_outer_models"
+    }
+  },
+  "balanced_ablation": {
+    "design": "35/profile x4 =140 reseeded; B1 pooled-140 vs B2 profile-140; TPR on 23 definable, FPR on gen2-60",
+    "seeds": [
+      {
+        "seed": 11,
+        "n_bal": 140,
+        "B1_140": {
+          "tpr": "19/23",
+          "fpr": "11/60"
+        },
+        "B2_140": {
+          "tpr": "20/23",
+          "fpr": "8/60"
+        }
+      },
+      {
+        "seed": 23,
+        "n_bal": 140,
+        "B1_140": {
+          "tpr": "18/23",
+          "fpr": "10/60"
+        },
+        "B2_140": {
+          "tpr": "20/23",
+          "fpr": "8/60"
+        }
+      },
+      {
+        "seed": 42,
+        "n_bal": 140,
+        "B1_140": {
+          "tpr": "18/23",
+          "fpr": "10/60"
+        },
+        "B2_140": {
+          "tpr": "20/23",
+          "fpr": "7/60"
+        }
+      },
+      {
+        "seed": 101,
+        "n_bal": 140,
+        "B1_140": {
+          "tpr": "18/23",
+          "fpr": "10/60"
+        },
+        "B2_140": {
+          "tpr": "20/23",
+          "fpr": "8/60"
+        }
+      },
+      {
+        "seed": 2026,
+        "n_bal": 140,
+        "B1_140": {
+          "tpr": "18/23",
+          "fpr": "10/60"
+        },
+        "B2_140": {
+          "tpr": "20/23",
+          "fpr": "7/60"
+        }
+      }
+    ]
+  },
+  "matched_control_analysis": {
+    "status": "secondary_write_resolved_subset",
+    "scope": "canonical 23/55 write-resolved attacks and 23 recovered matched twins; 20 independent scenarios",
+    "population": {
+      "positives_canonical23": 23,
+      "twin_negatives_recovered": 23,
+      "twin_recovery_note": "11 W3 content_append twins recovered from the frozen locked-pop source; MUI06 recovered from an additional local frozen source rather than the primary staged twin pool; 6 MCAW + 5 MUI full",
+      "gen2_60_negatives": 60,
+      "gen2_60_with_size_valid_write": 18,
+      "substrate_a_unit": "per run: max-|\u0394size| self-state write op (the op the size detector keys on)"
+    },
+    "b1b2_validation": {
+      "status": "passed",
+      "b1_attack_flagged": "19/23",
+      "b2_attack_flagged": "20/23",
+      "b1_gen2_60_flagged": "10/60",
+      "b2_gen2_60_flagged": "7/60",
+      "reference": "scored_ours_3pool.json"
+    },
+    "twin_base": {
+      "N": {
+        "pos": 23,
+        "neg_twin": 23,
+        "scenarios": 20
+      },
+      "nested_cv_auc": 0.5983,
+      "auc_ci95": [
+        0.4597,
+        0.7415
+      ],
+      "operating_point": {
+        "TPR": 0.4348,
+        "FPR_twin": 0.1739,
+        "fpr_target_matched_to_B1_gen2": 0.1667
+      },
+      "paired_mcnemar_vs_b1b2": {
+        "B1": {
+          "theirs_TPR": 0.8261,
+          "theirs_FPR_twin": 0.8261,
+          "attack_side": {
+            "b_ours_only": 2,
+            "c_theirs_only": 11,
+            "n_discordant": 13,
+            "p_value": 0.0225
+          },
+          "twin_side": {
+            "b_ours_only": 1,
+            "c_theirs_only": 16,
+            "n_discordant": 17,
+            "p_value": 0.0003
+          }
+        },
+        "B2": {
+          "theirs_TPR": 0.8696,
+          "theirs_FPR_twin": 0.8696,
+          "attack_side": {
+            "b_ours_only": 1,
+            "c_theirs_only": 11,
+            "n_discordant": 12,
+            "p_value": 0.0063
+          },
+          "twin_side": {
+            "b_ours_only": 1,
+            "c_theirs_only": 17,
+            "n_discordant": 18,
+            "p_value": 0.0001
+          }
+        }
+      },
+      "controls": {
+        "C1a_global_perm_auc": 0.4121,
+        "C1b_within_perm_auc": 0.4234,
+        "C2_workload_placebo_auc": 0.8152,
+        "C2_note": "twin(=attack-scenario clean) vs gen2-60(natural clean); >0.5 \u21d2 workload confound in the FPR comparison",
+        "C3_positive_auc": 0.6975,
+        "identity_ablation": {
+          "A1_with_identity_l1": 0.6616,
+          "A3_core_l1": 0.6616,
+          "A4_absdsize_l1": 0.656
+        }
+      }
+    },
+    "gen2_60_base": {
+      "N": {
+        "pos": 23,
+        "neg_gen2_60": 60
+      },
+      "abs_delta_size_threshold": 338.0,
+      "supervised_TPR": 0.1304,
+      "supervised_FPR_gen2_60": 0.1833,
+      "auc_vs_gen2_60": 0.725,
+      "b1_gen2_60": {
+        "TPR": 0.8261,
+        "FPR": 0.1667
+      },
+      "b2_gen2_60": {
+        "TPR": 0.8696,
+        "FPR": 0.1167
+      },
+      "C2_workload_placebo_auc_beside": 0.8152,
+      "caveat": "gen2-60 is natural clean on the same host; C2 workload placebo beside it quantifies residual workload confound"
+    },
+    "ngram_twin_base": {
+      "N": {
+        "pos": 23,
+        "neg_twin": 23,
+        "scenarios": 20
+      },
+      "auc": {
+        "l1_logreg": 0.4991,
+        "rulefit": 0.4915
+      },
+      "brl": "NON-TERMINATING (dropped; same caveat as CORELS substitution)",
+      "note": "gen2-60 base unavailable for substrate B (pool carries reattr, not normalized stream)"
+    },
+    "interpretation": "On matched twins, the nested-CV AUC interval includes chance. The much higher AUC against gen2-60 is reported only as a confounded secondary contrast because the workload-placebo control is also high."
+  },
+  "primary_staged_twin_availability": {
+    "full": 17,
+    "snapshots_only": 26,
+    "none": 12
+  },
+  "twin_availability_note": "Primary staged substrate: 17 graph-attack twins are full, 26 file-op twins are snapshots-only, and 12 attacks have no twin in this staging pool. The supervised canonical-23 rebuild separately recovers size-feature twins from additional frozen local sources, including MUI06 and 11 W3 content_append cases. Primary natural-clean FPR uses gen2-60 and is independent of twin availability.",
+  "leaky_clean40_appendix": {
+    "status": "invalid_as_heldout_estimate",
+    "reason": "20 of 40 continuation_train runs overlap the gen2-176 training freeze",
+    "prior_values_for_provenance_only": {
+      "AIDE": "26/40 (0.650)",
+      "Falco": "27/40 (0.675)",
+      "STIDE": "38/40 (0.950)",
+      "ours_B1": "5/40 (0.125)",
+      "ours_B2": "5/40 (0.125)"
+    },
+    "interpretation": "Do not infer a direction of bias by comparing this invalid set with gen2-60."
+  },
+  "headline": "Across held-out natural workloads, the evaluated OS baselines exhibit a coverage--false-alarm tradeoff rather than a uniformly dominant detector. AIDE is evaluable on all 55 attacks and detects 52, but flags every observed clean self-state write; Falco lowers the marginal false-positive rate while missing attack classes; STIDE detects all attacks after applying its frozen per-run stream selection but flags nearly all clean executions. UNICORN exposes a workload-dependent graph signal on 41 evaluable attacks, but its 35/41 detections coincide with 35/47 natural-clean alarms. The write-specific B1/B2 baselines have lower marginal false-positive rates but are defined for only 23 of 55 attacks. Thus OS event streams provide useful operational evidence, while the evaluated baselines do not yet combine broad attack coverage with a low false-alarm burden.",
+  "report_content_address": "d674629b906f"
+}

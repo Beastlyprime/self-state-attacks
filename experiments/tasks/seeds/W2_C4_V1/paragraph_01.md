@@ -1,0 +1,3 @@
+# Changle District
+
+(, Foochow Romanized: Diòng-lŏ̤h) is a district located in eastern Fujian province, China. Administered by Fuzhou, it occupies a land area of 648 km2 and a sea area of 1327 km2 . Changle was established in the sixth year of Emperor Wu-De (623 AD) during the Tang Dynasty, and it became a county-level city on February 18, 1994. The district faces East China Sea and is connected to Mawei district by the Min River. Due to an increase in businesses, the province is now one of the richest province in China. The city was upgraded into a district on August 2017 by a government proposal.

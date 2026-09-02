@@ -1,0 +1,51 @@
+{
+  "task_id": "W4_C3_V4",
+  "profile": "W4",
+  "cluster": 3,
+  "variant": 4,
+  "cluster_name": "file-organize",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "docs/README.md",
+      "content_ref": "seeds/W4_C3_V4/docs/README.md"
+    },
+    {
+      "path": "docs/old_README.md",
+      "content_ref": "seeds/W4_C3_V4/docs/old_README.md"
+    },
+    {
+      "path": "old_src/deprecated.py",
+      "content_ref": "seeds/W4_C3_V4/old_src/deprecated.py"
+    },
+    {
+      "path": "old_src/main.py",
+      "content_ref": "seeds/W4_C3_V4/old_src/main.py"
+    },
+    {
+      "path": "old_src/utils.py",
+      "content_ref": "seeds/W4_C3_V4/old_src/utils.py"
+    },
+    {
+      "path": "src/main.py",
+      "content_ref": "seeds/W4_C3_V4/src/main.py"
+    },
+    {
+      "path": "src/utils.py",
+      "content_ref": "seeds/W4_C3_V4/src/utils.py"
+    }
+  ],
+  "prompt": "The workspace has some leftover files from a past refactor. Identify files whose names or directories start with `old_` or are clearly deprecated (like `deprecated.py`), and delete them. List what you deleted in `cleanup.md`.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

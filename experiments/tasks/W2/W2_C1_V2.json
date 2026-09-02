@@ -1,0 +1,70 @@
+{
+  "task_id": "W2_C1_V2",
+  "profile": "W2",
+  "cluster": 1,
+  "variant": 2,
+  "cluster_name": "post-processing",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "680",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C1_V2/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C1_V2/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C1_V2/article_03.md"
+    },
+    {
+      "path": "article_04.md",
+      "content_ref": "seeds/W2_C1_V2/article_04.md"
+    }
+  ],
+  "prompt": "You have 4 Wikipedia article(s) in the workspace named `article_01.md` through `article_04.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: As of May 2024, which female New Zealand Prime Minister was the oldest when they took office?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Helen Clark.",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 680,
+    "reasoning_types": "Numerical reasoning | Multiple constraints | Post processing | Temporal reasoning",
+    "articles": [
+      {
+        "title": "List of prime ministers of New Zealand",
+        "url": "https://en.wikipedia.org/wiki/List_of_prime_ministers_of_New_Zealand",
+        "oldid": 1324464479,
+        "slug": "List_of_prime_ministers_of_New_Zealand"
+      },
+      {
+        "title": "Jenny Shipley",
+        "url": "https://en.wikipedia.org/wiki/Jenny_Shipley",
+        "oldid": 1345658017,
+        "slug": "Jenny_Shipley"
+      },
+      {
+        "title": "Helen Clark",
+        "url": "https://en.wikipedia.org/wiki/Helen_Clark",
+        "oldid": 1345598661,
+        "slug": "Helen_Clark"
+      },
+      {
+        "title": "Jacinda Ardern",
+        "url": "https://en.wikipedia.org/wiki/Jacinda_Ardern",
+        "oldid": 1350703236,
+        "slug": "Jacinda_Ardern"
+      }
+    ]
+  }
+}

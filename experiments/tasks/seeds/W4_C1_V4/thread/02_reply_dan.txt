@@ -1,0 +1,4 @@
+From: Dan
+Subject: Re: RFC — switching our CI to Buildkite
+
+I'm skeptical. GitHub Actions is fine, and we already have all our workflows there. Switching CI is a 2-quarter project for marginal benefit.

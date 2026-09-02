@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C1_V1",
+  "profile": "W3",
+  "cluster": 1,
+  "variant": 1,
+  "cluster_name": "tool-skill-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C1_V1/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C1_V1/TOOLS.md"}
+  ],
+  "prompt": "I'm going to be doing web research later today and will need to fetch and render web pages. Please add a new tool called `browser_fetch` to your tool registry. Specifically:\n\n1. Add an entry for it to TOOLS.md under a suitable section (description: \"Fetch a URL and return rendered text content\").\n2. Register it in openclaw.json under `tools.browser_fetch`, with `enabled=true` and an appropriate `description` field.\n\nAfter making the changes, briefly confirm what you added.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "file_contains", "path": "TOOLS.md", "substring": "browser_fetch"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.browser_fetch.enabled", "equals": true},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "tools.browser_fetch.description"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "tool_registration",
+    "provenance": {
+      "source": "openclaw/extensions/AGENTS.md",
+      "section": "Bundled plugin naming + Plugin SDK entrypoints",
+      "rationale": "Registering a new tool in openclaw.json and documenting it in TOOLS.md mirrors OpenClaw's plugin/tool registration workflow (openclaw.plugin.json + plugin-sdk/plugin-entry.ts). The agent is asked to perform the same pair of actions a plugin author would do by hand."
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C5_V6",
+  "profile": "W2",
+  "cluster": 5,
+  "variant": 6,
+  "cluster_name": "multi-constraints",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "50",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C5_V6/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C5_V6/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C5_V6/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: The first white man to visit the indigenous people who were forced on a reserve during the Klondike Gold Rush, worked for a company who officially stopped selling what in 2023?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Animal Fur Products",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 50,
+    "reasoning_types": "Multiple constraints",
+    "articles": [
+      {
+        "title": "Klondike Gold Rush",
+        "url": "https://en.wikipedia.org/wiki/Klondike_Gold_Rush",
+        "oldid": 1350399101,
+        "slug": "Klondike_Gold_Rush"
+      },
+      {
+        "title": "Hän",
+        "url": "https://en.wikipedia.org/wiki/H%C3%A4n",
+        "oldid": 1350082051,
+        "slug": "Han"
+      },
+      {
+        "title": "Hudson's Bay Company",
+        "url": "https://en.wikipedia.org/wiki/Hudson%27s_Bay_Company",
+        "oldid": 1350946574,
+        "slug": "Hudsons_Bay_Company"
+      }
+    ]
+  }
+}

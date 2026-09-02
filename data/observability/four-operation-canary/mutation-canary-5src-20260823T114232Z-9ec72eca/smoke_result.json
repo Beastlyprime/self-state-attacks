@@ -1,0 +1,91 @@
+{
+  "graph_bridge_acceptance_line": {
+    "all_operand_rate": 0.9473684210526315,
+    "measured_on": "resolution_spine_fd_path_resolved_rate",
+    "passed": false,
+    "provenance_evaluable_effective": false,
+    "spec": "6.3 fd_path_resolved_rate>=0.95, measured on the SCAP/merged resolution spine",
+    "spine_rate": 0.6666666666666666,
+    "threshold": 0.95
+  },
+  "graph_bridge_spine_coverage": {
+    "all_operand_denominator": 19,
+    "all_operand_numerator": 18,
+    "excluded_event_ids": [
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257869",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257870",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257874",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257875",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257878",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257879",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257880",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257881",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257882",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257883",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257884",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257885",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257888",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257889",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257892",
+      "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257893"
+    ],
+    "exclusion_basis": "pure_audit_read_not_on_resolution_spine_scap_zero_drop_twin_already_counted",
+    "fd_path_resolved_rate_all_operands": 0.9473684210526315,
+    "fd_path_resolved_rate_spine": 0.6666666666666666,
+    "pure_audit_read_duplicates_excluded": 16,
+    "spine_operand_denominator": 3,
+    "spine_operand_numerator": 2,
+    "writes_excluded": 0
+  },
+  "graph_op_witness": {
+    "all_ops_graph_witnessed": true,
+    "criterion": "each mutation op appears as a graph edge on a workspace file node whose identity_status is complete",
+    "graph_present": true,
+    "per_op": {
+      "chmod": {
+        "edges": 1,
+        "identity_complete": 1,
+        "paths": [
+          "TOOLS.md"
+        ],
+        "witnessed": true
+      },
+      "rename": {
+        "edges": 2,
+        "identity_complete": 2,
+        "paths": [
+          "<workspace-dir>",
+          "MEMORY.md"
+        ],
+        "witnessed": true
+      },
+      "unlink": {
+        "edges": 1,
+        "identity_complete": 1,
+        "paths": [
+          "HEARTBEAT.md"
+        ],
+        "witnessed": true
+      },
+      "write": {
+        "edges": 2,
+        "identity_complete": 2,
+        "paths": [
+          "MEMORY.md",
+          "MEMORY.md.tmp"
+        ],
+        "witnessed": true
+      }
+    }
+  },
+  "op_type_coverage": {
+    "chmod": true,
+    "rename": true,
+    "unlink": true,
+    "write": true
+  },
+  "passed": true,
+  "readiness": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/mutation_canary_readiness.json",
+  "run_dir": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca",
+  "schema_version": "assa.mutation_canary_five_source.v1"
+}

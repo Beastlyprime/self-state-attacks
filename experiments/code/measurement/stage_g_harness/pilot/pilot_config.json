@@ -1,0 +1,61 @@
+{
+  "schema_version": "assa.stage_g_harness.v6.pilot_config",
+  "runner_uid": 2001,
+  "runner_gid": 2001,
+  "cgroup_root": "/sys/fs/cgroup/assa-stage-g",
+  "audit": {
+    "rate_limit": 0,
+    "backlog_limit": 65536,
+    "backlog_wait_time": 60000,
+    "failure": 1,
+    "sample_interval_seconds": 0.01,
+    "drain_timeout_seconds": 30.0,
+    "peak_backlog_max": 32768
+  },
+  "scap": {
+    "binary": "sysdig",
+    "engine": "modern-bpf",
+    "scope_mode": "dedicated_uid_with_ebpf_cgroup_attestation",
+    "snaplen": 0,
+    "required_drop_count": 0
+  },
+  "provenance": {
+    "fd_path_resolved_rate_min": 0.95
+  },
+  "detectors": {
+    "aide": {
+      "version": "v0.19.3",
+      "commit": "2278f6b45fd9fc06859a771e84d44672523a4c18"
+    },
+    "falco": {
+      "version": "0.44.0",
+      "commit": "a078853fe47db0199ed2c5ca58cb548754017aa1"
+    },
+    "falco_rules": {
+      "version": "5.1.0",
+      "commit": "6cbb113dd3fbcaf157c077414a57d2180f3e0eec"
+    },
+    "stide": {
+      "commit": "587d15870843961acb78fbb4b8fcd0ede28eabcc",
+      "ngram_length": 6,
+      "minimum_scoring_sequence_length": 106
+    },
+    "unicorn_parser": {
+      "commit": "8ae2d9e9c187cc78d8127b3abe1366a7ebc56e23"
+    },
+    "unicorn_modeler": {
+      "commit": "648e8605c4305c0f98d33d11d48d5719c555ac0b"
+    },
+    "unicorn_analyzer": {
+      "commit": "3026e8cbd6b0b7a0db07c0a815f064a69b924ff1"
+    }
+  },
+  "corpus": {
+    "clean_training_runs_per_workload_min": 10,
+    "held_out_clean_runs_per_workload_min": 5,
+    "independent_sessions_required": true,
+    "poisoned_data_for_tuning_forbidden": true
+  },
+  "required_machine": "x86_64",
+  "required_guest_hostname": "assa-stageg"
+}

@@ -1,0 +1,795 @@
+{
+  "accounted_groups": 87,
+  "audit_scap_correlation": {
+    "ambiguous_scap_events": [],
+    "audit_events": 87,
+    "matched_audit_events": 0,
+    "scap_events": 0,
+    "sequence_eligible_events": 0,
+    "unmatched_audit_events": 87
+  },
+  "dispositions": {
+    "normalized": 87
+  },
+  "ebpf_lifecycle": {
+    "accounted_events": 64,
+    "matched_events": 24,
+    "raw_events": 64,
+    "unmatched_retained_raw": 40
+  },
+  "fanotify": {
+    "accounted_events": 17,
+    "alias_ambiguous_rows_skipped": 0,
+    "allocation": "global_rank_then_delta",
+    "ambiguous_rows_unbound": 0,
+    "correlation_method": "pid_byte_exact_path_unique_best_rank_within_100ms",
+    "events_missing_timestamp": 0,
+    "evidence_class": "event_bound_read",
+    "indeterminate_relations": 0,
+    "indexable_events": 0,
+    "mask_incompatible_events": 0,
+    "matched_events": 0,
+    "passed": true,
+    "postimages_linked": 0,
+    "preimages_linked": 0,
+    "process_start_ticks_catalog_disagreements": [],
+    "process_start_ticks_conflicting_pids": [],
+    "process_start_ticks_filled": 0,
+    "queue_overflow_events": 0,
+    "raw_events": 17,
+    "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/fanotify.jsonl",
+    "raw_sha256": "43cd8355dfda2af3d3cb0b6e237fc117ae344676a86579ff52eed7065a951b11",
+    "rows_predating_process_start": 0,
+    "rows_unbound_event_contested": 0,
+    "schema_version": "assa.fanotify_correlation.v3",
+    "unmatched_events": 17,
+    "unmatched_reason": "per-syscall bursts exceed one event per row, plus paths outside audit rule scope",
+    "unusable_events_missing_pid_or_path": 17,
+    "user_hz": 100,
+    "user_hz_validated": false
+  },
+  "malformed_unserialed_lines": [
+    {
+      "line": 2,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 4,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 8,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 10,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 12,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 16,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 20,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 24,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 28,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 32,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 36,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 40,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 44,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 48,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 52,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 56,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 60,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 64,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 68,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 70,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 74,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 78,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 82,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 86,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 90,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 94,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 98,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 102,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 106,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 110,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 114,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 116,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 120,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 124,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 128,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 132,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 136,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 140,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 144,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 148,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 152,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 156,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 160,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 162,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 166,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 170,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 174,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 178,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 182,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 186,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 190,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 194,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 198,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 202,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 206,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 208,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 212,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 216,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 220,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 224,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 228,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 232,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 236,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 238,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 242,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 246,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 250,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 252,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 254,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 256,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 258,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 262,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 266,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 270,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 274,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 278,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 282,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 284,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 288,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 292,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 296,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 298,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 300,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 302,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 304,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 308,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 312,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 316,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 320,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 324,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 328,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 330,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 334,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 338,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 342,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 344,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 346,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 348,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 350,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 354,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 358,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 362,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 366,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 370,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 374,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 376,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 380,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 384,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 388,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 390,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 392,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 394,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 396,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 400,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 404,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 408,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 412,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 416,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 420,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 424,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 428,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 432,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 436,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 438,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 442,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 446,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 450,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 454,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 458,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 462,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 464,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 468,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 472,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 476,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 480,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 484,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 488,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 490,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 494,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 498,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 502,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 506,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 510,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 514,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 516,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 520,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 524,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 528,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 532,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 536,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 540,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 544,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 548,
+      "reason": "missing_audit_serial"
+    },
+    {
+      "line": 552,
+      "reason": "missing_audit_serial"
+    }
+  ],
+  "normalization_input": {
+    "audit_fd_lifecycle_coverage": {},
+    "audit_input_mode": "single_partition",
+    "audit_raw": {
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/auditd_ausearch.log",
+      "sha256": "1ebb2eb1cf0d79a1d639f04e6a274e8b667303ea995c3d7e1624e46d3e315b35"
+    },
+    "completeness_status": "single_partition_may_underestimate",
+    "evidence_sources": [
+      "auditd",
+      "ebpf",
+      "fanotify",
+      "scap"
+    ],
+    "fanotify_correlation": {
+      "accounted_events": 17,
+      "alias_ambiguous_rows_skipped": 0,
+      "allocation": "global_rank_then_delta",
+      "ambiguous_rows_unbound": 0,
+      "correlation_method": "pid_byte_exact_path_unique_best_rank_within_100ms",
+      "events_missing_timestamp": 0,
+      "evidence_class": "event_bound_read",
+      "indeterminate_relations": 0,
+      "indexable_events": 0,
+      "mask_incompatible_events": 0,
+      "matched_events": 0,
+      "passed": true,
+      "postimages_linked": 0,
+      "preimages_linked": 0,
+      "process_start_ticks_catalog_disagreements": [],
+      "process_start_ticks_conflicting_pids": [],
+      "process_start_ticks_filled": 0,
+      "queue_overflow_events": 0,
+      "raw_events": 17,
+      "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/fanotify.jsonl",
+      "raw_sha256": "43cd8355dfda2af3d3cb0b6e237fc117ae344676a86579ff52eed7065a951b11",
+      "rows_predating_process_start": 0,
+      "rows_unbound_event_contested": 0,
+      "schema_version": "assa.fanotify_correlation.v3",
+      "unmatched_events": 17,
+      "unmatched_reason": "per-syscall bursts exceed one event per row, plus paths outside audit rule scope",
+      "unusable_events_missing_pid_or_path": 17,
+      "user_hz": 100,
+      "user_hz_validated": false
+    },
+    "fd_lifecycle_identity_outcome": {
+      "degraded_missing_mutation_coverage": 0,
+      "degraded_missing_mutation_coverage_by_key": {},
+      "rebound_on_successful_open": 23,
+      "required_mutation_syscalls": [
+        "close",
+        "close_range",
+        "creat",
+        "dup",
+        "dup2",
+        "dup3",
+        "fcntl",
+        "open",
+        "openat",
+        "openat2"
+      ],
+      "resolved": 0,
+      "schema_version": "assa.fd_lifecycle_identity_outcome.v1"
+    },
+    "included_audit_keys": [],
+    "may_underestimate": true,
+    "partition_group_counts": {
+      "unattributed_single_partition": 87
+    },
+    "schema_version": "assa.normalization_input.v1",
+    "tool": {
+      "commit_sha": null,
+      "name": "assa-stage-g-normalizer",
+      "python": "3.10.12",
+      "schemas": {
+        "provenance_edge": "assa.provenance_edge.v3",
+        "provenance_node": "assa.provenance_node.v2",
+        "supersedes": "assa.provenance_supersedes.v1",
+        "syscall": "assa.syscall_event.v2"
+      },
+      "source_files": [
+        {
+          "path": "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/normalize.py",
+          "sha256": "cd6dbafa5affe1de307177f4e9541e87f91755ca4d22131b06fcf5d401a070a9"
+        },
+        {
+          "path": "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/sidecars.py",
+          "sha256": "3fa80b289269d886681eef98a4f9fcab3448e48f4ca77cfc5c3f23346507b714"
+        }
+      ],
+      "version": "assa.stage_g_harness.v6"
+    },
+    "union_conservation": {
+      "conflicting_duplicate_groups": [],
+      "conservation_passed": null,
+      "duplicate_group_occurrences": 0,
+      "identical_overlap_group_occurrences": 0,
+      "partition_group_sum": 87,
+      "union_group_count": 87
+    }
+  },
+  "passed": true,
+  "provenance_schema": {
+    "edge_schema_version": "assa.provenance_edge.v3",
+    "node_schema_version": "assa.provenance_node.v2",
+    "supersedes_artifact": "provenance.supersedes.json",
+    "supersedes_edge_count": 4,
+    "supersedes_enabled": true,
+    "supersedes_schema_version": "assa.provenance_supersedes.v1",
+    "supersedes_status_counts": {
+      "resolved_rename_overwrite": 4,
+      "unlink_without_subsequent_exact_path_recreate": 4
+    },
+    "supersedes_supported": true
+  },
+  "raw_audit_groups": 87,
+  "scap": {
+    "accounted_lines": 0,
+    "dispositions": {},
+    "malformed": [],
+    "normalized_exit_events": 0,
+    "passed": true,
+    "raw_lines": 0,
+    "schema_version": "assa.scap_decode_conservation.v1"
+  },
+  "schema_version": "assa.trace_conservation.v2"
+}

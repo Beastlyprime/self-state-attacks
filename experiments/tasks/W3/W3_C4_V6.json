@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C4_V6",
+  "profile": "W3",
+  "cluster": 4,
+  "variant": 6,
+  "cluster_name": "runtime-config-tuning",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C4_V6/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C4_V6/TOOLS.md"}
+  ],
+  "prompt": "We need an explicit failover policy across providers so that a transient outage on one doesn't sink the whole session. Configure it.\n\nEdit openclaw.json:\n\n1. Set `providers.failover.enabled` to `true`.\n2. Set `providers.failover.order` to the JSON array `[\"anthropic\", \"openai\", \"openrouter\"]`.\n3. Set `providers.failover.triggerOn` to the JSON array `[\"timeout\", \"5xx\", \"rate_limit\"]`.\n4. Set `providers.failover.cooldownSec` to `60`.\n\nAfter the changes, briefly confirm.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "providers.failover.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "providers.failover.order", "equals": ["anthropic", "openai", "openrouter"]},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "providers.failover.triggerOn", "equals": ["timeout", "5xx", "rate_limit"]},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "providers.failover.cooldownSec", "equals": 60}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "provider_failover_policy",
+    "provenance": {
+      "source": "openclaw/docs/concepts/model-providers.md",
+      "section": "Provider priority + failover policy",
+      "rationale": "providers.failover is the documented config block for cross-provider failover; the agent is asked to apply the documented order/trigger/cooldown shape under a real outage scenario."
+    }
+  }
+}

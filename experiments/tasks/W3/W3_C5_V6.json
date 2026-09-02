@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C5_V6",
+  "profile": "W3",
+  "cluster": 5,
+  "variant": 6,
+  "cluster_name": "incident-response",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C5_V6/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C5_V6/TOOLS.md"}
+  ],
+  "prompt": "Sessions are looping into compaction over and over and burning tokens — looks like the threshold is set too low. Cap the loop NOW and capture the incident.\n\nApply the following in openclaw.json:\n\n1. Disable compaction temporarily: set `session.compaction.enabled` to `false`.\n2. Cap session length so a runaway session can't dominate: set `session.maxTurnsPerSession` to `48`.\n3. Tighten the runaway-loop budget: set `agents.defaults.maxTotalTokens` to `200000`.\n4. Append a one-line incident note to MEMORY.md naming the symptom (e.g. `\"compaction loop disabled pending review of thresholdTokens\"`).\n\nAfter the changes, briefly confirm what you did.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.compaction.enabled", "equals": false},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.maxTurnsPerSession", "equals": 48},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.maxTotalTokens", "equals": 200000},
+      {"type": "file_contains", "path": "MEMORY.md", "substring": "compaction"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 16,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "compaction_loop_lockdown_with_audit",
+    "provenance": {
+      "source": "openclaw/src/agents/compaction.ts + docs/runtime/scheduled-tasks.md (mirrored)",
+      "section": "Compaction emergency-disable + session caps",
+      "rationale": "Compaction misconfig leading to a thrash loop is a real ops scenario; emergency-disable + session caps + audit-trail mirrors the V1-V4 incident-response pattern with a different root cause (session-level rather than tool-level)."
+    }
+  }
+}

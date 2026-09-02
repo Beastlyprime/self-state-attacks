@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C4_V2",
+  "profile": "W2",
+  "cluster": 4,
+  "variant": 2,
+  "cluster_name": "temporal-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "660",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C4_V2/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C4_V2/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C4_V2/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: In 2010, the WWE Hall of Fame took place in the same stadium as a famous comedy movie done a few years before. Who are the four comedians that starred in this comedy movie?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "jeff Foxworthy, Bill Engvall, Ron White and Larry the Cable Guy.",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 660,
+    "reasoning_types": "Multiple constraints | Temporal reasoning",
+    "articles": [
+      {
+        "title": "WWE Hall of Fame (2010)",
+        "url": "https://en.wikipedia.org/wiki/WWE_Hall_of_Fame_(2010)",
+        "oldid": 1315661746,
+        "slug": "WWE_Hall_of_Fame_2010"
+      },
+      {
+        "title": "Arizona Financial Theatre",
+        "url": "https://en.wikipedia.org/wiki/Arizona_Financial_Theatre",
+        "oldid": 1325623263,
+        "slug": "Arizona_Financial_Theatre"
+      },
+      {
+        "title": "Blue Collar Comedy Tour: The Movie",
+        "url": "https://en.wikipedia.org/wiki/Blue_Collar_Comedy_Tour:_The_Movie",
+        "oldid": 1347680654,
+        "slug": "Blue_Collar_Comedy_Tour_The_Movie"
+      }
+    ]
+  }
+}

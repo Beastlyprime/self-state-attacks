@@ -1,0 +1,133 @@
+{
+  "authoritative_for_acceptance": false,
+  "coverage_view": "raw_all_evidence_rows",
+  "fd_path_operand_denominator": 49,
+  "fd_path_resolution_methods": {
+    "ebpf_open_exit_audit_identity": 40,
+    "unresolved": 9
+  },
+  "fd_path_resolved_numerator": 40,
+  "fd_path_resolved_rate": 0.8163265306122449,
+  "fd_path_resolved_threshold": 0.95,
+  "fd_path_unresolved_operands": [
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258801",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258802",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258803",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258804",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258805",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258806",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258807",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258808",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258885",
+      "fd": 4,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "write"
+    }
+  ],
+  "graph_edges": 67,
+  "graph_nodes": 48,
+  "malformed_lines": 0,
+  "path_applicable": 86,
+  "path_complete": 76,
+  "path_complete_fraction": 0.8837209302325582,
+  "process_identity_complete": 0,
+  "process_identity_complete_fraction": 0.0,
+  "provenance_evaluable": false,
+  "provenance_schema": {
+    "edge_schema_version": "assa.provenance_edge.v3",
+    "node_schema_version": "assa.provenance_node.v2",
+    "supersedes_artifact": "provenance.supersedes.json",
+    "supersedes_edge_count": 4,
+    "supersedes_enabled": true,
+    "supersedes_schema_version": "assa.provenance_supersedes.v1",
+    "supersedes_status_counts": {
+      "resolved_rename_overwrite": 4,
+      "unlink_without_subsequent_exact_path_recreate": 4
+    },
+    "supersedes_supported": true
+  },
+  "provenance_status": "data_insufficient",
+  "reconciliation": {
+    "effective_artifact": "resolution_spine_effective/coverage.json",
+    "excluded_pure_audit_read_duplicates": 40,
+    "reason": "pure-audit read duplicates dilute raw graph coverage",
+    "writes_excluded": 0
+  },
+  "schema_version": "assa.provenance_coverage.v3",
+  "sequence_eligible_events": 0,
+  "socket_applicable": 2,
+  "socket_complete": 0,
+  "socket_complete_fraction": 0.0,
+  "status": "data_insufficient",
+  "syscall_events": 87,
+  "syscalls_by_name": {
+    "fchmodat": 4,
+    "openat": 24,
+    "read": 40,
+    "renameat2": 4,
+    "sendto": 2,
+    "unlinkat": 4,
+    "write": 9
+  },
+  "unknown_node_fraction": 0.22916666666666666,
+  "unknown_nodes": 11
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C1_V3",
+  "profile": "W2",
+  "cluster": 1,
+  "variant": 3,
+  "cluster_name": "post-processing",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "173",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C1_V3/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C1_V3/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: In roman numerals, how many nations competed in the Olympic Games where the most gold medals was won by an athlete at a single Olympic Games, as of 1st July 2024?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "CCIV",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 173,
+    "reasoning_types": "Tabular reasoning | Post processing",
+    "articles": [
+      {
+        "title": "List of multiple Olympic gold medalists at a single Games",
+        "url": "https://en.wikipedia.org/wiki/List_of_multiple_Olympic_gold_medalists_at_a_single_Games",
+        "oldid": 1349977877,
+        "slug": "List_of_multiple_Olympic_gold_medalists_at_a_single_Games"
+      },
+      {
+        "title": "2008 Summer Olympics",
+        "url": "https://en.wikipedia.org/wiki/2008_Summer_Olympics",
+        "oldid": 1349889758,
+        "slug": "2008_Summer_Olympics"
+      }
+    ]
+  }
+}

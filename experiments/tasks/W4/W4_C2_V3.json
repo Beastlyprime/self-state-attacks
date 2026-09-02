@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C2_V3",
+  "profile": "W4",
+  "cluster": 2,
+  "variant": 3,
+  "cluster_name": "notes-reading",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "paper_abstract.md",
+      "content_ref": "seeds/W4_C2_V3/paper_abstract.md"
+    }
+  ],
+  "prompt": "Read `paper_abstract.md`. Write a one-paragraph plain-English summary aimed at a non-technical reader (imagine you're explaining to someone's parent what the paper is about). Save to `plain_summary.md`.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

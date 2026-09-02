@@ -1,0 +1,97 @@
+{
+  "archive": "<REPO_ROOT>/experiments/results/DURABLE_ARCHIVE_20260825",
+  "created": "2026-08-25T14:05:07.836135Z",
+  "purpose": "Durable GB10-local persistence of irreplaceable P2 measurement data (VM/job-tmp were ephemeral).",
+  "two_hop_source": "<COLLECTOR_HOST> -> assa@<GUEST_HOSTS> (read-only)",
+  "totals": {
+    "files": 12507,
+    "bytes": 17818190854,
+    "gb": 17.818
+  },
+  "tiers": {
+    "tier_a": {
+      "files": 179,
+      "bytes": 14125153,
+      "gb": 0.014
+    },
+    "tier_b": {
+      "files": 11974,
+      "bytes": 14999598685,
+      "gb": 15.0
+    },
+    "tier_c": {
+      "files": 340,
+      "bytes": 2804273978,
+      "gb": 2.804
+    }
+  },
+  "tier_a": {
+    "freezes": {
+      "src_host": "<GUEST_HOST_A>",
+      "src_path": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/freezes/",
+      "files": 2
+    },
+    "job_reports": {
+      "src": "$CLAUDE_JOB_DIR/tmp (<SCRATCH>)",
+      "files": 26
+    },
+    "drivers": {
+      "src": "$CLAUDE_JOB_DIR/tmp",
+      "files": 72
+    },
+    "local_result_refs": {
+      "note": "snapshot of top-level manifests/tables from p2_headtohead_detectors_20260825 + p2_supervised_arm_expanded_20260825 (excludes FINAL_3POOL_* live files)",
+      "headtohead_files": 51,
+      "supervised_files": 28
+    }
+  },
+  "tier_b": {
+    "attacks_44_DA": {
+      "runs": 44,
+      "src_hosts": ".91 (38) + .69 (6)",
+      "subpaths": "graph/{normalized,reattributed,libsinsp}, state_snapshots, runtime_state_capture.json, ground_truth.json",
+      "source_manifest": "manifests/da44_source_paths.json"
+    },
+    "twins_44_DA": {
+      "runs": 44,
+      "source_manifest": "manifests/da44_source_paths.json"
+    },
+    "attacks_lockedpop_cseries_11": {
+      "runs": 11,
+      "provenance": "best_effort: pulled from underlying source generation on .91; exact match to b1b2 locked-pop derivation input NOT verified",
+      "source_manifest": "manifests/cseries11_source_paths.json"
+    },
+    "twins_lockedpop_cseries_11": {
+      "runs": 11
+    },
+    "clean_train_gen2_176": {
+      "runs": 176,
+      "src_host": "<GUEST_HOST_A>",
+      "note": "gen2 clean training feature files (graph + state_snapshots); already pulled by exec agent into job-tmp/pools, copied here for durability",
+      "source_manifest": "manifests/../../ (pool_runs.json in tier_a/job_reports)"
+    },
+    "clean_heldout_gen2_60": {
+      "runs": 60,
+      "src_host": "<GUEST_HOST_A>"
+    }
+  },
+  "tier_c": {
+    "scap_format": "each capture.scap streamed gzip-over-ssh -> capture.scap.gz (+ .remote_size sidecar = uncompressed remote size)",
+    "attacks": {
+      "runs": 55
+    },
+    "twins": {
+      "runs": 55
+    },
+    "clean_heldout": {
+      "runs": 60
+    },
+    "pull_report": "manifests/PULL_TIERC_SCAP_REPORT.json",
+    "scap_ok": 170,
+    "scap_remote_missing": 0,
+    "scap_failed": 0,
+    "total_remote_uncompressed_bytes": 23088367244,
+    "total_local_gz_bytes": 2804272340
+  },
+  "sha256sums": "ARCHIVE_SHA256SUMS.txt (covers every file in this archive)"
+}

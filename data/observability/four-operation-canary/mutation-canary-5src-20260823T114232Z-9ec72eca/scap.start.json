@@ -1,0 +1,18 @@
+{
+  "capture_fd": 26,
+  "capture_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/capture.scap",
+  "command": [
+    "sysdig",
+    "--modern-bpf",
+    "-v",
+    "-w",
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/capture.scap"
+  ],
+  "format": "libscap",
+  "pid": 227417,
+  "ready": true,
+  "ready_monotonic_ns": 422103773657427,
+  "ready_realtime_ns": 1787485353670241623,
+  "scope_mode": "host_all_events",
+  "startup_stderr_bytes": 0
+}

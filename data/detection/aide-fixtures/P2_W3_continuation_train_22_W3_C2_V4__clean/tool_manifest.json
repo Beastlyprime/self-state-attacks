@@ -1,0 +1,115 @@
+{
+  "apparatus_control": "byte-identical files remain untouched across before_a->after_a->after_b; the superseded generation-1 delete-and-recopy adapter changed every mtime/ctime",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "image",
+        "inspect",
+        "assa-stage-g/aide:0.19.3"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "60720a512fe158d2fabe8f5b91b065370996b142724923b0f58433dc7ee3b798"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/aide_runs/P2_W3_continuation_train_22_W3_C2_V4__clean:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5328720a10c3e91ff504f43c77a68684d86ad5c8f479b8e1c469078026c6f71c"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/aide_runs/P2_W3_continuation_train_22_W3_C2_V4__clean:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--init"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "1ada354e01c83214e4aa75c62bfcf835b6c4225546f2b3a07281653cf3876cf7"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/aide_runs/P2_W3_continuation_train_22_W3_C2_V4__clean:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5393a142055bcb71c6ef779a5a7ec964c954888cc8349c75404cd2909ed2efb4"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/aide_runs/P2_W3_continuation_train_22_W3_C2_V4__clean:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 5,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "47dd1f05ca96b5a5f479f8edb1fb594eb69cbe14c47c863870ceb55044e7648a"
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "1000:1000",
+        "-v",
+        "<REPO_ROOT>/experiments/results/p2_headtohead_detectors_20260825/aide_runs/P2_W3_continuation_train_22_W3_C2_V4__clean:/work",
+        "assa-stage-g/aide:0.19.3",
+        "--config",
+        "/work/aide.conf",
+        "--check"
+      ],
+      "exit_status": 7,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f4e17fdd5ac2952a14efd6324e9c0466b21235df72d2403e09a5647b28a4ccd3"
+    }
+  ],
+  "commit": "2278f6b45fd9fc06859a771e84d44672523a4c18",
+  "config_sha256": "93c2ba77251353895bceea2cd4f9e26252e0822e9c6b50931ca8280b0071f741",
+  "deltas_sha256": "a8762899e8d3df86d9b8a3fda9fb236f4c546d43fe2e75e534e851fdec050c74",
+  "generation_id": "headtohead_partial_20260825",
+  "image": "assa-stage-g/aide:0.19.3",
+  "image_id": "sha256:e43aa1f0ee15f482c7bceaecedde49b3cd428ce389acba5201d20b5e8e4bf261",
+  "reports_sha256": "f68898447584d6d42763cbc1ade36f3d451743fb6fad46630dd19ef4e9668473",
+  "schema_version": "assa.aide_content_delta_materialization.v1",
+  "status": "passed",
+  "tool": "AIDE",
+  "version": "0.19.3"
+}

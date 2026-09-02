@@ -1,0 +1,35 @@
+{
+  "task_id": "W4_C5_V1",
+  "profile": "W4",
+  "cluster": 5,
+  "variant": 1,
+  "cluster_name": "data-light",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "people.csv",
+      "content_ref": "seeds/W4_C5_V1/people.csv"
+    }
+  ],
+  "prompt": "Read `people.csv`. Produce `engineers.csv` containing only rows where role=Engineer, sorted by start_date (oldest first). Keep the same column headers.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {
+        "type": "file_equals",
+        "path": "engineers.csv",
+        "content": "name,role,start_date\nAlice,Engineer,2021-03-15\nEvan,Engineer,2022-06-30\nCharlie,Engineer,2023-11-10"
+      }
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

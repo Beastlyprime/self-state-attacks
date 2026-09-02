@@ -1,0 +1,638 @@
+{
+  "schema_version": "assa.p2_headtohead_w3thick.v1",
+  "derivation_generation": "p2_headtohead_w3thick_a54faf2ec854",
+  "manifest_content_address": "a54faf2ec854",
+  "base_generation": "p2_headtohead_full_6521a75742c4",
+  "pooled_generation": "p2_b1b2_size_timing_libsinsp_20260822",
+  "population_counts": {
+    "attack_total": 55,
+    "b1b2_definable_n": 23,
+    "b1b2_na_n": 32,
+    "by_op_signature": {
+      "um_cfg": 6,
+      "um_inst": 6,
+      "content_injection": 17,
+      "semantic_inversion": 6,
+      "chmod": 6,
+      "truncate": 7,
+      "unlink": 7
+    },
+    "by_op_tier": {
+      "chmod": {
+        "n": 6,
+        "tier": "T2"
+      },
+      "content_injection": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "semantic_inversion": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "truncate": {
+        "n": 7,
+        "tier": "T2"
+      },
+      "um_cfg": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "um_inst": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "unlink": {
+        "n": 7,
+        "tier": "T2"
+      }
+    },
+    "by_witness_tier": {
+      "T1": 35,
+      "T2": 20
+    },
+    "clean_40": 40,
+    "clean_40_by_profile": {
+      "W1": 11,
+      "W2": 12,
+      "W3": 8,
+      "W4": 9
+    },
+    "by_profile_attack": {
+      "W1": 14,
+      "W2": 14,
+      "W4": 14,
+      "W3": 13
+    },
+    "w3_profile": {
+      "before": 2,
+      "after": 13
+    }
+  },
+  "mixed_generation_note": {
+    "base_generation": "p2_headtohead_full (um/MCAW/MSI/file-op landers)",
+    "pooled_generation": "p2_b1b2_size_timing_libsinsp_20260822 (C-series content_append)",
+    "honest_caveat": "The 11 pooled W3 landers are a DISTINCT op-signature realization (content_append) pooled from the locked-pop b1b2 generation, present ONLY in W3. This fixes W3 profile-power (2->13), NOT op-balance: content_injection op grows 6->17 and now has a W3 cell; W3 becomes content_append-heavy. This is a MIXED-GENERATION pool.",
+    "derivation_generations": [
+      "p2_headtohead_full_6521a75742c4",
+      "p2_b1b2_size_timing_libsinsp_20260822"
+    ]
+  },
+  "object_sha_co_admissibility": {
+    "contract_object_sha": "95c923f1",
+    "strict_co_admissible_95c923f1": [
+      "C531_w3_release_notes_tool_integration__poisoned",
+      "C521_w3_metrics_scrape_integration__poisoned",
+      "C520_w3_alert_webhook_runbook__poisoned",
+      "C530_w3_heartbeat_liveness_policy__poisoned",
+      "C514_w3_slack_post_vendor_package__poisoned"
+    ],
+    "divergent_live_ebpf_5e995b6d": [
+      "C510_w3_db_query_vendor_package_user_message__poisoned",
+      "C514_w3_slack_post_vendor_package_user_message__poisoned",
+      "C515_w3_vector_search_repo_rules__poisoned",
+      "C512_w3_audit_rotate_runbook__poisoned",
+      "C512_w3_audit_rotate_runbook_user_message__poisoned",
+      "C512_w3_audit_rotate_runbook_external_content__poisoned"
+    ],
+    "USER_RULING": "POOL ALL 11 (W3=13) \u2014 user decision 2026-08-25. This is the final head-to-head population.",
+    "rationale": "6 of 11 pooled landers were collected on eBPF live-build 5e995b6d, not the contract's 95c923f1. Their libsinsp-replay/SCAP + snapshot streams (the streams AIDE/STIDE/ours actually consume) ARE at rules e3b75979 / config e991fbe1 / uid 997 \u2014 matching the contract \u2014 and each has a build-matched (5e995b6d) clean twin. The divergence is confined to the LIVE-eBPF object stream, which none of the three offline detectors consume. Strict-5 (W3=7) subtotals are still reported alongside all-11 (W3=13) for transparency."
+  },
+  "polarity": {
+    "confirmed_18": {
+      "authority": "user (polarity authority) signed 18-lander v2 worksheet 2026-08-25",
+      "landers": "um_cfg 6 (MUC) + um_inst 6 (MUI) + content_injection 6 (MCAW)",
+      "signed_file": "experiments/results/p2_mass_attack_collection_20260823/POLARITY_VERDICTS_NEW_LANDERS_V2_SIGNED_20260825.json",
+      "signed_file_sha256": "5b61cff8cbb8e782559b353a4cd2784b2b11c0d90659c5c3fd5113c10260ca36",
+      "status": "CONFIRMED-BY-USER (not provisional)",
+      "verdict": "18/18 malicious, no reversals"
+    },
+    "file_op_canaries_26": {
+      "landers": "semantic_inversion 6 (MSI) + chmod 6 (MCH) + truncate 7 (MTR) + unlink 7 (MUL)",
+      "note": "polarity note unchanged",
+      "status": "structural malice (user-signed file-op ruling); not in the 18-lander worksheet"
+    },
+    "pooled_w3_content_append_11": {
+      "landers": "C-series content_append (11): C510_um, C514_um, C515_wf, C531, C521, C512_wf/um/ec, C520, C530, C514(Memory)",
+      "verdict": "11/11 malicious, no reversals",
+      "status": "ADJUDICATED (human review complete)",
+      "provenance": "experiments/results/p2_polarity_review_20260822/POLARITY_REVIEW_WORKSHEET.json",
+      "adjudication_status": "complete",
+      "adjudicated_on": "2026-08-23",
+      "note": "21-lander manual-review evidence package (source census EXPANDED_LANDED_CENSUS_V2_20260822); all 11 pooled landers carry polarity_verdict=malicious."
+    }
+  },
+  "falco_status": {
+    "already_scored": true,
+    "accepted_per_user_ruling": true,
+    "version": "0.44.0",
+    "n_detected": "11/11",
+    "fpr_clean40": "27/40 (0.675)",
+    "provenance": "p2_attack_tpr_gen1 (expanded_v2 scoring); reuses frozen gen1 rules/threshold; Falco 0.44.0",
+    "note": "The 11 W3 content_append landers' Falco rows come from the gen1 pass (Falco 0.44.0, reuses frozen gen1 rules/threshold, 11/11 detected) \u2014 same version/rules-source as the frozen D2 rows, but per-row materialized_rules_sha256 is NOT machine-recorded in the expanded_v2 row format. ACCEPTED per user ruling 2026-08-25 (no VM D2-format re-run).",
+    "pending_vm_replay": false
+  },
+  "detectors": {
+    "AIDE": {
+      "tier": "T1",
+      "TPR": {
+        "rate": 0.9455,
+        "n": 55,
+        "positive": 52,
+        "lower": 0.8515,
+        "upper": 0.9813,
+        "underpowered": false
+      },
+      "FPR": {
+        "rate": 0.65,
+        "n": 40,
+        "positive": 26,
+        "lower": 0.4951,
+        "upper": 0.7787
+      },
+      "by_profile": {
+        "W1": {
+          "rate": 0.9286,
+          "n": 14,
+          "positive": 13,
+          "lower": 0.6853,
+          "upper": 0.9873,
+          "underpowered": false
+        },
+        "W2": {
+          "rate": 0.9286,
+          "n": 14,
+          "positive": 13,
+          "lower": 0.6853,
+          "upper": 0.9873,
+          "underpowered": false
+        },
+        "W3": {
+          "rate": 1.0,
+          "n": 13,
+          "positive": 13,
+          "lower": 0.7719,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "W4": {
+          "rate": 0.9286,
+          "n": 14,
+          "positive": 13,
+          "lower": 0.6853,
+          "upper": 0.9873,
+          "underpowered": false
+        }
+      },
+      "by_op": {
+        "chmod": {
+          "rate": 0.5,
+          "n": 6,
+          "positive": 3,
+          "lower": 0.1876,
+          "upper": 0.8124,
+          "underpowered": true
+        },
+        "content_injection": {
+          "rate": 1.0,
+          "n": 17,
+          "positive": 17,
+          "lower": 0.8157,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "semantic_inversion": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "truncate": {
+          "rate": 1.0,
+          "n": 7,
+          "positive": 7,
+          "lower": 0.6457,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "um_cfg": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "um_inst": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "unlink": {
+          "rate": 1.0,
+          "n": 7,
+          "positive": 7,
+          "lower": 0.6457,
+          "upper": 1.0,
+          "underpowered": true
+        }
+      },
+      "note": null
+    },
+    "STIDE": {
+      "tier": "T2",
+      "TPR": {
+        "rate": 1.0,
+        "n": 55,
+        "positive": 55,
+        "lower": 0.9347,
+        "upper": 1.0,
+        "underpowered": false
+      },
+      "FPR": {
+        "rate": 0.95,
+        "n": 40,
+        "positive": 38,
+        "lower": 0.835,
+        "upper": 0.9862
+      },
+      "by_profile": {
+        "W1": {
+          "rate": 1.0,
+          "n": 14,
+          "positive": 14,
+          "lower": 0.7847,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "W2": {
+          "rate": 1.0,
+          "n": 14,
+          "positive": 14,
+          "lower": 0.7847,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "W3": {
+          "rate": 1.0,
+          "n": 13,
+          "positive": 13,
+          "lower": 0.7719,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "W4": {
+          "rate": 1.0,
+          "n": 14,
+          "positive": 14,
+          "lower": 0.7847,
+          "upper": 1.0,
+          "underpowered": false
+        }
+      },
+      "by_op": {
+        "chmod": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "content_injection": {
+          "rate": 1.0,
+          "n": 17,
+          "positive": 17,
+          "lower": 0.8157,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "semantic_inversion": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "truncate": {
+          "rate": 1.0,
+          "n": 7,
+          "positive": 7,
+          "lower": 0.6457,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "um_cfg": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "um_inst": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "unlink": {
+          "rate": 1.0,
+          "n": 7,
+          "positive": 7,
+          "lower": 0.6457,
+          "upper": 1.0,
+          "underpowered": true
+        }
+      },
+      "note": null
+    },
+    "Falco": {
+      "tier": "T1",
+      "TPR": {
+        "rate": 0.7818,
+        "n": 55,
+        "positive": 43,
+        "lower": 0.6563,
+        "upper": 0.8705,
+        "underpowered": false
+      },
+      "FPR": {
+        "rate": 0.675,
+        "n": 40,
+        "positive": 27,
+        "lower": 0.5202,
+        "upper": 0.7992,
+        "denominator": "clean-40 complete (frozen 20 + topup 20; task #43)",
+        "per_profile_fired_over_n": {
+          "W1": "4/11",
+          "W2": "11/12",
+          "W3": "8/8",
+          "W4": "4/9"
+        }
+      },
+      "by_profile": {
+        "W1": {
+          "rate": 0.7143,
+          "n": 14,
+          "positive": 10,
+          "lower": 0.4535,
+          "upper": 0.8828,
+          "underpowered": false
+        },
+        "W2": {
+          "rate": 0.7143,
+          "n": 14,
+          "positive": 10,
+          "lower": 0.4535,
+          "upper": 0.8828,
+          "underpowered": false
+        },
+        "W3": {
+          "rate": 1.0,
+          "n": 13,
+          "positive": 13,
+          "lower": 0.7719,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "W4": {
+          "rate": 0.7143,
+          "n": 14,
+          "positive": 10,
+          "lower": 0.4535,
+          "upper": 0.8828,
+          "underpowered": false
+        }
+      },
+      "by_op": {
+        "chmod": {
+          "rate": 0.0,
+          "n": 6,
+          "positive": 0,
+          "lower": 0.0,
+          "upper": 0.3903,
+          "underpowered": true
+        },
+        "content_injection": {
+          "rate": 1.0,
+          "n": 17,
+          "positive": 17,
+          "lower": 0.8157,
+          "upper": 1.0,
+          "underpowered": false
+        },
+        "semantic_inversion": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "truncate": {
+          "rate": 1.0,
+          "n": 7,
+          "positive": 7,
+          "lower": 0.6457,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "unlink": {
+          "rate": 0.1429,
+          "n": 7,
+          "positive": 1,
+          "lower": 0.0257,
+          "upper": 0.5131,
+          "underpowered": true
+        },
+        "user_message": {
+          "rate": 1.0,
+          "n": 12,
+          "positive": 12,
+          "lower": 0.7575,
+          "upper": 1.0,
+          "underpowered": false
+        }
+      },
+      "note": "11 W3 content_append rows from p2_attack_tpr_gen1 (accepted per user ruling; see falco_status)"
+    },
+    "ours_B1": {
+      "tier": "T2",
+      "definable_n": 23,
+      "na_n": 32,
+      "TPR": {
+        "rate": 0.8261,
+        "n": 23,
+        "positive": 19,
+        "lower": 0.6286,
+        "upper": 0.9302,
+        "underpowered": false
+      },
+      "FPR": {
+        "rate": 0.125,
+        "n": 40,
+        "positive": 5,
+        "lower": 0.0546,
+        "upper": 0.2611,
+        "denominator": "clean-40 leave-one-run-out"
+      },
+      "by_profile": {
+        "W1": {
+          "rate": 1.0,
+          "n": 4,
+          "positive": 4,
+          "lower": 0.5101,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "W2": {
+          "rate": 1.0,
+          "n": 4,
+          "positive": 4,
+          "lower": 0.5101,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "W3": {
+          "rate": 0.6364,
+          "n": 11,
+          "positive": 7,
+          "lower": 0.3538,
+          "upper": 0.8483,
+          "underpowered": false
+        },
+        "W4": {
+          "rate": 1.0,
+          "n": 4,
+          "positive": 4,
+          "lower": 0.5101,
+          "upper": 1.0,
+          "underpowered": true
+        }
+      },
+      "by_op": {
+        "content_injection": {
+          "rate": 0.7647,
+          "n": 17,
+          "positive": 13,
+          "lower": 0.5274,
+          "upper": 0.9044,
+          "underpowered": false
+        },
+        "um_inst": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        }
+      }
+    },
+    "ours_B2": {
+      "tier": "T2",
+      "definable_n": 23,
+      "na_n": 32,
+      "TPR": {
+        "rate": 0.913,
+        "n": 23,
+        "positive": 21,
+        "lower": 0.732,
+        "upper": 0.9758,
+        "underpowered": false
+      },
+      "FPR": {
+        "rate": 0.125,
+        "n": 40,
+        "positive": 5,
+        "lower": 0.0546,
+        "upper": 0.2611,
+        "denominator": "clean-40 leave-one-run-out"
+      },
+      "by_profile": {
+        "W1": {
+          "rate": 1.0,
+          "n": 4,
+          "positive": 4,
+          "lower": 0.5101,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "W2": {
+          "rate": 1.0,
+          "n": 4,
+          "positive": 4,
+          "lower": 0.5101,
+          "upper": 1.0,
+          "underpowered": true
+        },
+        "W3": {
+          "rate": 0.8182,
+          "n": 11,
+          "positive": 9,
+          "lower": 0.523,
+          "upper": 0.9486,
+          "underpowered": false
+        },
+        "W4": {
+          "rate": 1.0,
+          "n": 4,
+          "positive": 4,
+          "lower": 0.5101,
+          "upper": 1.0,
+          "underpowered": true
+        }
+      },
+      "by_op": {
+        "content_injection": {
+          "rate": 0.8824,
+          "n": 17,
+          "positive": 15,
+          "lower": 0.6566,
+          "upper": 0.9671,
+          "underpowered": false
+        },
+        "um_inst": {
+          "rate": 1.0,
+          "n": 6,
+          "positive": 6,
+          "lower": 0.6097,
+          "upper": 1.0,
+          "underpowered": true
+        }
+      }
+    }
+  },
+  "w3_content_append_split_strict5_vs_all11": {
+    "AIDE": {
+      "all11": "11/11",
+      "strict5": "5/5"
+    },
+    "STIDE": {
+      "all11": "11/11",
+      "strict5": "5/5"
+    },
+    "Falco": {
+      "all11": "11/11",
+      "strict5": "5/5"
+    },
+    "ours_B1": {
+      "all11": "7/11",
+      "strict5": "4/5"
+    },
+    "ours_B2": {
+      "all11": "9/11",
+      "strict5": "5/5"
+    }
+  },
+  "fpr_denominator": "clean-40 natural held-out (UNCHANGED); Falco 20/40 partial"
+}

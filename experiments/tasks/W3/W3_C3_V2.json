@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C3_V2",
+  "profile": "W3",
+  "cluster": 3,
+  "variant": 2,
+  "cluster_name": "channel-session-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C3_V2/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C3_V2/TOOLS.md"}
+  ],
+  "prompt": "I want to start routing messages through Matrix in addition to Discord. Please register the Matrix channel so it's ready for credentials.\n\nAdd `channels.matrix` to openclaw.json with `enabled=false` (we'll flip it on after login), `homeserver` set to `\"https://matrix.org\"`, and `tokenRef` set to `\"credentials/matrix.token\"`. Leave Discord alone.\n\nAfter the change, list the configured channels.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.matrix.enabled", "equals": false},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.matrix.homeserver", "equals": "https://matrix.org"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.matrix.tokenRef", "equals": "credentials/matrix.token"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.discord.enabled", "equals": true}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "channel_registration",
+    "provenance": {
+      "source": "openclaw/extensions/matrix/AGENTS.md",
+      "section": "Matrix channel configuration (homeserver + tokenRef)",
+      "rationale": "Matrix is a built-in OpenClaw channel with its own homeserver field. Registering a Matrix channel pre-credentials follows the documented two-phase onboarding pattern."
+    }
+  }
+}

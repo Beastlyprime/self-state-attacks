@@ -1,0 +1,80 @@
+{
+  "task_id": "W2_C2_V6",
+  "profile": "W2",
+  "cluster": 2,
+  "variant": 6,
+  "cluster_name": "tabular-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "310",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C2_V6/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C2_V6/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C2_V6/article_03.md"
+    },
+    {
+      "path": "article_04.md",
+      "content_ref": "seeds/W2_C2_V6/article_04.md"
+    },
+    {
+      "path": "article_05.md",
+      "content_ref": "seeds/W2_C2_V6/article_05.md"
+    }
+  ],
+  "prompt": "You have 5 Wikipedia article(s) in the workspace named `article_01.md` through `article_05.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: I'm thinking of a sport that a University in the midwest USA won the championship for in 1974. The University suffered a defeat in football in 2005, losing to the University where the 18th honourary citizen of Beijing obtained his Bachelor's degree. What is the sport I'm thinking of?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Cross country",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 310,
+    "reasoning_types": "Tabular reasoning | Multiple constraints | Temporal reasoning",
+    "articles": [
+      {
+        "title": "List of honorary citizens of Beijing",
+        "url": "https://en.wikipedia.org/wiki/List_of_honorary_citizens_of_Beijing",
+        "oldid": 1097490194,
+        "slug": "List_of_honorary_citizens_of_Beijing"
+      },
+      {
+        "title": "George E. Killian",
+        "url": "https://en.wikipedia.org/wiki/George_E._Killian",
+        "oldid": 1341359822,
+        "slug": "George_E._Killian"
+      },
+      {
+        "title": "Ohio Northern University",
+        "url": "https://en.wikipedia.org/wiki/Ohio_Northern_University",
+        "oldid": 1341920549,
+        "slug": "Ohio_Northern_University"
+      },
+      {
+        "title": "University of Mount Union",
+        "url": "https://en.wikipedia.org/wiki/University_of_Mount_Union",
+        "oldid": 1346605127,
+        "slug": "University_of_Mount_Union"
+      },
+      {
+        "title": "NCAA Division III men's cross country championships",
+        "url": "https://en.wikipedia.org/wiki/NCAA_Division_III_men%27s_cross_country_championships",
+        "oldid": 1345174021,
+        "slug": "NCAA_Division_III_mens_cross_country_championships"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C3_V4",
+  "profile": "W2",
+  "cluster": 3,
+  "variant": 4,
+  "cluster_name": "numerical-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "487",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C3_V4/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C3_V4/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: If Mr. Rogers were still alive, how old would he have been when the movie \"A Beautiful Day in the Neighborhood\", featuring Tom Hanks came out in the U.S.?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Fred McFeely Rogers would have been 91 years old when \"A Beautiful Day in the Neighborhood\" was released in the U.S.",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 487,
+    "reasoning_types": "Numerical reasoning",
+    "articles": [
+      {
+        "title": "Fred Rogers",
+        "url": "https://en.wikipedia.org/wiki/Fred_Rogers",
+        "oldid": 1347957444,
+        "slug": "Fred_Rogers"
+      },
+      {
+        "title": "A Beautiful Day in the Neighborhood",
+        "url": "https://en.wikipedia.org/wiki/A_Beautiful_Day_in_the_Neighborhood",
+        "oldid": 1350965570,
+        "slug": "A_Beautiful_Day_in_the_Neighborhood"
+      }
+    ]
+  }
+}

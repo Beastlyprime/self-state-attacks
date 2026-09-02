@@ -1,0 +1,6 @@
+{
+  "collector_pid": 227407,
+  "pid": 227408,
+  "threshold_ns": 1000000000,
+  "triggered": false
+}

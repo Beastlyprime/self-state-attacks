@@ -1,0 +1,632 @@
+{
+  "schema_version": "assa.p2_supervised_arm.cv_clean40.v1",
+  "derivation_generation": "p2_supervised_arm_clean40_20260825",
+  "analysis_kind": "defensive; offline; read-only; no network/VM/payload execution",
+  "negatives_basis": "NATURAL held-out clean-40 (split 42baa6a9); NOT paired twins",
+  "seed": 20260823,
+  "workload_unmatched_caveat": "clean-40 are different tasks than the attacks; a discriminative model may exploit task/target-selection structure. C2 placebo quantifies it.",
+  "positives_basis": "verbatim label==1 marker-write rows from the expanded (twin-based) matrix; write-resolved / D-B definable subset only (substrate A undefined for the 32 no-resolved-marker-write attacks: chmod/unlink/truncate/semantic_inversion + MUC)",
+  "counts": {
+    "positives": 27,
+    "negatives": 37,
+    "pos_landers": 26,
+    "clean40_runs_total": 40,
+    "clean40_runs_with_write_ops": 27,
+    "clean40_runs_zero_write_ops": 13,
+    "clean40_runs_no_libsinsp": 0
+  },
+  "cv": {
+    "scheme": "leave-one-group-out (attack scenario | clean-40 run); pooled OOF; imputation + one-hot levels fit on train fold only",
+    "n_groups": 45
+  },
+  "reference_operating_points": {
+    "B1": {
+      "tpr": 0.3529,
+      "fpr": 0.1395
+    },
+    "B2": {
+      "tpr": 0.3529,
+      "fpr": 0.2093
+    }
+  },
+  "power_mdes": {
+    "n_pos": 27,
+    "n_neg": 37,
+    "auc_mdes": 0.7013,
+    "majority_floor": 0.5781
+  },
+  "main": {
+    "A1": {
+      "l1_logreg": {
+        "auc": 0.991,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.9714,
+          1.0
+        ],
+        "tpr_at_fpr_matched_B1": 1.0,
+        "tpr_at_fpr_matched_B2": 1.0,
+        "n_scored": 64
+      },
+      "cart_d3": {
+        "auc": 0.966,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.9167,
+          1.0
+        ],
+        "tpr_at_fpr_matched_B1": 1.0,
+        "tpr_at_fpr_matched_B2": 1.0,
+        "n_scored": 64
+      },
+      "figs": {
+        "auc": 0.9545,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.9014,
+          1.0
+        ],
+        "tpr_at_fpr_matched_B1": 0.963,
+        "tpr_at_fpr_matched_B2": 0.963,
+        "n_scored": 64
+      }
+    },
+    "A2": {
+      "l1_logreg": {
+        "auc": 0.9179,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.8238,
+          0.9819
+        ],
+        "tpr_at_fpr_matched_B1": 0.7778,
+        "tpr_at_fpr_matched_B2": 0.8148,
+        "n_scored": 64
+      },
+      "cart_d3": {
+        "auc": 0.967,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.9193,
+          1.0
+        ],
+        "tpr_at_fpr_matched_B1": 1.0,
+        "tpr_at_fpr_matched_B2": 1.0,
+        "n_scored": 64
+      },
+      "figs": {
+        "auc": 0.9545,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.9014,
+          1.0
+        ],
+        "tpr_at_fpr_matched_B1": 0.963,
+        "tpr_at_fpr_matched_B2": 0.963,
+        "n_scored": 64
+      }
+    },
+    "A3": {
+      "l1_logreg": {
+        "auc": 0.8979,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.7913,
+          0.9686
+        ],
+        "tpr_at_fpr_matched_B1": 0.8148,
+        "tpr_at_fpr_matched_B2": 0.8889,
+        "n_scored": 64
+      },
+      "cart_d3": {
+        "auc": 0.967,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.9193,
+          1.0
+        ],
+        "tpr_at_fpr_matched_B1": 1.0,
+        "tpr_at_fpr_matched_B2": 1.0,
+        "n_scored": 64
+      },
+      "figs": {
+        "auc": 0.973,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.9333,
+          1.0
+        ],
+        "tpr_at_fpr_matched_B1": 1.0,
+        "tpr_at_fpr_matched_B2": 1.0,
+        "n_scored": 64
+      }
+    },
+    "A4": {
+      "l1_logreg": {
+        "auc": 0.7137,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.5684,
+          0.8309
+        ],
+        "tpr_at_fpr_matched_B1": 0.5185,
+        "tpr_at_fpr_matched_B2": 0.5185,
+        "n_scored": 64
+      },
+      "cart_d3": {
+        "auc": 0.6712,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.4924,
+          0.822
+        ],
+        "tpr_at_fpr_matched_B1": 0.3704,
+        "tpr_at_fpr_matched_B2": 0.3704,
+        "n_scored": 64
+      },
+      "figs": {
+        "auc": 0.6732,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.5139,
+          0.8107
+        ],
+        "tpr_at_fpr_matched_B1": 0.2593,
+        "tpr_at_fpr_matched_B2": 0.5185,
+        "n_scored": 64
+      }
+    }
+  },
+  "control_C1a_permuted_global": {
+    "intent": "plumbing check; expect ~0.5",
+    "results": {
+      "A2": {
+        "l1_logreg": {
+          "auc": 0.3834,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.237,
+            0.5385
+          ],
+          "tpr_at_fpr_matched_B1": 0.3704,
+          "tpr_at_fpr_matched_B2": 0.4074,
+          "n_scored": 64
+        },
+        "cart_d3": {
+          "auc": 0.2668,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.1333,
+            0.406
+          ],
+          "tpr_at_fpr_matched_B1": 0.0741,
+          "tpr_at_fpr_matched_B2": 0.1852,
+          "n_scored": 64
+        },
+        "figs": {
+          "auc": 0.2823,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.1395,
+            0.4334
+          ],
+          "tpr_at_fpr_matched_B1": 0.1852,
+          "tpr_at_fpr_matched_B2": 0.1852,
+          "n_scored": 64
+        }
+      },
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.3534,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2099,
+            0.4982
+          ],
+          "tpr_at_fpr_matched_B1": 0.2963,
+          "tpr_at_fpr_matched_B2": 0.3333,
+          "n_scored": 64
+        },
+        "cart_d3": {
+          "auc": 0.3033,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.1578,
+            0.457
+          ],
+          "tpr_at_fpr_matched_B1": 0.2222,
+          "tpr_at_fpr_matched_B2": 0.2222,
+          "n_scored": 64
+        },
+        "figs": {
+          "auc": 0.3078,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.1593,
+            0.4698
+          ],
+          "tpr_at_fpr_matched_B1": 0.2222,
+          "tpr_at_fpr_matched_B2": 0.2222,
+          "n_scored": 64
+        }
+      },
+      "A4": {
+        "l1_logreg": {
+          "auc": 0.0581,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.0106,
+            0.1208
+          ],
+          "tpr_at_fpr_matched_B1": 0.0,
+          "tpr_at_fpr_matched_B2": 0.0,
+          "n_scored": 64
+        },
+        "cart_d3": {
+          "auc": 0.4379,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3097,
+            0.5754
+          ],
+          "tpr_at_fpr_matched_B1": 0.037,
+          "tpr_at_fpr_matched_B2": 0.037,
+          "n_scored": 64
+        },
+        "figs": {
+          "auc": 0.2207,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.1253,
+            0.3362
+          ],
+          "tpr_at_fpr_matched_B1": 0.037,
+          "tpr_at_fpr_matched_B2": 0.037,
+          "n_scored": 64
+        }
+      }
+    }
+  },
+  "control_C1b_permuted_within_group": {
+    "intent": "within-group base-rate structure",
+    "results": {
+      "A2": {
+        "l1_logreg": {
+          "auc": 0.9179,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.8238,
+            0.9819
+          ],
+          "tpr_at_fpr_matched_B1": 0.7778,
+          "tpr_at_fpr_matched_B2": 0.8148,
+          "n_scored": 64
+        },
+        "cart_d3": {
+          "auc": 0.967,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.9193,
+            1.0
+          ],
+          "tpr_at_fpr_matched_B1": 1.0,
+          "tpr_at_fpr_matched_B2": 1.0,
+          "n_scored": 64
+        },
+        "figs": {
+          "auc": 0.9545,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.9014,
+            1.0
+          ],
+          "tpr_at_fpr_matched_B1": 0.963,
+          "tpr_at_fpr_matched_B2": 0.963,
+          "n_scored": 64
+        }
+      },
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.8979,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.7913,
+            0.9686
+          ],
+          "tpr_at_fpr_matched_B1": 0.8148,
+          "tpr_at_fpr_matched_B2": 0.8889,
+          "n_scored": 64
+        },
+        "cart_d3": {
+          "auc": 0.967,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.9193,
+            1.0
+          ],
+          "tpr_at_fpr_matched_B1": 1.0,
+          "tpr_at_fpr_matched_B2": 1.0,
+          "n_scored": 64
+        },
+        "figs": {
+          "auc": 0.973,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.9333,
+            1.0
+          ],
+          "tpr_at_fpr_matched_B1": 1.0,
+          "tpr_at_fpr_matched_B2": 1.0,
+          "n_scored": 64
+        }
+      },
+      "A4": {
+        "l1_logreg": {
+          "auc": 0.7137,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.5684,
+            0.8309
+          ],
+          "tpr_at_fpr_matched_B1": 0.5185,
+          "tpr_at_fpr_matched_B2": 0.5185,
+          "n_scored": 64
+        },
+        "cart_d3": {
+          "auc": 0.6712,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4924,
+            0.822
+          ],
+          "tpr_at_fpr_matched_B1": 0.3704,
+          "tpr_at_fpr_matched_B2": 0.3704,
+          "n_scored": 64
+        },
+        "figs": {
+          "auc": 0.6732,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.5139,
+            0.8107
+          ],
+          "tpr_at_fpr_matched_B1": 0.2593,
+          "tpr_at_fpr_matched_B2": 0.5185,
+          "n_scored": 64
+        }
+      }
+    }
+  },
+  "control_C2_marker_placebo_twin_based": {
+    "note": "carried VERBATIM from the frozen twin-based arm (supervised_cv.json). Clean-only diagnostic of target-selection structure; independent of the negatives choice. This is THE inflation reference to read beside the clean-40 main AUC.",
+    "placebo_positives_of_clean_rows": "24 of 54 (twin clean rows)",
+    "auc_A2": {
+      "l1_logreg": 0.6292,
+      "cart_d3": 0.7792,
+      "figs": 0.7875
+    },
+    "auc_A3": {
+      "l1_logreg": 0.6083,
+      "cart_d3": 0.7389,
+      "figs": 0.8125
+    },
+    "auc_A4_abs_delta_size": {
+      "l1_logreg": 0.3542
+    },
+    "reading": "tree arms hit 0.78-0.81 AUC on pure target-selection structure (CIs exclude 0.5); only the named |\u0394size|/L1 rule survives (A4 0.354, A2/A3 L1 0.61-0.63, CIs include 0.5)."
+  },
+  "control_C2_marker_placebo_clean40_native": {
+    "markers": [
+      "2026-08-24.md",
+      "AGENTS.md",
+      "HEARTBEAT.md",
+      "MEMORY.md",
+      "TOOLS.md",
+      "openclaw.json"
+    ],
+    "n_marker_rows": 25,
+    "n_clean40_rows": 37,
+    "status": "evaluable",
+    "results": {
+      "A2": {
+        "l1_logreg": {
+          "auc": 0.3617,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2025,
+            0.5247
+          ],
+          "tpr_at_fpr_matched_B1": 0.36,
+          "tpr_at_fpr_matched_B2": 0.36,
+          "n_scored": 37
+        },
+        "cart_d3": {
+          "auc": 0.49,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3217,
+            0.6633
+          ],
+          "tpr_at_fpr_matched_B1": 0.0,
+          "tpr_at_fpr_matched_B2": 0.0,
+          "n_scored": 37
+        },
+        "figs": {
+          "auc": 0.565,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4154,
+            0.7217
+          ],
+          "tpr_at_fpr_matched_B1": 0.48,
+          "tpr_at_fpr_matched_B2": 0.52,
+          "n_scored": 37
+        }
+      },
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.49,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2878,
+            0.6747
+          ],
+          "tpr_at_fpr_matched_B1": 0.36,
+          "tpr_at_fpr_matched_B2": 0.36,
+          "n_scored": 37
+        },
+        "cart_d3": {
+          "auc": 0.625,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4375,
+            0.8056
+          ],
+          "tpr_at_fpr_matched_B1": 0.0,
+          "tpr_at_fpr_matched_B2": 0.0,
+          "n_scored": 37
+        },
+        "figs": {
+          "auc": 0.565,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3883,
+            0.7274
+          ],
+          "tpr_at_fpr_matched_B1": 0.48,
+          "tpr_at_fpr_matched_B2": 0.52,
+          "n_scored": 37
+        }
+      },
+      "A4": {
+        "l1_logreg": {
+          "auc": 0.6,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3979,
+            0.7781
+          ],
+          "tpr_at_fpr_matched_B1": 0.32,
+          "tpr_at_fpr_matched_B2": 0.48,
+          "n_scored": 37
+        },
+        "cart_d3": {
+          "auc": 0.6967,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.5244,
+            0.8482
+          ],
+          "tpr_at_fpr_matched_B1": 0.48,
+          "tpr_at_fpr_matched_B2": 0.68,
+          "n_scored": 37
+        },
+        "figs": {
+          "auc": 0.5683,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.37,
+            0.7816
+          ],
+          "tpr_at_fpr_matched_B1": 0.0,
+          "tpr_at_fpr_matched_B2": 0.0,
+          "n_scored": 37
+        }
+      }
+    }
+  },
+  "control_C3_positive": {
+    "intent": "known-separable feature just above MDES",
+    "results": {
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.8859,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.7671,
+            0.9655
+          ],
+          "tpr_at_fpr_matched_B1": 0.8148,
+          "tpr_at_fpr_matched_B2": 0.8519,
+          "n_scored": 64
+        },
+        "cart_d3": {
+          "auc": 0.967,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.9172,
+            1.0
+          ],
+          "tpr_at_fpr_matched_B1": 1.0,
+          "tpr_at_fpr_matched_B2": 1.0,
+          "n_scored": 64
+        },
+        "figs": {
+          "auc": 0.9359,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.8715,
+            0.9869
+          ],
+          "tpr_at_fpr_matched_B1": 0.9259,
+          "tpr_at_fpr_matched_B2": 0.9259,
+          "n_scored": 64
+        }
+      }
+    }
+  },
+  "lander_level_for_unified_table": {
+    "A4_l1_logreg": {
+      "lander_auc": 0.7471,
+      "n_pos_landers": 26,
+      "n_clean40": 40,
+      "op_point_fpr_le_0125": {
+        "threshold": 0.555312,
+        "tpr_n": 14,
+        "tpr_den": 26,
+        "fpr_n": 5,
+        "fpr_den": 40,
+        "tpr": 0.5385,
+        "fpr": 0.125
+      },
+      "op_point_fpr_le_010": {
+        "threshold": 0.594668,
+        "tpr_n": 12,
+        "tpr_den": 26,
+        "fpr_n": 4,
+        "fpr_den": 40,
+        "tpr": 0.4615,
+        "fpr": 0.1
+      },
+      "op_point_prob_ge_050": {
+        "tpr_n": 16,
+        "tpr_den": 26,
+        "fpr_n": 12,
+        "fpr_den": 40,
+        "tpr": 0.6154,
+        "fpr": 0.3
+      }
+    },
+    "A3_l1_logreg": {
+      "lander_auc": 0.9048,
+      "n_pos_landers": 26,
+      "n_clean40": 40,
+      "op_point_fpr_le_0125": {
+        "threshold": 0.463719,
+        "tpr_n": 21,
+        "tpr_den": 26,
+        "fpr_n": 5,
+        "fpr_den": 40,
+        "tpr": 0.8077,
+        "fpr": 0.125
+      },
+      "op_point_fpr_le_010": {
+        "threshold": 0.503889,
+        "tpr_n": 19,
+        "tpr_den": 26,
+        "fpr_n": 4,
+        "fpr_den": 40,
+        "tpr": 0.7308,
+        "fpr": 0.1
+      },
+      "op_point_prob_ge_050": {
+        "tpr_n": 19,
+        "tpr_den": 26,
+        "fpr_n": 4,
+        "fpr_den": 40,
+        "tpr": 0.7308,
+        "fpr": 0.1
+      }
+    },
+    "A2_l1_logreg": {
+      "lander_auc": 0.9308,
+      "n_pos_landers": 26,
+      "n_clean40": 40,
+      "op_point_fpr_le_0125": {
+        "threshold": 0.623215,
+        "tpr_n": 20,
+        "tpr_den": 26,
+        "fpr_n": 3,
+        "fpr_den": 40,
+        "tpr": 0.7692,
+        "fpr": 0.075
+      },
+      "op_point_fpr_le_010": {
+        "threshold": 0.623215,
+        "tpr_n": 20,
+        "tpr_den": 26,
+        "fpr_n": 3,
+        "fpr_den": 40,
+        "tpr": 0.7692,
+        "fpr": 0.075
+      },
+      "op_point_prob_ge_050": {
+        "tpr_n": 20,
+        "tpr_den": 26,
+        "fpr_n": 6,
+        "fpr_den": 40,
+        "tpr": 0.7692,
+        "fpr": 0.15
+      }
+    }
+  },
+  "reading": "On workload-UNMATCHED clean-40 negatives the |\u0394size|/L1 rule's AUC rises vs the confound-safe twin baseline; the C2 placebo shows how much of any tree separation is target-selection, not attack signal."
+}

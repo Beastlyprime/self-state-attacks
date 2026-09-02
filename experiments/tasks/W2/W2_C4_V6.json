@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C4_V6",
+  "profile": "W2",
+  "cluster": 4,
+  "variant": 6,
+  "cluster_name": "temporal-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "204",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C4_V6/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C4_V6/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: Tell me the names of the two famous people I'm thinking of by using the following clues:  They both have the initials M.T. Both were known by nicknames that included the word \"Iron\" One became the world champion in his sport while the other was her country's political leader\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Mike Tyson and Margaret Thatcher",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 204,
+    "reasoning_types": "Multiple constraints | Temporal reasoning",
+    "articles": [
+      {
+        "title": "Mike Tyson",
+        "url": "https://en.wikipedia.org/wiki/Mike_Tyson",
+        "oldid": 1348240409,
+        "slug": "Mike_Tyson"
+      },
+      {
+        "title": "Margaret Thatcher",
+        "url": "https://en.wikipedia.org/wiki/Margaret_Thatcher",
+        "oldid": 1347860782,
+        "slug": "Margaret_Thatcher"
+      }
+    ]
+  }
+}

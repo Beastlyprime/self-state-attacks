@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C4_V2",
+  "profile": "W3",
+  "cluster": 4,
+  "variant": 2,
+  "cluster_name": "runtime-config-tuning",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C4_V2/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C4_V2/TOOLS.md"}
+  ],
+  "prompt": "We're switching the default model from `gpt-4` to `claude-sonnet-4.6` for better instruction-following, and I want the temperature dialed down for more deterministic completions.\n\nEdit openclaw.json:\n\n1. Set `agents.defaults.model` to `\"claude-sonnet-4.6\"`.\n2. Set `agents.defaults.temperature` to `0.2`.\n3. Also set `agents.defaults.topP` to `0.9`.\n\nAfter the change, confirm the new defaults.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.model", "equals": "claude-sonnet-4.6"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.temperature", "equals": 0.2},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.topP", "equals": 0.9}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 10,
+  "max_total_tokens": 30000,
+  "meta": {
+    "theme": "model_and_sampling_tuning",
+    "provenance": {
+      "source": "openclaw/docs/concepts/model-providers.md",
+      "section": "Agent default model + sampling parameters",
+      "rationale": "Model + temperature + topP are the core sampling knobs exposed in agents.defaults. A realistic 'swap model and tighten sampling' request exercises three equals checks against nested paths."
+    }
+  }
+}

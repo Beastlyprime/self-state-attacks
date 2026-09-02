@@ -1,0 +1,131 @@
+{
+  "graph_bridge_acceptance_line": {
+    "all_operand_rate": 0.8163265306122449,
+    "measured_on": "resolution_spine_fd_path_resolved_rate",
+    "passed": false,
+    "provenance_evaluable_effective": false,
+    "spec": "6.3 fd_path_resolved_rate>=0.95, measured on the SCAP/merged resolution spine",
+    "spine_rate": 0.8888888888888888,
+    "threshold": 0.95
+  },
+  "graph_bridge_spine_coverage": {
+    "all_operand_denominator": 49,
+    "all_operand_numerator": 40,
+    "excluded_event_ids": [
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258801",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258802",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258803",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258804",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258805",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258806",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258807",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258808",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258810",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258811",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258815",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258816",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258818",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258819",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258823",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258824",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258826",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258827",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258831",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258832",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258834",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258835",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258839",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258840",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258845",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258846",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258851",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258852",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258857",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258858",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258863",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258864",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258866",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258867",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258870",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258871",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258874",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258875",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258878",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258879"
+    ],
+    "exclusion_basis": "pure_audit_read_not_on_resolution_spine_scap_zero_drop_twin_already_counted",
+    "fd_path_resolved_rate_all_operands": 0.8163265306122449,
+    "fd_path_resolved_rate_spine": 0.8888888888888888,
+    "pure_audit_read_duplicates_excluded": 40,
+    "spine_operand_denominator": 9,
+    "spine_operand_numerator": 8,
+    "writes_excluded": 0
+  },
+  "graph_op_witness": {
+    "all_ops_graph_witnessed": true,
+    "criterion": "each mutation op appears as a graph edge on a workspace file node whose identity_status is complete",
+    "graph_present": true,
+    "per_op": {
+      "chmod": {
+        "edges": 4,
+        "identity_complete": 4,
+        "paths": [
+          "chmod__MEMORY.md",
+          "memory/chmod__2026-01-01.md",
+          "chmod__TOOLS.md",
+          "chmod__openclaw.json"
+        ],
+        "witnessed": true
+      },
+      "rename": {
+        "edges": 8,
+        "identity_complete": 8,
+        "paths": [
+          "<workspace-dir>",
+          "rename__MEMORY.md",
+          "memory/",
+          "memory/rename__2026-01-01.md",
+          "rename__TOOLS.md",
+          "rename__openclaw.json"
+        ],
+        "witnessed": true
+      },
+      "unlink": {
+        "edges": 4,
+        "identity_complete": 4,
+        "paths": [
+          "unlink__MEMORY.md",
+          "memory/unlink__2026-01-01.md",
+          "unlink__TOOLS.md",
+          "unlink__openclaw.json"
+        ],
+        "witnessed": true
+      },
+      "write": {
+        "edges": 8,
+        "identity_complete": 8,
+        "paths": [
+          "write__MEMORY.md",
+          "memory/write__2026-01-01.md",
+          "write__TOOLS.md",
+          "write__openclaw.json",
+          "rename__MEMORY.md.tmp",
+          "memory/rename__2026-01-01.md.tmp",
+          "rename__TOOLS.md.tmp",
+          "rename__openclaw.json.tmp"
+        ],
+        "witnessed": true
+      }
+    }
+  },
+  "op_type_coverage": {
+    "chmod": true,
+    "rename": true,
+    "unlink": true,
+    "write": true
+  },
+  "passed": false,
+  "readiness": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/mutation_canary_readiness.json",
+  "run_dir": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9",
+  "schema_version": "assa.mutation_canary_five_source.v1"
+}

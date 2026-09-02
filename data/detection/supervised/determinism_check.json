@@ -1,0 +1,170 @@
+{
+  "schema_version": "assa.p2_supervised_arm.determinism.v1",
+  "derivation_generation": "p2_supervised_arm_20260823",
+  "analysis_kind": "defensive; offline; read-only; no network/VM/payload execution",
+  "protocol": "same data, same seed, 24 repeated fits in one process; in-sample AUC compared",
+  "why": "a model whose parameters cannot be recomputed from the pinned inputs does not meet the T2 (analytically transparent) admissibility bar, whatever its accuracy",
+  "models": {
+    "l1_logreg": {
+      "in_sample_auc_per_fit": [
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783,
+        0.801783
+      ],
+      "distinct_values": [
+        0.801783
+      ],
+      "deterministic": true,
+      "spread": 0.0
+    },
+    "cart_d3": {
+      "in_sample_auc_per_fit": [
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569,
+        0.865569
+      ],
+      "distinct_values": [
+        0.865569
+      ],
+      "deterministic": true,
+      "spread": 0.0
+    },
+    "figs": {
+      "in_sample_auc_per_fit": [
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535,
+        0.90535
+      ],
+      "distinct_values": [
+        0.90535
+      ],
+      "deterministic": true,
+      "spread": 0.0
+    },
+    "rulefit": {
+      "in_sample_auc_per_fit": [
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951,
+        0.783951
+      ],
+      "distinct_values": [
+        0.783951
+      ],
+      "deterministic": true,
+      "spread": 0.0
+    }
+  },
+  "with_global_seed_pinned_before_each_fit": {
+    "l1_logreg": {
+      "distinct_values": [
+        0.801783
+      ],
+      "deterministic": true
+    },
+    "cart_d3": {
+      "distinct_values": [
+        0.865569
+      ],
+      "deterministic": true
+    },
+    "figs": {
+      "distinct_values": [
+        0.90535
+      ],
+      "deterministic": true
+    },
+    "rulefit": {
+      "distinct_values": [
+        0.783951
+      ],
+      "deterministic": true
+    }
+  },
+  "diagnosis": "imodels FIGSClassifier accepts random_state but does not use it; it draws from the global NumPy RNG. Seeding np.random immediately before each fit restores reproducibility, and that is what the harness does.",
+  "nondeterministic_models": [],
+  "consequence": "Unpinned, all models reproduce. With the global seed pinned before each fit all models reproduce exactly, and the harness does exactly that."
+}

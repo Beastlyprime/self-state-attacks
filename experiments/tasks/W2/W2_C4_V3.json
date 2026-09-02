@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C4_V3",
+  "profile": "W2",
+  "cluster": 4,
+  "variant": 3,
+  "cluster_name": "temporal-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "513",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C4_V3/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C4_V3/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: What lasted longer: the reign of Queen Elizabeth II or the life of Julius Caesar?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "The reign of Queen Elizabeth II",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 513,
+    "reasoning_types": "Temporal reasoning",
+    "articles": [
+      {
+        "title": "Elizabeth II",
+        "url": "https://en.wikipedia.org/wiki/Elizabeth_II",
+        "oldid": 1350919822,
+        "slug": "Elizabeth_II"
+      },
+      {
+        "title": "Julius Caesar",
+        "url": "https://en.wikipedia.org/wiki/Julius_Caesar",
+        "oldid": 1349460384,
+        "slug": "Julius_Caesar"
+      }
+    ]
+  }
+}

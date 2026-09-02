@@ -1,0 +1,77 @@
+# OS
+.DS_Store
+
+# Secrets
+*.env
+api_keys.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# SQLite
+*.sqlite
+*.sqlite-journal
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Scratch / paper build duplicates
+*_revised.pdf
+paper/latest_build.pdf
+paper/measure.pdf
+paper/assa-bench-draft.pdf
+paper/self-state-attacks-latest.pdf
+paper_page*_fig*.png
+
+# Scratch files with random 8-char names (paste/drop remnants)
+/[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]
+file.txt
+compressedP.list
+commit_session*.sh
+
+# Zipped skill scaffolding (skills live in session .claude/, not committed)
+*.skill
+
+# Claude Code local state (per-user permissions, cached skills)
+.claude/
+.claude/settings.local.json
+.claude/skills/
+
+# Local tool caches and anonymous release staging
+.tools/
+artifact-release/
+
+# Pilot / experiment workspace outputs (large, regenerable; some chmod 000 by attacks)
+results/work/pilot_*_work/
+results/work/exp*_work/
+results/phase7/pilot_*_work/
+# Historical flat-layout pilot/work dirs (pre-2026-04-24 cleanup)
+results/pilot_*_work/
+results/exp*_work/
+/tmp/assa_pilots*/
+
+# Scratch trace dirs (pre-rerun backups)
+traces/*_backup/
+traces/*_backup*/
+
+# Upstream repos cloned for SWE-bench-derived tasks (~400 MB, each with its own
+# .git). Clonable from source; never ours to version.
+experiments/traces/swebench_repos/
+
+# patch/merge leftovers
+*.orig
+*.rej

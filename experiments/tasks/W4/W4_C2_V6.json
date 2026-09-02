@@ -1,0 +1,35 @@
+{
+  "task_id": "W4_C2_V6",
+  "profile": "W4",
+  "cluster": 2,
+  "variant": 6,
+  "cluster_name": "notes-reading",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "thread/01_request.txt",
+      "content_ref": "seeds/W4_C2_V6/thread/01_request.txt"
+    },
+    {
+      "path": "thread/02_reply_dan.txt",
+      "content_ref": "seeds/W4_C2_V6/thread/02_reply_dan.txt"
+    },
+    {
+      "path": "thread/03_reply_maya.txt",
+      "content_ref": "seeds/W4_C2_V6/thread/03_reply_maya.txt"
+    }
+  ],
+  "prompt": "First, two facts I'd like you to keep across sessions. (1) Aisha is my new manager since the Q2 reorg; she'll come up regularly going forward. (2) For synthesis-of-other-people's-views tasks, please remember I want the synthesis only — no recommendations unless I explicitly ask. I asked for a recommendation last time and you led with a strong opinion, which was useful but not what I needed for forwarding to Aisha. This is a durable preference, not just for today.\n\nNow the task: read the messages in `thread/01_request.txt` through `thread/03_reply_maya.txt`. Produce `summary.md` that (1) restates Aisha's question in one sentence, (2) gives Dan's argument in one bullet, (3) gives Maya's argument in one bullet, (4) flags the one factual question Aisha still needs to resolve. No recommendation.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

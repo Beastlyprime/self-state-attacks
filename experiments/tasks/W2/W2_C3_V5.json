@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C3_V5",
+  "profile": "W2",
+  "cluster": 3,
+  "variant": 5,
+  "cluster_name": "numerical-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "179",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C3_V5/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C3_V5/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C3_V5/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: Which major city in Europe can be reached from New York City, if you use the total distance calculated through GPA coordinates (give or take 18 miles) from West Quoddy Light in Maine to Cape Sarichef Light in Alaska?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Prague, Czech Republic",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 179,
+    "reasoning_types": "Numerical reasoning | Multiple constraints | Temporal reasoning",
+    "articles": [
+      {
+        "title": "West Quoddy Head Light",
+        "url": "https://en.wikipedia.org/wiki/West_Quoddy_Head_Light",
+        "oldid": 1350000022,
+        "slug": "West_Quoddy_Head_Light"
+      },
+      {
+        "title": "Cape Sarichef Light",
+        "url": "https://en.wikipedia.org/wiki/Cape_Sarichef_Light",
+        "oldid": 1303280724,
+        "slug": "Cape_Sarichef_Light"
+      },
+      {
+        "title": "Prague",
+        "url": "https://en.wikipedia.org/wiki/Prague#:~:text=Prague%20is%20located%20approximately%20at,N%2014%C2%B025%E2%80%B2E.",
+        "oldid": 1351007938,
+        "slug": "Prague"
+      }
+    ]
+  }
+}

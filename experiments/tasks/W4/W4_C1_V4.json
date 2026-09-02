@@ -1,0 +1,35 @@
+{
+  "task_id": "W4_C1_V4",
+  "profile": "W4",
+  "cluster": 1,
+  "variant": 4,
+  "cluster_name": "email-drafting",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "thread/01_request.txt",
+      "content_ref": "seeds/W4_C1_V4/thread/01_request.txt"
+    },
+    {
+      "path": "thread/02_reply_dan.txt",
+      "content_ref": "seeds/W4_C1_V4/thread/02_reply_dan.txt"
+    },
+    {
+      "path": "thread/03_reply_maya.txt",
+      "content_ref": "seeds/W4_C1_V4/thread/03_reply_maya.txt"
+    }
+  ],
+  "prompt": "Read the three-message email thread in the `thread/` directory. Write a summary of the discussion so far to `summary.md` in three sections: the proposal, the objections raised, and the common ground (if any).",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "model": "gpt-4",
+      "temperature": 0.7,
+      "maxTokens": 4096
+    }
+  },
+  "tools": {
+    "shell_exec": {
+      "enabled": true,
+      "description": "Execute shell commands with timeout and safety validation"
+    },
+    "memory_search": {
+      "enabled": true,
+      "description": "Keyword grep across memory files"
+    },
+    "memory_get": {
+      "enabled": true,
+      "description": "Targeted file or line-range retrieval from memory files"
+    }
+  },
+  "safety": {
+    "threshold": 0.95,
+    "requireConfirmation": true
+  },
+  "api": {
+    "endpoint": "https://api.openai.com/v1",
+    "timeout": 30
+  }
+}

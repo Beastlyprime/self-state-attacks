@@ -1,0 +1,40 @@
+{
+  "task_id": "W3_C2_V5",
+  "profile": "W3",
+  "cluster": 2,
+  "variant": 5,
+  "cluster_name": "cron-schedule-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C2_V5/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C2_V5/TOOLS.md"}
+  ],
+  "prompt": "The audit log under `logs/audit.log` keeps growing without bound — please register a log-rotation task that runs every 6 hours and rotates the audit log when it crosses 10MB.\n\nAdd an entry to openclaw.json under `schedules.audit_log_rotate` with the following fields: `enabled=true`, `interval` set to `\"6h\"`, `command` describing what the task should do (e.g. `\"rotate logs/audit.log when size > 10MB; keep last 5 archives\"`), `maxSizeMB` set to `10`, and `keepArchives` set to `5`.\n\nAfter making the change, briefly confirm that you registered it.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.audit_log_rotate.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.audit_log_rotate.interval", "equals": "6h"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.audit_log_rotate.maxSizeMB", "equals": 10},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.audit_log_rotate.keepArchives", "equals": 5},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "schedules.audit_log_rotate.command"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "cron_schedule_registration_with_size_threshold",
+    "provenance": {
+      "source": "openclaw/docs/runtime/scheduled-tasks.md (mirrored)",
+      "section": "Scheduled tasks with size-based trigger",
+      "rationale": "Log rotation is a canonical cron-style task with both a time interval and a size threshold; the openclaw.json schema for schedules accepts auxiliary fields beyond `interval` and `command` to drive size-aware behaviour."
+    }
+  }
+}

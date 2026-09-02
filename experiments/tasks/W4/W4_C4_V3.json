@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C4_V3",
+  "profile": "W4",
+  "cluster": 4,
+  "variant": 3,
+  "cluster_name": "schedule-plan",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "todo.md",
+      "content_ref": "seeds/W4_C4_V3/todo.md"
+    }
+  ],
+  "prompt": "You have 3 hours of focused time this afternoon. Pick which items from `todo.md` you can fit, prioritizing by a mix of urgency and effort. Save your chosen plan to `plan.md` as a list with estimated durations, and note which items are deferred.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

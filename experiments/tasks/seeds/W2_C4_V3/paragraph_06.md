@@ -1,0 +1,3 @@
+# The Lonely Lady
+
+The Lonely Lady is a 1983 American drama film directed by Peter Sasdy, adapted from the 1976 novel written by Harold Robbins. (The novel itself was believed to have been based on Robbins' memories of Jacqueline Susann.) The original music score was composed by Charlie Calello. The cast includes Pia Zadora in the title role, Lloyd Bochner, Bibi Besch, Jared Martin, and in an early film appearance, Ray Liotta. The plot follows Jerilee Randall, an aspiring screenwriter who deals with many abusive men in her attempts to achieve success in Hollywood. A critical and commercial failure, "The Lonely Lady" was the last adaptation of one of Robbins' best selling novels before he died in 1997, and, to date, the last such adaptation of any of his works.

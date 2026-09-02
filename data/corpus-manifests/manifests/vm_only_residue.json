@@ -1,0 +1,29 @@
+{
+  "note": "Data present on VMs but intentionally NOT pulled into this archive. NOT deleted on the VMs; flagged so the user can decide on a bulk sync / larger disk. GB10 had 2.9 TB free, so headroom was NOT the limiter for these — they are out-of-scope-by-task or provenance-caveated.",
+  "residue": [
+    {
+      "item": "gen2-176 clean TRAINING raw capture.scap",
+      "host": "<GUEST_HOST_A>",
+      "count": 176,
+      "total_uncompressed_bytes": 31847942244,
+      "total_gb": 31.85,
+      "all_present_on_vm": true,
+      "why_not_pulled": "TIER C scope per task was 55 attacks + 55 twins + gen2-60 HELDOUT only; training raw scap was deliberately excluded. The gen2-176 training FEATURE files (graph + state_snapshots) ARE persisted in tier_b/clean_train.",
+      "recoverable": true,
+      "action_if_wanted": "disk allows (~32 GB); re-run pull_scap.py against a train scap_targets list to make durable"
+    },
+    {
+      "item": "Whole 300MB per-run bundles (non-feature files: logs, container layers, aide dbs, tool manifests, intermediate artifacts) for the 55 attacks / 55 twins / gen2 clean sessions",
+      "hosts": ["<GUEST_HOST_A>", "<GUEST_HOST_B>", "<GUEST_HOST_C>"],
+      "why_not_pulled": "Task directed pulling only the needed feature subpaths (graph/snapshots/scap), not whole bundles. Feature + raw-scap subpaths ARE persisted.",
+      "recoverable": true
+    },
+    {
+      "item": "11 locked-pop C-series graphs — EXACT b1b2 derivation-input provenance",
+      "hosts": ["<GUEST_HOST_B>", "<GUEST_HOST_C>"],
+      "status": "graphs ARE persisted (tier_b/attacks_lockedpop_cseries + twins_lockedpop_cseries), but pulled BEST-EFFORT from the underlying source generations (p2_l0_gemini_recollect_instcfg_20260822, p2_l0_newcase_20260822, p2_llmtrace_grok_attack_native_20260823, p2_l0_recollect_20260822, p2_l0_gemini_configclose_20260822).",
+      "caveat": "The b1b2 locked-pop generation dir (p2_b1b2_size_timing_libsinsp_20260822) holds only REPORT/scripts locally and does not exist on the 3 accessible VMs; its exact per-run graph inputs could not be confirmed to match the persisted best-effort graphs. The DERIVED/scored outputs for these 11 survive in tier_a/job_reports/w3thick_new_rows.json and the local b1b2 REPORT.json.",
+      "recoverable": "graphs: yes (persisted); exact-provenance link: unverifiable from accessible hosts"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "after_a": {
+    "added": 0,
+    "changed": 1,
+    "no_differences": false,
+    "parse_status": "parsed",
+    "removed": 1
+  },
+  "after_b": {
+    "added": 0,
+    "changed": 1,
+    "no_differences": false,
+    "parse_status": "parsed",
+    "removed": 1
+  },
+  "before_control": {
+    "added": null,
+    "changed": null,
+    "no_differences": true,
+    "parse_status": "parsed",
+    "removed": null
+  }
+}

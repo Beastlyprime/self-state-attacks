@@ -1,0 +1,196 @@
+{
+  "edge_count": 4,
+  "edge_schema_version": "assa.provenance_edge.v3",
+  "enabled": true,
+  "outcomes": [
+    {
+      "audit_serial": "258843",
+      "edge_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258843:supersedes:32",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258843",
+      "evidence": {
+        "audit_serial": "258843",
+        "method": "same_audit_event_delete_create_byte_exact_path",
+        "new_path_record": {
+          "dev": "fd:01",
+          "inode": 6194164,
+          "item": 4,
+          "nametype": "CREATE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__MEMORY.md"
+        },
+        "old_path_record": {
+          "dev": "fd:01",
+          "inode": 6194122,
+          "item": 3,
+          "nametype": "DELETE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__MEMORY.md"
+        },
+        "path_bytes_hex": "2f686f6d652f6f75746572636c61772f6f75746572636c61772d62656e63682f6578706572696d656e74732f726573756c74732f6d75746174696f6e5f6d61747269785f666976655f736f757263652f6d75746174696f6e2d63616e6172792d357372632d3230323630383233543131343933335a2d63666633616563392f776f726b73706163652f72656e616d655f5f4d454d4f52592e6d64"
+      },
+      "new_node_id": "file:ea1bc1386608150f62f52108:v2",
+      "old_node_id": "file:95fac2888b558612e38cbe43:v0",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__MEMORY.md",
+      "supersede_resolution_status": "resolved_rename_overwrite",
+      "syscall": "renameat2"
+    },
+    {
+      "audit_serial": "258849",
+      "edge_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258849:supersedes:37",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258849",
+      "evidence": {
+        "audit_serial": "258849",
+        "method": "same_audit_event_delete_create_byte_exact_path",
+        "new_path_record": {
+          "dev": "fd:01",
+          "inode": 6194122,
+          "item": 4,
+          "nametype": "CREATE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/memory/rename__2026-01-01.md"
+        },
+        "old_path_record": {
+          "dev": "fd:01",
+          "inode": 6194119,
+          "item": 3,
+          "nametype": "DELETE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/memory/rename__2026-01-01.md"
+        },
+        "path_bytes_hex": "2f686f6d652f6f75746572636c61772f6f75746572636c61772d62656e63682f6578706572696d656e74732f726573756c74732f6d75746174696f6e5f6d61747269785f666976655f736f757263652f6d75746174696f6e2d63616e6172792d357372632d3230323630383233543131343933335a2d63666633616563392f776f726b73706163652f6d656d6f72792f72656e616d655f5f323032362d30312d30312e6d64"
+      },
+      "new_node_id": "file:95fac2888b558612e38cbe43:v2",
+      "old_node_id": "file:7c7e1029e893ecef478a3998:v0",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/memory/rename__2026-01-01.md",
+      "supersede_resolution_status": "resolved_rename_overwrite",
+      "syscall": "renameat2"
+    },
+    {
+      "audit_serial": "258855",
+      "edge_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258855:supersedes:42",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258855",
+      "evidence": {
+        "audit_serial": "258855",
+        "method": "same_audit_event_delete_create_byte_exact_path",
+        "new_path_record": {
+          "dev": "fd:01",
+          "inode": 6194119,
+          "item": 4,
+          "nametype": "CREATE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__TOOLS.md"
+        },
+        "old_path_record": {
+          "dev": "fd:01",
+          "inode": 6194123,
+          "item": 3,
+          "nametype": "DELETE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__TOOLS.md"
+        },
+        "path_bytes_hex": "2f686f6d652f6f75746572636c61772f6f75746572636c61772d62656e63682f6578706572696d656e74732f726573756c74732f6d75746174696f6e5f6d61747269785f666976655f736f757263652f6d75746174696f6e2d63616e6172792d357372632d3230323630383233543131343933335a2d63666633616563392f776f726b73706163652f72656e616d655f5f544f4f4c532e6d64"
+      },
+      "new_node_id": "file:7c7e1029e893ecef478a3998:v2",
+      "old_node_id": "file:200c9a2476b22d6e020556ec:v0",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__TOOLS.md",
+      "supersede_resolution_status": "resolved_rename_overwrite",
+      "syscall": "renameat2"
+    },
+    {
+      "audit_serial": "258861",
+      "edge_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258861:supersedes:47",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258861",
+      "evidence": {
+        "audit_serial": "258861",
+        "method": "same_audit_event_delete_create_byte_exact_path",
+        "new_path_record": {
+          "dev": "fd:01",
+          "inode": 6194123,
+          "item": 4,
+          "nametype": "CREATE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__openclaw.json"
+        },
+        "old_path_record": {
+          "dev": "fd:01",
+          "inode": 6194124,
+          "item": 3,
+          "nametype": "DELETE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__openclaw.json"
+        },
+        "path_bytes_hex": "2f686f6d652f6f75746572636c61772f6f75746572636c61772d62656e63682f6578706572696d656e74732f726573756c74732f6d75746174696f6e5f6d61747269785f666976655f736f757263652f6d75746174696f6e2d63616e6172792d357372632d3230323630383233543131343933335a2d63666633616563392f776f726b73706163652f72656e616d655f5f6f70656e636c61772e6a736f6e"
+      },
+      "new_node_id": "file:200c9a2476b22d6e020556ec:v2",
+      "old_node_id": "file:5fb4f603d3ed19ab9ae904d5:v0",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/rename__openclaw.json",
+      "supersede_resolution_status": "resolved_rename_overwrite",
+      "syscall": "renameat2"
+    },
+    {
+      "audit_serial": "258868",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258868",
+      "old_node_id": "file:a2e495b40cfede954bded1b5:v1",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/unlink__MEMORY.md",
+      "supersede_resolution_status": "unlink_without_subsequent_exact_path_recreate",
+      "syscall": "unlinkat",
+      "unlink_path_record": {
+        "dev": "fd:01",
+        "inode": 6194125,
+        "item": 1,
+        "nametype": "DELETE",
+        "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/unlink__MEMORY.md"
+      }
+    },
+    {
+      "audit_serial": "258872",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258872",
+      "old_node_id": "file:367c1f22f7b1d2b970d5d019:v1",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/memory/unlink__2026-01-01.md",
+      "supersede_resolution_status": "unlink_without_subsequent_exact_path_recreate",
+      "syscall": "unlinkat",
+      "unlink_path_record": {
+        "dev": "fd:01",
+        "inode": 6194120,
+        "item": 1,
+        "nametype": "DELETE",
+        "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/memory/unlink__2026-01-01.md"
+      }
+    },
+    {
+      "audit_serial": "258876",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258876",
+      "old_node_id": "file:87948300ea2c5336e58a2ab0:v1",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/unlink__TOOLS.md",
+      "supersede_resolution_status": "unlink_without_subsequent_exact_path_recreate",
+      "syscall": "unlinkat",
+      "unlink_path_record": {
+        "dev": "fd:01",
+        "inode": 6194126,
+        "item": 1,
+        "nametype": "DELETE",
+        "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/unlink__TOOLS.md"
+      }
+    },
+    {
+      "audit_serial": "258880",
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258880",
+      "old_node_id": "file:42163286635c4aa432757f56:v1",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/unlink__openclaw.json",
+      "supersede_resolution_status": "unlink_without_subsequent_exact_path_recreate",
+      "syscall": "unlinkat",
+      "unlink_path_record": {
+        "dev": "fd:01",
+        "inode": 6194127,
+        "item": 1,
+        "nametype": "DELETE",
+        "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace/unlink__openclaw.json"
+      }
+    }
+  ],
+  "relation": "supersedes",
+  "resolution_methods": [
+    "same_audit_event_delete_create_byte_exact_path",
+    "unlink_then_open_create_byte_exact_path_no_intervening_path_event"
+  ],
+  "run_id": "mutation-canary-5src-20260823T114933Z-cff3aec9",
+  "schema_version": "assa.provenance_supersedes.v1",
+  "status_counts": {
+    "resolved_rename_overwrite": 4,
+    "unlink_without_subsequent_exact_path_recreate": 4
+  },
+  "supported": true,
+  "temporal_proximity_inference": false
+}

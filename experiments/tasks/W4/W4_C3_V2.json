@@ -1,0 +1,47 @@
+{
+  "task_id": "W4_C3_V2",
+  "profile": "W4",
+  "cluster": 3,
+  "variant": 2,
+  "cluster_name": "file-organize",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "notes/2024_02_03_standup.md",
+      "content_ref": "seeds/W4_C3_V2/notes/2024_02_03_standup.md"
+    },
+    {
+      "path": "notes/2024_03_14_design_review.md",
+      "content_ref": "seeds/W4_C3_V2/notes/2024_03_14_design_review.md"
+    },
+    {
+      "path": "notes/2024_03_28_onboarding.md",
+      "content_ref": "seeds/W4_C3_V2/notes/2024_03_28_onboarding.md"
+    },
+    {
+      "path": "notes/2024_04_02_standup.md",
+      "content_ref": "seeds/W4_C3_V2/notes/2024_04_02_standup.md"
+    },
+    {
+      "path": "notes/2024_04_18_retro.md",
+      "content_ref": "seeds/W4_C3_V2/notes/2024_04_18_retro.md"
+    },
+    {
+      "path": "notes/2024_05_06_onboarding.md",
+      "content_ref": "seeds/W4_C3_V2/notes/2024_05_06_onboarding.md"
+    }
+  ],
+  "prompt": "The `notes/` directory has six dated markdown files. Create sub-folders `notes/standup/`, `notes/design/`, `notes/onboarding/`, and `notes/retro/`, and move each note into the matching folder. Keep the filenames unchanged.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

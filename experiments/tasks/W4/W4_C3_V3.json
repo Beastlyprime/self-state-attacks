@@ -1,0 +1,43 @@
+{
+  "task_id": "W4_C3_V3",
+  "profile": "W4",
+  "cluster": 3,
+  "variant": 3,
+  "cluster_name": "file-organize",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "photos/DSC_0001.JPG",
+      "content_ref": "seeds/W4_C3_V3/photos/DSC_0001.JPG"
+    },
+    {
+      "path": "photos/DSC_0002.JPG",
+      "content_ref": "seeds/W4_C3_V3/photos/DSC_0002.JPG"
+    },
+    {
+      "path": "photos/DSC_0003.jpg",
+      "content_ref": "seeds/W4_C3_V3/photos/DSC_0003.jpg"
+    },
+    {
+      "path": "photos/selfie1.JPEG",
+      "content_ref": "seeds/W4_C3_V3/photos/selfie1.JPEG"
+    },
+    {
+      "path": "photos/vacation.png",
+      "content_ref": "seeds/W4_C3_V3/photos/vacation.png"
+    }
+  ],
+  "prompt": "Rename every image in `photos/` to have a consistent lowercase `.jpg` extension (even if the original was .JPG, .JPEG, or .png). Keep the base filename unchanged. Do not convert the underlying file formats — just rename.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "acceptance_line": {
+    "all_operand_rate": 0.8163265306122449,
+    "measured_on": "resolution_spine_fd_path_resolved_rate",
+    "passed": false,
+    "provenance_evaluable_effective": false,
+    "spec": "6.3 fd_path_resolved_rate>=0.95, measured on the SCAP/merged resolution spine",
+    "spine_rate": 0.8888888888888888,
+    "threshold": 0.95
+  },
+  "auditd_role": "independent_adjudication_channel_not_graph_spine",
+  "coverage_post_reattribution": {
+    "coverage_view": "raw_all_evidence_rows",
+    "fd_path_resolved_rate": 0.8163265306122449,
+    "graph_edges": 67,
+    "graph_nodes": 48,
+    "provenance_evaluable": false,
+    "unknown_node_fraction": 0.22916666666666666
+  },
+  "coverage_pre_reattribution": {
+    "fd_path_resolved_rate": 0.8163265306122449,
+    "graph_nodes": 48,
+    "provenance_evaluable": false
+  },
+  "coverage_resolution_spine": {
+    "all_operand_denominator": 49,
+    "all_operand_numerator": 40,
+    "excluded_event_ids": [
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258801",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258802",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258803",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258804",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258805",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258806",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258807",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258808",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258810",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258811",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258815",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258816",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258818",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258819",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258823",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258824",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258826",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258827",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258831",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258832",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258834",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258835",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258839",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258840",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258845",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258846",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258851",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258852",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258857",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258858",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258863",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258864",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258866",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258867",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258870",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258871",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258874",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258875",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258878",
+      "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258879"
+    ],
+    "exclusion_basis": "pure_audit_read_not_on_resolution_spine_scap_zero_drop_twin_already_counted",
+    "fd_path_resolved_rate_all_operands": 0.8163265306122449,
+    "fd_path_resolved_rate_spine": 0.8888888888888888,
+    "pure_audit_read_duplicates_excluded": 40,
+    "spine_operand_denominator": 9,
+    "spine_operand_numerator": 8,
+    "writes_excluded": 0
+  },
+  "coverage_resolution_spine_effective": {
+    "artifact": "graph/reattributed/resolution_spine_effective/coverage.json",
+    "fd_path_resolved_rate": 0.8888888888888888,
+    "graph_edges": 27,
+    "graph_nodes": 32,
+    "provenance_evaluable": false,
+    "socket_unknown_retained": true,
+    "unknown_node_fraction": 0.09375
+  },
+  "file_identity_source": "libsinsp",
+  "passed": false,
+  "reattribution_counts": {
+    "fd_bracket_ambiguous": 8,
+    "fd_bracket_no_timeline": 1,
+    "no_libsinsp_counterpart": 87
+  },
+  "run_id": "mutation-canary-5src-20260823T114933Z-cff3aec9",
+  "run_params": {
+    "boot_id": "2062683d-f59b-4d64-b598-470428b33750",
+    "cgroup_id": 224197,
+    "cgroup_path": "/sys/fs/cgroup/assa-bench/mutation-canary-5src-20260823T114933Z-cff3aec9",
+    "run_id": "mutation-canary-5src-20260823T114933Z-cff3aec9",
+    "runner_uid": 1000
+  },
+  "schema_version": "assa.five_source_graph_bridge.v2",
+  "steps": {
+    "libsinsp_extract": {
+      "capture": {
+        "bytes": 1478112,
+        "kind": "file",
+        "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/capture.scap",
+        "sha256": "dfe2af1b389a09baa4d0e7eb2671d0b5bfb4303ed7a7bd40cf3e89a0ac15e5c7"
+      },
+      "command": [
+        "falco",
+        "-c",
+        "/etc/falco/falco.yaml",
+        "-r",
+        "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/graph/libsinsp/extraction_rules.yaml",
+        "-o",
+        "engine.kind=replay",
+        "-o",
+        "engine.replay.capture_file=<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/capture.scap",
+        "-o",
+        "json_output=true",
+        "-o",
+        "syslog_output.enabled=false"
+      ],
+      "config": {
+        "bytes": 63914,
+        "kind": "file",
+        "path": "/etc/falco/falco.yaml",
+        "sha256": "e991fbe11a012497560255e137004694b51ef3f488dff30e3f01a331155aa5a2"
+      },
+      "engine_opened": true,
+      "event_count": 337,
+      "events": {
+        "bytes": 256089,
+        "kind": "file",
+        "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/graph/libsinsp/libsinsp_events.jsonl",
+        "sha256": "a0b9698d03654b4de044404c9e2f7d23cccb4d515cea58a855be4fffc7ce0289"
+      },
+      "exit_status": 0,
+      "extract_fields": [
+        "evt.num",
+        "evt.rawtime",
+        "evt.type",
+        "evt.dir",
+        "evt.res",
+        "proc.pid",
+        "thread.tid",
+        "proc.ppid",
+        "proc.name",
+        "proc.exepath",
+        "proc.pid.ts",
+        "proc.ppid.ts",
+        "proc.exe_ino",
+        "proc.vpid",
+        "user.uid",
+        "fd.num",
+        "fd.type",
+        "fd.name",
+        "fd.ino",
+        "fd.dev.major",
+        "fd.dev.minor"
+      ],
+      "rules": {
+        "bytes": 671,
+        "kind": "file",
+        "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/graph/libsinsp/extraction_rules.yaml",
+        "sha256": "303a102e537492648ee014084f433628f1738f9a5d9a6ae565fa3fdeb83ca75f"
+      },
+      "run_id": "mutation-canary-5src-20260823T114933Z-cff3aec9",
+      "schema_version": "assa.libsinsp_events.v1",
+      "status": "passed",
+      "uid_scope": 1000,
+      "valid": true,
+      "zero_drop_evidence": true
+    },
+    "scap_decode": {
+      "allowed_pids": null,
+      "capture": {
+        "bytes": 1478112,
+        "kind": "file",
+        "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/capture.scap",
+        "sha256": "dfe2af1b389a09baa4d0e7eb2671d0b5bfb4303ed7a7bd40cf3e89a0ac15e5c7"
+      },
+      "command": [
+        "sysdig",
+        "-r",
+        "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/capture.scap",
+        "-j",
+        "-p",
+        "*%evt.num %evt.rawtime %evt.dir %syscall.type %proc.pid %thread.tid %proc.ppid %proc.exepath %proc.name %user.uid %user.loginuid %group.gid %thread.cgroups %evt.failed %evt.rawres %evt.res %fd.num %fd.type %fd.name %fd.lip %fd.rip %fd.lport %fd.rport %fd.l4proto",
+        "evt.dir=< and user.uid=1000 and thread.cgroups contains \"/sys/fs/cgroup/assa-bench/mutation-canary-5src-20260823T114933Z-cff3aec9\""
+      ],
+      "conservation": {
+        "accounted_lines": 0,
+        "dispositions": {},
+        "malformed": [],
+        "normalized_exit_events": 0,
+        "passed": true,
+        "raw_lines": 0,
+        "schema_version": "assa.scap_decode_conservation.v1"
+      },
+      "events": {
+        "bytes": 0,
+        "kind": "file",
+        "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/scap.events.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exit_status": 0,
+      "invalid_reasons": [
+        "decoder_output_has_no_completed_in_scope_syscalls"
+      ],
+      "schema_version": "assa.scap_decoder.v1",
+      "stderr": {
+        "bytes": 0,
+        "kind": "file",
+        "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/scap.events.jsonl.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "valid": false
+    }
+  }
+}

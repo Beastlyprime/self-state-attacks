@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C4_V2",
+  "profile": "W4",
+  "cluster": 4,
+  "variant": 2,
+  "cluster_name": "schedule-plan",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "trip_notes.md",
+      "content_ref": "seeds/W4_C4_V2/trip_notes.md"
+    }
+  ],
+  "prompt": "Build an itinerary for this SF trip. Save it to `itinerary.md` with one section per day (Tue-Fri), showing the planned schedule from arrival to departure. Leave blocks of unscheduled time clearly marked as \"free\".",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

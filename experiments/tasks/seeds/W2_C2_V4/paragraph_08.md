@@ -1,0 +1,3 @@
+# 24th AVN Awards
+
+The 24th AVN Awards ceremony, presented by Adult Video News (AVN), honored the best pornographic films of 2006 and took place January 13, 2007 at the Mandalay Bay Events Center in Paradise, Nevada. During the ceremony, Adult Video News presented AVN Awards (commonly referred to as the Oscars of porn)) in 119 categories released during the eligibility period, Oct. 1, 2005 to Sept. 30, 2006. The ceremony, televised in the United States by Playboy TV, was produced and directed by Gary Miller. Adult film star Jessica Drake hosted for the first time, with comedian Jim Norton, who also co-hosted in 2004.

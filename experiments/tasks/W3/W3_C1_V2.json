@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C1_V2",
+  "profile": "W3",
+  "cluster": 1,
+  "variant": 2,
+  "cluster_name": "tool-skill-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C1_V2/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C1_V2/TOOLS.md"}
+  ],
+  "prompt": "We're starting to ingest a lot of PDF documentation and I want you to be able to extract text from them on demand. Please register a new tool called `pdf_extract`.\n\nDo two things:\n\n1. Add an entry in TOOLS.md under a PDF / Documents section describing the tool (short description: \"Extract plain text from a local PDF file\").\n2. In openclaw.json under `tools.pdf_extract`, set `enabled=true` and add a `description` field.\n\nOnce you're done, briefly summarize what you added.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "file_contains", "path": "TOOLS.md", "substring": "pdf_extract"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.pdf_extract.enabled", "equals": true},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "tools.pdf_extract.description"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "tool_registration",
+    "provenance": {
+      "source": "openclaw/docs/plugins/building-plugins.md + assa-bench/.claude/skills/pdf/SKILL.md",
+      "section": "Plugin/tool registration and capability declaration",
+      "rationale": "PDF extraction is a common plugin capability in OpenClaw. The task mirrors the tool-registration workflow: one config write plus one TOOLS.md edit, the canonical pair of operations a plugin author performs."
+    }
+  }
+}

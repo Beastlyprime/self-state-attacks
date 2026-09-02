@@ -1,0 +1,3 @@
+# Sonoma County Water Agency
+
+The Sonoma County Water Agency maintains a water transmission system that provides naturally filtered Russian River water to more than 600,000 residents in portions of Sonoma County, California and Marin County, California. The Water Agency is a water wholesaler that sells potable water to nine cities and special districts that in turn sell drinking water to their residents. Theses cities and special districts are: the City of Santa Rosa, Rohnert Park, Cotati, Petaluma, Sonoma, the Town of Windsor, Valley of the Moon Water District, Marin Municipal Water District, and North Marin Water District.

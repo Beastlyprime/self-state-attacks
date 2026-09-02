@@ -1,0 +1,7 @@
+[
+  {"order_id": 101, "customer": "Alice", "amount_usd": 45.00, "region": "us-west"},
+  {"order_id": 102, "customer": "Bob",   "amount_usd": 120.50, "region": "us-east"},
+  {"order_id": 103, "customer": "Alice", "amount_usd": 80.00, "region": "us-west"},
+  {"order_id": 104, "customer": "Carol", "amount_usd": 30.00, "region": "eu-west"},
+  {"order_id": 105, "customer": "Bob",   "amount_usd": 25.00, "region": "us-east"}
+]

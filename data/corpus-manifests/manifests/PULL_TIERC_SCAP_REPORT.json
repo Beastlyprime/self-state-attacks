@@ -1,0 +1,1370 @@
+{
+  "n": 170,
+  "ok": 170,
+  "remote_missing": [],
+  "failed": [],
+  "total_remote_bytes": 23088367244,
+  "total_local_gz_bytes": 2804272340,
+  "results": [
+    {
+      "run_id": "MSI01_w1_shell_approval_gate__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 240765268,
+      "local_gz_bytes": 30807006
+    },
+    {
+      "run_id": "MSI01_w1_shell_approval_gate__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 135439600,
+      "local_gz_bytes": 15541618
+    },
+    {
+      "run_id": "MSI02_w1_precommit_verification_disable__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 234119164,
+      "local_gz_bytes": 29378126
+    },
+    {
+      "run_id": "MSI02_w1_precommit_verification_disable__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 239319732,
+      "local_gz_bytes": 30083439
+    },
+    {
+      "run_id": "MSI03_w2_private_memory_prohibition_negation__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 149616200,
+      "local_gz_bytes": 17396950
+    },
+    {
+      "run_id": "MSI03_w2_private_memory_prohibition_negation__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 199452704,
+      "local_gz_bytes": 24581549
+    },
+    {
+      "run_id": "MSI04_w2_citation_verification_disable__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 136838100,
+      "local_gz_bytes": 15717089
+    },
+    {
+      "run_id": "MSI04_w2_citation_verification_disable__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 167796332,
+      "local_gz_bytes": 20071995
+    },
+    {
+      "run_id": "MSI05_w4_memory_scope_flip__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 228771416,
+      "local_gz_bytes": 29128789
+    },
+    {
+      "run_id": "MSI05_w4_memory_scope_flip__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 170029508,
+      "local_gz_bytes": 20229017
+    },
+    {
+      "run_id": "MSI06_w4_external_action_default_flip__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 200525636,
+      "local_gz_bytes": 24918223
+    },
+    {
+      "run_id": "MSI06_w4_external_action_default_flip__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 164727880,
+      "local_gz_bytes": 19766499
+    },
+    {
+      "run_id": "MCH01_w1_memory_lockout__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 181621544,
+      "local_gz_bytes": 21815175
+    },
+    {
+      "run_id": "MCH01_w1_memory_lockout__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 171767572,
+      "local_gz_bytes": 20356671
+    },
+    {
+      "run_id": "MCH02_w1_rules_worldwrite__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 158582536,
+      "local_gz_bytes": 18512219
+    },
+    {
+      "run_id": "MCH02_w1_rules_worldwrite__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 138610028,
+      "local_gz_bytes": 15628737
+    },
+    {
+      "run_id": "MCH03_w2_memory_lockout__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 159212932,
+      "local_gz_bytes": 18669631
+    },
+    {
+      "run_id": "MCH03_w2_memory_lockout__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 175793792,
+      "local_gz_bytes": 21103481
+    },
+    {
+      "run_id": "MCH04_w2_rules_worldwrite__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 140766836,
+      "local_gz_bytes": 15765778
+    },
+    {
+      "run_id": "MCH04_w2_rules_worldwrite__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 177180268,
+      "local_gz_bytes": 21254181
+    },
+    {
+      "run_id": "MCH05_w4_memory_lockout__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 178584752,
+      "local_gz_bytes": 21289466
+    },
+    {
+      "run_id": "MCH05_w4_memory_lockout__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 183994716,
+      "local_gz_bytes": 22165015
+    },
+    {
+      "run_id": "MCH06_w4_rules_worldwrite__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 144444112,
+      "local_gz_bytes": 16315437
+    },
+    {
+      "run_id": "MCH06_w4_rules_worldwrite__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 136933560,
+      "local_gz_bytes": 15540840
+    },
+    {
+      "run_id": "MTR01_w3_heartbeat_wipe__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 200990948,
+      "local_gz_bytes": 24362051
+    },
+    {
+      "run_id": "MTR01_w3_heartbeat_wipe__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 202172272,
+      "local_gz_bytes": 24242165
+    },
+    {
+      "run_id": "MTR02_w1_memory_wipe__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 160620220,
+      "local_gz_bytes": 18516780
+    },
+    {
+      "run_id": "MTR02_w1_memory_wipe__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 178573780,
+      "local_gz_bytes": 20498515
+    },
+    {
+      "run_id": "MTR03_w1_tools_wipe__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 149054924,
+      "local_gz_bytes": 16757347
+    },
+    {
+      "run_id": "MTR03_w1_tools_wipe__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 154447852,
+      "local_gz_bytes": 17497549
+    },
+    {
+      "run_id": "MTR04_w2_memory_wipe__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 275262416,
+      "local_gz_bytes": 34813351
+    },
+    {
+      "run_id": "MTR04_w2_memory_wipe__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 143628860,
+      "local_gz_bytes": 16124361
+    },
+    {
+      "run_id": "MTR05_w2_tools_wipe__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 154343100,
+      "local_gz_bytes": 17897796
+    },
+    {
+      "run_id": "MTR05_w2_tools_wipe__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 201127592,
+      "local_gz_bytes": 24368671
+    },
+    {
+      "run_id": "MTR06_w4_memory_wipe__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 146176796,
+      "local_gz_bytes": 16342561
+    },
+    {
+      "run_id": "MTR06_w4_memory_wipe__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 155465972,
+      "local_gz_bytes": 17327982
+    },
+    {
+      "run_id": "MTR07_w4_heartbeat_wipe__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 149028668,
+      "local_gz_bytes": 16647233
+    },
+    {
+      "run_id": "MTR07_w4_heartbeat_wipe__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 157692052,
+      "local_gz_bytes": 17775301
+    },
+    {
+      "run_id": "MUL01_w3_tools_unlink__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 255825680,
+      "local_gz_bytes": 32909295
+    },
+    {
+      "run_id": "MUL01_w3_tools_unlink__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 271270400,
+      "local_gz_bytes": 35116690
+    },
+    {
+      "run_id": "MUL02_w1_agents_unlink__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 175148640,
+      "local_gz_bytes": 20879139
+    },
+    {
+      "run_id": "MUL02_w1_agents_unlink__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 268752656,
+      "local_gz_bytes": 35005961
+    },
+    {
+      "run_id": "MUL03_w1_tools_unlink__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 141691952,
+      "local_gz_bytes": 16092995
+    },
+    {
+      "run_id": "MUL03_w1_tools_unlink__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 213351052,
+      "local_gz_bytes": 26597580
+    },
+    {
+      "run_id": "MUL04_w2_agents_unlink__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 160410280,
+      "local_gz_bytes": 18873031
+    },
+    {
+      "run_id": "MUL04_w2_agents_unlink__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 153088552,
+      "local_gz_bytes": 17741553
+    },
+    {
+      "run_id": "MUL05_w2_memory_unlink__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 153824056,
+      "local_gz_bytes": 17773748
+    },
+    {
+      "run_id": "MUL05_w2_memory_unlink__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 167377752,
+      "local_gz_bytes": 20054909
+    },
+    {
+      "run_id": "MUL06_w4_agents_unlink__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 156567348,
+      "local_gz_bytes": 18267781
+    },
+    {
+      "run_id": "MUL06_w4_agents_unlink__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 155824572,
+      "local_gz_bytes": 18197114
+    },
+    {
+      "run_id": "MUL07_w4_user_unlink__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 155313708,
+      "local_gz_bytes": 18122176
+    },
+    {
+      "run_id": "MUL07_w4_user_unlink__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 166142576,
+      "local_gz_bytes": 19640743
+    },
+    {
+      "run_id": "MUI01_w1_tools_cred_relay_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 233172384,
+      "local_gz_bytes": 27059205
+    },
+    {
+      "run_id": "MUI01_w1_tools_cred_relay_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 273167576,
+      "local_gz_bytes": 32679104
+    },
+    {
+      "run_id": "MUC01_w1_provider_relay_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 188838668,
+      "local_gz_bytes": 23104631
+    },
+    {
+      "run_id": "MUC01_w1_provider_relay_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 287669964,
+      "local_gz_bytes": 37969296
+    },
+    {
+      "run_id": "MUI02_w1_agents_post_mirror_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 229110568,
+      "local_gz_bytes": 29062878
+    },
+    {
+      "run_id": "MUI02_w1_agents_post_mirror_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 145226148,
+      "local_gz_bytes": 17152227
+    },
+    {
+      "run_id": "MUC02_w1_schedule_mail_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 328967900,
+      "local_gz_bytes": 43883199
+    },
+    {
+      "run_id": "MUC02_w1_schedule_mail_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 226453936,
+      "local_gz_bytes": 28605879
+    },
+    {
+      "run_id": "MUC03_w2_provider_relay_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 187679688,
+      "local_gz_bytes": 22545959
+    },
+    {
+      "run_id": "MUC03_w2_provider_relay_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 154050828,
+      "local_gz_bytes": 17778104
+    },
+    {
+      "run_id": "MUC04_w2_schedule_mail_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 243077084,
+      "local_gz_bytes": 31029619
+    },
+    {
+      "run_id": "MUC04_w2_schedule_mail_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 196511916,
+      "local_gz_bytes": 23944420
+    },
+    {
+      "run_id": "MUC05_w4_provider_relay_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 192011904,
+      "local_gz_bytes": 23438650
+    },
+    {
+      "run_id": "MUC05_w4_provider_relay_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 244809244,
+      "local_gz_bytes": 31634886
+    },
+    {
+      "run_id": "MUC06_w4_schedule_mail_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 205397544,
+      "local_gz_bytes": 25535629
+    },
+    {
+      "run_id": "MUC06_w4_schedule_mail_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 196482440,
+      "local_gz_bytes": 24213764
+    },
+    {
+      "run_id": "MUI03_w2_tools_cred_relay_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 256123100,
+      "local_gz_bytes": 32896702
+    },
+    {
+      "run_id": "MUI03_w2_tools_cred_relay_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 174394596,
+      "local_gz_bytes": 20835810
+    },
+    {
+      "run_id": "MUI04_w2_agents_post_mirror_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 182695376,
+      "local_gz_bytes": 21938245
+    },
+    {
+      "run_id": "MUI04_w2_agents_post_mirror_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 276212864,
+      "local_gz_bytes": 35835204
+    },
+    {
+      "run_id": "MUI05_w4_tools_cred_relay_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 139842196,
+      "local_gz_bytes": 15755434
+    },
+    {
+      "run_id": "MUI05_w4_tools_cred_relay_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 262189624,
+      "local_gz_bytes": 33920208
+    },
+    {
+      "run_id": "MUI06_w4_agents_post_mirror_um__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 205693664,
+      "local_gz_bytes": 25124237
+    },
+    {
+      "run_id": "MUI06_w4_agents_post_mirror_um__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 142831632,
+      "local_gz_bytes": 16116475
+    },
+    {
+      "run_id": "MCAW202_w2_citation_tool_redirect__poisoned",
+      "role": "attack",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 150557360,
+      "local_gz_bytes": 17557140
+    },
+    {
+      "run_id": "MCAW202_w2_citation_tool_redirect__clean",
+      "role": "twin",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 152608528,
+      "local_gz_bytes": 17847505
+    },
+    {
+      "run_id": "MCAW102_w1_automerge_instruction_backdoor__poisoned",
+      "role": "attack",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 191220048,
+      "local_gz_bytes": 22820628
+    },
+    {
+      "run_id": "MCAW102_w1_automerge_instruction_backdoor__clean",
+      "role": "twin",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 295704732,
+      "local_gz_bytes": 38819768
+    },
+    {
+      "run_id": "MCAW401_w4_engagement_persona_drift__poisoned",
+      "role": "attack",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 291990832,
+      "local_gz_bytes": 37740323
+    },
+    {
+      "run_id": "MCAW401_w4_engagement_persona_drift__clean",
+      "role": "twin",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 184458460,
+      "local_gz_bytes": 22145560
+    },
+    {
+      "run_id": "MCAW402_w4_blanket_approval_false_memory__poisoned",
+      "role": "attack",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 134386420,
+      "local_gz_bytes": 14920945
+    },
+    {
+      "run_id": "MCAW402_w4_blanket_approval_false_memory__clean",
+      "role": "twin",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 178099976,
+      "local_gz_bytes": 20665030
+    },
+    {
+      "run_id": "MCAW101_w1_release_helper_tool_redirect__poisoned",
+      "role": "attack",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 568245036,
+      "local_gz_bytes": 79452263
+    },
+    {
+      "run_id": "MCAW101_w1_release_helper_tool_redirect__clean",
+      "role": "twin",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 264031628,
+      "local_gz_bytes": 33655841
+    },
+    {
+      "run_id": "MCAW201_w2_model_q_false_memory__poisoned",
+      "role": "attack",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 215930112,
+      "local_gz_bytes": 26382296
+    },
+    {
+      "run_id": "MCAW201_w2_model_q_false_memory__clean",
+      "role": "twin",
+      "vm": "69",
+      "status": "ok",
+      "remote_bytes": 199828260,
+      "local_gz_bytes": 24444768
+    },
+    {
+      "run_id": "C531_w3_release_notes_tool_integration__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 29169932,
+      "local_gz_bytes": 3311333
+    },
+    {
+      "run_id": "C531_w3_release_notes_tool_integration__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 39150636,
+      "local_gz_bytes": 4280486
+    },
+    {
+      "run_id": "C521_w3_metrics_scrape_integration__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 70993004,
+      "local_gz_bytes": 7391948
+    },
+    {
+      "run_id": "C521_w3_metrics_scrape_integration__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 43371460,
+      "local_gz_bytes": 4831128
+    },
+    {
+      "run_id": "C520_w3_alert_webhook_runbook__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 99570124,
+      "local_gz_bytes": 9722628
+    },
+    {
+      "run_id": "C520_w3_alert_webhook_runbook__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 90922124,
+      "local_gz_bytes": 8970132
+    },
+    {
+      "run_id": "C530_w3_heartbeat_liveness_policy__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 22781476,
+      "local_gz_bytes": 2706538
+    },
+    {
+      "run_id": "C530_w3_heartbeat_liveness_policy__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 18082720,
+      "local_gz_bytes": 2227144
+    },
+    {
+      "run_id": "C514_w3_slack_post_vendor_package__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 43348876,
+      "local_gz_bytes": 4905679
+    },
+    {
+      "run_id": "C514_w3_slack_post_vendor_package__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 30094844,
+      "local_gz_bytes": 3435781
+    },
+    {
+      "run_id": "C510_w3_db_query_vendor_package_user_message__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 24511036,
+      "local_gz_bytes": 2817657
+    },
+    {
+      "run_id": "C510_w3_db_query_vendor_package_user_message__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 27109348,
+      "local_gz_bytes": 3074603
+    },
+    {
+      "run_id": "C514_w3_slack_post_vendor_package_user_message__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 41490776,
+      "local_gz_bytes": 4635962
+    },
+    {
+      "run_id": "C514_w3_slack_post_vendor_package_user_message__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 25548168,
+      "local_gz_bytes": 2923859
+    },
+    {
+      "run_id": "C515_w3_vector_search_repo_rules__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 26365576,
+      "local_gz_bytes": 3133400
+    },
+    {
+      "run_id": "C515_w3_vector_search_repo_rules__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 47362960,
+      "local_gz_bytes": 4937708
+    },
+    {
+      "run_id": "C512_w3_audit_rotate_runbook__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 27303000,
+      "local_gz_bytes": 3233460
+    },
+    {
+      "run_id": "C512_w3_audit_rotate_runbook__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 26364916,
+      "local_gz_bytes": 3257920
+    },
+    {
+      "run_id": "C512_w3_audit_rotate_runbook_user_message__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 26925156,
+      "local_gz_bytes": 3331473
+    },
+    {
+      "run_id": "C512_w3_audit_rotate_runbook_user_message__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 26312756,
+      "local_gz_bytes": 3319433
+    },
+    {
+      "run_id": "C512_w3_audit_rotate_runbook_external_content__poisoned",
+      "role": "attack",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 22584464,
+      "local_gz_bytes": 2659871
+    },
+    {
+      "run_id": "C512_w3_audit_rotate_runbook_external_content__clean",
+      "role": "twin",
+      "vm": "91",
+      "status": "ok",
+      "remote_bytes": 27562416,
+      "local_gz_bytes": 3299534
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_10_W1_C5_V5__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 197481424,
+      "local_gz_bytes": 24015314
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_11_W1_C4_V4__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 246793892,
+      "local_gz_bytes": 30254442
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_12_W1_C1_V6__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 210007480,
+      "local_gz_bytes": 25775303
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_13_W1_C5_V4__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 271392328,
+      "local_gz_bytes": 33911037
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_14_W1_C5_V2__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 227153088,
+      "local_gz_bytes": 27818618
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_10_W2_C5_V2__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 212099340,
+      "local_gz_bytes": 26119535
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_11_W2_C5_V4__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 157239960,
+      "local_gz_bytes": 19047371
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_12_W2_C3_V2__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 296687628,
+      "local_gz_bytes": 37157027
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_13_W2_C4_V4__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 220107520,
+      "local_gz_bytes": 28219876
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_14_W2_C1_V2__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 187275324,
+      "local_gz_bytes": 23431465
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_10_W3_C3_V2__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 163659176,
+      "local_gz_bytes": 19939351
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_11_W3_C2_V1__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 159752248,
+      "local_gz_bytes": 19495993
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_12_W3_C3_V4__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 171606944,
+      "local_gz_bytes": 21034151
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_13_W3_C4_V1__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 170451460,
+      "local_gz_bytes": 21003921
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_14_W3_C5_V6__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 165118412,
+      "local_gz_bytes": 20567796
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_12_W4_C2_V1__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 167419392,
+      "local_gz_bytes": 20769160
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_13_W4_C1_V4__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 159373680,
+      "local_gz_bytes": 19014937
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_14_W4_C2_V2__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 147719124,
+      "local_gz_bytes": 18059448
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 217982600,
+      "local_gz_bytes": 24350126
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 165440332,
+      "local_gz_bytes": 18841272
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 28478616,
+      "local_gz_bytes": 3294358
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 26932276,
+      "local_gz_bytes": 3174279
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 31879516,
+      "local_gz_bytes": 3675898
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 39551212,
+      "local_gz_bytes": 4439834
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 25942092,
+      "local_gz_bytes": 3056067
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 27677036,
+      "local_gz_bytes": 3238102
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 30733784,
+      "local_gz_bytes": 3474689
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 28006364,
+      "local_gz_bytes": 3236986
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 31830344,
+      "local_gz_bytes": 3877027
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 29831888,
+      "local_gz_bytes": 3524248
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 29549928,
+      "local_gz_bytes": 3515141
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 24829848,
+      "local_gz_bytes": 2922443
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 24651428,
+      "local_gz_bytes": 2940926
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 59031432,
+      "local_gz_bytes": 6693712
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 66463156,
+      "local_gz_bytes": 7361700
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 25244388,
+      "local_gz_bytes": 3024487
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 26441008,
+      "local_gz_bytes": 3166680
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 24438388,
+      "local_gz_bytes": 2963595
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 25825888,
+      "local_gz_bytes": 3047956
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 26022216,
+      "local_gz_bytes": 3047010
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 17596712,
+      "local_gz_bytes": 2184548
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 22273512,
+      "local_gz_bytes": 2659239
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 21364180,
+      "local_gz_bytes": 2569113
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 22493760,
+      "local_gz_bytes": 2692690
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 24124912,
+      "local_gz_bytes": 2828998
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 30038912,
+      "local_gz_bytes": 3649304
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 18209508,
+      "local_gz_bytes": 2234611
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 26543512,
+      "local_gz_bytes": 3260636
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 26096232,
+      "local_gz_bytes": 3271446
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 24094100,
+      "local_gz_bytes": 3028385
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 26646948,
+      "local_gz_bytes": 3317042
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 16915672,
+      "local_gz_bytes": 2116075
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 17258352,
+      "local_gz_bytes": 2145365
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 22579516,
+      "local_gz_bytes": 2729194
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r02__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 20065536,
+      "local_gz_bytes": 2440845
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r03__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 16795568,
+      "local_gz_bytes": 2095037
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r04__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 28512544,
+      "local_gz_bytes": 3339159
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r04__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 35884152,
+      "local_gz_bytes": 4098808
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r04__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 24134608,
+      "local_gz_bytes": 2850042
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r04__clean",
+      "role": "clean_heldout",
+      "vm": "24",
+      "status": "ok",
+      "remote_bytes": 23949980,
+      "local_gz_bytes": 2859704
+    }
+  ]
+}

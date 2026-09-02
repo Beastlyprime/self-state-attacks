@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C2_V1",
+  "profile": "W4",
+  "cluster": 2,
+  "variant": 1,
+  "cluster_name": "notes-reading",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "article.md",
+      "content_ref": "seeds/W4_C2_V1/article.md"
+    }
+  ],
+  "prompt": "Summarize `article.md` in at most 5 bullet points. Save the summary to `summary.md`.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

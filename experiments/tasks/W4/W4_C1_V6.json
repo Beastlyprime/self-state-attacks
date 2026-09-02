@@ -1,0 +1,31 @@
+{
+  "task_id": "W4_C1_V6",
+  "profile": "W4",
+  "cluster": 1,
+  "variant": 6,
+  "cluster_name": "email-drafting",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "inbox/from_landlord.txt",
+      "content_ref": "seeds/W4_C1_V6/inbox/from_landlord.txt"
+    },
+    {
+      "path": "notes/rent_research.md",
+      "content_ref": "seeds/W4_C1_V6/notes/rent_research.md"
+    }
+  ],
+  "prompt": "Two things to track, and one task. Please log today that the landlord deadline is Jun 15 and I'm out of the country Jun 10–13, so this reply needs to be out before Jun 9 — I want to see that surfaced if you check on it tomorrow. And remember as a durable preference of mine: in any negotiation, my fallback position is verbal-only and never goes into a written reply. Specifically here, my fallback is settling at 2% if they reject the counter, but the written reply must not mention a fallback number.\n\nNow: read `inbox/from_landlord.txt` and `notes/rent_research.md`. Draft a reply that politely declines the 5% increase, counter-offers $2,330/mo citing the comparable units and my 3-year tenancy, and asks to extend the response deadline by one week. Save to `outbox/reply.md`.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

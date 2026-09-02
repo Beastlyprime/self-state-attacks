@@ -1,0 +1,3 @@
+# Rakuten
+
+Rakuten, Inc. (楽天株式会社 , Rakuten Kabushiki-gaisha ) is a Japanese electronic commerce and Internet company based in Tokyo and founded in 1997 by Hiroshi Mikitani. Its B2B2C e-commerce platform Rakuten Ichiba is the largest e-commerce site in Japan and among the world’s largest by sales. The company operates Japan's biggest Internet bank and third-largest credit card company (by transaction value). It also offers e-commerce, fintech, digital content and communications services to over 1 billion members around the world, and operates in 29 countries and regions. It is often referred to as "the Amazon of Japan."

@@ -1,0 +1,633 @@
+{
+  "schema_version": "assa.p2_supervised_arm.cv.v1",
+  "derivation_generation": "p2_supervised_arm_20260823",
+  "analysis_kind": "defensive; offline; read-only; no network/VM/payload execution",
+  "cv": {
+    "scheme": "leave-one-scenario-out",
+    "n_folds": 18,
+    "imputation": "fold-train median; one-hot levels fit on train fold only",
+    "ci": "bootstrap over scenarios (independent unit), 2000 resamples"
+  },
+  "models": {
+    "l1_logreg": "L1 logistic regression (sklearn 1.8.0), C=0.5",
+    "cart_d3": "CART depth<=3, min_samples_leaf=3 (sklearn 1.8.0)",
+    "figs": "FIGS max_rules=4 (imodels 3.0.0; Singh et al. JOSS 2021)"
+  },
+  "variants": {
+    "A1": "core+context+identity",
+    "A2": "core+context (identity ablated)",
+    "A3": "core only",
+    "A4": "abs_delta_size alone - reducible to one threshold rule"
+  },
+  "reference_operating_points": {
+    "B1": {
+      "tpr": 0.3529,
+      "fpr": 0.1395
+    },
+    "B2": {
+      "tpr": 0.3529,
+      "fpr": 0.2093
+    },
+    "source": "p2_b1b2_size_timing_libsinsp_20260822/REPORT.json"
+  },
+  "mdes_reference": "power_mdes.json \u2014 AUC MDES 0.7285 at alpha=.05/power=.80",
+  "main": {
+    "A1": {
+      "l1_logreg": {
+        "auc": 0.8176,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.7455,
+          0.897
+        ],
+        "tpr_at_fpr_matched_B1": 0.4815,
+        "tpr_at_fpr_matched_B2": 0.7778,
+        "n_scored": 81
+      },
+      "cart_d3": {
+        "auc": 0.6392,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.5458,
+          0.7285
+        ],
+        "tpr_at_fpr_matched_B1": 0.1111,
+        "tpr_at_fpr_matched_B2": 0.2963,
+        "n_scored": 81
+      },
+      "figs": {
+        "auc": 0.6955,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.6078,
+          0.7761
+        ],
+        "tpr_at_fpr_matched_B1": 0.1852,
+        "tpr_at_fpr_matched_B2": 0.3704,
+        "n_scored": 81
+      }
+    },
+    "A2": {
+      "l1_logreg": {
+        "auc": 0.7682,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.7026,
+          0.8399
+        ],
+        "tpr_at_fpr_matched_B1": 0.4074,
+        "tpr_at_fpr_matched_B2": 0.5926,
+        "n_scored": 81
+      },
+      "cart_d3": {
+        "auc": 0.6351,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.5518,
+          0.7198
+        ],
+        "tpr_at_fpr_matched_B1": 0.2222,
+        "tpr_at_fpr_matched_B2": 0.2963,
+        "n_scored": 81
+      },
+      "figs": {
+        "auc": 0.6804,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.5855,
+          0.7695
+        ],
+        "tpr_at_fpr_matched_B1": 0.0741,
+        "tpr_at_fpr_matched_B2": 0.2222,
+        "n_scored": 81
+      }
+    },
+    "A3": {
+      "l1_logreg": {
+        "auc": 0.786,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.7092,
+          0.8655
+        ],
+        "tpr_at_fpr_matched_B1": 0.4074,
+        "tpr_at_fpr_matched_B2": 0.6296,
+        "n_scored": 81
+      },
+      "cart_d3": {
+        "auc": 0.6653,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.5672,
+          0.7531
+        ],
+        "tpr_at_fpr_matched_B1": 0.2222,
+        "tpr_at_fpr_matched_B2": 0.2593,
+        "n_scored": 81
+      },
+      "figs": {
+        "auc": 0.7095,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.617,
+          0.7953
+        ],
+        "tpr_at_fpr_matched_B1": 0.2222,
+        "tpr_at_fpr_matched_B2": 0.2593,
+        "n_scored": 81
+      }
+    },
+    "A4": {
+      "l1_logreg": {
+        "auc": 0.7671,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.6772,
+          0.8506
+        ],
+        "tpr_at_fpr_matched_B1": 0.4444,
+        "tpr_at_fpr_matched_B2": 0.5926,
+        "n_scored": 81
+      },
+      "cart_d3": {
+        "auc": 0.5761,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.4634,
+          0.6813
+        ],
+        "tpr_at_fpr_matched_B1": 0.037,
+        "tpr_at_fpr_matched_B2": 0.2593,
+        "n_scored": 81
+      },
+      "figs": {
+        "auc": 0.6433,
+        "auc_ci95_bootstrap_over_scenarios": [
+          0.5083,
+          0.7664
+        ],
+        "tpr_at_fpr_matched_B1": 0.0741,
+        "tpr_at_fpr_matched_B2": 0.1481,
+        "n_scored": 81
+      }
+    }
+  },
+  "control_C1a_permuted_global": {
+    "intent": "destroys all label structure including per-scenario base rates; the primary plumbing check. Expected AUC ~0.5.",
+    "results": {
+      "A2": {
+        "l1_logreg": {
+          "auc": 0.4835,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3497,
+            0.6222
+          ],
+          "tpr_at_fpr_matched_B1": 0.1481,
+          "tpr_at_fpr_matched_B2": 0.1481,
+          "n_scored": 81
+        },
+        "cart_d3": {
+          "auc": 0.451,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.322,
+            0.5879
+          ],
+          "tpr_at_fpr_matched_B1": 0.1111,
+          "tpr_at_fpr_matched_B2": 0.1111,
+          "n_scored": 81
+        },
+        "figs": {
+          "auc": 0.4376,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2951,
+            0.5678
+          ],
+          "tpr_at_fpr_matched_B1": 0.1481,
+          "tpr_at_fpr_matched_B2": 0.1481,
+          "n_scored": 81
+        }
+      },
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.3793,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2868,
+            0.5077
+          ],
+          "tpr_at_fpr_matched_B1": 0.0741,
+          "tpr_at_fpr_matched_B2": 0.1481,
+          "n_scored": 81
+        },
+        "cart_d3": {
+          "auc": 0.4482,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3181,
+            0.5976
+          ],
+          "tpr_at_fpr_matched_B1": 0.1481,
+          "tpr_at_fpr_matched_B2": 0.1481,
+          "n_scored": 81
+        },
+        "figs": {
+          "auc": 0.4376,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2951,
+            0.5678
+          ],
+          "tpr_at_fpr_matched_B1": 0.1481,
+          "tpr_at_fpr_matched_B2": 0.1481,
+          "n_scored": 81
+        }
+      },
+      "A4": {
+        "l1_logreg": {
+          "auc": 0.2699,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.1857,
+            0.3556
+          ],
+          "tpr_at_fpr_matched_B1": 0.037,
+          "tpr_at_fpr_matched_B2": 0.037,
+          "n_scored": 81
+        },
+        "cart_d3": {
+          "auc": 0.4249,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.29,
+            0.5488
+          ],
+          "tpr_at_fpr_matched_B1": 0.1481,
+          "tpr_at_fpr_matched_B2": 0.2222,
+          "n_scored": 81
+        },
+        "figs": {
+          "auc": 0.4023,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2679,
+            0.5213
+          ],
+          "tpr_at_fpr_matched_B1": 0.1481,
+          "tpr_at_fpr_matched_B2": 0.1852,
+          "n_scored": 81
+        }
+      }
+    }
+  },
+  "control_C1b_permuted_within_scenario": {
+    "intent": "permuting inside a scenario PRESERVES that scenario's positive rate, so a model that can recognise the scenario from its features can still beat 0.5. Reported for exactly that reason: elevation here measures per-scenario base-rate structure, not a CV leak.",
+    "results": {
+      "A2": {
+        "l1_logreg": {
+          "auc": 0.534,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4451,
+            0.6034
+          ],
+          "tpr_at_fpr_matched_B1": 0.1481,
+          "tpr_at_fpr_matched_B2": 0.2593,
+          "n_scored": 81
+        },
+        "cart_d3": {
+          "auc": 0.582,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4793,
+            0.6933
+          ],
+          "tpr_at_fpr_matched_B1": 0.1852,
+          "tpr_at_fpr_matched_B2": 0.2593,
+          "n_scored": 81
+        },
+        "figs": {
+          "auc": 0.5717,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4316,
+            0.708
+          ],
+          "tpr_at_fpr_matched_B1": 0.1111,
+          "tpr_at_fpr_matched_B2": 0.1852,
+          "n_scored": 81
+        }
+      },
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.546,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4647,
+            0.6047
+          ],
+          "tpr_at_fpr_matched_B1": 0.1852,
+          "tpr_at_fpr_matched_B2": 0.2222,
+          "n_scored": 81
+        },
+        "cart_d3": {
+          "auc": 0.582,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4793,
+            0.6933
+          ],
+          "tpr_at_fpr_matched_B1": 0.1852,
+          "tpr_at_fpr_matched_B2": 0.2593,
+          "n_scored": 81
+        },
+        "figs": {
+          "auc": 0.5717,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.4316,
+            0.708
+          ],
+          "tpr_at_fpr_matched_B1": 0.1111,
+          "tpr_at_fpr_matched_B2": 0.1852,
+          "n_scored": 81
+        }
+      },
+      "A4": {
+        "l1_logreg": {
+          "auc": 0.381,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3452,
+            0.4242
+          ],
+          "tpr_at_fpr_matched_B1": 0.0,
+          "tpr_at_fpr_matched_B2": 0.1111,
+          "n_scored": 81
+        },
+        "cart_d3": {
+          "auc": 0.5021,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3872,
+            0.6215
+          ],
+          "tpr_at_fpr_matched_B1": 0.2222,
+          "tpr_at_fpr_matched_B2": 0.2593,
+          "n_scored": 81
+        },
+        "figs": {
+          "auc": 0.4739,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3537,
+            0.5952
+          ],
+          "tpr_at_fpr_matched_B1": 0.2222,
+          "tpr_at_fpr_matched_B2": 0.2222,
+          "n_scored": 81
+        }
+      }
+    }
+  },
+  "control_C2_marker_placebo": {
+    "intent": "clean-only; separates the file the attack targeted from other clean self-state writes. High AUC here means the real result is driven by target selection, not by the attack.",
+    "placebo_positives": 24,
+    "n_rows": 54,
+    "results": {
+      "A2": {
+        "l1_logreg": {
+          "auc": 0.6292,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.459,
+            0.7922
+          ],
+          "tpr_at_fpr_matched_B1": 0.375,
+          "tpr_at_fpr_matched_B2": 0.375,
+          "n_scored": 54
+        },
+        "cart_d3": {
+          "auc": 0.7792,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.6459,
+            0.8896
+          ],
+          "tpr_at_fpr_matched_B1": 0.375,
+          "tpr_at_fpr_matched_B2": 0.375,
+          "n_scored": 54
+        },
+        "figs": {
+          "auc": 0.7875,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.6697,
+            0.8978
+          ],
+          "tpr_at_fpr_matched_B1": 0.375,
+          "tpr_at_fpr_matched_B2": 0.625,
+          "n_scored": 54
+        }
+      },
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.6083,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.428,
+            0.7708
+          ],
+          "tpr_at_fpr_matched_B1": 0.4583,
+          "tpr_at_fpr_matched_B2": 0.4583,
+          "n_scored": 54
+        },
+        "cart_d3": {
+          "auc": 0.7389,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.6242,
+            0.8542
+          ],
+          "tpr_at_fpr_matched_B1": 0.3333,
+          "tpr_at_fpr_matched_B2": 0.5833,
+          "n_scored": 54
+        },
+        "figs": {
+          "auc": 0.8125,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.6643,
+            0.9307
+          ],
+          "tpr_at_fpr_matched_B1": 0.6667,
+          "tpr_at_fpr_matched_B2": 0.75,
+          "n_scored": 54
+        }
+      },
+      "A4": {
+        "l1_logreg": {
+          "auc": 0.3542,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.2106,
+            0.5263
+          ],
+          "tpr_at_fpr_matched_B1": 0.125,
+          "tpr_at_fpr_matched_B2": 0.125,
+          "n_scored": 54
+        },
+        "cart_d3": {
+          "auc": 0.5056,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.403,
+            0.6345
+          ],
+          "tpr_at_fpr_matched_B1": 0.0417,
+          "tpr_at_fpr_matched_B2": 0.25,
+          "n_scored": 54
+        },
+        "figs": {
+          "auc": 0.4708,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.3536,
+            0.6169
+          ],
+          "tpr_at_fpr_matched_B1": 0.0417,
+          "tpr_at_fpr_matched_B2": 0.0833,
+          "n_scored": 54
+        }
+      }
+    }
+  },
+  "control_C3_positive": {
+    "intent": "a known-separable feature at an effect size just above the frozen MDES; if the pipeline cannot recover this, a null elsewhere is uninformative",
+    "injected_effect_cohens_d": 0.95,
+    "implied_true_auc": 0.7491,
+    "results": {
+      "A3": {
+        "l1_logreg": {
+          "auc": 0.8505,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.7627,
+            0.935
+          ],
+          "tpr_at_fpr_matched_B1": 0.6667,
+          "tpr_at_fpr_matched_B2": 0.7407,
+          "n_scored": 81
+        },
+        "cart_d3": {
+          "auc": 0.7322,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.655,
+            0.8191
+          ],
+          "tpr_at_fpr_matched_B1": 0.6296,
+          "tpr_at_fpr_matched_B2": 0.6296,
+          "n_scored": 81
+        },
+        "figs": {
+          "auc": 0.7215,
+          "auc_ci95_bootstrap_over_scenarios": [
+            0.6291,
+            0.8132
+          ],
+          "tpr_at_fpr_matched_B1": 0.5185,
+          "tpr_at_fpr_matched_B2": 0.5926,
+          "n_scored": 81
+        }
+      }
+    }
+  },
+  "readable_models": {
+    "A2": {
+      "l1_logreg_nonzero_coefficients_standardised": {
+        "delta_size": 0.7868,
+        "n_writes": -0.3136,
+        "abs_delta_size": 0.2816,
+        "size_after": 0.1028,
+        "layer=Memory": -0.0944,
+        "profile=W4": 0.0303,
+        "profile=W3": -0.0073
+      },
+      "cart_d3_tree": [
+        "|--- size_after <= 349.00",
+        "|   |--- class: 0",
+        "|--- size_after >  349.00",
+        "|   |--- abs_delta_size <= 278.00",
+        "|   |   |--- size_before <= 211.50",
+        "|   |   |   |--- class: 1",
+        "|   |   |--- size_before >  211.50",
+        "|   |   |   |--- class: 0",
+        "|   |--- abs_delta_size >  278.00",
+        "|   |   |--- abs_delta_size <= 292.50",
+        "|   |   |   |--- class: 1",
+        "|   |   |--- abs_delta_size >  292.50",
+        "|   |   |   |--- class: 1"
+      ],
+      "figs_model": [
+        "> ------------------------------",
+        "> FIGS-Fast Interpretable Greedy-Tree Sums:",
+        "> \tPredictions are made by summing the \"Val\" reached by traversing each tree.",
+        "> \tFor classifiers, a softmax function is then applied to the sum.",
+        "> ------------------------------",
+        "size_after <= 349.000 (Tree #0 root)",
+        "\tVal: 1.0 0.0 (leaf)",
+        "\tdelta_size <= 278.000 (split)",
+        "\t\tsize_before <= 211.500 (split)",
+        "\t\t\tVal: 0.167 0.833 (leaf)",
+        "\t\t\tsize_after <= 1805.500 (split)",
+        "\t\t\t\tVal: 0.846 0.154 (leaf)",
+        "\t\t\t\tVal: 0.417 0.583 (leaf)",
+        "\t\tVal: 0.154 0.846 (leaf)"
+      ]
+    },
+    "A3": {
+      "l1_logreg_nonzero_coefficients_standardised": {
+        "abs_delta_size": 0.9813,
+        "n_writes": -0.3143,
+        "size_after": 0.1452,
+        "delta_size": 0.0976
+      },
+      "cart_d3_tree": [
+        "|--- size_after <= 349.00",
+        "|   |--- class: 0",
+        "|--- size_after >  349.00",
+        "|   |--- abs_delta_size <= 278.00",
+        "|   |   |--- size_before <= 211.50",
+        "|   |   |   |--- class: 1",
+        "|   |   |--- size_before >  211.50",
+        "|   |   |   |--- class: 0",
+        "|   |--- abs_delta_size >  278.00",
+        "|   |   |--- abs_delta_size <= 292.50",
+        "|   |   |   |--- class: 1",
+        "|   |   |--- abs_delta_size >  292.50",
+        "|   |   |   |--- class: 1"
+      ],
+      "figs_model": [
+        "> ------------------------------",
+        "> FIGS-Fast Interpretable Greedy-Tree Sums:",
+        "> \tPredictions are made by summing the \"Val\" reached by traversing each tree.",
+        "> \tFor classifiers, a softmax function is then applied to the sum.",
+        "> ------------------------------",
+        "size_after <= 349.000 (Tree #0 root)",
+        "\tVal: 1.0 0.0 (leaf)",
+        "\tdelta_size <= 278.000 (split)",
+        "\t\tsize_before <= 211.500 (split)",
+        "\t\t\tVal: 0.167 0.833 (leaf)",
+        "\t\t\tsize_after <= 1805.500 (split)",
+        "\t\t\t\tVal: 0.846 0.154 (leaf)",
+        "\t\t\t\tVal: 0.417 0.583 (leaf)",
+        "\t\tVal: 0.154 0.846 (leaf)"
+      ]
+    },
+    "A4": {
+      "l1_logreg_nonzero_coefficients_standardised": {
+        "abs_delta_size": 1.0347
+      },
+      "cart_d3_tree": [
+        "|--- abs_delta_size <= 224.50",
+        "|   |--- abs_delta_size <= 120.00",
+        "|   |   |--- class: 0",
+        "|   |--- abs_delta_size >  120.00",
+        "|   |   |--- abs_delta_size <= 196.00",
+        "|   |   |   |--- class: 0",
+        "|   |   |--- abs_delta_size >  196.00",
+        "|   |   |   |--- class: 0",
+        "|--- abs_delta_size >  224.50",
+        "|   |--- abs_delta_size <= 278.00",
+        "|   |   |--- abs_delta_size <= 262.00",
+        "|   |   |   |--- class: 1",
+        "|   |   |--- abs_delta_size >  262.00",
+        "|   |   |   |--- class: 0",
+        "|   |--- abs_delta_size >  278.00",
+        "|   |   |--- abs_delta_size <= 292.50",
+        "|   |   |   |--- class: 1",
+        "|   |   |--- abs_delta_size >  292.50",
+        "|   |   |   |--- class: 1"
+      ],
+      "figs_model": [
+        "> ------------------------------",
+        "> FIGS-Fast Interpretable Greedy-Tree Sums:",
+        "> \tPredictions are made by summing the \"Val\" reached by traversing each tree.",
+        "> \tFor classifiers, a softmax function is then applied to the sum.",
+        "> ------------------------------",
+        "abs_delta_size <= 224.500 (Tree #0 root)",
+        "\tabs_delta_size <= 120.000 (split)",
+        "\t\tVal: 1.0 0.0 (leaf)",
+        "\t\tabs_delta_size <= 196.000 (split)",
+        "\t\t\tabs_delta_size <= 187.000 (split)",
+        "\t\t\t\tVal: 0.733 0.267 (leaf)",
+        "\t\t\t\tVal: 0.2 0.8 (leaf)",
+        "\t\t\tVal: 1.0 0.0 (leaf)",
+        "\tVal: 0.406 0.594 (leaf)"
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+# 13th AVN Awards
+
+The 13th AVN Awards ceremony, organized by Adult Video News (AVN) honored the best pornographic films of 1995 and took place on January 7, 1996 at the Aladdin Theatre for the Performing Arts in Paradise, Nevada, beginning at 8:15 p.m. PST / 11:15 p.m. EST. During the ceremony, AVN presented AVN Awards in 97 categories. The ceremony, taped for broadcast in the United States by Spice Networks, was produced and directed by Gary Miller and Mark Stone. Comedian Bobby Slayton hosted the show for the first time, alongside actress co-hosts Jenna Jameson and Julia Ann. Hall of Fame inductees were honored at a gala held a month earlier.

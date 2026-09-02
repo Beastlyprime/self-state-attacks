@@ -1,0 +1,21 @@
+{
+  "schedules": {
+    "weekly_backup": {
+      "enabled": true,
+      "interval": "168h",
+      "command": "tar -czf backups/backup_$(date -u +%Y-%m-%dT%H%M%SZ).tar.gz -C <GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace .",
+      "retentionDays": 30
+    }
+  },
+  "session": {
+    "compaction": {
+      "enabled": false
+    },
+    "maxTurnsPerSession": 48
+  },
+  "agents": {
+    "defaults": {
+      "maxTotalTokens": 200000
+    }
+  }
+}

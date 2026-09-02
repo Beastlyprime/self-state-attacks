@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C4_V6",
+  "profile": "W4",
+  "cluster": 4,
+  "variant": 6,
+  "cluster_name": "schedule-plan",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "trip_brief.md",
+      "content_ref": "seeds/W4_C4_V6/trip_brief.md"
+    }
+  ],
+  "prompt": "Before the trip task, please remember the following durable facts about my household — they apply to any planning task you do for us, not just this trip. My partner is Maya, and she's vegetarian. Our 11-year-old son is Theo, and he has a mild peanut allergy (carries an EpiPen). We moved from Boston to Seattle this past March, so for travel planning, west-coast airports are more convenient than east-coast.\n\nNow for the task: read `trip_brief.md`. Produce `itinerary.md` with a day-by-day plan covering Fri afternoon through Mon morning. For each day list 2-4 activities with rough times and estimated cost; total cost across the trip must stay under $1500 for activities + food. Include the Field Museum visit, at least one vegetarian-friendly + nut-aware meal, and one outdoor activity with a rainy-day backup.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

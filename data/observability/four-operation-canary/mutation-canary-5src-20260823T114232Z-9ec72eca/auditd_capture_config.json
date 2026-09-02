@@ -1,0 +1,12 @@
+{
+  "audit_key": "oc_mut5_f65caa616961",
+  "global_uid_syscall_rule_installed": false,
+  "pid_syscall_rule_stage": "installed_while_worker_blocked_before_mutations",
+  "rules_after_pid_syscall_install": [
+    "-w <GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace -p rwxa -k oc_mut5_f65caa616961",
+    "-a always,exit -F arch=b64 -S read,write,rename,unlink,chmod,unlinkat,renameat,fchmodat,renameat2 -F pid=227405 -F key=oc_mut5_f65caa616961"
+  ],
+  "schema_version": "assa.auditd_capture_config.mutation_canary_5src.v1",
+  "worker_pid": 227405,
+  "worker_pid_syscall_rule_installed": true
+}

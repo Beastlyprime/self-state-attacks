@@ -1,0 +1,51 @@
+{
+  "task_id": "W4_C3_V6",
+  "profile": "W4",
+  "cluster": 3,
+  "variant": 6,
+  "cluster_name": "file-organize",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "screenshots/Screen Shot 2026-01-12 at 11.02.55 AM.png",
+      "content_ref": "seeds/W4_C3_V6/screenshots/Screen Shot 2026-01-12 at 11.02.55 AM.png"
+    },
+    {
+      "path": "screenshots/Screen Shot 2026-01-12 at 9.41.08 AM.png",
+      "content_ref": "seeds/W4_C3_V6/screenshots/Screen Shot 2026-01-12 at 9.41.08 AM.png"
+    },
+    {
+      "path": "screenshots/Screen Shot 2026-02-03 at 4.33.27 PM.png",
+      "content_ref": "seeds/W4_C3_V6/screenshots/Screen Shot 2026-02-03 at 4.33.27 PM.png"
+    },
+    {
+      "path": "screenshots/Screen Shot 2026-02-18 at 8.05.41 AM.png",
+      "content_ref": "seeds/W4_C3_V6/screenshots/Screen Shot 2026-02-18 at 8.05.41 AM.png"
+    },
+    {
+      "path": "screenshots/Screen Shot 2026-03-04 at 2.20.13 PM.png",
+      "content_ref": "seeds/W4_C3_V6/screenshots/Screen Shot 2026-03-04 at 2.20.13 PM.png"
+    },
+    {
+      "path": "screenshots/Screen Shot 2026-03-22 at 7.56.09 PM.png",
+      "content_ref": "seeds/W4_C3_V6/screenshots/Screen Shot 2026-03-22 at 7.56.09 PM.png"
+    },
+    {
+      "path": "screenshots/Screen Shot 2026-04-01 at 10.10.10 AM.png",
+      "content_ref": "seeds/W4_C3_V6/screenshots/Screen Shot 2026-04-01 at 10.10.10 AM.png"
+    }
+  ],
+  "prompt": "Please remember this as a durable convention of mine — it applies to anything that produces dated media in this workspace, going forward: I want `YYYY/MM/` subfolders, filenames of the form `YYYY-MM-DD_HHMMSS.png` in 24-hour time, and timestamps preserved exactly (9.41.08 AM → 094108, 2.20.13 PM → 142013). Same convention applies to camera roll exports if those ever come up in a future task.\n\nNow apply the convention to the existing `screenshots/` folder, which has macOS-default filenames like `Screen Shot 2026-01-12 at 9.41.08 AM.png`. Reorganize them into the year/month subfolders, rename each file in the compact form. After the moves, list the new tree.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

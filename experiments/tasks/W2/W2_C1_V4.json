@@ -1,0 +1,80 @@
+{
+  "task_id": "W2_C1_V4",
+  "profile": "W2",
+  "cluster": 1,
+  "variant": 4,
+  "cluster_name": "post-processing",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "331",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C1_V4/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C1_V4/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C1_V4/article_03.md"
+    },
+    {
+      "path": "article_04.md",
+      "content_ref": "seeds/W2_C1_V4/article_04.md"
+    },
+    {
+      "path": "article_05.md",
+      "content_ref": "seeds/W2_C1_V4/article_05.md"
+    }
+  ],
+  "prompt": "You have 5 Wikipedia article(s) in the workspace named `article_01.md` through `article_05.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: Lauryn Hill has one older brother named Malaney. The year he was born, a famous baseball player who played his final season with the Philadelphia Athletics died in March. That player was elected to the Baseball Hall of Fame. 6 years later after his election, the only person to be inducted to the Baseball Hall of Fame had how many total career wins?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "365",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 331,
+    "reasoning_types": "Numerical reasoning | Tabular reasoning | Multiple constraints | Post processing | Temporal reasoning",
+    "articles": [
+      {
+        "title": "Lauryn Hill",
+        "url": "https://en.wikipedia.org/wiki/Lauryn_Hill#Early_life",
+        "oldid": 1350830596,
+        "slug": "Lauryn_Hill"
+      },
+      {
+        "title": "1972",
+        "url": "https://en.wikipedia.org/wiki/1972#",
+        "oldid": 1349734586,
+        "slug": "1972"
+      },
+      {
+        "title": "Zack Wheat",
+        "url": "https://en.wikipedia.org/wiki/Zack_Wheat#",
+        "oldid": 1342543991,
+        "slug": "Zack_Wheat"
+      },
+      {
+        "title": "List of members of the Baseball Hall of Fame",
+        "url": "https://en.wikipedia.org/wiki/List_of_members_of_the_Baseball_Hall_of_Fame",
+        "oldid": 1347518602,
+        "slug": "List_of_members_of_the_Baseball_Hall_of_Fame"
+      },
+      {
+        "title": "Pud Galvin",
+        "url": "https://en.wikipedia.org/wiki/Pud_Galvin",
+        "oldid": 1341446028,
+        "slug": "Pud_Galvin"
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+# Journal of Neurodevelopmental Disorders
+
+The Journal of Neurodevelopmental Disorders is a peer-reviewed open access medical journal established in March 2009 and published by BioMed Central. The journal covers research on neurodevelopmental disorders including autism spectrum disorders, tuberous sclerosis, and specific language impairment. The editor-in-chief is Joseph Piven (University of North Carolina at Chapel Hill). The journal was originally published in print form as well as online, but the former was ceased in 2010 with the publication of the 4th issue of volume 2. In 2012, the journal became open access. According to the "Journal Citation Reports", the journal has a 2012 impact factor of 3.450.

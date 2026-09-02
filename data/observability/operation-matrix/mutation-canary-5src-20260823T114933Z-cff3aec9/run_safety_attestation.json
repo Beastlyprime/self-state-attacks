@@ -1,0 +1,42 @@
+{
+  "agent_runtime_invoked": false,
+  "live_poisoned_collection_started": false,
+  "llm_used": false,
+  "monitors": {
+    "auditd": {
+      "active": true,
+      "collector_pid": 586,
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/auditd.jsonl"
+    },
+    "ebpf": {
+      "active": true,
+      "collector_pid": 228298,
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/ebpf.jsonl"
+    },
+    "ebpf_lifecycle": {
+      "active": true,
+      "collector_pid": 228315,
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/ebpf_lifecycle.jsonl",
+      "version": "assa-lifecycle-ebpf-v1"
+    },
+    "fanotify": {
+      "active": true,
+      "collector_pid": 228296,
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/fanotify.jsonl"
+    },
+    "inotify": {
+      "active": true,
+      "collector_pid": 228295,
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/inotify.jsonl"
+    },
+    "scap": {
+      "active": true,
+      "collector_pid": 228316,
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/capture.scap",
+      "version": "libscap-sysdig-modern-bpf"
+    }
+  },
+  "preflight_passed": true,
+  "schema_version": "assa.mutation_canary_five_source_safety.v1",
+  "worker_pid": 228294
+}

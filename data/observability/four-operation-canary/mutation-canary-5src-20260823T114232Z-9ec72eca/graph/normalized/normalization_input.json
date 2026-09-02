@@ -1,0 +1,101 @@
+{
+  "audit_fd_lifecycle_coverage": {},
+  "audit_input_mode": "single_partition",
+  "audit_raw": {
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/auditd_ausearch.log",
+    "sha256": "c0407d924c6eb74c1089c4bd4eb65535c7b4af1fece05711a1270583d7a0b0e6"
+  },
+  "completeness_status": "single_partition_may_underestimate",
+  "evidence_sources": [
+    "auditd",
+    "ebpf",
+    "fanotify",
+    "scap"
+  ],
+  "fanotify_correlation": {
+    "accounted_events": 6,
+    "alias_ambiguous_rows_skipped": 0,
+    "allocation": "global_rank_then_delta",
+    "ambiguous_rows_unbound": 0,
+    "correlation_method": "pid_byte_exact_path_unique_best_rank_within_100ms",
+    "events_missing_timestamp": 0,
+    "evidence_class": "event_bound_read",
+    "indeterminate_relations": 0,
+    "indexable_events": 0,
+    "mask_incompatible_events": 0,
+    "matched_events": 0,
+    "passed": true,
+    "postimages_linked": 0,
+    "preimages_linked": 0,
+    "process_start_ticks_catalog_disagreements": [],
+    "process_start_ticks_conflicting_pids": [],
+    "process_start_ticks_filled": 0,
+    "queue_overflow_events": 0,
+    "raw_events": 6,
+    "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/fanotify.jsonl",
+    "raw_sha256": "5f8d25852f8ff5581581b816507b00c7baa1ce12411dac7d32fba2b2996f78ef",
+    "rows_predating_process_start": 0,
+    "rows_unbound_event_contested": 0,
+    "schema_version": "assa.fanotify_correlation.v3",
+    "unmatched_events": 6,
+    "unmatched_reason": "per-syscall bursts exceed one event per row, plus paths outside audit rule scope",
+    "unusable_events_missing_pid_or_path": 6,
+    "user_hz": 100,
+    "user_hz_validated": false
+  },
+  "fd_lifecycle_identity_outcome": {
+    "degraded_missing_mutation_coverage": 0,
+    "degraded_missing_mutation_coverage_by_key": {},
+    "rebound_on_successful_open": 10,
+    "required_mutation_syscalls": [
+      "close",
+      "close_range",
+      "creat",
+      "dup",
+      "dup2",
+      "dup3",
+      "fcntl",
+      "open",
+      "openat",
+      "openat2"
+    ],
+    "resolved": 0,
+    "schema_version": "assa.fd_lifecycle_identity_outcome.v1"
+  },
+  "included_audit_keys": [],
+  "may_underestimate": true,
+  "partition_group_counts": {
+    "unattributed_single_partition": 36
+  },
+  "schema_version": "assa.normalization_input.v1",
+  "tool": {
+    "commit_sha": null,
+    "name": "assa-stage-g-normalizer",
+    "python": "3.10.12",
+    "schemas": {
+      "provenance_edge": "assa.provenance_edge.v3",
+      "provenance_node": "assa.provenance_node.v2",
+      "supersedes": "assa.provenance_supersedes.v1",
+      "syscall": "assa.syscall_event.v2"
+    },
+    "source_files": [
+      {
+        "path": "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/normalize.py",
+        "sha256": "cd6dbafa5affe1de307177f4e9541e87f91755ca4d22131b06fcf5d401a070a9"
+      },
+      {
+        "path": "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/sidecars.py",
+        "sha256": "3fa80b289269d886681eef98a4f9fcab3448e48f4ca77cfc5c3f23346507b714"
+      }
+    ],
+    "version": "assa.stage_g_harness.v6"
+  },
+  "union_conservation": {
+    "conflicting_duplicate_groups": [],
+    "conservation_passed": null,
+    "duplicate_group_occurrences": 0,
+    "identical_overlap_group_occurrences": 0,
+    "partition_group_sum": 36,
+    "union_group_count": 36
+  }
+}

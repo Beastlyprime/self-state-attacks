@@ -1,0 +1,65 @@
+{
+  "coverage_view": "resolution_spine_effective",
+  "excluded_pure_audit_read_duplicates": 40,
+  "exclusion_basis": "pure_audit_read_not_on_resolution_spine_scap_zero_drop_twin_already_counted",
+  "fd_path_operand_denominator": 9,
+  "fd_path_resolution_methods": {
+    "ebpf_open_exit_audit_identity": 8,
+    "unresolved": 1
+  },
+  "fd_path_resolved_numerator": 8,
+  "fd_path_resolved_rate": 0.8888888888888888,
+  "fd_path_resolved_threshold": 0.95,
+  "fd_path_unresolved_operands": [
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258885",
+      "fd": 4,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "write"
+    }
+  ],
+  "graph_edges": 27,
+  "graph_nodes": 32,
+  "malformed_lines": 0,
+  "path_applicable": 46,
+  "path_complete": 44,
+  "path_complete_fraction": 0.9565217391304348,
+  "process_identity_complete": 0,
+  "process_identity_complete_fraction": 0.0,
+  "provenance_evaluable": false,
+  "provenance_schema": {
+    "edge_schema_version": "assa.provenance_edge.v3",
+    "node_schema_version": "assa.provenance_node.v2",
+    "supersedes_artifact": "provenance.supersedes.json",
+    "supersedes_edge_count": 4,
+    "supersedes_enabled": true,
+    "supersedes_schema_version": "assa.provenance_supersedes.v1",
+    "supersedes_status_counts": {
+      "resolved_rename_overwrite": 4,
+      "unlink_without_subsequent_exact_path_recreate": 4
+    },
+    "supersedes_supported": true
+  },
+  "provenance_status": "data_insufficient",
+  "raw_graph_preserved": true,
+  "schema_version": "assa.provenance_coverage.v3",
+  "sequence_eligible_events": 0,
+  "socket_applicable": 2,
+  "socket_complete": 0,
+  "socket_complete_fraction": 0.0,
+  "status": "data_insufficient",
+  "syscall_events": 47,
+  "syscalls_by_name": {
+    "fchmodat": 4,
+    "openat": 24,
+    "renameat2": 4,
+    "sendto": 2,
+    "unlinkat": 4,
+    "write": 9
+  },
+  "unknown_node_fraction": 0.09375,
+  "unknown_nodes": 3,
+  "writes_excluded": 0
+}

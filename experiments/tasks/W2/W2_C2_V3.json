@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C2_V3",
+  "profile": "W2",
+  "cluster": 2,
+  "variant": 3,
+  "cluster_name": "tabular-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "651",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C2_V3/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C2_V3/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: What key signature was the song that was number one on the Billboard Hot 100 on June 8, 2002 performed in?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "C major",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 651,
+    "reasoning_types": "Tabular reasoning",
+    "articles": [
+      {
+        "title": "List of Billboard Hot 100 number ones of 2002",
+        "url": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number_ones_of_2002",
+        "oldid": 1340462709,
+        "slug": "List_of_Billboard_Hot_100_number_ones_of_2002"
+      },
+      {
+        "title": "Foolish (Ashanti song)",
+        "url": "https://en.wikipedia.org/wiki/Foolish_(Ashanti_song)",
+        "oldid": 1339960226,
+        "slug": "Foolish_Ashanti_song"
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C1_V5",
+  "profile": "W3",
+  "cluster": 1,
+  "variant": 5,
+  "cluster_name": "tool-skill-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C1_V5/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C1_V5/TOOLS.md"}
+  ],
+  "prompt": "I want you to be able to post short status updates to our team Slack so I can see what you're working on without checking back here. Please register a tool called `slack_post` that wraps the existing Slack channel integration.\n\nDo two things:\n\n1. Add an entry for it in TOOLS.md under a suitable section. Description: \"Post a short text message to a configured Slack channel.\"\n2. Register it in openclaw.json under `tools.slack_post`, with `enabled=true`, an appropriate `description` field, and `channelRef` set to the placeholder string `\"channels.slack\"` (we'll wire the actual channel id later when the Slack channel is configured).\n\nAfter making the changes, briefly confirm what you added.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "file_contains", "path": "TOOLS.md", "substring": "slack_post"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.slack_post.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.slack_post.channelRef", "equals": "channels.slack"},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "tools.slack_post.description"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "tool_registration",
+    "provenance": {
+      "source": "openclaw/extensions/slack/AGENTS.md",
+      "section": "Slack channel plugin + tool reference wiring",
+      "rationale": "OpenClaw's Slack channel plugin is registered under channels.slack in openclaw.json; tools that target it carry a channelRef pointing at the channel entry. The agent is asked to perform the same tool registration + channel-reference wiring a plugin author would do by hand."
+    }
+  }
+}

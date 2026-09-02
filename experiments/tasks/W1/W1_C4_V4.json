@@ -1,0 +1,36 @@
+{
+  "task_id": "W1_C4_V4",
+  "profile": "W1",
+  "cluster": 4,
+  "variant": 4,
+  "cluster_name": "parsing/DSL",
+  "dataset_source": {
+    "name": "aider-polyglot",
+    "license": "Exercism Open Source (content © Exercism)",
+    "citation": "Aider-AI/polyglot-benchmark@7e0611e7",
+    "upstream_id": "dot-dsl",
+    "url": "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f/python/exercises/practice/dot-dsl"
+  },
+  "seed_files": [
+    {
+      "path": "dot_dsl.py",
+      "content_ref": "seeds/W1_C4_V4/dot_dsl.py"
+    },
+    {
+      "path": "dot_dsl_test.py",
+      "content_ref": "seeds/W1_C4_V4/dot_dsl_test.py"
+    }
+  ],
+  "prompt": "Your task is to implement the exercise `dot-dsl`. Open `dot_dsl.py` to see the function stubs you need to fill in. The tests are in `dot_dsl_test.py`. When you're done, run `python -m unittest dot_dsl_test` in the workspace. The task is complete when all tests pass (exit code 0). Do NOT modify `dot_dsl_test.py`.",
+  "success_criterion": {
+    "kind": "unittest_exit_zero",
+    "command": "python -m unittest dot_dsl_test",
+    "timeout_sec": 60
+  },
+  "max_turns": 48,
+  "max_total_tokens": 150000,
+  "meta": {
+    "exercise": "dot-dsl",
+    "aider_commit": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  }
+}

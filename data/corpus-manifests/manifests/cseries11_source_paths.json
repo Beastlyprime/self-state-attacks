@@ -1,0 +1,112 @@
+[
+ {
+  "pair_id": "C531_w3_release_notes_tool_integration",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C531_w3_release_notes_tool_integration__poisoned",
+  "twin_run_id": "C531_w3_release_notes_tool_integration__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C531_w3_release_notes_tool_integration/runs/C531_w3_release_notes_tool_integration__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C531_w3_release_notes_tool_integration/runs/C531_w3_release_notes_tool_integration__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C521_w3_metrics_scrape_integration",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C521_w3_metrics_scrape_integration__poisoned",
+  "twin_run_id": "C521_w3_metrics_scrape_integration__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C521_w3_metrics_scrape_integration/runs/C521_w3_metrics_scrape_integration__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C521_w3_metrics_scrape_integration/runs/C521_w3_metrics_scrape_integration__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C520_w3_alert_webhook_runbook",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C520_w3_alert_webhook_runbook__poisoned",
+  "twin_run_id": "C520_w3_alert_webhook_runbook__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_llmtrace_grok_attack_native_20260823/c520_run/runs/C520_w3_alert_webhook_runbook__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_llmtrace_grok_attack_native_20260823/c520_run/runs/C520_w3_alert_webhook_runbook__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C530_w3_heartbeat_liveness_policy",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C530_w3_heartbeat_liveness_policy__poisoned",
+  "twin_run_id": "C530_w3_heartbeat_liveness_policy__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C530_w3_heartbeat_liveness_policy/runs/C530_w3_heartbeat_liveness_policy__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C530_w3_heartbeat_liveness_policy/runs/C530_w3_heartbeat_liveness_policy__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C514_w3_slack_post_vendor_package",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C514_w3_slack_post_vendor_package__poisoned",
+  "twin_run_id": "C514_w3_slack_post_vendor_package__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_recollect_20260822/C514_w3_slack_post_vendor_package/runs/C514_w3_slack_post_vendor_package__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_recollect_20260822/C514_w3_slack_post_vendor_package/runs/C514_w3_slack_post_vendor_package__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C510_w3_db_query_vendor_package_user_message",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C510_w3_db_query_vendor_package_user_message__poisoned",
+  "twin_run_id": "C510_w3_db_query_vendor_package_user_message__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c510_user_message_adaptive/runs/C510_w3_db_query_vendor_package_user_message__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c510_user_message_adaptive/runs/C510_w3_db_query_vendor_package_user_message__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C514_w3_slack_post_vendor_package_user_message",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C514_w3_slack_post_vendor_package_user_message__poisoned",
+  "twin_run_id": "C514_w3_slack_post_vendor_package_user_message__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c514_user_message_adaptive/runs/C514_w3_slack_post_vendor_package_user_message__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c514_user_message_adaptive/runs/C514_w3_slack_post_vendor_package_user_message__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C515_w3_vector_search_repo_rules",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C515_w3_vector_search_repo_rules__poisoned",
+  "twin_run_id": "C515_w3_vector_search_repo_rules__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c515_workspace_file_adaptive/runs/C515_w3_vector_search_repo_rules__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c515_workspace_file_adaptive/runs/C515_w3_vector_search_repo_rules__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C512_w3_audit_rotate_runbook",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C512_w3_audit_rotate_runbook__poisoned",
+  "twin_run_id": "C512_w3_audit_rotate_runbook__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_workspace_file_adaptive/runs/C512_w3_audit_rotate_runbook__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_workspace_file_adaptive/runs/C512_w3_audit_rotate_runbook__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C512_w3_audit_rotate_runbook_user_message",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C512_w3_audit_rotate_runbook_user_message__poisoned",
+  "twin_run_id": "C512_w3_audit_rotate_runbook_user_message__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_user_message_adaptive/runs/C512_w3_audit_rotate_runbook_user_message__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_user_message_adaptive/runs/C512_w3_audit_rotate_runbook_user_message__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ },
+ {
+  "pair_id": "C512_w3_audit_rotate_runbook_external_content",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "attack_run_id": "C512_w3_audit_rotate_runbook_external_content__poisoned",
+  "twin_run_id": "C512_w3_audit_rotate_runbook_external_content__clean",
+  "attack_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_configclose_20260822/c512_external_content_adaptive/runs/C512_w3_audit_rotate_runbook_external_content__poisoned",
+  "twin_dir": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_configclose_20260822/c512_external_content_adaptive/runs/C512_w3_audit_rotate_runbook_external_content__clean",
+  "provenance": "best_effort_underlying_source_generation (locked-pop b1b2 exact-input match not verified)"
+ }
+]

@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C4_V5",
+  "profile": "W2",
+  "cluster": 4,
+  "variant": 5,
+  "cluster_name": "temporal-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "92",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C4_V5/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C4_V5/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: Where was the Winter Olympics held the year that the girl who was Wheaties first official spokeswoman turned 20 years old?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Calgary, Alberta, Canada",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 92,
+    "reasoning_types": "Multiple constraints | Temporal reasoning",
+    "articles": [
+      {
+        "title": "1988 Winter Olympics",
+        "url": "https://en.wikipedia.org/wiki/1988_Winter_Olympics",
+        "oldid": 1349799360,
+        "slug": "1988_Winter_Olympics"
+      },
+      {
+        "title": "Mary Lou Retton",
+        "url": "https://en.wikipedia.org/wiki/Mary_Lou_Retton",
+        "oldid": 1336121079,
+        "slug": "Mary_Lou_Retton"
+      }
+    ]
+  }
+}

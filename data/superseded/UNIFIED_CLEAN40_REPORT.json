@@ -1,0 +1,319 @@
+{
+  "schema_version": "assa.p2_headtohead.unified_clean40.v1",
+  "derivation_generation": "p2_headtohead_unified_clean40_5c5aff5bdc04",
+  "content_address": "5c5aff5bdc04",
+  "created": "2026-08-25",
+  "test_set": {
+    "positives": {
+      "n": 55,
+      "basis": "W3-thickened frozen attack population",
+      "manifest": "W3THICK_POPULATION_MANIFEST.json (a54faf2ec854)"
+    },
+    "negatives": {
+      "n": 40,
+      "basis": "natural held-out clean-40, split 42baa6a9",
+      "by_profile": {
+        "W1": 11,
+        "W2": 12,
+        "W3": 8,
+        "W4": 9
+      }
+    },
+    "invariant": "SAME 55 positives + SAME 40 clean-40 negatives for every detector; only the model varies (with the definability + population caveats noted per row)."
+  },
+  "coexists_with": "W3THICK_HEADTOHEAD_TABLE.md (clean-40 operational FPR view) is the same negatives basis; this table ADDS the supervised arm re-scored on clean-40. The confound-safe TWIN-based separability view stays in the supervised arm REPORT.md (McNemar p=0.39-0.58, non-separable).",
+  "rows": [
+    {
+      "detector": "AIDE",
+      "tier": "T1",
+      "kind": "integrity (train-free)",
+      "tpr_n": 52,
+      "tpr_den": 55,
+      "tpr": 0.9455,
+      "fpr_n": 26,
+      "fpr_den": 40,
+      "fpr": 0.65,
+      "gap": 0.2955,
+      "note": "reused W3THICK; scores all 55"
+    },
+    {
+      "detector": "Falco",
+      "tier": "T1",
+      "kind": "rule (train-free)",
+      "tpr_n": 43,
+      "tpr_den": 55,
+      "tpr": 0.7818,
+      "fpr_n": 27,
+      "fpr_den": 40,
+      "fpr": 0.675,
+      "gap": 0.1068,
+      "note": "reused W3THICK; Falco 0.44.0 offline rows exist (accepted 2026-08-25); NO pending VM"
+    },
+    {
+      "detector": "STIDE",
+      "tier": "T2",
+      "kind": "sequence (clean-trained)",
+      "tpr_n": 55,
+      "tpr_den": 55,
+      "tpr": 1.0,
+      "fpr_n": 38,
+      "fpr_den": 40,
+      "fpr": 0.95,
+      "gap": 0.05,
+      "note": "reused W3THICK; trained on frozen clean core, NOT clean-40; scores all 55"
+    },
+    {
+      "detector": "ours-B1",
+      "tier": "T2",
+      "kind": "size+timing z-score (clean-40 baseline)",
+      "tpr_n": 19,
+      "tpr_den": 23,
+      "tpr": 0.8261,
+      "fpr_n": 5,
+      "fpr_den": 40,
+      "fpr": 0.125,
+      "gap": 0.7011,
+      "note": "reused W3THICK; definable 23/55 (N/A for 32 no-marker-write); FPR=clean-40 LOO"
+    },
+    {
+      "detector": "ours-B2",
+      "tier": "T2",
+      "kind": "size+timing z-score, per-profile",
+      "tpr_n": 21,
+      "tpr_den": 23,
+      "tpr": 0.913,
+      "fpr_n": 5,
+      "fpr_den": 40,
+      "fpr": 0.125,
+      "gap": 0.788,
+      "note": "reused W3THICK; definable 23/55; FPR=clean-40 LOO"
+    },
+    {
+      "detector": "supervised (|\u0394size|/L1)",
+      "tier": "T2",
+      "kind": "discriminative CART/L1 (NEW clean-40 fit)",
+      "tpr_n": 14,
+      "tpr_den": 26,
+      "tpr": 0.5385,
+      "fpr_n": 5,
+      "fpr_den": 40,
+      "fpr": 0.125,
+      "gap": 0.4135,
+      "lander_auc": 0.7471,
+      "note": "NEW: LOSO-CV, negatives=clean-40; definable 26 landers (write-resolved, mixed b1b2+MUI+MCAW generation \u2014 NOT byte-identical to the 55-pop 23 definable); op-point @ clean-40 FPR<=.125 (matched to ours 5/40). WORKLOAD-UNMATCHED: C2 placebo trees 0.74-0.81 AUC on target-selection alone."
+    }
+  ],
+  "supervised_detail": {
+    "negatives_basis": "clean-40 (workload-UNMATCHED)",
+    "positives_basis": "verbatim label==1 marker-write rows from the expanded (twin-based) matrix; write-resolved / D-B definable subset only (substrate A undefined for the 32 no-resolved-marker-write attacks: chmod/unlink/truncate/semantic_inversion + MUC)",
+    "counts": {
+      "positives": 27,
+      "negatives": 37,
+      "pos_landers": 26,
+      "clean40_runs_total": 40,
+      "clean40_runs_with_write_ops": 27,
+      "clean40_runs_zero_write_ops": 13,
+      "clean40_runs_no_libsinsp": 0
+    },
+    "power_mdes": {
+      "n_pos": 27,
+      "n_neg": 37,
+      "auc_mdes": 0.7013,
+      "majority_floor": 0.5781
+    },
+    "row_level_auc_by_variant": {
+      "A1": {
+        "l1_logreg": 0.991,
+        "cart_d3": 0.966,
+        "figs": 0.9545
+      },
+      "A2": {
+        "l1_logreg": 0.9179,
+        "cart_d3": 0.967,
+        "figs": 0.9545
+      },
+      "A3": {
+        "l1_logreg": 0.8979,
+        "cart_d3": 0.967,
+        "figs": 0.973
+      },
+      "A4": {
+        "l1_logreg": 0.7137,
+        "cart_d3": 0.6712,
+        "figs": 0.6732
+      }
+    },
+    "lander_level": {
+      "A4_l1_logreg": {
+        "lander_auc": 0.7471,
+        "n_pos_landers": 26,
+        "n_clean40": 40,
+        "op_point_fpr_le_0125": {
+          "threshold": 0.555312,
+          "tpr_n": 14,
+          "tpr_den": 26,
+          "fpr_n": 5,
+          "fpr_den": 40,
+          "tpr": 0.5385,
+          "fpr": 0.125
+        },
+        "op_point_fpr_le_010": {
+          "threshold": 0.594668,
+          "tpr_n": 12,
+          "tpr_den": 26,
+          "fpr_n": 4,
+          "fpr_den": 40,
+          "tpr": 0.4615,
+          "fpr": 0.1
+        },
+        "op_point_prob_ge_050": {
+          "tpr_n": 16,
+          "tpr_den": 26,
+          "fpr_n": 12,
+          "fpr_den": 40,
+          "tpr": 0.6154,
+          "fpr": 0.3
+        }
+      },
+      "A3_l1_logreg": {
+        "lander_auc": 0.9048,
+        "n_pos_landers": 26,
+        "n_clean40": 40,
+        "op_point_fpr_le_0125": {
+          "threshold": 0.463719,
+          "tpr_n": 21,
+          "tpr_den": 26,
+          "fpr_n": 5,
+          "fpr_den": 40,
+          "tpr": 0.8077,
+          "fpr": 0.125
+        },
+        "op_point_fpr_le_010": {
+          "threshold": 0.503889,
+          "tpr_n": 19,
+          "tpr_den": 26,
+          "fpr_n": 4,
+          "fpr_den": 40,
+          "tpr": 0.7308,
+          "fpr": 0.1
+        },
+        "op_point_prob_ge_050": {
+          "tpr_n": 19,
+          "tpr_den": 26,
+          "fpr_n": 4,
+          "fpr_den": 40,
+          "tpr": 0.7308,
+          "fpr": 0.1
+        }
+      },
+      "A2_l1_logreg": {
+        "lander_auc": 0.9308,
+        "n_pos_landers": 26,
+        "n_clean40": 40,
+        "op_point_fpr_le_0125": {
+          "threshold": 0.623215,
+          "tpr_n": 20,
+          "tpr_den": 26,
+          "fpr_n": 3,
+          "fpr_den": 40,
+          "tpr": 0.7692,
+          "fpr": 0.075
+        },
+        "op_point_fpr_le_010": {
+          "threshold": 0.623215,
+          "tpr_n": 20,
+          "tpr_den": 26,
+          "fpr_n": 3,
+          "fpr_den": 40,
+          "tpr": 0.7692,
+          "fpr": 0.075
+        },
+        "op_point_prob_ge_050": {
+          "tpr_n": 20,
+          "tpr_den": 26,
+          "fpr_n": 6,
+          "fpr_den": 40,
+          "tpr": 0.7692,
+          "fpr": 0.15
+        }
+      }
+    },
+    "headline_rule": "A4 = |\u0394size| alone / L1 (the single named, threshold-reducible rule): row-AUC 0.7137, lander-AUC 0.7471 (MDES 0.7013) \u2014 does NOT gain over its confound-safe twin-based AUC 0.767; the honest rule does not exploit the mismatch.",
+    "inflation_visible": "A1 (with file-identity bucket) L1-AUC 0.991; A2/A3 tree AUC 0.95-0.97 \u2014 near-perfect on workload-unmatched clean-40, i.e. task/target-selection separation, not attack signal.",
+    "controls": {
+      "C1a_global_perm": {
+        "A2": {
+          "l1_logreg": 0.3834,
+          "cart_d3": 0.2668,
+          "figs": 0.2823
+        },
+        "A3": {
+          "l1_logreg": 0.3534,
+          "cart_d3": 0.3033,
+          "figs": 0.3078
+        },
+        "A4": {
+          "l1_logreg": 0.0581,
+          "cart_d3": 0.4379,
+          "figs": 0.2207
+        }
+      },
+      "C1a_note": "off-null (systematically <0.5, e.g. A4/L1 0.058) \u2014 a small-N/heavy-imbalance pooled-OOF artifact, SAME sign as the frozen twin run (A4/L1 0.27); not a clean 0.5 plumbing pass.",
+      "C1b_within_group": "DEGENERATE in the clean-40 design: every CV group (attack scenario | clean-40 run) is single-class, so within-group permutation is a no-op and C1b == main exactly. The per-scenario base-rate control is LOST when negatives move off the paired twins.",
+      "C2_marker_placebo_twin_based": {
+        "note": "carried VERBATIM from the frozen twin-based arm (supervised_cv.json). Clean-only diagnostic of target-selection structure; independent of the negatives choice. This is THE inflation reference to read beside the clean-40 main AUC.",
+        "placebo_positives_of_clean_rows": "24 of 54 (twin clean rows)",
+        "auc_A2": {
+          "l1_logreg": 0.6292,
+          "cart_d3": 0.7792,
+          "figs": 0.7875
+        },
+        "auc_A3": {
+          "l1_logreg": 0.6083,
+          "cart_d3": 0.7389,
+          "figs": 0.8125
+        },
+        "auc_A4_abs_delta_size": {
+          "l1_logreg": 0.3542
+        },
+        "reading": "tree arms hit 0.78-0.81 AUC on pure target-selection structure (CIs exclude 0.5); only the named |\u0394size|/L1 rule survives (A4 0.354, A2/A3 L1 0.61-0.63, CIs include 0.5)."
+      },
+      "C2_marker_placebo_clean40_native": {
+        "status": "evaluable",
+        "n_marker_rows": 25,
+        "n_clean40_rows": 37,
+        "auc": {
+          "A2": {
+            "l1_logreg": 0.3617,
+            "cart_d3": 0.49,
+            "figs": 0.565
+          },
+          "A3": {
+            "l1_logreg": 0.49,
+            "cart_d3": 0.625,
+            "figs": 0.565
+          },
+          "A4": {
+            "l1_logreg": 0.6,
+            "cart_d3": 0.6967,
+            "figs": 0.5683
+          }
+        },
+        "note": "among clean-40 write rows, marker-file writes vs other writes separate only weakly (L1 0.36-0.60, CIs include 0.5) \u2014 the clean-40 inflation is broad write-size distribution mismatch, not single-file identity."
+      },
+      "C3_positive": {
+        "l1_logreg": 0.8859,
+        "cart_d3": 0.967,
+        "figs": 0.9359
+      },
+      "seed": 20260823
+    }
+  },
+  "methodology_flags": [
+    "SUPERVISED POSITIVE-POPULATION MISMATCH (recorded, not resolved): the supervised arm's 26 definable positive landers (locked-pop b1b2 17 + MUI 6 + co-admissible MCAW 3) are NOT byte-identical to the frozen-55's 23 definable landers. Overlap = MUI 6 + co-admissible C-series; the supervised set ADDS locked-pop C301/C302/C310/C311/C401 and OMITS lineage-divergent MCAW101/201/402 (rules.sha 30982105) + some C512/C514 channel variants. Perfect alignment needs a co-admissibility ruling on the divergent MCAW landers (staging MUI/MCAW dirs also lack ground_truth.json) \u2014 NOT decided here.",
+    "WORKLOAD-UNMATCHED NEGATIVES (clean-40): clean-40 are different tasks than the attacks, so ALL z-score/discriminative gaps on this basis (ours-B1/B2 AND supervised) are confounded by target-selection structure. The C2 placebo (trees 0.74-0.81 on target-selection alone) quantifies the inflation. The confound-safe twin-based separability is non-significant (supervised McNemar vs B1/B2 p=0.39-0.58).",
+    "UNIT-OF-ANALYSIS: AIDE/Falco/STIDE are per-lander binary over all 55; ours + supervised are definable-subset detectors (write-resolved only), so their TPR denominator is 23 (ours) / 26 (supervised), not 55.",
+    "STIDE is clean-CORE-trained, not clean-40-trained (no leakage); its FPR is measured on clean-40."
+  ],
+  "verdict": "On the workload-matched question NO detector cleanly separates attack from benign. On clean-40 the integrity/rule detectors COLLAPSE toward the diagonal \u2014 STIDE 1.0/0.95 (gap 0.05) fires on almost every benign run, AIDE 0.95/0.65, Falco 0.78/0.68 \u2014 high TPR bought with high benign-alarm. The z-score/discriminative detectors show a LARGER apparent gap (ours-B2 0.91/0.125=0.79; supervised 0.54/0.125=0.41) but on WORKLOAD-UNMATCHED negatives: the C2 placebo shows target-selection alone yields tree-AUC 0.74-0.81, and the honest |\u0394size|/L1 rule does not gain over its confound-safe twin AUC (0.71 vs 0.77, barely above MDES 0.70). Net: apparent clean-40 separation of the anomaly arms is largely the workload confound; on the confound-safe twin basis separability is non-significant."
+}

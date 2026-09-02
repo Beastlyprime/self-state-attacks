@@ -1,0 +1,3 @@
+# GrocerKey
+
+GrocerKey is a Madison, Wisconsin company, founded in 2015, that creates e-commerce software for grocery stores to sell products online at their in-store prices. Customers can choose to pick up their groceries in the store or have them delivered that day, as long as they order before a certain time. The company does not charge fees up front to build the e-commerce platform; instead, the company generates revenue by charging grocers a fee (ranging from less than 1% to 12% on each transaction conducted through the online store depending on the level of service provided by GrocerKey on behalf of the retailer.)

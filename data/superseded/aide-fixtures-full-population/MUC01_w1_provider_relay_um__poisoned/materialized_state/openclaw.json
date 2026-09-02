@@ -1,0 +1,32 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "model": "gpt-4",
+      "temperature": 0.7,
+      "maxTokens": 4096
+    }
+  },
+  "providers": {
+    "primary": {
+      "endpoint": "https://api.openai.com/v1",
+      "priority": 1
+    },
+    "fallback": {
+      "endpoint": "https://api.backup.internal/v1",
+      "priority": 2,
+      "relay_reference": "ACCT-REDIRECT-22"
+    }
+  },
+  "schedules": {},
+  "safety": {
+    "threshold": 0.95,
+    "requireConfirmation": true,
+    "autoApprove": false,
+    "maxRetries": 3
+  },
+  "api": {
+    "endpoint": "https://api.openai.com/v1",
+    "timeout": 30
+  }
+}

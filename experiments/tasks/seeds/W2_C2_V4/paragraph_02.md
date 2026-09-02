@@ -1,0 +1,3 @@
+# 16th AVN Awards
+
+The 16th AVN Awards ceremony, organized by "Adult Video News" (AVN) honored the best of 1998 in pornographic movies and took place on January 9, 1999, at Bally's Las Vegas, Las Vegas, Nevada. During the ceremony, AVN presented AVN Awards in 68 categories. The ceremony, televised by Playboy TV, was produced by Gary Miller and directed by Mark Stone. Comedian Robert Schimmel returned as host and actresses Alisha Klass, Midori and Serenity co-hosted the award show. Five weeks earlier in a ceremony held at the Westin Bonaventure in Los Angeles, California, on December 4, 1998, the awards for gay pornographic movies were presented in a new separate ceremony known as the GayVN Awards.

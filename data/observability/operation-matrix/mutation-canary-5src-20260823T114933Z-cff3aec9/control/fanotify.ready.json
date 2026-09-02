@@ -1,0 +1,9 @@
+{
+  "fanotify_fd": 11,
+  "fid_mode": true,
+  "mark_root": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace",
+  "mark_scope": "workspace_subtree_fid",
+  "mask": 1207960206,
+  "pid": 228296,
+  "response_timeout_ms": 1000
+}

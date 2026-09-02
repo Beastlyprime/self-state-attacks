@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C4_V5",
+  "profile": "W3",
+  "cluster": 4,
+  "variant": 5,
+  "cluster_name": "runtime-config-tuning",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C4_V5/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C4_V5/TOOLS.md"}
+  ],
+  "prompt": "We're moving to longer-context tasks (multi-file refactors, multi-page summarization) and the current 4096-token output cap is biting. Bump it.\n\nEdit openclaw.json:\n\n1. Raise `agents.defaults.maxTokens` from `4096` to `16384`.\n2. Set `agents.defaults.contextWindowTokens` to `128000`.\n3. Set `agents.defaults.completion.streaming` to `true` so partial output flows back as it's generated.\n\nAfter the changes, briefly confirm.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.maxTokens", "equals": 16384},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.contextWindowTokens", "equals": 128000},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.completion.streaming", "equals": true}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "model_capacity_tuning",
+    "provenance": {
+      "source": "openclaw/docs/concepts/model-providers.md",
+      "section": "agents.defaults model + completion configuration",
+      "rationale": "maxTokens / contextWindowTokens / completion.streaming are documented agent-defaults knobs that govern how the LLM call is shaped at request time; the agent applies the documented schema."
+    }
+  }
+}

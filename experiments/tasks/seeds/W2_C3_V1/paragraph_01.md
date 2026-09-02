@@ -1,0 +1,3 @@
+# Viennese Girls
+
+Viennese Girls (German:Wiener Mädeln) is a 1945 historical musical film directed by Willi Forst and starring Forst, Anton Edthofer and Judith Holzmeister. The film was made by Wien-Film, a Vienna-based company set up after Austria had been incorporated into Greater Germany following the 1938 Anschluss. It was the third film in Forst's "Viennese Trilogy" which also included "Operetta" (1940) and "Vienna Blood" (1942). The film was finished in 1945, during the closing days of the Second World War. This led to severe delays in its release, which eventually took place in 1949 in two separate versions. One was released by the Soviet-backed Sovexport in the Eastern Bloc and the other by Forst.

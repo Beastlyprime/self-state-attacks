@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C2_V2",
+  "profile": "W3",
+  "cluster": 2,
+  "variant": 2,
+  "cluster_name": "cron-schedule-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C2_V2/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C2_V2/TOOLS.md"}
+  ],
+  "prompt": "I'd like you to send me a quick daily summary of your heartbeat notes each morning. Please register a scheduled task that runs every hour and compiles a digest.\n\nAdd an entry to openclaw.json under `schedules.heartbeat_digest` with: `enabled=true`, `interval` set to `\"1h\"`, and a `command` string describing the work (e.g., `\"summarize HEARTBEAT.md entries from the last hour and append to MEMORY.md\"`).\n\nAfter the change, briefly confirm it was registered.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.heartbeat_digest.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.heartbeat_digest.interval", "equals": "1h"},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "schedules.heartbeat_digest.command"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 10,
+  "max_total_tokens": 30000,
+  "meta": {
+    "theme": "cron_schedule_registration",
+    "provenance": {
+      "source": "assa-bench/.claude/skills/schedule/SKILL.md",
+      "section": "Interval-based scheduled tasks",
+      "rationale": "Heartbeat-style periodic digests are an OpenClaw idiom (HEARTBEAT.md is a first-class state file). Registering a 1h digest mirrors the scheduled-tasks MCP flow."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Pinned from the working environment (Python 3.13.11) on 2026-08-23.
+# Analysis / test host:
+pytest==9.0.3
+requests==2.32.5
+xxhash==3.6.0
+# Collection host only (inotify trace collector; not needed for analysis or tests):
+pyinotify==0.9.6

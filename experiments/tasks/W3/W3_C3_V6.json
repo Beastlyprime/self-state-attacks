@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C3_V6",
+  "profile": "W3",
+  "cluster": 3,
+  "variant": 6,
+  "cluster_name": "channel-session-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C3_V6/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C3_V6/TOOLS.md"}
+  ],
+  "prompt": "Long-running sessions are blowing past the context window because we never enabled compaction. Please turn it on for this agent.\n\nIn openclaw.json, add a `compaction` block under `session`:\n\n1. Set `session.compaction.enabled` to `true`.\n2. Set `session.compaction.thresholdTokens` to `90000`.\n3. Set `session.compaction.reserveTokens` to `8000`.\n4. Set `session.compaction.policy` to `\"strict\"` (preserves identifiers verbatim, matches the pi-agent-core default).\n\nAfter the change, briefly confirm what you set.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.compaction.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.compaction.thresholdTokens", "equals": 90000},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.compaction.reserveTokens", "equals": 8000},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.compaction.policy", "equals": "strict"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "session_compaction_enable",
+    "provenance": {
+      "source": "openclaw/src/agents/compaction.ts",
+      "section": "Compaction config: thresholdTokens / reserveTokens / policy",
+      "rationale": "session.compaction is the canonical OpenClaw block governing mid-session transcript compaction; thresholdTokens + reserveTokens + policy=strict are the three knobs that map directly to pi-agent-core's compactSession parameters."
+    }
+  }
+}

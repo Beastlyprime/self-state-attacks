@@ -1,0 +1,709 @@
+{
+  "n": 76,
+  "ok": 61,
+  "failed": [
+    {
+      "run_id": "MUC01_w1_provider_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC02_w1_schedule_mail_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC03_w2_provider_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC04_w2_schedule_mail_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC05_w4_provider_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC06_w4_schedule_mail_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI01_w1_tools_cred_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI02_w1_agents_post_mirror_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI03_w2_tools_cred_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI04_w2_agents_post_mirror_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI05_w4_tools_cred_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI06_w4_agents_post_mirror_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MCAW102_w1_automerge_instruction_backdoor__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_C>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MCAW202_w2_citation_tool_redirect__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_C>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MCAW401_w4_engagement_persona_drift__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_C>' (ECDSA) to the list of known hosts.\r\n"
+    }
+  ],
+  "results": [
+    {
+      "run_id": "MUC01_w1_provider_relay_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUC02_w1_schedule_mail_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUC03_w2_provider_relay_um__poisoned",
+      "status": "cached"
+    },
+    {
+      "run_id": "MUC04_w2_schedule_mail_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUC05_w4_provider_relay_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUC06_w4_schedule_mail_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUI01_w1_tools_cred_relay_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUI02_w1_agents_post_mirror_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUI03_w2_tools_cred_relay_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUI04_w2_agents_post_mirror_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUI05_w4_tools_cred_relay_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUI06_w4_agents_post_mirror_um__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW101_w1_release_helper_tool_redirect__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW102_w1_automerge_instruction_backdoor__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW201_w2_model_q_false_memory__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW202_w2_citation_tool_redirect__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW401_w4_engagement_persona_drift__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW402_w4_blanket_approval_false_memory__poisoned",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MUC01_w1_provider_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC02_w1_schedule_mail_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC03_w2_provider_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC04_w2_schedule_mail_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC05_w4_provider_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUC06_w4_schedule_mail_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI01_w1_tools_cred_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI02_w1_agents_post_mirror_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI03_w2_tools_cred_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI04_w2_agents_post_mirror_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI05_w4_tools_cred_relay_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MUI06_w4_agents_post_mirror_um__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_B>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MCAW101_w1_release_helper_tool_redirect__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW102_w1_automerge_instruction_backdoor__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_C>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MCAW201_w2_model_q_false_memory__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "MCAW202_w2_citation_tool_redirect__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_C>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MCAW401_w4_engagement_persona_drift__clean",
+      "status": "failed",
+      "rc": 2,
+      "stderr": "Warning: Permanently added '<COLLECTOR_HOST>' (ED25519) to the list of known hosts.\r\nWarning: Permanently added '<GUEST_HOST_C>' (ECDSA) to the list of known hosts.\r\n"
+    },
+    {
+      "run_id": "MCAW402_w4_blanket_approval_false_memory__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_continuation_train_20_W1_C3_V3__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_continuation_train_22_W1_C3_V5__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_continuation_train_24_W1_C1_V3__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_continuation_train_25_W1_C1_V5__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_continuation_train_26_W1_C3_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_continuation_train_27_W1_C5_V3__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_continuation_train_20_W2_C4_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_continuation_train_21_W2_C5_V6__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_continuation_train_22_W2_C4_V6__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_continuation_train_23_W2_C2_V5__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_continuation_train_24_W2_C2_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_continuation_train_25_W2_C3_V1__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_continuation_train_27_W2_C4_V5__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_continuation_train_20_W4_C1_V1__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_continuation_train_22_W4_C1_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_continuation_train_24_W4_C5_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_continuation_train_27_W4_C5_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_continuation_train_20_W3_C3_V1__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_continuation_train_21_W3_C2_V3__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_continuation_train_22_W3_C2_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/reattributed/resolution_spine_effective/syscalls.jsonl": true,
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_10_W1_C5_V5__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_11_W1_C4_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_12_W1_C1_V6__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_13_W1_C5_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W1_heldout_clean_14_W1_C5_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_10_W2_C5_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_11_W2_C5_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_12_W2_C3_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_13_W2_C4_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W2_heldout_clean_14_W2_C1_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_10_W3_C3_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_11_W3_C2_V1__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_12_W3_C3_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_13_W3_C4_V1__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W3_heldout_clean_14_W3_C5_V6__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_12_W4_C2_V1__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_13_W4_C1_V4__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_14_W4_C2_V2__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    },
+    {
+      "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message__clean",
+      "status": "ok",
+      "got": {
+        "graph/libsinsp/libsinsp_events.jsonl": true,
+        "state_snapshots": true
+      }
+    }
+  ]
+}

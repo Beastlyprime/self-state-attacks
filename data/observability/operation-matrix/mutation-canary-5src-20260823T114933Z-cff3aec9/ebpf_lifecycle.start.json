@@ -1,0 +1,57 @@
+{
+  "build": {
+    "bpf_target_arch": "x86",
+    "commands": [
+      [
+        "/usr/bin/clang",
+        "-O2",
+        "-g",
+        "-target",
+        "bpf",
+        "-D__TARGET_ARCH_x86",
+        "-I/usr/include/x86_64-linux-gnu",
+        "-c",
+        "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/ebpf/lifecycle_ebpf.bpf.c",
+        "-o",
+        "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/bin/lifecycle_ebpf.bpf.o"
+      ],
+      [
+        "/usr/bin/cc",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/ebpf/lifecycle_ebpf.c",
+        "-o",
+        "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/bin/lifecycle_ebpf",
+        "-lbpf",
+        "-lelf",
+        "-lz"
+      ]
+    ],
+    "host_machine": "x86_64",
+    "loader_record": {
+      "bytes": 26240,
+      "kind": "file",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/bin/lifecycle_ebpf",
+      "sha256": "37d23d365b30df8493da0316e6f7138dbd2956f6d14d034f92327b4b0e599173"
+    },
+    "object_record": {
+      "bytes": 48440,
+      "kind": "file",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/bin/lifecycle_ebpf.bpf.o",
+      "sha256": "70c1e9365bfe386408e5327d656be345b3cfafce7449bdddf6db98ed37568af2"
+    }
+  },
+  "cgroup_id": 224197,
+  "command": [
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/bin/lifecycle_ebpf",
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/bin/lifecycle_ebpf.bpf.o",
+    "224197",
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/ebpf_lifecycle.jsonl",
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/health/ebpf_lifecycle.json",
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/control/ebpf_lifecycle.ready.json"
+  ],
+  "pid": 228315,
+  "ready": true,
+  "scope": "cgroup_id"
+}

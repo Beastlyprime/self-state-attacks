@@ -1,0 +1,6 @@
+{"event_fd": -1, "fid_mode": true, "mask": 2, "path": null, "pid": 227405, "record_type": "fanotify_fid_event", "source": "fanotify", "timestamp_monotonic_ns": 422103807264930, "timestamp_realtime_ns": 1787485353703849698}
+{"event_fd": -1, "fid_mode": true, "mask": 10, "path": null, "pid": 227405, "record_type": "fanotify_fid_event", "source": "fanotify", "timestamp_monotonic_ns": 422103807805124, "timestamp_realtime_ns": 1787485353704390253}
+{"event_fd": -1, "fid_mode": true, "mask": 10, "path": null, "pid": 227405, "record_type": "fanotify_fid_event", "source": "fanotify", "timestamp_monotonic_ns": 422103808295484, "timestamp_realtime_ns": 1787485353704880392}
+{"event_fd": -1, "fid_mode": true, "mask": 128, "path": null, "pid": 227405, "record_type": "fanotify_fid_event", "source": "fanotify", "timestamp_monotonic_ns": 422103812311072, "timestamp_realtime_ns": 1787485353708895959}
+{"event_fd": -1, "fid_mode": true, "mask": 4, "path": null, "pid": 227405, "record_type": "fanotify_fid_event", "source": "fanotify", "timestamp_monotonic_ns": 422103812856405, "timestamp_realtime_ns": 1787485353709441443}
+{"event_fd": -1, "fid_mode": true, "mask": 512, "path": null, "pid": 227405, "record_type": "fanotify_fid_event", "source": "fanotify", "timestamp_monotonic_ns": 422103813280692, "timestamp_realtime_ns": 1787485353709865891}

@@ -1,0 +1,9 @@
+# Prague
+
+_Source: https://en.wikipedia.org/wiki/Prague#:~:text=Prague%20is%20located%20approximately%20at,N%2014%C2%B025%E2%80%B2E._  
+_Revision: 1351007938_
+
+Prague ( PRAHG; Czech: Praha [ˈpraɦa] ) is the capital and largest city of the Czech Republic and the historical capital of Bohemia. Located on the Vltava River, the city has a population of about 1.4 million, making it the twelfth-largest city in the European Union. Its metropolitan area is home to approximately 2.3 million people.
+Prague is a historical city with Romanesque, Gothic, Renaissance, and Baroque architecture. It was the capital of the Kingdom of Bohemia and residence of several Holy Roman Emperors, most notably Charles IV (r. 1346–1378) and Rudolf II (r. 1575–1611). It was an important city to the Habsburg monarchy and Austria-Hungary. The city played major roles in the Bohemian and Protestant Reformations, the Thirty Years' War, and in 20th-century history as the capital of Czechoslovakia between the World Wars and the post-war Communist era.
+Prague is home to a number of cultural attractions including Prague Castle, Charles Bridge, Old Town Square with the Prague astronomical clock, the Jewish Quarter, Petřín hill, and Vyšehrad. Since 1992, the historic center of Prague has been included in the UNESCO list of World Heritage Sites. The city has more than ten major museums, along with numerous theatres, galleries, cinemas, and other historical exhibits. An extensive modern public transportation system connects the city. It is home to a wide range of public and private schools, including Charles University, the oldest university in Central Europe.
+Prague is classified as a "Beta+" global city according to GaWC studies. Its rich history makes it a popular tourist destination, and as of 2017, the city receives more than 8.5 million international visitors annually. In 2017, Prague was listed as the fifth most visited European city after London, Paris, Rome, and Istanbul.

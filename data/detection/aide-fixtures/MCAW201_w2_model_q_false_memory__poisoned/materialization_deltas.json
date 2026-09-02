@@ -1,0 +1,37 @@
+{
+  "after_a": {
+    "added": [
+      "memory/2026-08-24.md"
+    ],
+    "content_changed": [
+      "MEMORY.md"
+    ],
+    "metadata_replay_boundary": "snapshot files are side-channel byte copies and do not preserve original workspace metadata; unchanged files are left untouched, and changed files are rewritten in place. Primary any-content-change decisions are evaluable; metadata-only FPR is not inferred.",
+    "removed": [],
+    "untouched_byte_identical": [
+      "AGENTS.md",
+      "HEARTBEAT.md",
+      "IDENTITY.md",
+      "SOUL.md",
+      "TOOLS.md",
+      "USER.md"
+    ]
+  },
+  "after_b": {
+    "added": [],
+    "content_changed": [
+      "memory/2026-08-24.md"
+    ],
+    "metadata_replay_boundary": "snapshot files are side-channel byte copies and do not preserve original workspace metadata; unchanged files are left untouched, and changed files are rewritten in place. Primary any-content-change decisions are evaluable; metadata-only FPR is not inferred.",
+    "removed": [],
+    "untouched_byte_identical": [
+      "AGENTS.md",
+      "HEARTBEAT.md",
+      "IDENTITY.md",
+      "MEMORY.md",
+      "SOUL.md",
+      "TOOLS.md",
+      "USER.md"
+    ]
+  }
+}

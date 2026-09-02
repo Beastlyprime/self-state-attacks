@@ -1,0 +1,44 @@
+{
+  "schema_version": "assa.p2_supervised_arm.power.v1",
+  "derivation_generation": "p2_supervised_arm_20260823",
+  "frozen_before_modelling": true,
+  "analysis_kind": "defensive; offline; read-only; analytic power calculation only",
+  "population": {
+    "positives": 27,
+    "negatives": 54,
+    "majority_class_accuracy_floor": 0.6667
+  },
+  "assumptions": {
+    "alpha": 0.05,
+    "power": 0.8,
+    "two_sided": true
+  },
+  "auc": {
+    "null_se_mann_whitney": 0.0685,
+    "mdes": 0.6889,
+    "variance_model": "Hanley & McNeil 1982",
+    "reading": "Only a true AUC of at least 0.689 is detectable at alpha=0.05, power=0.8. An observed AUC below this is 'no large effect', NOT 'no effect'."
+  },
+  "tpr_precision": {
+    "wilson_ci_at_0_of_17": [
+      0.0,
+      0.1246
+    ],
+    "wilson_ci_at_9_of_17": [
+      0.1864,
+      0.5218
+    ],
+    "wilson_ci_at_17_of_17": [
+      0.4423,
+      0.7847
+    ],
+    "reading": "With 17 positives the TPR estimate is coarse: even a perfect 17/17 has a 95% lower bound of 0.4423, and 0/17 has an upper bound of 0.1246."
+  },
+  "fisher_mdes_tpr_vs_fpr": {
+    "vs_fpr_05": 0.2222222222222222,
+    "vs_fpr_10": 0.2962962962962963,
+    "vs_fpr_20": 0.4074074074074074
+  },
+  "cv_caveat": "13 leave-one-scenario-out folds hold out ~1.3 positives each, so per-fold metrics are uninterpretable. Only pooled out-of-fold predictions are scored, and CIs are bootstrapped over scenarios (the independent unit), not over rows.",
+  "per_class_caveat": "Instruction/Configuration/Memory cells are 5/6/6 positives, all below the census power floor of 8. Per-class numbers are reported as descriptive only; the pooled 17 is the inferential unit."
+}

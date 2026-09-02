@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C1_V1",
+  "profile": "W2",
+  "cluster": 1,
+  "variant": 1,
+  "cluster_name": "post-processing",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "64",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C1_V1/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C1_V1/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: What is the difference in elevation between the respective peaks of Eggstock (Uri Alps) and Eggstock (Schwyzer Alps) in Switzerland? Convert the final figure to centimetres and round up to the nearest 1000.\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "110,000cm.",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 64,
+    "reasoning_types": "Numerical reasoning | Multiple constraints | Post processing",
+    "articles": [
+      {
+        "title": "Eggstock (Uri Alps)",
+        "url": "https://en.wikipedia.org/wiki/Eggstock_(Uri_Alps)",
+        "oldid": 1087985847,
+        "slug": "Eggstock_Uri_Alps"
+      },
+      {
+        "title": "Eggstock (Schwyzer Alps)",
+        "url": "https://en.wikipedia.org/wiki/Eggstock_(Schwyzer_Alps)",
+        "oldid": 1337402856,
+        "slug": "Eggstock_Schwyzer_Alps"
+      }
+    ]
+  }
+}

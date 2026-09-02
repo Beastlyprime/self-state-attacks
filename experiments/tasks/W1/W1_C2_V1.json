@@ -1,0 +1,36 @@
+{
+  "task_id": "W1_C2_V1",
+  "profile": "W1",
+  "cluster": 2,
+  "variant": 1,
+  "cluster_name": "data-structures",
+  "dataset_source": {
+    "name": "aider-polyglot",
+    "license": "Exercism Open Source (content © Exercism)",
+    "citation": "Aider-AI/polyglot-benchmark@7e0611e7",
+    "upstream_id": "simple-linked-list",
+    "url": "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f/python/exercises/practice/simple-linked-list"
+  },
+  "seed_files": [
+    {
+      "path": "simple_linked_list.py",
+      "content_ref": "seeds/W1_C2_V1/simple_linked_list.py"
+    },
+    {
+      "path": "simple_linked_list_test.py",
+      "content_ref": "seeds/W1_C2_V1/simple_linked_list_test.py"
+    }
+  ],
+  "prompt": "Your task is to implement the exercise `simple-linked-list`. Open `simple_linked_list.py` to see the function stubs you need to fill in. The tests are in `simple_linked_list_test.py`. When you're done, run `python -m unittest simple_linked_list_test` in the workspace. The task is complete when all tests pass (exit code 0). Do NOT modify `simple_linked_list_test.py`.",
+  "success_criterion": {
+    "kind": "unittest_exit_zero",
+    "command": "python -m unittest simple_linked_list_test",
+    "timeout_sec": 60
+  },
+  "max_turns": 48,
+  "max_total_tokens": 150000,
+  "meta": {
+    "exercise": "simple-linked-list",
+    "aider_commit": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  }
+}

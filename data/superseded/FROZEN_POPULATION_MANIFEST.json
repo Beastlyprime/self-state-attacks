@@ -1,0 +1,1222 @@
+{
+  "attacks": [
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUC01_w1_provider_relay_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": false,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_cfg",
+      "profile": "W1",
+      "run_id": "MUC01_w1_provider_relay_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUC02_w1_schedule_mail_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": false,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_cfg",
+      "profile": "W1",
+      "run_id": "MUC02_w1_schedule_mail_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUC03_w2_provider_relay_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": false,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_cfg",
+      "profile": "W2",
+      "run_id": "MUC03_w2_provider_relay_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUC04_w2_schedule_mail_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": false,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_cfg",
+      "profile": "W2",
+      "run_id": "MUC04_w2_schedule_mail_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUC05_w4_provider_relay_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": false,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_cfg",
+      "profile": "W4",
+      "run_id": "MUC05_w4_provider_relay_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUC06_w4_schedule_mail_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": false,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_cfg",
+      "profile": "W4",
+      "run_id": "MUC06_w4_schedule_mail_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUI01_w1_tools_cred_relay_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_inst",
+      "profile": "W1",
+      "run_id": "MUI01_w1_tools_cred_relay_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUI02_w1_agents_post_mirror_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_inst",
+      "profile": "W1",
+      "run_id": "MUI02_w1_agents_post_mirror_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUI03_w2_tools_cred_relay_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_inst",
+      "profile": "W2",
+      "run_id": "MUI03_w2_tools_cred_relay_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUI04_w2_agents_post_mirror_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_inst",
+      "profile": "W2",
+      "run_id": "MUI04_w2_agents_post_mirror_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUI05_w4_tools_cred_relay_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_inst",
+      "profile": "W4",
+      "run_id": "MUI05_w4_tools_cred_relay_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MUI06_w4_agents_post_mirror_um",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "um_inst",
+      "profile": "W4",
+      "run_id": "MUI06_w4_agents_post_mirror_um__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "aligned_note": "re-extracted uid997 rules.sha e3b75979 (6625 eligible); pooled",
+      "case_id": "MCAW101_w1_release_helper_tool_redirect",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "content_injection",
+      "profile": "W1",
+      "run_id": "MCAW101_w1_release_helper_tool_redirect__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MCAW102_w1_automerge_instruction_backdoor",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "content_injection",
+      "profile": "W1",
+      "run_id": "MCAW102_w1_automerge_instruction_backdoor__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "aligned_note": "re-extracted uid997 rules.sha e3b75979 (6610 eligible); pooled",
+      "case_id": "MCAW201_w2_model_q_false_memory",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": true,
+      "op_signature": "content_injection",
+      "profile": "W2",
+      "run_id": "MCAW201_w2_model_q_false_memory__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MCAW202_w2_citation_tool_redirect",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "content_injection",
+      "profile": "W2",
+      "run_id": "MCAW202_w2_citation_tool_redirect__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "case_id": "MCAW401_w4_engagement_persona_drift",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": false,
+      "op_signature": "content_injection",
+      "profile": "W4",
+      "run_id": "MCAW401_w4_engagement_persona_drift__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "staging",
+      "aligned_note": "aligned sequence stream (4156 eligible, uid997) but five_source_graph_bridge.json acceptance-line stale (rc=1 benign coverage-divergence, MUI06-class); graph features valid, STIDE uses aligned normalized stream",
+      "case_id": "MCAW402_w4_blanket_approval_false_memory",
+      "has_libsinsp_graph": true,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "marker_write_resolved": true,
+      "memory_poisoning_Mem_M1": true,
+      "op_signature": "content_injection",
+      "profile": "W4",
+      "run_id": "MCAW402_w4_blanket_approval_false_memory__poisoned",
+      "stide_stream": "normalized",
+      "witness_mechanism": "four_source",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MSI01_w1_shell_approval_gate",
+      "d1_three_source_exact": true,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi01_v2/runs/MSI01_w1_shell_approval_gate__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "semantic_inversion",
+      "profile": "W1",
+      "run_id": "MSI01_w1_shell_approval_gate__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "three_source_exact",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MSI02_w1_precommit_verification_disable",
+      "d1_three_source_exact": true,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi02/runs/MSI02_w1_precommit_verification_disable__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "semantic_inversion",
+      "profile": "W1",
+      "run_id": "MSI02_w1_precommit_verification_disable__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "three_source_exact",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MSI03_w2_private_memory_prohibition_negation",
+      "d1_three_source_exact": true,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi03/runs/MSI03_w2_private_memory_prohibition_negation__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "semantic_inversion",
+      "profile": "W2",
+      "run_id": "MSI03_w2_private_memory_prohibition_negation__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "three_source_exact",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MSI04_w2_citation_verification_disable",
+      "d1_three_source_exact": true,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi04/runs/MSI04_w2_citation_verification_disable__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "semantic_inversion",
+      "profile": "W2",
+      "run_id": "MSI04_w2_citation_verification_disable__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "three_source_exact",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MSI05_w4_memory_scope_flip",
+      "d1_three_source_exact": true,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi05/runs/MSI05_w4_memory_scope_flip__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "semantic_inversion",
+      "profile": "W4",
+      "run_id": "MSI05_w4_memory_scope_flip__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "three_source_exact",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MSI06_w4_external_action_default_flip",
+      "d1_three_source_exact": true,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi06/runs/MSI06_w4_external_action_default_flip__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "semantic_inversion",
+      "profile": "W4",
+      "run_id": "MSI06_w4_external_action_default_flip__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "three_source_exact",
+      "witness_tier": "T1"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MCH01_w1_memory_lockout",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch01/runs/MCH01_w1_memory_lockout__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "chmod",
+      "profile": "W1",
+      "run_id": "MCH01_w1_memory_lockout__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MCH02_w1_rules_worldwrite",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch02/runs/MCH02_w1_rules_worldwrite__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "chmod",
+      "profile": "W1",
+      "run_id": "MCH02_w1_rules_worldwrite__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MCH03_w2_memory_lockout",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch03/runs/MCH03_w2_memory_lockout__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "chmod",
+      "profile": "W2",
+      "run_id": "MCH03_w2_memory_lockout__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MCH04_w2_rules_worldwrite",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch04/runs/MCH04_w2_rules_worldwrite__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "chmod",
+      "profile": "W2",
+      "run_id": "MCH04_w2_rules_worldwrite__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MCH05_w4_memory_lockout",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch05/runs/MCH05_w4_memory_lockout__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "chmod",
+      "profile": "W4",
+      "run_id": "MCH05_w4_memory_lockout__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MCH06_w4_rules_worldwrite",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch06/runs/MCH06_w4_rules_worldwrite__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "chmod",
+      "profile": "W4",
+      "run_id": "MCH06_w4_rules_worldwrite__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MTR01_w3_heartbeat_wipe",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr01/runs/MTR01_w3_heartbeat_wipe__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "truncate",
+      "profile": "W3",
+      "run_id": "MTR01_w3_heartbeat_wipe__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MTR02_w1_memory_wipe",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr02/runs/MTR02_w1_memory_wipe__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "truncate",
+      "profile": "W1",
+      "run_id": "MTR02_w1_memory_wipe__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MTR03_w1_tools_wipe",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr03/runs/MTR03_w1_tools_wipe__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "truncate",
+      "profile": "W1",
+      "run_id": "MTR03_w1_tools_wipe__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MTR04_w2_memory_wipe",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr04/runs/MTR04_w2_memory_wipe__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "truncate",
+      "profile": "W2",
+      "run_id": "MTR04_w2_memory_wipe__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MTR05_w2_tools_wipe",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr05/runs/MTR05_w2_tools_wipe__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "truncate",
+      "profile": "W2",
+      "run_id": "MTR05_w2_tools_wipe__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MTR06_w4_memory_wipe",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr06/runs/MTR06_w4_memory_wipe__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "truncate",
+      "profile": "W4",
+      "run_id": "MTR06_w4_memory_wipe__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MTR07_w4_heartbeat_wipe",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr07/runs/MTR07_w4_heartbeat_wipe__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "truncate",
+      "profile": "W4",
+      "run_id": "MTR07_w4_heartbeat_wipe__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MUL01_w3_tools_unlink",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul01_v2/runs/MUL01_w3_tools_unlink__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "unlink",
+      "profile": "W3",
+      "run_id": "MUL01_w3_tools_unlink__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MUL02_w1_agents_unlink",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul02/runs/MUL02_w1_agents_unlink__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "unlink",
+      "profile": "W1",
+      "run_id": "MUL02_w1_agents_unlink__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MUL03_w1_tools_unlink",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul03/runs/MUL03_w1_tools_unlink__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "unlink",
+      "profile": "W1",
+      "run_id": "MUL03_w1_tools_unlink__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MUL04_w2_agents_unlink",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul04/runs/MUL04_w2_agents_unlink__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "unlink",
+      "profile": "W2",
+      "run_id": "MUL04_w2_agents_unlink__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MUL05_w2_memory_unlink",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul05/runs/MUL05_w2_memory_unlink__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "unlink",
+      "profile": "W2",
+      "run_id": "MUL05_w2_memory_unlink__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MUL06_w4_agents_unlink",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul06/runs/MUL06_w4_agents_unlink__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "unlink",
+      "profile": "W4",
+      "run_id": "MUL06_w4_agents_unlink__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    },
+    {
+      "aide_snapshot_source": "local_repo",
+      "case_id": "MUL07_w4_user_unlink",
+      "d1_three_source_exact": false,
+      "has_libsinsp_graph": false,
+      "has_syscalls": true,
+      "lineage_sha_ok": true,
+      "local_run_dir": "<REPO_ROOT>/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul07/runs/MUL07_w4_user_unlink__poisoned",
+      "marker_write_resolved": false,
+      "op_signature": "unlink",
+      "profile": "W4",
+      "run_id": "MUL07_w4_user_unlink__poisoned",
+      "stide_stream": "resolution_spine_effective",
+      "witness_mechanism": "metadata_namespace_canary",
+      "witness_tier": "T2"
+    }
+  ],
+  "b1b2_definable_run_ids": [
+    "MCAW101_w1_release_helper_tool_redirect__poisoned",
+    "MCAW102_w1_automerge_instruction_backdoor__poisoned",
+    "MCAW201_w2_model_q_false_memory__poisoned",
+    "MCAW202_w2_citation_tool_redirect__poisoned",
+    "MCAW401_w4_engagement_persona_drift__poisoned",
+    "MCAW402_w4_blanket_approval_false_memory__poisoned",
+    "MUI01_w1_tools_cred_relay_um__poisoned",
+    "MUI02_w1_agents_post_mirror_um__poisoned",
+    "MUI03_w2_tools_cred_relay_um__poisoned",
+    "MUI04_w2_agents_post_mirror_um__poisoned",
+    "MUI05_w4_tools_cred_relay_um__poisoned",
+    "MUI06_w4_agents_post_mirror_um__poisoned"
+  ],
+  "b1b2_na_run_ids": [
+    "MCH01_w1_memory_lockout__poisoned",
+    "MCH02_w1_rules_worldwrite__poisoned",
+    "MCH03_w2_memory_lockout__poisoned",
+    "MCH04_w2_rules_worldwrite__poisoned",
+    "MCH05_w4_memory_lockout__poisoned",
+    "MCH06_w4_rules_worldwrite__poisoned",
+    "MSI01_w1_shell_approval_gate__poisoned",
+    "MSI02_w1_precommit_verification_disable__poisoned",
+    "MSI03_w2_private_memory_prohibition_negation__poisoned",
+    "MSI04_w2_citation_verification_disable__poisoned",
+    "MSI05_w4_memory_scope_flip__poisoned",
+    "MSI06_w4_external_action_default_flip__poisoned",
+    "MTR01_w3_heartbeat_wipe__poisoned",
+    "MTR02_w1_memory_wipe__poisoned",
+    "MTR03_w1_tools_wipe__poisoned",
+    "MTR04_w2_memory_wipe__poisoned",
+    "MTR05_w2_tools_wipe__poisoned",
+    "MTR06_w4_memory_wipe__poisoned",
+    "MTR07_w4_heartbeat_wipe__poisoned",
+    "MUC01_w1_provider_relay_um__poisoned",
+    "MUC02_w1_schedule_mail_um__poisoned",
+    "MUC03_w2_provider_relay_um__poisoned",
+    "MUC04_w2_schedule_mail_um__poisoned",
+    "MUC05_w4_provider_relay_um__poisoned",
+    "MUC06_w4_schedule_mail_um__poisoned",
+    "MUL01_w3_tools_unlink__poisoned",
+    "MUL02_w1_agents_unlink__poisoned",
+    "MUL03_w1_tools_unlink__poisoned",
+    "MUL04_w2_agents_unlink__poisoned",
+    "MUL05_w2_memory_unlink__poisoned",
+    "MUL06_w4_agents_unlink__poisoned",
+    "MUL07_w4_user_unlink__poisoned"
+  ],
+  "clean_heldout_40": [
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W1_continuation_train_20_W1_C3_V3__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W1_continuation_train_22_W1_C3_V5__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W1_continuation_train_24_W1_C1_V3__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W1_continuation_train_25_W1_C1_V5__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W1_continuation_train_26_W1_C3_V2__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W1_continuation_train_27_W1_C5_V3__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W2_continuation_train_20_W2_C4_V2__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W2_continuation_train_21_W2_C5_V6__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W2_continuation_train_22_W2_C4_V6__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W2_continuation_train_23_W2_C2_V5__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W2_continuation_train_24_W2_C2_V2__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W2_continuation_train_25_W2_C3_V1__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W2_continuation_train_27_W2_C4_V5__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W4_continuation_train_20_W4_C1_V1__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W4_continuation_train_22_W4_C1_V2__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W4_continuation_train_24_W4_C5_V4__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W4_continuation_train_27_W4_C5_V4__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W3_continuation_train_20_W3_C3_V1__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W3_continuation_train_21_W3_C2_V3__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": false,
+        "STIDE": false
+      },
+      "run_id": "P2_W3_continuation_train_22_W3_C2_V4__clean",
+      "source": "topup_ledger_20260824"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W1_heldout_clean_10_W1_C5_V5__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W1_heldout_clean_11_W1_C4_V4__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W1_heldout_clean_12_W1_C1_V6__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W1_heldout_clean_13_W1_C5_V4__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W1",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W1_heldout_clean_14_W1_C5_V2__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W2_heldout_clean_10_W2_C5_V2__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W2_heldout_clean_11_W2_C5_V4__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W2_heldout_clean_12_W2_C3_V2__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W2_heldout_clean_13_W2_C4_V4__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W2",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W2_heldout_clean_14_W2_C1_V2__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W3_heldout_clean_10_W3_C3_V2__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W3_heldout_clean_11_W3_C2_V1__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W3_heldout_clean_12_W3_C3_V4__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W3_heldout_clean_13_W3_C4_V1__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W3",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W3_heldout_clean_14_W3_C5_V6__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W4_heldout_clean_12_W4_C2_V1__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W4_heldout_clean_13_W4_C1_V4__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W4_heldout_clean_14_W4_C2_V2__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    },
+    {
+      "profile": "W4",
+      "reuse_frozen_rows": {
+        "AIDE": true,
+        "Falco": true,
+        "STIDE": true
+      },
+      "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message__clean",
+      "source": "P2_HELDOUT_CLEAN_FREEZE_20260821"
+    }
+  ],
+  "counts": {
+    "attack_total": 44,
+    "b1b2_definable_n": 12,
+    "b1b2_na_n": 32,
+    "by_op_signature": {
+      "chmod": 6,
+      "content_injection": 6,
+      "semantic_inversion": 6,
+      "truncate": 7,
+      "um_cfg": 6,
+      "um_inst": 6,
+      "unlink": 7
+    },
+    "by_op_tier": {
+      "chmod": {
+        "n": 6,
+        "tier": "T2"
+      },
+      "content_injection": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "semantic_inversion": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "truncate": {
+        "n": 7,
+        "tier": "T2"
+      },
+      "um_cfg": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "um_inst": {
+        "n": 6,
+        "tier": "T1"
+      },
+      "unlink": {
+        "n": 7,
+        "tier": "T2"
+      }
+    },
+    "by_witness_tier": {
+      "T1": 24,
+      "T2": 20
+    },
+    "clean_40": 40,
+    "clean_40_by_profile": {
+      "W1": 11,
+      "W2": 12,
+      "W3": 8,
+      "W4": 9
+    }
+  },
+  "created": "2026-08-25",
+  "derivation_generation": "p2_headtohead_full_6521a75742c4",
+  "generation_contract": {
+    "auditd_version": "3.0.7",
+    "ebpf_object_sha": "95c923f1 (per-VM)",
+    "libsinsp_config_sha": "e991fbe1",
+    "libsinsp_rules_sha": "e3b75979",
+    "monitor_versions": {
+      "aide": "0.19.3",
+      "falco": "0.44.0",
+      "stide": "587d15870843961acb78fbb4b8fcd0ede28eabcc"
+    },
+    "runner_uid": 997,
+    "scap": "libscap-sysdig-modern-bpf"
+  },
+  "label": "FULL head-to-head FROZEN POPULATION. 44 attack landers (tiered-witness admission) + clean-40 natural held-out. Culminating offline pass.",
+  "manifest_content_address": "6521a75742c4",
+  "polarity": {
+    "confirmed_18": {
+      "authority": "user (polarity authority) signed 18-lander v2 worksheet 2026-08-25",
+      "landers": "um_cfg 6 (MUC) + um_inst 6 (MUI) + content_injection 6 (MCAW)",
+      "signed_file": "experiments/results/p2_mass_attack_collection_20260823/POLARITY_VERDICTS_NEW_LANDERS_V2_SIGNED_20260825.json",
+      "signed_file_sha256": "5b61cff8cbb8e782559b353a4cd2784b2b11c0d90659c5c3fd5113c10260ca36",
+      "status": "CONFIRMED-BY-USER (not provisional)",
+      "verdict": "18/18 malicious, no reversals"
+    },
+    "file_op_canaries_26": {
+      "landers": "semantic_inversion 6 (MSI) + chmod 6 (MCH) + truncate 7 (MTR) + unlink 7 (MUL)",
+      "note": "polarity note unchanged",
+      "status": "structural malice (user-signed file-op ruling); not in the 18-lander worksheet"
+    }
+  },
+  "provisional": {
+    "polarity": "CONFIRMED for the 18 um/MCAW landers (see polarity block); file-op canaries structural",
+    "population_not_frozen_signed": true
+  },
+  "rulings_applied": {
+    "1_tiered_witness": "T1 writes (four-source um/MCAW + three-source-exact MSI) + T2 metadata/namespace canaries (chmod/unlink/truncate)",
+    "2_definability": "ours-B1/B2 = WRITE size+timing detector; N/A for no-resolved-marker-write = 26 file-op + MUC 6; definable = MUI 6 + MCAW 6 (all resolve incl aligned 101/201/402)",
+    "3_mcaw_pooled": "MCAW101/201/402 re-extracted to aligned lineage (uid997, rules.sha e3b75979); pooled",
+    "4_fpr_denominator": "clean-40 natural held-out (split 42baa6a9 W1 11/W2 12/W3 8/W4 9); NOT re-split; twins separate",
+    "5_polarity": "provisional-all-malicious; every TPR flagged provisional-pending-polarity"
+  },
+  "schema_version": "assa.headtohead_frozen_population.v1"
+}

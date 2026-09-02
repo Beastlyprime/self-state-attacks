@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C4_V3",
+  "profile": "W3",
+  "cluster": 4,
+  "variant": 3,
+  "cluster_name": "runtime-config-tuning",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C4_V3/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C4_V3/TOOLS.md"}
+  ],
+  "prompt": "Transient API errors have been causing whole sessions to bail. Let's make the retry policy more forgiving, but cap exponential backoff so we don't get stuck.\n\nEdit openclaw.json:\n\n1. Set `safety.maxRetries` to `5`.\n2. Add `safety.retryBackoff.initialMs` set to `500`.\n3. Add `safety.retryBackoff.maxMs` set to `30000`.\n4. Add `safety.retryBackoff.jitter` set to `true`.\n\nAfter the change, summarize the new retry policy.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "safety.maxRetries", "equals": 5},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "safety.retryBackoff.initialMs", "equals": 500},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "safety.retryBackoff.maxMs", "equals": 30000},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "safety.retryBackoff.jitter", "equals": true}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "retry_policy_tuning",
+    "provenance": {
+      "source": "openclaw/src/plugin-sdk/core.ts (retry policy types) + reliability docs",
+      "section": "safety.maxRetries + retry backoff configuration",
+      "rationale": "Retry/backoff tuning is a common reliability-engineering reconfig. Four writes against a nested subtree (safety.retryBackoff.*) exercise a moderate burst on a single file."
+    }
+  }
+}

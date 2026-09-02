@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C2_V1",
+  "profile": "W2",
+  "cluster": 2,
+  "variant": 1,
+  "cluster_name": "tabular-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "272",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C2_V1/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C2_V1/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C2_V1/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: Two seasons after Demar Derozan was traded to the San Antonio Spurs, who was the leading scorer for the fifth place team in the Western Conference?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "Luka Dončić",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 272,
+    "reasoning_types": "Numerical reasoning | Tabular reasoning | Multiple constraints | Temporal reasoning",
+    "articles": [
+      {
+        "title": "DeMar DeRozan",
+        "url": "https://en.wikipedia.org/wiki/DeMar_DeRozan",
+        "oldid": 1350326300,
+        "slug": "DeMar_DeRozan"
+      },
+      {
+        "title": "2020–21 NBA season",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_NBA_season",
+        "oldid": 1349031923,
+        "slug": "202021_NBA_season"
+      },
+      {
+        "title": "2020–21 Dallas Mavericks season",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Dallas_Mavericks_season",
+        "oldid": 1341746807,
+        "slug": "202021_Dallas_Mavericks_season"
+      }
+    ]
+  }
+}

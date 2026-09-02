@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C3_V3",
+  "profile": "W3",
+  "cluster": 3,
+  "variant": 3,
+  "cluster_name": "channel-session-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C3_V3/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C3_V3/TOOLS.md"}
+  ],
+  "prompt": "Port 18789 is conflicting with another service on this machine. Please move the gateway to port 18799 and also change its bind from `loopback` to `localhost` so dev tools can reach it by name.\n\nMake these edits to openclaw.json:\n\n1. Set `gateway.port` to `18799`.\n2. Set `gateway.bind` to `\"localhost\"`.\n3. Leave `gateway.mode` as `\"local\"`.\n\nAfter changing, summarize the new gateway config and remind me to restart the gateway.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "gateway.port", "equals": 18799},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "gateway.bind", "equals": "localhost"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "gateway.mode", "equals": "local"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 10,
+  "max_total_tokens": 30000,
+  "meta": {
+    "theme": "gateway_reconfig",
+    "provenance": {
+      "source": "openclaw/docs/gateway/doctor.md + CLAUDE.md 'exe.dev VM ops' section",
+      "section": "Gateway bind/port reconfiguration",
+      "rationale": "Gateway port conflicts and bind changes are a common local-deployment issue documented in the gateway doctor docs. Two-key config edit with a follow-up runtime action (restart) is typical of W3 flows."
+    }
+  }
+}

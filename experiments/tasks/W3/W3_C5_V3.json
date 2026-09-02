@@ -1,0 +1,40 @@
+{
+  "task_id": "W3_C5_V3",
+  "profile": "W3",
+  "cluster": 5,
+  "variant": 3,
+  "cluster_name": "incident-response",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C5_V3/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C5_V3/TOOLS.md"}
+  ],
+  "prompt": "Runaway agent: the agent spun up 40+ concurrent shell_exec calls in the last 20 minutes and burned $14 in tokens. Throttle it hard while we investigate the cause.\n\nApply the throttle:\n\n1. In openclaw.json, set `tools.shell_exec.rateLimit.perMinute` to `5` (down from no limit).\n2. Set `tools.shell_exec.rateLimit.concurrency` to `1`.\n3. Set `agents.defaults.maxTokens` to `2048` so per-turn token cost is capped.\n4. Tighten approval: set `permissions.shell_exec.requireConfirmation` to `true`.\n5. Append a section to MEMORY.md titled \"Incident 2026-04-23 (runaway throttle)\" with a short bullet list of what was changed.\n\nAfter the five changes, summarize the throttle state.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.shell_exec.rateLimit.perMinute", "equals": 5},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.shell_exec.rateLimit.concurrency", "equals": 1},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.maxTokens", "equals": 2048},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "permissions.shell_exec.requireConfirmation", "equals": true},
+      {"type": "file_contains", "path": "MEMORY.md", "substring": "Incident 2026-04-23"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 16,
+  "max_total_tokens": 50000,
+  "meta": {
+    "theme": "runaway_agent_throttle",
+    "provenance": {
+      "source": "openclaw/docs/plugins/sdk-provider-plugins.md + agent rate-limit docs",
+      "section": "Tool rate limits + permission tightening",
+      "rationale": "Cost-runaway containment touches tool config, agent defaults, permissions, and incident log — four keys across two files. Classic W3 burst: one logical incident → many correlated writes."
+    }
+  }
+}

@@ -1,0 +1,590 @@
+{
+  "LABEL": "PARTIAL \u2014 graph detectors (STIDE, ours-B1/B2) cover the 18 um/content-injection landers + 40 clean; file-op cells (chmod/semantic_inversion/truncate/unlink, 26) are AIDE-only; Falco deferred (D2); NOT the full same-population comparison.",
+  "created": "2026-08-25",
+  "fpr_denominator": "natural held-out clean 40 (frozen 20 + admitted top-up 20); NOT paired twins",
+  "methods": {
+    "AIDE": {
+      "FPR_by_profile": {
+        "W1": {
+          "hi": 0.6462,
+          "k": 4,
+          "lo": 0.1517,
+          "n": 11,
+          "non_evaluable": 0,
+          "rate": 0.3636
+        },
+        "W2": {
+          "hi": 0.9851,
+          "k": 11,
+          "lo": 0.6461,
+          "n": 12,
+          "non_evaluable": 0,
+          "rate": 0.9167
+        },
+        "W3": {
+          "hi": 1,
+          "k": 8,
+          "lo": 0.6756,
+          "n": 8,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "W4": {
+          "hi": 0.6458,
+          "k": 3,
+          "lo": 0.1206,
+          "n": 9,
+          "non_evaluable": 0,
+          "rate": 0.3333
+        }
+      },
+      "TPR_by_granularity": {
+        "G2": {
+          "hi": 1,
+          "k": 2,
+          "lo": 0.3424,
+          "n": 2,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "G3": {
+          "hi": 1.0,
+          "k": 13,
+          "lo": 0.7719,
+          "n": 13,
+          "non_evaluable": 0,
+          "rate": 1.0
+        }
+      },
+      "TPR_by_op_signature": {
+        "chmod": {
+          "hi": 0.8124,
+          "k": 3,
+          "lo": 0.1876,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 0.5
+        },
+        "content_injection": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "semantic_inversion": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "truncate": {
+          "hi": 1,
+          "k": 7,
+          "lo": 0.6457,
+          "n": 7,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "um_cfg": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "um_inst": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "unlink": {
+          "hi": 1,
+          "k": 7,
+          "lo": 0.6457,
+          "n": 7,
+          "non_evaluable": 0,
+          "rate": 1.0
+        }
+      },
+      "TPR_memory_poisoning": {
+        "hi": 1,
+        "k": 2,
+        "lo": 0.3424,
+        "n": 2,
+        "non_evaluable": 0,
+        "rate": 1.0
+      },
+      "method": "AIDE",
+      "note": "content-delta snapshot AIDE; covers ALL 44 attacks incl file-ops; arm64 docker; offline",
+      "pooled": {
+        "FPR": {
+          "hi": 0.7787,
+          "k": 26,
+          "lo": 0.4951,
+          "n": 40,
+          "non_evaluable": 0,
+          "rate": 0.65
+        },
+        "TPR": {
+          "hi": 0.9765,
+          "k": 41,
+          "lo": 0.8177,
+          "n": 44,
+          "non_evaluable": 0,
+          "rate": 0.9318
+        }
+      }
+    },
+    "Falco": {
+      "method": "Falco",
+      "note": "requires x86-64 falco replay; no precomputed rows for new landers; offline-non-evaluable",
+      "status": "DEFERRED_D2"
+    },
+    "STIDE": {
+      "FPR_by_profile": {
+        "W1": {
+          "hi": 0.9838,
+          "k": 10,
+          "lo": 0.6226,
+          "n": 11,
+          "non_evaluable": 0,
+          "rate": 0.9091
+        },
+        "W2": {
+          "hi": 1,
+          "k": 12,
+          "lo": 0.7575,
+          "n": 12,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "W3": {
+          "hi": 1,
+          "k": 8,
+          "lo": 0.6756,
+          "n": 8,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "W4": {
+          "hi": 0.9801,
+          "k": 8,
+          "lo": 0.565,
+          "n": 9,
+          "non_evaluable": 0,
+          "rate": 0.8889
+        }
+      },
+      "TPR_by_granularity": {
+        "G2": {
+          "hi": 1,
+          "k": 2,
+          "lo": 0.3424,
+          "n": 2,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "G3": {
+          "hi": 1,
+          "k": 11,
+          "lo": 0.7412,
+          "n": 11,
+          "non_evaluable": 2,
+          "rate": 1.0
+        }
+      },
+      "TPR_by_op_signature": {
+        "chmod": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 6,
+          "rate": null
+        },
+        "content_injection": {
+          "hi": 1,
+          "k": 3,
+          "lo": 0.4385,
+          "n": 3,
+          "non_evaluable": 3,
+          "rate": 1.0
+        },
+        "semantic_inversion": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 6,
+          "rate": null
+        },
+        "truncate": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 7,
+          "rate": null
+        },
+        "um_cfg": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "um_inst": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "unlink": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 7,
+          "rate": null
+        }
+      },
+      "TPR_memory_poisoning": {
+        "hi": null,
+        "k": 0,
+        "lo": null,
+        "n": 0,
+        "non_evaluable": 2,
+        "rate": null
+      },
+      "method": "STIDE",
+      "note": "frozen profile-conditioned STIDE; 18 graph-present attacks evaluable, 26 file-ops NON-EVALUABLE (no offline graph)",
+      "pooled": {
+        "FPR": {
+          "hi": 0.9862,
+          "k": 38,
+          "lo": 0.835,
+          "n": 40,
+          "non_evaluable": 0,
+          "rate": 0.95
+        },
+        "TPR": {
+          "hi": 1,
+          "k": 15,
+          "lo": 0.7961,
+          "n": 15,
+          "non_evaluable": 29,
+          "rate": 1.0
+        }
+      }
+    },
+    "UNICORN": {
+      "method": "UNICORN",
+      "status": "non_evaluable_no_rescore"
+    },
+    "ours_B1": {
+      "FPR_by_profile": {
+        "W1": {
+          "hi": 0.2588,
+          "k": 0,
+          "lo": 0,
+          "n": 11,
+          "non_evaluable": 0,
+          "rate": 0.0
+        },
+        "W2": {
+          "hi": 0.448,
+          "k": 2,
+          "lo": 0.047,
+          "n": 12,
+          "non_evaluable": 0,
+          "rate": 0.1667
+        },
+        "W3": {
+          "hi": 0.5907,
+          "k": 2,
+          "lo": 0.0715,
+          "n": 8,
+          "non_evaluable": 0,
+          "rate": 0.25
+        },
+        "W4": {
+          "hi": 0.435,
+          "k": 1,
+          "lo": 0.0199,
+          "n": 9,
+          "non_evaluable": 0,
+          "rate": 0.1111
+        }
+      },
+      "TPR_by_granularity": {
+        "G2": {
+          "hi": 1,
+          "k": 2,
+          "lo": 0.3424,
+          "n": 2,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "G3": {
+          "hi": 0.6448,
+          "k": 5,
+          "lo": 0.1771,
+          "n": 13,
+          "non_evaluable": 0,
+          "rate": 0.3846
+        }
+      },
+      "TPR_by_op_signature": {
+        "chmod": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 6,
+          "rate": null
+        },
+        "content_injection": {
+          "hi": 0.8124,
+          "k": 3,
+          "lo": 0.1876,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 0.5
+        },
+        "semantic_inversion": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 6,
+          "rate": null
+        },
+        "truncate": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 7,
+          "rate": null
+        },
+        "um_cfg": {
+          "hi": 0.3903,
+          "k": 0,
+          "lo": 0.0,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 0.0
+        },
+        "um_inst": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "unlink": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 7,
+          "rate": null
+        }
+      },
+      "TPR_memory_poisoning": {
+        "hi": 0.6576,
+        "k": 0,
+        "lo": 0,
+        "n": 2,
+        "non_evaluable": 0,
+        "rate": 0.0
+      },
+      "method": "ours-B1",
+      "note": "size+timing z-score; baseline=natural clean-40; 18 graph attacks evaluable, 26 file-ops NON-EVALUABLE; per-run decision (any self-state write >= TAU)",
+      "pooled": {
+        "FPR": {
+          "hi": 0.2611,
+          "k": 5,
+          "lo": 0.0546,
+          "n": 40,
+          "non_evaluable": 0,
+          "rate": 0.125
+        },
+        "TPR": {
+          "hi": 0.7097,
+          "k": 9,
+          "lo": 0.2903,
+          "n": 18,
+          "non_evaluable": 26,
+          "rate": 0.5
+        }
+      }
+    },
+    "ours_B2": {
+      "FPR_by_profile": {
+        "W1": {
+          "hi": 0.3774,
+          "k": 1,
+          "lo": 0.0162,
+          "n": 11,
+          "non_evaluable": 0,
+          "rate": 0.0909
+        },
+        "W2": {
+          "hi": 0.3539,
+          "k": 1,
+          "lo": 0.0149,
+          "n": 12,
+          "non_evaluable": 0,
+          "rate": 0.0833
+        },
+        "W3": {
+          "hi": 0.5907,
+          "k": 2,
+          "lo": 0.0715,
+          "n": 8,
+          "non_evaluable": 0,
+          "rate": 0.25
+        },
+        "W4": {
+          "hi": 0.435,
+          "k": 1,
+          "lo": 0.0199,
+          "n": 9,
+          "non_evaluable": 0,
+          "rate": 0.1111
+        }
+      },
+      "TPR_by_granularity": {
+        "G2": {
+          "hi": 1,
+          "k": 2,
+          "lo": 0.3424,
+          "n": 2,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "G3": {
+          "hi": 0.6448,
+          "k": 5,
+          "lo": 0.1771,
+          "n": 13,
+          "non_evaluable": 0,
+          "rate": 0.3846
+        }
+      },
+      "TPR_by_op_signature": {
+        "chmod": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 6,
+          "rate": null
+        },
+        "content_injection": {
+          "hi": 0.8124,
+          "k": 3,
+          "lo": 0.1876,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 0.5
+        },
+        "semantic_inversion": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 6,
+          "rate": null
+        },
+        "truncate": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 7,
+          "rate": null
+        },
+        "um_cfg": {
+          "hi": 0.3903,
+          "k": 0,
+          "lo": 0.0,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 0.0
+        },
+        "um_inst": {
+          "hi": 1,
+          "k": 6,
+          "lo": 0.6097,
+          "n": 6,
+          "non_evaluable": 0,
+          "rate": 1.0
+        },
+        "unlink": {
+          "hi": null,
+          "k": 0,
+          "lo": null,
+          "n": 0,
+          "non_evaluable": 7,
+          "rate": null
+        }
+      },
+      "TPR_memory_poisoning": {
+        "hi": 0.6576,
+        "k": 0,
+        "lo": 0,
+        "n": 2,
+        "non_evaluable": 0,
+        "rate": 0.0
+      },
+      "method": "ours-B2",
+      "note": "size+timing z-score; baseline=natural clean-40; 18 graph attacks evaluable, 26 file-ops NON-EVALUABLE; per-run decision (any self-state write >= TAU)",
+      "pooled": {
+        "FPR": {
+          "hi": 0.2611,
+          "k": 5,
+          "lo": 0.0546,
+          "n": 40,
+          "non_evaluable": 0,
+          "rate": 0.125
+        },
+        "TPR": {
+          "hi": 0.7097,
+          "k": 9,
+          "lo": 0.2903,
+          "n": 18,
+          "non_evaluable": 26,
+          "rate": 0.5
+        }
+      }
+    }
+  },
+  "polarity": "FINAL-all-malicious PROVISIONAL (um + content-injection await morning sign-off; file-op 26 user-signed)",
+  "population_counts": {
+    "attacks_aide_only_fileop": 26,
+    "attacks_graph_present": 18,
+    "clean_by_profile": {
+      "W1": 11,
+      "W2": 12,
+      "W3": 8,
+      "W4": 9
+    },
+    "clean_heldout_40": 40,
+    "ours_baseline_twins": 18
+  },
+  "schema_version": "assa.headtohead_partial_report.v1"
+}

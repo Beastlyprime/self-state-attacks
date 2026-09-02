@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "schema_id": "assa.openclaw-compatible.v1",
+  "adapter": "openclaw-compatible",
+  "objects": [
+    {
+      "id": "instruction.identity_persona",
+      "layer": "instruction",
+      "role": "identity/persona",
+      "scope": "agent",
+      "consumption": "prompt bootstrap",
+      "paths": ["workspace/SOUL.md", "workspace/IDENTITY.md"]
+    },
+    {
+      "id": "instruction.user_model",
+      "layer": "instruction",
+      "role": "user model",
+      "scope": "agent",
+      "consumption": "prompt bootstrap",
+      "paths": ["workspace/USER.md"]
+    },
+    {
+      "id": "instruction.behavioral_policy",
+      "layer": "instruction",
+      "role": "behavioral policy",
+      "scope": "workspace",
+      "consumption": "prompt bootstrap",
+      "paths": ["workspace/AGENTS.md"]
+    },
+    {
+      "id": "instruction.capability_guidance",
+      "layer": "instruction",
+      "role": "capability guidance",
+      "scope": "agent",
+      "consumption": "prompt bootstrap",
+      "paths": ["workspace/TOOLS.md"]
+    },
+    {
+      "id": "memory.durable_global",
+      "layer": "memory",
+      "role": "durable global memory",
+      "scope": "agent",
+      "consumption": "prompt bootstrap",
+      "paths": ["workspace/MEMORY.md"]
+    },
+    {
+      "id": "memory.episodic",
+      "layer": "memory",
+      "role": "episodic memory",
+      "scope": "session sequence",
+      "consumption": "on-demand prompt context",
+      "paths": [],
+      "globs": ["workspace/memory/????-??-??.md"],
+      "bucket": "workspace/memory/*.md"
+    },
+    {
+      "id": "memory.topic_scoped",
+      "layer": "memory",
+      "role": "topic-scoped memory",
+      "scope": "topic or project",
+      "consumption": "on-demand prompt context",
+      "paths": [],
+      "globs": ["workspace/memory/*.md"],
+      "bucket": "workspace/memory/*.md"
+    },
+    {
+      "id": "config.runtime",
+      "layer": "config",
+      "role": "runtime parameters",
+      "scope": "deployment",
+      "consumption": "runtime parser",
+      "paths": ["openclaw.json"]
+    },
+    {
+      "id": "config.automation",
+      "layer": "config",
+      "role": "automation schedule",
+      "scope": "workspace",
+      "consumption": "scheduler",
+      "paths": ["workspace/HEARTBEAT.md"]
+    },
+    {
+      "id": "config.capability_binding",
+      "layer": "config",
+      "role": "capability binding",
+      "scope": "deployment",
+      "consumption": "credential loader",
+      "paths": ["credentials/.env"]
+    }
+  ]
+}

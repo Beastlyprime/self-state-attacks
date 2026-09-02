@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C4_V1",
+  "profile": "W4",
+  "cluster": 4,
+  "variant": 1,
+  "cluster_name": "schedule-plan",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "events.md",
+      "content_ref": "seeds/W4_C4_V1/events.md"
+    }
+  ],
+  "prompt": "Read `events.md`. I need to schedule a 60-minute focus block this week, any weekday, between 09:00 and 17:00. Find a free slot and write it to `suggested_slot.md` in the format `Day HH:MM-HH:MM`. Prefer mornings.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

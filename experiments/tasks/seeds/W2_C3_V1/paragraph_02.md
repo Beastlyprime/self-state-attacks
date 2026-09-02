@@ -1,0 +1,3 @@
+# Gently My Songs Entreat
+
+Gently My Songs Entreat (German: Leise flehen meine Lieder ) is a 1933 Austrian-German musical film directed by Willi Forst and starring Marta Eggerth, Luise Ullrich and Hans Jaray. Art direction was by Julius von Borsody. The film is a biopic of the composer Franz Schubert (1797–1828). It was Forst's directorial debut. A British version was made called "Unfinished Symphony". The German title refers to the first line of the Lied "Ständchen" (Serenade) from Schubert's collection "Schwanengesang", "the most famous serenade in the world", which Eggerth performs in the film.

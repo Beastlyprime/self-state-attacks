@@ -1,0 +1,73 @@
+{
+  "capture": {
+    "bytes": 1175396,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/capture.scap",
+    "sha256": "3a576052de21718a895703a367c0e9da948f514aad20988debfc6ca0cf953d91"
+  },
+  "command": [
+    "falco",
+    "-c",
+    "/etc/falco/falco.yaml",
+    "-r",
+    "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/graph/libsinsp/extraction_rules.yaml",
+    "-o",
+    "engine.kind=replay",
+    "-o",
+    "engine.replay.capture_file=<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/capture.scap",
+    "-o",
+    "json_output=true",
+    "-o",
+    "syslog_output.enabled=false"
+  ],
+  "config": {
+    "bytes": 63914,
+    "kind": "file",
+    "path": "/etc/falco/falco.yaml",
+    "sha256": "e991fbe11a012497560255e137004694b51ef3f488dff30e3f01a331155aa5a2"
+  },
+  "engine_opened": true,
+  "event_count": 160,
+  "events": {
+    "bytes": 114473,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/graph/libsinsp/libsinsp_events.jsonl",
+    "sha256": "e88ce9998bcaf23862ba31bbbd57eeb1d3a0fe1ffc982e7089ccc13f410f91f8"
+  },
+  "exit_status": 0,
+  "extract_fields": [
+    "evt.num",
+    "evt.rawtime",
+    "evt.type",
+    "evt.dir",
+    "evt.res",
+    "proc.pid",
+    "thread.tid",
+    "proc.ppid",
+    "proc.name",
+    "proc.exepath",
+    "proc.pid.ts",
+    "proc.ppid.ts",
+    "proc.exe_ino",
+    "proc.vpid",
+    "user.uid",
+    "fd.num",
+    "fd.type",
+    "fd.name",
+    "fd.ino",
+    "fd.dev.major",
+    "fd.dev.minor"
+  ],
+  "rules": {
+    "bytes": 671,
+    "kind": "file",
+    "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/graph/libsinsp/extraction_rules.yaml",
+    "sha256": "303a102e537492648ee014084f433628f1738f9a5d9a6ae565fa3fdeb83ca75f"
+  },
+  "run_id": "mutation-canary-5src-20260823T114232Z-9ec72eca",
+  "schema_version": "assa.libsinsp_events.v1",
+  "status": "passed",
+  "uid_scope": 1000,
+  "valid": true,
+  "zero_drop_evidence": true
+}

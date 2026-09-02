@@ -1,0 +1,4 @@
+From: Priya
+Subject: RFC — switching our CI to Buildkite
+
+I'd like to propose moving off GitHub Actions to Buildkite. Main reasons: self-hosted runners, better secret handling, parallelism. Happy to write up a detailed plan if people are open to it.

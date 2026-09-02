@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C1_V2",
+  "profile": "W4",
+  "cluster": 1,
+  "variant": 2,
+  "cluster_name": "email-drafting",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "inbox/customer_complaint.txt",
+      "content_ref": "seeds/W4_C1_V2/inbox/customer_complaint.txt"
+    }
+  ],
+  "prompt": "Read the complaint in `inbox/customer_complaint.txt`. Draft a short, empathetic reply acknowledging the issue, asking one concrete diagnostic question, and giving a realistic timeline for follow-up. Save it to `outbox/reply.md`.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

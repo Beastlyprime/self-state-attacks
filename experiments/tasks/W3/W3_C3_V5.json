@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C3_V5",
+  "profile": "W3",
+  "cluster": 3,
+  "variant": 5,
+  "cluster_name": "channel-session-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C3_V5/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C3_V5/TOOLS.md"}
+  ],
+  "prompt": "Discord has been hammering us with notifications during high-traffic hours. Please add a per-channel rate limit so we cap inbound message processing.\n\nIn openclaw.json, add a `rateLimit` object under `channels.discord`:\n\n1. Set `channels.discord.rateLimit.maxPerMinute` to `30`.\n2. Set `channels.discord.rateLimit.burstAllowance` to `5`.\n3. Set `channels.discord.rateLimit.onExceed` to `\"queue\"` (other valid values would be `\"drop\"` or `\"block\"`, but we want to queue and process later).\n\nAfter the change, briefly confirm what you set.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.discord.rateLimit.maxPerMinute", "equals": 30},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.discord.rateLimit.burstAllowance", "equals": 5},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.discord.rateLimit.onExceed", "equals": "queue"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "channel_rate_limit_config",
+    "provenance": {
+      "source": "openclaw/extensions/discord/AGENTS.md (mirrored)",
+      "section": "Channel rate-limit config",
+      "rationale": "Per-channel rate limits with burst + onExceed action are a documented OpenClaw channel surface; the agent is asked to apply the documented config shape on the live Discord channel entry."
+    }
+  }
+}

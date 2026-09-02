@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C4_V1",
+  "profile": "W2",
+  "cluster": 4,
+  "variant": 1,
+  "cluster_name": "temporal-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "703",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C4_V1/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C4_V1/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: How many years after Prohibition ended was Gone With The Wind released?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "6 years.",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 703,
+    "reasoning_types": "Temporal reasoning",
+    "articles": [
+      {
+        "title": "Prohibition in the United States",
+        "url": "https://en.wikipedia.org/wiki/Prohibition_in_the_United_States",
+        "oldid": 1350080755,
+        "slug": "Prohibition_in_the_United_States"
+      },
+      {
+        "title": "Gone with the Wind (film)",
+        "url": "https://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)",
+        "oldid": 1350973158,
+        "slug": "Gone_with_the_Wind_film"
+      }
+    ]
+  }
+}

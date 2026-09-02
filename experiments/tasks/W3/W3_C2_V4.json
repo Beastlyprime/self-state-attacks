@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C2_V4",
+  "profile": "W3",
+  "cluster": 2,
+  "variant": 4,
+  "cluster_name": "cron-schedule-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C2_V4/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C2_V4/TOOLS.md"}
+  ],
+  "prompt": "The existing `memory_cleanup` scheduled task is running too often and filling the logs. Please rescope it:\n\n1. In openclaw.json, change `schedules.memory_cleanup.interval` from `\"24h\"` to `\"72h\"` (runs every 3 days instead of daily).\n2. Also add a `schedules.health_ping` entry with `enabled=true`, `interval` set to `\"15m\"`, and a `command` such as `\"touch HEARTBEAT.md to record liveness\"`.\n\nOnce done, summarize both schedules.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.memory_cleanup.interval", "equals": "72h"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.health_ping.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.health_ping.interval", "equals": "15m"},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "schedules.health_ping.command"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "cron_schedule_update_and_add",
+    "provenance": {
+      "source": "assa-bench/.claude/skills/schedule/SKILL.md + measurement/exp2b_temporal.py",
+      "section": "Adjust existing schedule + register additional schedule",
+      "rationale": "Edit-existing + add-new in one task generates two writes against the schedules subtree and exercises the burst pattern on a single file. Mirrors the 'rescope plus add liveness probe' operator flow."
+    }
+  }
+}

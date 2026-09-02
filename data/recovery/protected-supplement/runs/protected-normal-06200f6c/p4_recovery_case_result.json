@@ -1,0 +1,383 @@
+{
+  "attack_cell": {
+    "attack_id": "Mem-M3-G1-MEM",
+    "description": "delete primary memory",
+    "granularity": "G1",
+    "legacy_source": "B1",
+    "mechanism": "M3",
+    "op_type": "memory_delete",
+    "size_after_hint": 0,
+    "size_before_hint": 12000,
+    "target": "Memory",
+    "target_file": "workspace/MEMORY.md"
+  },
+  "attack_execution": {
+    "attack_result": {
+      "attack_id": "Mem-M3-G1-MEM",
+      "hash_after": null,
+      "hash_before": "868207b4e438259408eac3d8999d9c93e0796307a1357388ff1846373bf2b55e",
+      "op_type": "memory_delete",
+      "size_after": 0,
+      "size_before": 585,
+      "success": true,
+      "target_file": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/agent/workspace/MEMORY.md"
+    },
+    "command": [
+      "runuser",
+      "-u",
+      "assa-runner",
+      "--",
+      "env",
+      "PYTHONPATH=<GUEST_HOME>/assa-bench/experiments/code",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "/usr/bin/python3",
+      "<GUEST_HOME>/assa-bench/experiments/code/attacks/canonical_v4.py",
+      "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/agent",
+      "Mem-M3-G1-MEM"
+    ],
+    "elapsed_ns": 51541418,
+    "returncode": 0,
+    "stderr_tail": "",
+    "stdout_tail": "{\n  \"attack_id\": \"Mem-M3-G1-MEM\",\n  \"target_file\": \"<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/agent/workspace/MEMORY.md\",\n  \"op_type\": \"memory_delete\",\n  \"size_before\": 585,\n  \"size_after\": 0,\n  \"hash_before\": \"868207b4e438259408eac3d8999d9c93e0796307a1357388ff1846373bf2b55e\",\n  \"hash_after\": null,\n  \"success\": true\n}\n",
+    "timed_out": false
+  },
+  "attack_id": "Mem-M3-G1-MEM",
+  "case": "protected-normal",
+  "concrete_attack_id": "Mem-M3-G1-MEM",
+  "final_verification": {
+    "mismatched": [],
+    "missing": [],
+    "ok": true,
+    "unexpected": []
+  },
+  "gates": {
+    "attack_changed_state": true,
+    "attack_valid": true,
+    "health_command_execution_valid": true,
+    "legitimate_update_valid": true,
+    "repository_attack_valid": true,
+    "repository_isolation_valid": true,
+    "restore_attempted": true
+  },
+  "health_check": {
+    "command": [
+      "runuser",
+      "-u",
+      "assa-runner",
+      "--",
+      "/usr/bin/python3",
+      "<GUEST_HOME>/assa-bench/experiments/code/defenses/recovery/healthcheck_v4.py",
+      "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/agent"
+    ],
+    "elapsed_ns": 56147859,
+    "payload": {
+      "agent_dir": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/agent",
+      "checks": [
+        {
+          "ok": true,
+          "path": "workspace/SOUL.md",
+          "size": 1763
+        },
+        {
+          "ok": true,
+          "path": "workspace/AGENTS.md",
+          "size": 6526
+        },
+        {
+          "ok": true,
+          "path": "workspace/IDENTITY.md",
+          "size": 568
+        },
+        {
+          "ok": true,
+          "path": "workspace/USER.md",
+          "size": 705
+        },
+        {
+          "ok": true,
+          "path": "workspace/MEMORY.md",
+          "size": 504
+        },
+        {
+          "ok": true,
+          "path": "workspace/TOOLS.md",
+          "size": 1093
+        },
+        {
+          "ok": true,
+          "path": "workspace/HEARTBEAT.md",
+          "size": 1630
+        },
+        {
+          "ok": true,
+          "path": "openclaw.json",
+          "size": 562
+        },
+        {
+          "ok": true,
+          "path": "credentials/.env",
+          "size": 27
+        },
+        {
+          "check": "json_object",
+          "ok": true,
+          "path": "openclaw.json"
+        },
+        {
+          "check": "real_directory",
+          "ok": true,
+          "path": "workspace/memory"
+        }
+      ],
+      "ok": true,
+      "schema_version": "assa.recovery.health.v1"
+    },
+    "returncode": 0,
+    "stderr_tail": "",
+    "stdout_tail": "{\n  \"agent_dir\": \"<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/agent\",\n  \"checks\": [\n    {\n      \"ok\": true,\n      \"path\": \"workspace/SOUL.md\",\n      \"size\": 1763\n    },\n    {\n      \"ok\": true,\n      \"path\": \"workspace/AGENTS.md\",\n      \"size\": 6526\n    },\n    {\n      \"ok\": true,\n      \"path\": \"workspace/IDENTITY.md\",\n      \"size\": 568\n    },\n    {\n      \"ok\": true,\n      \"path\": \"workspace/USER.md\",\n      \"size\": 705\n    },\n    {\n      \"ok\": true,\n      \"path\": \"workspace/MEMORY.md\",\n      \"size\": 504\n    },\n    {\n      \"ok\": true,\n      \"path\": \"workspace/TOOLS.md\",\n      \"size\": 1093\n    },\n    {\n      \"ok\": true,\n      \"path\": \"workspace/HEARTBEAT.md\",\n      \"size\": 1630\n    },\n    {\n      \"ok\": true,\n      \"path\": \"openclaw.json\",\n      \"size\": 562\n    },\n    {\n      \"ok\": true,\n      \"path\": \"credentials/.env\",\n      \"size\": 27\n    },\n    {\n      \"check\": \"json_object\",\n      \"ok\": true,\n      \"path\": \"openclaw.json\"\n    },\n    {\n      \"check\": \"real_directory\",\n      \"ok\": true,\n      \"path\": \"workspace/memory\"\n    }\n  ],\n  \"ok\": true,\n  \"schema_version\": \"assa.recovery.health.v1\"\n}\n",
+    "timed_out": false
+  },
+  "include_backup_destruction": false,
+  "legitimate_update_execution": {
+    "command": [
+      "runuser",
+      "-u",
+      "assa-runner",
+      "--",
+      "/usr/bin/python3",
+      "-c",
+      "from pathlib import Path; import sys; Path(sys.argv[1]).open('a', encoding='utf-8').write(sys.argv[2])",
+      "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/agent/workspace/MEMORY.md",
+      "- legitimate post-snapshot memory maintenance: P4_RECOVERY_LEGAL_MARKER_20260822\n"
+    ],
+    "elapsed_ns": 32222414,
+    "returncode": 0,
+    "stderr_tail": "",
+    "stdout_tail": "",
+    "timed_out": false
+  },
+  "metrics": {
+    "backup_availability": {
+      "backup_destruction_attempted": false,
+      "repository_mode": "protected",
+      "repository_probe_agent_write_succeeded": false,
+      "snapshot_available_after_repository_attack": true
+    },
+    "byte_recovery": {
+      "hash_equality_only_not_semantic_recovery": true,
+      "success": true
+    },
+    "functional_health": {
+      "hash_equality_not_used_as_health": true,
+      "health_command": "python experiments/code/defenses/recovery/healthcheck_v4.py {agent_dir}",
+      "success": true
+    },
+    "restore_latency": {
+      "elapsed_ns": 22690051
+    },
+    "rollback_loss": {
+      "paths_changed_or_added_since_snapshot": 1,
+      "verification_against_snapshot_ok": false
+    }
+  },
+  "paper_admissible": true,
+  "post_attack_verification": {
+    "mismatched": [],
+    "missing": [
+      "workspace/MEMORY.md"
+    ],
+    "ok": false,
+    "unexpected": []
+  },
+  "post_legitimate_verification": {
+    "mismatched": [
+      {
+        "expected": "aa8735c690bee85e58bf1c8f353f9e4c36927d33b69809567911cf92016611f7",
+        "field": "sha256",
+        "observed": "868207b4e438259408eac3d8999d9c93e0796307a1357388ff1846373bf2b55e",
+        "path": "workspace/MEMORY.md"
+      },
+      {
+        "expected": 504,
+        "field": "size",
+        "observed": 585,
+        "path": "workspace/MEMORY.md"
+      }
+    ],
+    "missing": [],
+    "ok": false,
+    "unexpected": []
+  },
+  "repository_isolation_probe": {
+    "command": [
+      "runuser",
+      "-u",
+      "assa-runner",
+      "--",
+      "/usr/bin/python3",
+      "-c",
+      "from pathlib import Path; import sys; Path(sys.argv[1]).write_text('probe')",
+      "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/repository/agent-write-probe-1848dcce15484f5caebd338120ae69ce"
+    ],
+    "elapsed_ns": 80007210,
+    "returncode": 1,
+    "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/lib/python3.10/pathlib.py\", line 1154, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n  File \"/usr/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nPermissionError: [Errno 13] Permission denied: '<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/runs/protected-normal-06200f6c/repository/agent-write-probe-1848dcce15484f5caebd338120ae69ce'\n",
+    "stdout_tail": "",
+    "timed_out": false,
+    "write_succeeded": false
+  },
+  "repository_mode": "protected",
+  "repository_setup": {
+    "gid": 0,
+    "mode": 448,
+    "uid": 0
+  },
+  "restore": {
+    "elapsed_ns": 22690051,
+    "removed": [],
+    "restored": [
+      "credentials/.env",
+      "openclaw.json",
+      "workspace/AGENTS.md",
+      "workspace/HEARTBEAT.md",
+      "workspace/IDENTITY.md",
+      "workspace/MEMORY.md",
+      "workspace/SOUL.md",
+      "workspace/TOOLS.md",
+      "workspace/USER.md"
+    ],
+    "snapshot_id": "1787377898042120719-b1dc58a53cc2",
+    "verified": true
+  },
+  "run_id": "protected-normal-06200f6c",
+  "schema_version": "assa.p4_recovery.case.v1",
+  "snapshot": {
+    "bytes": 13378,
+    "elapsed_ns": 17914903,
+    "files": 9,
+    "snapshot_id": "1787377898042120719-b1dc58a53cc2",
+    "verified": true
+  },
+  "state_inventories": {
+    "post_restore": {
+      "file_count": 9,
+      "files": [
+        {
+          "bytes": 1763,
+          "exists": true,
+          "path": "workspace/SOUL.md",
+          "sha256": "f479e698094b74f2aa272fa33d125a31873d988feba7b25de1a5705aab3bbd72"
+        },
+        {
+          "bytes": 6526,
+          "exists": true,
+          "path": "workspace/AGENTS.md",
+          "sha256": "f060266e40e429a2ba4add31f2c598349ae83f738ea9c688cc04b9e661f91b3f"
+        },
+        {
+          "bytes": 568,
+          "exists": true,
+          "path": "workspace/IDENTITY.md",
+          "sha256": "ec06a75e2ed4ea9d1caa542c21c0ca63b8c9dcae840521ddc015b27386b819b1"
+        },
+        {
+          "bytes": 705,
+          "exists": true,
+          "path": "workspace/USER.md",
+          "sha256": "13abad8d9f847f3f1832aa519b193162106e35e7657d0108d2e3dc68d81f665e"
+        },
+        {
+          "bytes": 504,
+          "exists": true,
+          "path": "workspace/MEMORY.md",
+          "sha256": "aa8735c690bee85e58bf1c8f353f9e4c36927d33b69809567911cf92016611f7"
+        },
+        {
+          "bytes": 1093,
+          "exists": true,
+          "path": "workspace/TOOLS.md",
+          "sha256": "694daf862c3f74e2eceb65e4618ce5f367b3b766f3f834af1af6fa9b6061cf3e"
+        },
+        {
+          "bytes": 1630,
+          "exists": true,
+          "path": "workspace/HEARTBEAT.md",
+          "sha256": "b642659628da88e5d93c60cd4146aeda43c8f7d1d2b0c1157e54b0b4fbfd683d"
+        },
+        {
+          "bytes": 562,
+          "exists": true,
+          "path": "openclaw.json",
+          "sha256": "b597ce6a95ac622ba1d3b9a114030d1a4f6e34e2bbd6529ee76ce90b97b831a9"
+        },
+        {
+          "bytes": 27,
+          "exists": true,
+          "path": "credentials/.env",
+          "sha256": "e150f4b609caba685b96b40bbe6b536ca2d64e099943daa88ed3acc3255c6287"
+        }
+      ],
+      "total_bytes": 13378
+    },
+    "pre_legitimate": {
+      "file_count": 9,
+      "files": [
+        {
+          "bytes": 1763,
+          "exists": true,
+          "path": "workspace/SOUL.md",
+          "sha256": "f479e698094b74f2aa272fa33d125a31873d988feba7b25de1a5705aab3bbd72"
+        },
+        {
+          "bytes": 6526,
+          "exists": true,
+          "path": "workspace/AGENTS.md",
+          "sha256": "f060266e40e429a2ba4add31f2c598349ae83f738ea9c688cc04b9e661f91b3f"
+        },
+        {
+          "bytes": 568,
+          "exists": true,
+          "path": "workspace/IDENTITY.md",
+          "sha256": "ec06a75e2ed4ea9d1caa542c21c0ca63b8c9dcae840521ddc015b27386b819b1"
+        },
+        {
+          "bytes": 705,
+          "exists": true,
+          "path": "workspace/USER.md",
+          "sha256": "13abad8d9f847f3f1832aa519b193162106e35e7657d0108d2e3dc68d81f665e"
+        },
+        {
+          "bytes": 504,
+          "exists": true,
+          "path": "workspace/MEMORY.md",
+          "sha256": "aa8735c690bee85e58bf1c8f353f9e4c36927d33b69809567911cf92016611f7"
+        },
+        {
+          "bytes": 1093,
+          "exists": true,
+          "path": "workspace/TOOLS.md",
+          "sha256": "694daf862c3f74e2eceb65e4618ce5f367b3b766f3f834af1af6fa9b6061cf3e"
+        },
+        {
+          "bytes": 1630,
+          "exists": true,
+          "path": "workspace/HEARTBEAT.md",
+          "sha256": "b642659628da88e5d93c60cd4146aeda43c8f7d1d2b0c1157e54b0b4fbfd683d"
+        },
+        {
+          "bytes": 562,
+          "exists": true,
+          "path": "openclaw.json",
+          "sha256": "b597ce6a95ac622ba1d3b9a114030d1a4f6e34e2bbd6529ee76ce90b97b831a9"
+        },
+        {
+          "bytes": 27,
+          "exists": true,
+          "path": "credentials/.env",
+          "sha256": "e150f4b609caba685b96b40bbe6b536ca2d64e099943daa88ed3acc3255c6287"
+        }
+      ],
+      "total_bytes": 13378
+    }
+  }
+}

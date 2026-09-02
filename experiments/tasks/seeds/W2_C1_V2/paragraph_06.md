@@ -1,0 +1,3 @@
+# Phil Coulson
+
+Phillip "Phil" Coulson is a character portrayed by Clark Gregg in the films and television series of the Marvel Cinematic Universe (MCU). A high-ranking member of the espionage agency S.H.I.E.L.D., he first appeared in the 2008 film "Iron Man", the first film in the MCU. Gregg went on to appear in "Iron Man 2" (2010), "Thor" (2011), and "The Avengers" (2012). He additionally headlines the television series "Agents of S.H.I.E.L.D." (2013–), appears in two Marvel One-Shots (2011), has been featured in various tie-in comics, and appears in the digital series "" (2016), all set in the MCU. The character also appears in other media, including comics published by Marvel Comics.

@@ -1,0 +1,276 @@
+{
+  "fanotify_correlation": {
+    "accounted_events": 17,
+    "alias_ambiguous_rows_skipped": 0,
+    "allocation": "global_rank_then_delta",
+    "ambiguous_rows_unbound": 0,
+    "correlation_method": "pid_byte_exact_path_unique_best_rank_within_100ms",
+    "events_missing_timestamp": 0,
+    "evidence_class": "event_bound_read",
+    "indeterminate_relations": 0,
+    "indexable_events": 0,
+    "mask_incompatible_events": 0,
+    "matched_events": 0,
+    "passed": true,
+    "postimages_linked": 0,
+    "preimages_linked": 0,
+    "process_start_ticks_catalog_disagreements": [],
+    "process_start_ticks_conflicting_pids": [],
+    "process_start_ticks_filled": 0,
+    "queue_overflow_events": 0,
+    "raw_events": 17,
+    "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/fanotify.jsonl",
+    "raw_sha256": "43cd8355dfda2af3d3cb0b6e237fc117ae344676a86579ff52eed7065a951b11",
+    "rows_predating_process_start": 0,
+    "rows_unbound_event_contested": 0,
+    "schema_version": "assa.fanotify_correlation.v3",
+    "unmatched_events": 17,
+    "unmatched_reason": "per-syscall bursts exceed one event per row, plus paths outside audit rule scope",
+    "unusable_events_missing_pid_or_path": 17,
+    "user_hz": 100,
+    "user_hz_validated": false
+  },
+  "fd_lifecycle_identity": {
+    "degraded_missing_mutation_coverage": 0,
+    "degraded_missing_mutation_coverage_by_key": {},
+    "rebound_on_successful_open": 23,
+    "required_mutation_syscalls": [
+      "close",
+      "close_range",
+      "creat",
+      "dup",
+      "dup2",
+      "dup3",
+      "fcntl",
+      "open",
+      "openat",
+      "openat2"
+    ],
+    "resolved": 0,
+    "schema_version": "assa.fd_lifecycle_identity_outcome.v1"
+  },
+  "fd_path_operand_denominator": 49,
+  "fd_path_resolution_methods": {
+    "ebpf_open_exit_audit_identity": 40,
+    "unresolved": 9
+  },
+  "fd_path_resolved_numerator": 40,
+  "fd_path_resolved_rate": 0.8163265306122449,
+  "fd_path_resolved_threshold": 0.95,
+  "fd_path_unresolved_operands": [
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258801",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258802",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258803",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258804",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258805",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258806",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258807",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258808",
+      "fd": 3,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "read"
+    },
+    {
+      "event_id": "mutation-canary-5src-20260823T114933Z-cff3aec9:audit:258885",
+      "fd": 4,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "write"
+    }
+  ],
+  "graph_edges": 67,
+  "graph_nodes": 48,
+  "malformed_lines": 154,
+  "normalization_input": {
+    "audit_fd_lifecycle_coverage": {},
+    "audit_input_mode": "single_partition",
+    "audit_raw": {
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/auditd_ausearch.log",
+      "sha256": "1ebb2eb1cf0d79a1d639f04e6a274e8b667303ea995c3d7e1624e46d3e315b35"
+    },
+    "completeness_status": "single_partition_may_underestimate",
+    "evidence_sources": [
+      "auditd",
+      "ebpf",
+      "fanotify",
+      "scap"
+    ],
+    "fanotify_correlation": {
+      "accounted_events": 17,
+      "alias_ambiguous_rows_skipped": 0,
+      "allocation": "global_rank_then_delta",
+      "ambiguous_rows_unbound": 0,
+      "correlation_method": "pid_byte_exact_path_unique_best_rank_within_100ms",
+      "events_missing_timestamp": 0,
+      "evidence_class": "event_bound_read",
+      "indeterminate_relations": 0,
+      "indexable_events": 0,
+      "mask_incompatible_events": 0,
+      "matched_events": 0,
+      "passed": true,
+      "postimages_linked": 0,
+      "preimages_linked": 0,
+      "process_start_ticks_catalog_disagreements": [],
+      "process_start_ticks_conflicting_pids": [],
+      "process_start_ticks_filled": 0,
+      "queue_overflow_events": 0,
+      "raw_events": 17,
+      "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/fanotify.jsonl",
+      "raw_sha256": "43cd8355dfda2af3d3cb0b6e237fc117ae344676a86579ff52eed7065a951b11",
+      "rows_predating_process_start": 0,
+      "rows_unbound_event_contested": 0,
+      "schema_version": "assa.fanotify_correlation.v3",
+      "unmatched_events": 17,
+      "unmatched_reason": "per-syscall bursts exceed one event per row, plus paths outside audit rule scope",
+      "unusable_events_missing_pid_or_path": 17,
+      "user_hz": 100,
+      "user_hz_validated": false
+    },
+    "fd_lifecycle_identity_outcome": {
+      "degraded_missing_mutation_coverage": 0,
+      "degraded_missing_mutation_coverage_by_key": {},
+      "rebound_on_successful_open": 23,
+      "required_mutation_syscalls": [
+        "close",
+        "close_range",
+        "creat",
+        "dup",
+        "dup2",
+        "dup3",
+        "fcntl",
+        "open",
+        "openat",
+        "openat2"
+      ],
+      "resolved": 0,
+      "schema_version": "assa.fd_lifecycle_identity_outcome.v1"
+    },
+    "included_audit_keys": [],
+    "may_underestimate": true,
+    "partition_group_counts": {
+      "unattributed_single_partition": 87
+    },
+    "schema_version": "assa.normalization_input.v1",
+    "tool": {
+      "commit_sha": null,
+      "name": "assa-stage-g-normalizer",
+      "python": "3.10.12",
+      "schemas": {
+        "provenance_edge": "assa.provenance_edge.v3",
+        "provenance_node": "assa.provenance_node.v2",
+        "supersedes": "assa.provenance_supersedes.v1",
+        "syscall": "assa.syscall_event.v2"
+      },
+      "source_files": [
+        {
+          "path": "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/normalize.py",
+          "sha256": "cd6dbafa5affe1de307177f4e9541e87f91755ca4d22131b06fcf5d401a070a9"
+        },
+        {
+          "path": "<GUEST_HOME>/assa-bench/experiments/code/measurement/stage_g_harness/sidecars.py",
+          "sha256": "3fa80b289269d886681eef98a4f9fcab3448e48f4ca77cfc5c3f23346507b714"
+        }
+      ],
+      "version": "assa.stage_g_harness.v6"
+    },
+    "union_conservation": {
+      "conflicting_duplicate_groups": [],
+      "conservation_passed": null,
+      "duplicate_group_occurrences": 0,
+      "identical_overlap_group_occurrences": 0,
+      "partition_group_sum": 87,
+      "union_group_count": 87
+    }
+  },
+  "path_applicable": 86,
+  "path_complete": 76,
+  "path_complete_fraction": 0.8837209302325582,
+  "process_identity_complete": 0,
+  "process_identity_complete_fraction": 0.0,
+  "provenance_evaluable": false,
+  "provenance_schema": {
+    "edge_schema_version": "assa.provenance_edge.v3",
+    "node_schema_version": "assa.provenance_node.v2",
+    "supersedes_artifact": "provenance.supersedes.json",
+    "supersedes_edge_count": 4,
+    "supersedes_enabled": true,
+    "supersedes_schema_version": "assa.provenance_supersedes.v1",
+    "supersedes_status_counts": {
+      "resolved_rename_overwrite": 4,
+      "unlink_without_subsequent_exact_path_recreate": 4
+    },
+    "supersedes_supported": true
+  },
+  "provenance_status": "data_insufficient",
+  "schema_version": "assa.provenance_coverage.v3",
+  "sequence_eligible_events": 0,
+  "socket_applicable": 2,
+  "socket_complete": 0,
+  "socket_complete_fraction": 0.0,
+  "status": "data_insufficient",
+  "syscall_events": 87,
+  "syscalls_by_name": {
+    "fchmodat": 4,
+    "openat": 24,
+    "read": 40,
+    "renameat2": 4,
+    "sendto": 2,
+    "unlinkat": 4,
+    "write": 9
+  },
+  "unknown_node_fraction": 0.22916666666666666,
+  "unknown_nodes": 11
+}

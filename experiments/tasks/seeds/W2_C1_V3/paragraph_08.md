@@ -1,0 +1,3 @@
+# Sodastream (band)
+
+Sodastream are an Australian folk rock duo consisting of Karl Smith on lead vocals and acoustic guitar; and Pete Cohen on double bass, bass guitar, piano and backing vocals; which formed in 1996 in Perth. They have toured Australia, United States, Europe and Japan and had national rotation on radio network, Triple J. Sodastream issued four studio albums, "Looks Like a Russian" (22 May 2000), "The Hill for Company" (3 September 2001), "A Minor Revival" (4 August 2003) and "Reservations" (22 May 2006) before disbanding in 2007. In 2011 the pair were both members of Lee Memorial and in 2013 reformed Sodastream.

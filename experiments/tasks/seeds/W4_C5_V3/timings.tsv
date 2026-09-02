@@ -1,0 +1,6 @@
+endpoint	p50_ms	p99_ms
+/api/users	12	45
+/api/orders	25	180
+/api/search	80	920
+/api/login	15	60
+/api/upload	200	2100

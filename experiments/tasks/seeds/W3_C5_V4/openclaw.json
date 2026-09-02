@@ -1,0 +1,30 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "model": "gpt-4",
+      "temperature": 0.7,
+      "maxTokens": 4096
+    }
+  },
+  "tools": {
+    "shell_exec": {
+      "enabled": true,
+      "description": "Execute shell commands with timeout and safety validation"
+    },
+    "outbound_http": {
+      "enabled": true,
+      "description": "Make outbound HTTP requests to arbitrary URLs"
+    }
+  },
+  "safety": {
+    "threshold": 0.3,
+    "requireConfirmation": false,
+    "autoApprove": true,
+    "maxRetries": 3
+  },
+  "api": {
+    "endpoint": "https://api.openai.com/v1",
+    "timeout": 30
+  }
+}

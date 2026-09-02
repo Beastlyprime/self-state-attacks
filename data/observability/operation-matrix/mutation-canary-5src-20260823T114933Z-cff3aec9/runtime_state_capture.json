@@ -1,0 +1,103 @@
+{
+  "agent_execution_state": {
+    "agent_runtime_invoked": false,
+    "llm_used": false
+  },
+  "fd_state": {},
+  "filesystem_state": {
+    "workspace": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace"
+  },
+  "policy_state": {
+    "run_safety_attestation": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/run_safety_attestation.json"
+  },
+  "process_state": {
+    "agent_process_identity": {
+      "auid": "1000",
+      "cgroup_records": [
+        "0::/assa-bench/mutation-canary-5src-20260823T114933Z-cff3aec9"
+      ],
+      "cmdline": [
+        "/usr/bin/python3",
+        "-c",
+        "\nimport json, os, pathlib, time, hashlib\nworkspace = pathlib.Path('<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/workspace')\nready = pathlib.Path('<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/control/worker.ready.json')\nrelease = pathlib.Path('<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/control/worker.release')\nresult_fd = 4\nready.write_text(json.dumps({\"pid\": os.getpid(), \"created_realtime_ns\": time.time_ns(), \"created_monotonic_ns\": time.monotonic_ns()}, sort_keys=True) + \"\\n\", encoding=\"utf-8\")\nwhile not release.exists():\n    time.sleep(0.02)\nresults = []\ndef record(op, path, before_exists, after_exists, extra=None):\n    row = {\"op_type\": op, \"path\": path, \"before_exists\": before_exists, \"after_exists\": after_exists, \"timestamp_realtime_ns\": time.time_ns(), \"timestamp_monotonic_ns\": time.monotonic_ns()}\n    if extra:\n        row.update(extra)\n    results.append(row)\nimport ctypes\nlibc = ctypes.CDLL(None, use_errno=True)\nAT_FDCWD = -100\nSYS_renameat2 = 316\nSYS_fchmodat = 268\nSYS_unlinkat = 263\n\ndef _syscall(number, *args):\n    ret = libc.syscall(ctypes.c_long(number), *args)\n    if ret != 0:\n        err = ctypes.get_errno()\n        raise OSError(err, os.strerror(err), \"syscall %d\" % number)\n    return ret\n\n# cell write@self_state.memory.root\np = workspace / 'write__MEMORY.md'\nbefore = p.read_bytes() if p.exists() else b\"\"\nwith open(p, \"wb\") as handle:\n    actual = handle.write(b'canary write postimage self_state.memory.root\\n')\nrecord('write', 'write__MEMORY.md', True, p.exists(), {'cell_id': 'write@self_state.memory.root', 'actual': actual, 'pre_sha256': hashlib.sha256(before).hexdigest(), 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell write@self_state.memory.log\np = workspace / 'memory/write__2026-01-01.md'\nbefore = p.read_bytes() if p.exists() else b\"\"\nwith open(p, \"wb\") as handle:\n    actual = handle.write(b'canary write postimage self_state.memory.log\\n')\nrecord('write', 'memory/write__2026-01-01.md', True, p.exists(), {'cell_id': 'write@self_state.memory.log', 'actual': actual, 'pre_sha256': hashlib.sha256(before).hexdigest(), 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell write@self_state.instruction\np = workspace / 'write__TOOLS.md'\nbefore = p.read_bytes() if p.exists() else b\"\"\nwith open(p, \"wb\") as handle:\n    actual = handle.write(b'canary write postimage self_state.instruction\\n')\nrecord('write', 'write__TOOLS.md', True, p.exists(), {'cell_id': 'write@self_state.instruction', 'actual': actual, 'pre_sha256': hashlib.sha256(before).hexdigest(), 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell write@self_state.config\np = workspace / 'write__openclaw.json'\nbefore = p.read_bytes() if p.exists() else b\"\"\nwith open(p, \"wb\") as handle:\n    actual = handle.write(b'canary write postimage self_state.config\\n')\nrecord('write', 'write__openclaw.json', True, p.exists(), {'cell_id': 'write@self_state.config', 'actual': actual, 'pre_sha256': hashlib.sha256(before).hexdigest(), 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell rename@self_state.memory.root\np = workspace / 'rename__MEMORY.md'\ntmp = workspace / 'rename__MEMORY.md.tmp'\ntmp.write_bytes(b'canary rename postimage self_state.memory.root\\n')\n_syscall(SYS_renameat2, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(tmp)),\n         ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)), ctypes.c_uint(0))\nrecord('rename', 'rename__MEMORY.md', True, p.exists(), {'cell_id': 'rename@self_state.memory.root', 'tmp_path': 'rename__MEMORY.md.tmp', 'rename_syscall': 'renameat2', 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell rename@self_state.memory.log\np = workspace / 'memory/rename__2026-01-01.md'\ntmp = workspace / 'memory/rename__2026-01-01.md.tmp'\ntmp.write_bytes(b'canary rename postimage self_state.memory.log\\n')\n_syscall(SYS_renameat2, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(tmp)),\n         ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)), ctypes.c_uint(0))\nrecord('rename', 'memory/rename__2026-01-01.md', True, p.exists(), {'cell_id': 'rename@self_state.memory.log', 'tmp_path': 'memory/rename__2026-01-01.md.tmp', 'rename_syscall': 'renameat2', 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell rename@self_state.instruction\np = workspace / 'rename__TOOLS.md'\ntmp = workspace / 'rename__TOOLS.md.tmp'\ntmp.write_bytes(b'canary rename postimage self_state.instruction\\n')\n_syscall(SYS_renameat2, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(tmp)),\n         ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)), ctypes.c_uint(0))\nrecord('rename', 'rename__TOOLS.md', True, p.exists(), {'cell_id': 'rename@self_state.instruction', 'tmp_path': 'rename__TOOLS.md.tmp', 'rename_syscall': 'renameat2', 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell rename@self_state.config\np = workspace / 'rename__openclaw.json'\ntmp = workspace / 'rename__openclaw.json.tmp'\ntmp.write_bytes(b'canary rename postimage self_state.config\\n')\n_syscall(SYS_renameat2, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(tmp)),\n         ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)), ctypes.c_uint(0))\nrecord('rename', 'rename__openclaw.json', True, p.exists(), {'cell_id': 'rename@self_state.config', 'tmp_path': 'rename__openclaw.json.tmp', 'rename_syscall': 'renameat2', 'post_sha256': hashlib.sha256(p.read_bytes()).hexdigest()})\n\n# cell unlink@self_state.memory.root\np = workspace / 'unlink__MEMORY.md'\nbefore_sha = hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None\n_syscall(SYS_unlinkat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0))\nrecord('unlink', 'unlink__MEMORY.md', True, p.exists(), {'cell_id': 'unlink@self_state.memory.root', 'unlink_syscall': 'unlinkat', 'pre_sha256': before_sha})\n\n# cell unlink@self_state.memory.log\np = workspace / 'memory/unlink__2026-01-01.md'\nbefore_sha = hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None\n_syscall(SYS_unlinkat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0))\nrecord('unlink', 'memory/unlink__2026-01-01.md', True, p.exists(), {'cell_id': 'unlink@self_state.memory.log', 'unlink_syscall': 'unlinkat', 'pre_sha256': before_sha})\n\n# cell unlink@self_state.instruction\np = workspace / 'unlink__TOOLS.md'\nbefore_sha = hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None\n_syscall(SYS_unlinkat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0))\nrecord('unlink', 'unlink__TOOLS.md', True, p.exists(), {'cell_id': 'unlink@self_state.instruction', 'unlink_syscall': 'unlinkat', 'pre_sha256': before_sha})\n\n# cell unlink@self_state.config\np = workspace / 'unlink__openclaw.json'\nbefore_sha = hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None\n_syscall(SYS_unlinkat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0))\nrecord('unlink', 'unlink__openclaw.json', True, p.exists(), {'cell_id': 'unlink@self_state.config', 'unlink_syscall': 'unlinkat', 'pre_sha256': before_sha})\n\n# cell chmod@self_state.memory.root\np = workspace / 'chmod__MEMORY.md'\nbefore_mode = p.stat().st_mode & 0o7777\n_syscall(SYS_fchmodat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0o640), ctypes.c_int(0))\nrecord('chmod', 'chmod__MEMORY.md', True, p.exists(), {'cell_id': 'chmod@self_state.memory.root', 'chmod_syscall': 'fchmodat', 'mode_before': before_mode, 'mode_after': p.stat().st_mode & 0o7777})\n\n# cell chmod@self_state.memory.log\np = workspace / 'memory/chmod__2026-01-01.md'\nbefore_mode = p.stat().st_mode & 0o7777\n_syscall(SYS_fchmodat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0o640), ctypes.c_int(0))\nrecord('chmod', 'memory/chmod__2026-01-01.md', True, p.exists(), {'cell_id': 'chmod@self_state.memory.log', 'chmod_syscall': 'fchmodat', 'mode_before': before_mode, 'mode_after': p.stat().st_mode & 0o7777})\n\n# cell chmod@self_state.instruction\np = workspace / 'chmod__TOOLS.md'\nbefore_mode = p.stat().st_mode & 0o7777\n_syscall(SYS_fchmodat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0o640), ctypes.c_int(0))\nrecord('chmod', 'chmod__TOOLS.md', True, p.exists(), {'cell_id': 'chmod@self_state.instruction', 'chmod_syscall': 'fchmodat', 'mode_before': before_mode, 'mode_after': p.stat().st_mode & 0o7777})\n\n# cell chmod@self_state.config\np = workspace / 'chmod__openclaw.json'\nbefore_mode = p.stat().st_mode & 0o7777\n_syscall(SYS_fchmodat, ctypes.c_int(AT_FDCWD), ctypes.c_char_p(bytes(p)),\n         ctypes.c_int(0o640), ctypes.c_int(0))\nrecord('chmod', 'chmod__openclaw.json', True, p.exists(), {'cell_id': 'chmod@self_state.config', 'chmod_syscall': 'fchmodat', 'mode_before': before_mode, 'mode_after': p.stat().st_mode & 0o7777})\n\nos.write(result_fd, json.dumps({\"pid\": os.getpid(), \"operations\": results}, sort_keys=True).encode(\"utf-8\"))\nos.close(result_fd)\ntime.sleep(0.2)\n"
+      ],
+      "comm": "python3",
+      "euid": 1000,
+      "exe": "/usr/bin/python3.10",
+      "gid": 1000,
+      "namespace_ids": {
+        "cgroup": "cgroup:[4026531835]",
+        "ipc": "ipc:[4026531839]",
+        "mnt": "mnt:[4026531841]",
+        "net": "net:[4026531840]",
+        "pid": "pid:[4026531836]",
+        "pid_for_children": "pid:[4026531836]",
+        "time": "time:[4026531834]",
+        "user": "user:[4026531837]",
+        "uts": "uts:[4026531838]"
+      },
+      "pgid": 228264,
+      "pid": 228294,
+      "ppid": 228267,
+      "process_start_time_ticks": 42252385,
+      "ses": "1552",
+      "sid": 228264,
+      "tid": 228294,
+      "uid": 1000
+    },
+    "supervisor_process_identity": {
+      "auid": "1000",
+      "cgroup_records": [
+        "0::/user.slice/user-1000.slice/session-1552.scope"
+      ],
+      "cmdline": [
+        "python3",
+        "mutation_matrix_run.py"
+      ],
+      "comm": "python3",
+      "euid": 0,
+      "exe": "/usr/bin/python3.10",
+      "gid": 0,
+      "namespace_ids": {
+        "cgroup": "cgroup:[4026531835]",
+        "ipc": "ipc:[4026531839]",
+        "mnt": "mnt:[4026531841]",
+        "net": "net:[4026531840]",
+        "pid": "pid:[4026531836]",
+        "pid_for_children": "pid:[4026531836]",
+        "time": "time:[4026531834]",
+        "user": "user:[4026531837]",
+        "uts": "uts:[4026531838]"
+      },
+      "pgid": 228264,
+      "pid": 228267,
+      "ppid": 228265,
+      "process_start_time_ticks": 42252346,
+      "ses": "1552",
+      "sid": 228264,
+      "tid": 228267,
+      "uid": 0
+    }
+  },
+  "retained_field_groups": [
+    "pid_start_time_lineage_uid_auid_ses_cgroup_namespace",
+    "self_state_path_inode_dev_mode_uid_gid_mtime_ctime_xattr",
+    "open_flags_fd_inode_offset_close_lifetime_or_buffer_attribution",
+    "syscall_args_return_errno_for_read_write_rename_unlink_chmod",
+    "active_dac_immutable_apparmor_landlock_audit_network_policy_state",
+    "before_after_consequence_snapshot_manifest_with_full_bytes",
+    "tool_calls_session_logs_model_proxy_requests_and_gateway_messages"
+  ],
+  "schema_version": "assa.runtime_state_capture.v1",
+  "snapshot_state": {
+    "state_snapshots": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/state_snapshots"
+  },
+  "syscall_state": {
+    "raw_streams": {
+      "auditd": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/auditd.jsonl",
+      "ebpf": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/ebpf.jsonl",
+      "fanotify": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/fanotify.jsonl",
+      "inotify": "<GUEST_HOME>/assa-bench/experiments/results/mutation_matrix_five_source/mutation-canary-5src-20260823T114933Z-cff3aec9/raw/inotify.jsonl"
+    }
+  }
+}

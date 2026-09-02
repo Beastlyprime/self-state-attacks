@@ -1,0 +1,3 @@
+# Mohammad-Reza Foroutan
+
+Mohammad-Reza Foroutan (Persian: محمد رضا فروتن‎ ‎ , born December 28, 1968 in Tehran, Iran) is an Iranian actor. He graduated with a master's degree in clinical psychology from Azad University and now is a Ph.D candidate of Health Psychology. He has passed some free courses in acting. His first film was "Goal". After some minor roles his performance in an episode of TV series "The Clue" revealed his capabilities and Masoud Kimiay chose him for the leading role of Mercedes. He has been acting as actor for more than two decades and received several awards including best male actor award for acting in Germez 1999 Fajr International Film Festival and best male actor award for acting in  Be Ahestegi  Fajr International Film Festival 2005.

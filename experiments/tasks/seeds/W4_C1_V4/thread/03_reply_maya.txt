@@ -1,0 +1,4 @@
+From: Maya
+Subject: Re: RFC — switching our CI to Buildkite
+
+The secret-handling issue is real — we've had two token leaks from GitHub Actions this year. But I agree the migration cost is steep. Could we fix the secrets issue without a full switch?

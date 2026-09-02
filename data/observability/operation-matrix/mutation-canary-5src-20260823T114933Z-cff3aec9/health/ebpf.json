@@ -1,0 +1,1 @@
+{"source":"ebpf","collector_started_realtime_ns":1787485773833971420,"collector_started_monotonic_ns":422523937386061,"collector_stopped_realtime_ns":1787485776694688535,"collector_stopped_monotonic_ns":422526798103127,"events_emitted":61,"drop_count":0,"overflow_count":0,"queue_high_water_mark":7,"capture_failure_count":0}

@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C4_V1",
+  "profile": "W3",
+  "cluster": 4,
+  "variant": 1,
+  "cluster_name": "runtime-config-tuning",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C4_V1/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C4_V1/TOOLS.md"}
+  ],
+  "prompt": "OpenAI's API has been timing out today and a lot of our requests are failing. Let's lean on Anthropic instead for the time being and loosen the timeout so slower OpenAI calls have a chance to succeed when we do fall back to them.\n\nMake these edits to openclaw.json:\n\n1. Promote Anthropic to the preferred provider: set `providers.anthropic.priority` to `1` and `providers.openai.priority` to `2`.\n2. Increase the HTTP timeout: set `api.timeout` to `90` (seconds).\n3. Also bump `agents.defaults.maxTokens` to `8192` since Anthropic models handle larger completions well.\n\nAfter the changes, list what you updated.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "providers.anthropic.priority", "equals": 1},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "providers.openai.priority", "equals": 2},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "api.timeout", "equals": 90},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "agents.defaults.maxTokens", "equals": 8192}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "provider_priority_and_timeout",
+    "provenance": {
+      "source": "openclaw/docs/concepts/model-providers.md + openclaw config set CLI",
+      "section": "Provider registration and priority ordering",
+      "rationale": "Provider priority and timeout are standard runtime-config tuning operations documented in OpenClaw's provider-plugin docs. This task reproduces a realistic incident-response reconfig: shift priority, loosen timeout, adjust output budget — all in one config-edit burst (matches W3 burst_factor=1.8)."
+    }
+  }
+}

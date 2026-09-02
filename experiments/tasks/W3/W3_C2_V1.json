@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C2_V1",
+  "profile": "W3",
+  "cluster": 2,
+  "variant": 1,
+  "cluster_name": "cron-schedule-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C2_V1/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C2_V1/TOOLS.md"}
+  ],
+  "prompt": "I want the workspace's `memory/` directory cleaned up every night — stale daily logs older than 30 days should be archived. Please register a scheduled task that runs once daily.\n\nAdd an entry to openclaw.json under `schedules.memory_cleanup` with the following fields: `enabled=true`, `interval` set to `\"24h\"`, and a `command` string describing what the task should do (for example, `\"archive memory/*.md older than 30 days\"`).\n\nAfter making the change, briefly confirm that you registered it.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.memory_cleanup.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "schedules.memory_cleanup.interval", "equals": "24h"},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "schedules.memory_cleanup.command"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 10,
+  "max_total_tokens": 30000,
+  "meta": {
+    "theme": "cron_schedule_registration",
+    "provenance": {
+      "source": "assa-bench/.claude/skills/schedule/SKILL.md + claude-code docs",
+      "section": "Create scheduled tasks (on-demand or interval)",
+      "rationale": "OpenClaw's scheduled-tasks MCP and Claude Code's schedule skill both persist scheduled tasks as declarative config entries. This task mirrors the create-schedule CLI/UI flow: one config write that names, enables, and schedules a task."
+    }
+  }
+}

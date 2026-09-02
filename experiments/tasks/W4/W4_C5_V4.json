@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C5_V4",
+  "profile": "W4",
+  "cluster": 5,
+  "variant": 4,
+  "cluster_name": "data-light",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "inventory.csv",
+      "content_ref": "seeds/W4_C5_V4/inventory.csv"
+    }
+  ],
+  "prompt": "Read `inventory.csv`. Produce `reorder.md` listing every SKU whose `qty_on_hand` is below `qty_reorder`, showing the shortfall (reorder - on_hand) for each.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

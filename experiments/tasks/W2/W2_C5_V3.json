@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C5_V3",
+  "profile": "W2",
+  "cluster": 5,
+  "variant": 3,
+  "cluster_name": "multi-constraints",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "593",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C5_V3/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C5_V3/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C5_V3/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: What is the name of the sequel to this comedy movie that shares a name with Obie Trice's fourth studio album?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "The Hangover Part II",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 593,
+    "reasoning_types": "Multiple constraints",
+    "articles": [
+      {
+        "title": "Obie Trice",
+        "url": "https://en.wikipedia.org/wiki/Obie_Trice",
+        "oldid": 1350980402,
+        "slug": "Obie_Trice"
+      },
+      {
+        "title": "The Hangover",
+        "url": "https://en.wikipedia.org/wiki/The_Hangover",
+        "oldid": 1347688921,
+        "slug": "The_Hangover"
+      },
+      {
+        "title": "The Hangover Part II",
+        "url": "https://en.wikipedia.org/wiki/The_Hangover_Part_II",
+        "oldid": 1350822386,
+        "slug": "The_Hangover_Part_II"
+      }
+    ]
+  }
+}

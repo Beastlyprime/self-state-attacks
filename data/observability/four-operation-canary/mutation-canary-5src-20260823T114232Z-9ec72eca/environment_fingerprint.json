@@ -1,0 +1,55 @@
+{
+  "btf_vmlinux_present": true,
+  "ebpf_build": {
+    "loader_sha256": "d13cbc45852131801173514310951b2bcc9492a6f8899ffecfc66847970f3d21",
+    "object_sha256": "789d0f8ba36ea40c82ba24ff484e6ec226df547fc27d23c3b937fe7dd65cb47e",
+    "source_sha256": {
+      "bpf": "2c68813bc74ae376b14e1fda20d1b85a22c7598259e2ffd196e93cbf43f6b54c",
+      "loader": "f9ef2d762eba01eaa6c2f65870d792a9e0196aa55665c2b9e88e9ed1ed57d80d"
+    }
+  },
+  "host": {
+    "architecture": "x86_64",
+    "distribution": "Linux-6.8.0-136-generic-x86_64-with-glibc2.35",
+    "hostname": "assa-stageg",
+    "kernel": "6.8.0-136-generic",
+    "out_of_tree_modules": "cpuid 12288 0 - Live 0xffffffffc0acd000\nnft_ct 24576 0 - Live 0xffffffffc0ac4000\nnft_masq 12288 0 - Live 0xffffffffc0abe000\nveth 45056 0 - Live 0xffffffffc0aaf000\ntls 155648 0 - Live 0xffffffffc0a83000\nxt_conntrack 12288 1 - Live 0xffffffffc0a0c000\nxt_MASQUERADE 16384 1 - Live 0xffffffffc09fc000\nbridge 425984 0 - Live 0xffffffffc0a17000\nstp 12288 1 bridge, Live 0xffffffffc0a0f000\nllc 16384 2 bridge,stp, Live 0xffffffffc0a03000\nxfrm_user 61440 1 - Live 0xffffffffc09ea000\nxfrm_algo 16384 1 xfrm_user, Live 0xffffffffc09c1000\nxt_set 20480 0 - Live 0xffffffffc09e1000\nip_set 61440 1 xt_set, Live 0xffffffffc09b2000\nnft_chain_nat 12288 5 - Live 0xffffffffc096a000\nnf_nat 61440 3 nft_masq,xt_MASQUERADE,nft_chain_nat, Live 0xffffffffc09c4000\nnf_conntrack 200704 5 nft_ct,nft_masq,xt_conntrack,xt_MASQUERADE,nf_nat, Live 0xffffffffc097d000\nnf_defrag_ipv6 24576 1 nf_conntrack, Live 0xffffffffc096e000\nnf_defrag_ipv4 12288 1 nf_conntrack, Live 0xffffffffc095d000\nxt_addrtype 12288 4 - Live 0xffffffffc0962000\nnft_compat 20480 6 - Live 0xffffffffc0955000\nnf_tables 380928 67 nft_ct,nft_masq,nft_chain_nat,nft_compat, Live 0xffffffffc08f4000\nnfnetlink 20480 4 ip_set,nft_compat,nf_tables, Live 0xffffffffc087d000\noverlay 212992 0 - Live 0xffffffffc08be000\nisofs 61440 0 - Live 0xffffffffc08b6000\nintel_rapl_msr 20480 0 - Live 0xffffffffc0868000\nintel_rapl_common 40960 1 intel_rapl_msr, Live 0xffffffffc084b000\nbinfmt_misc 24576 1 - Live 0xffffffffc0696000\nkvm_amd 212992 0 - Live 0xffffffffc0815000\nccp 143360 1 kvm_amd, Live 0xffffffffc0891000\nnls_iso8859_1 12288 1 - Live 0xffffffffc088b000\njoydev 32768 0 - Live 0xffffffffc06a2000\ninput_leds 12288 0 - Live 0xffffffffc0877000\nkvm 1409024 1 kvm_amd, Live 0xffffffffc06b9000\nmac_hid 12288 0 - Live 0xffffffffc06af000\nirqbypass 12288 1 kvm, Live 0xffffffffc06a7000\nserio_raw 20480 0 - Live 0xffffffffc0699000\nqemu_fw_cfg 24576 0 - Live 0xffffffffc0672000\ndm_multipath 45056 0 - Live 0xffffffffc0687000\nscsi_dh_rdac 16384 0 - Live 0xffffffffc0664000\nscsi_dh_emc 12288 0 - Live 0xffffffffc0677000\nscsi_dh_alua 24576 0 - Live 0xffffffffc0669000\nsch_fq_codel 24576 2 - Live 0xffffffffc0655000\nefi_pstore 12288 0 - Live 0xffffffffc0386000\nip_tables 32768 0 - Live 0xffffffffc065c000\nx_tables 65536 6 xt_conntrack,xt_MASQUERADE,xt_set,xt_addrtype,nft_compat,ip_tables, Live 0xffffffffc0643000\nautofs4 57344 2 - Live 0xffffffffc0428000\nbtrfs 2056192 0 - Live 0xffffffffc0447000\nblake2b_generic 24576 0 - Live 0xffffffffc03aa000\nraid10 77824 0 - Live 0xffffffffc0435000\nraid456 196608 0 - Live 0xffffffffc03f4000\nasync_raid6_recov 20480 1 raid456, Live 0xffffffffc03e9000\nasync_memcpy 16384 2 raid456,async_raid6_recov, Live 0xffffffffc03df000\nasync_pq 20480 2 raid456,async_raid6_recov, Live 0xffffffffc03d2000\nasync_xor 16384 3 raid456,async_raid6_recov,async_pq, Live 0xffffffffc03c8000\nasync_tx 16384 5 raid456,async_raid6_recov,async_memcpy,async_pq,async_xor, Live 0xffffffffc03bc000\nxor 20480 2 btrfs,async_xor, Live 0xffffffffc03b0000\nraid6_pq 126976 4 btrfs,raid456,async_raid6_recov,async_pq, Live 0xffffffffc0388000\nlibcrc32c 12288 5 nf_nat,nf_conntrack,nf_tables,btrfs,raid456, Live 0xffffffffc0335000\nraid1 61440 0 - Live 0xffffffffc037c000\nraid0 24576 0 - Live 0xffffffffc02de000\ncrct10dif_pclmul 12288 1 - Live 0xffffffffc0376000\ncrc32_pclmul 12288 0 - Live 0xffffffffc036c000\npolyval_clmulni 12288 0 - Live 0xffffffffc0362000\npolyval_generic 12288 1 polyval_clmulni, Live 0xffffffffc033e000\nghash_clmulni_intel 16384 0 - Live 0xffffffffc0351000\nsha256_ssse3 32768 0 - Live 0xffffffffc0343000\nsha1_ssse3 32768 0 - Live 0xffffffffc0328000\nvga16fb 32768 0 - Live 0xffffffffc0339000\nvgastate 20480 1 vga16fb, Live 0xffffffffc02a1000\npsmouse 217088 0 - Live 0xffffffffc02ef000\ni2c_i801 36864 0 - Live 0xffffffffc02b6000\nahci 49152 0 - Live 0xffffffffc02ce000\nlpc_ich 32768 0 - Live 0xffffffffc02bc000\nlibahci 53248 1 ahci, Live 0xffffffffc02a5000\ni2c_smbus 16384 1 i2c_i801, Live 0xffffffffc0299000\nvirtio_rng 12288 0 - Live 0xffffffffc022c000\naesni_intel 356352 0 - Live 0xffffffffc023c000\ncrypto_simd 16384 1 aesni_intel, Live 0xffffffffc0232000\ncryptd 24576 2 ghash_clmulni_intel,crypto_simd, Live 0xffffffffc0223000"
+  },
+  "landlock_abi": 4,
+  "monitor_versions": {
+    "auditd": "auditctl version 3.0.7",
+    "ebpf": "assa-libbpf-smoke-v1 object=789d0f8ba36ea40c82ba24ff484e6ec226df547fc27d23c3b937fe7dd65cb47e",
+    "fanotify": "fanotify-metadata-v3/6.8.0-136-generic",
+    "inotify": "linux-inotify-uapi/6.8.0-136-generic"
+  },
+  "ntp_state": [
+    "Timezone=Etc/UTC",
+    "NTP=yes",
+    "NTPSynchronized=yes"
+  ],
+  "os_release": {
+    "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+    "HOME_URL": "https://www.ubuntu.com/",
+    "ID": "ubuntu",
+    "ID_LIKE": "debian",
+    "NAME": "Ubuntu",
+    "PRETTY_NAME": "Ubuntu 22.04.5 LTS",
+    "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+    "SUPPORT_URL": "https://help.ubuntu.com/",
+    "UBUNTU_CODENAME": "jammy",
+    "VERSION": "22.04.5 LTS (Jammy Jellyfish)",
+    "VERSION_CODENAME": "jammy",
+    "VERSION_ID": "22.04"
+  },
+  "root_filesystem": "/dev/vda1 ext4",
+  "schema_version": "assa.environment_fingerprint.v1",
+  "tool_versions": {
+    "bpftool": "bpftool v7.4.0",
+    "bpftrace": "bpftrace v0.14.0",
+    "clang": "Ubuntu clang version 14.0.0-1ubuntu1.1",
+    "libbpf_runtime": "1:0.5.0-1ubuntu22.04.1",
+    "nft": "nftables v1.0.2 (Lester Gooch)",
+    "python": "3.10.12"
+  },
+  "uname": "Linux assa-stageg 6.8.0-136-generic #136~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  3 16:29:11 UTC  x86_64 x86_64"
+}

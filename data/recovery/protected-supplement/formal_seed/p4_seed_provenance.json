@@ -1,0 +1,69 @@
+{
+  "credential_note": "credentials/.env is required by recovery healthcheck; if absent in the source run, a synthetic placeholder is explicitly labeled and not treated as post-session evidence.",
+  "mappings": [
+    {
+      "bytes": 1763,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/workspace/SOUL.md",
+      "sha256": "f479e698094b74f2aa272fa33d125a31873d988feba7b25de1a5705aab3bbd72",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/SOUL.md"
+    },
+    {
+      "bytes": 6526,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/workspace/AGENTS.md",
+      "sha256": "f060266e40e429a2ba4add31f2c598349ae83f738ea9c688cc04b9e661f91b3f",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/AGENTS.md"
+    },
+    {
+      "bytes": 568,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/workspace/IDENTITY.md",
+      "sha256": "ec06a75e2ed4ea9d1caa542c21c0ca63b8c9dcae840521ddc015b27386b819b1",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/IDENTITY.md"
+    },
+    {
+      "bytes": 705,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/workspace/USER.md",
+      "sha256": "13abad8d9f847f3f1832aa519b193162106e35e7657d0108d2e3dc68d81f665e",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/USER.md"
+    },
+    {
+      "bytes": 504,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/workspace/MEMORY.md",
+      "sha256": "aa8735c690bee85e58bf1c8f353f9e4c36927d33b69809567911cf92016611f7",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/MEMORY.md"
+    },
+    {
+      "bytes": 1093,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/workspace/TOOLS.md",
+      "sha256": "694daf862c3f74e2eceb65e4618ce5f367b3b766f3f834af1af6fa9b6061cf3e",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/TOOLS.md"
+    },
+    {
+      "bytes": 1630,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/workspace/HEARTBEAT.md",
+      "sha256": "b642659628da88e5d93c60cd4146aeda43c8f7d1d2b0c1157e54b0b4fbfd683d",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/HEARTBEAT.md"
+    },
+    {
+      "bytes": 562,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/openclaw.json",
+      "sha256": "b597ce6a95ac622ba1d3b9a114030d1a4f6e34e2bbd6529ee76ce90b97b831a9",
+      "source": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean/workspace/openclaw.json"
+    },
+    {
+      "bytes": 27,
+      "destination": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed/credentials/.env",
+      "sha256": "e150f4b609caba685b96b40bbe6b536ca2d64e099943daa88ed3acc3255c6287",
+      "source": null,
+      "source_kind": "scaffold_placeholder_created_for_healthcheck"
+    }
+  ],
+  "post_session_requirements": {
+    "daily_memory_files": [],
+    "memory_bytes": 504,
+    "memory_not_empty_template": true,
+    "source_workspace_exists": true
+  },
+  "schema_version": "assa.p4_recovery.formal_seed.v1",
+  "seed_dir": "<GUEST_HOME>/assa-bench/experiments/results/p4_recovery_recovery8_protected_20260822_v1/formal_seed",
+  "source_run": "<GUEST_HOME>/assa-bench/experiments/results/dataset_v1/batch1_granularity_20260807_v2/clean24/batches/repeat_000/runs/G024_W4_C3_V6_W3_C2_V3_W3_C5_V6__clean"
+}

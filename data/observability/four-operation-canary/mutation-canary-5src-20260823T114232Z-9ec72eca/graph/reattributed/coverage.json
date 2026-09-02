@@ -1,0 +1,69 @@
+{
+  "authoritative_for_acceptance": false,
+  "coverage_view": "raw_all_evidence_rows",
+  "fd_path_operand_denominator": 19,
+  "fd_path_resolution_methods": {
+    "ebpf_open_exit_audit_identity": 18,
+    "unresolved": 1
+  },
+  "fd_path_resolved_numerator": 18,
+  "fd_path_resolved_rate": 0.9473684210526315,
+  "fd_path_resolved_threshold": 0.95,
+  "fd_path_unresolved_operands": [
+    {
+      "event_id": "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257895",
+      "fd": 4,
+      "operand": "input_fd",
+      "resolution_method": "unresolved",
+      "resolved": false,
+      "syscall": "write"
+    }
+  ],
+  "graph_edges": 25,
+  "graph_nodes": 15,
+  "malformed_lines": 0,
+  "path_applicable": 35,
+  "path_complete": 33,
+  "path_complete_fraction": 0.9428571428571428,
+  "process_identity_complete": 0,
+  "process_identity_complete_fraction": 0.0,
+  "provenance_evaluable": false,
+  "provenance_schema": {
+    "edge_schema_version": "assa.provenance_edge.v3",
+    "node_schema_version": "assa.provenance_node.v2",
+    "supersedes_artifact": "provenance.supersedes.json",
+    "supersedes_edge_count": 1,
+    "supersedes_enabled": true,
+    "supersedes_schema_version": "assa.provenance_supersedes.v1",
+    "supersedes_status_counts": {
+      "resolved_rename_overwrite": 1,
+      "unlink_without_subsequent_exact_path_recreate": 1
+    },
+    "supersedes_supported": true
+  },
+  "provenance_status": "data_insufficient",
+  "reconciliation": {
+    "effective_artifact": "resolution_spine_effective/coverage.json",
+    "excluded_pure_audit_read_duplicates": 16,
+    "reason": "pure-audit read duplicates dilute raw graph coverage",
+    "writes_excluded": 0
+  },
+  "schema_version": "assa.provenance_coverage.v3",
+  "sequence_eligible_events": 0,
+  "socket_applicable": 2,
+  "socket_complete": 0,
+  "socket_complete_fraction": 0.0,
+  "status": "data_insufficient",
+  "syscall_events": 36,
+  "syscalls_by_name": {
+    "fchmodat": 1,
+    "openat": 12,
+    "read": 16,
+    "renameat2": 1,
+    "sendto": 2,
+    "unlinkat": 1,
+    "write": 3
+  },
+  "unknown_node_fraction": 0.2,
+  "unknown_nodes": 3
+}

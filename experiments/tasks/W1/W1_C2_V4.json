@@ -1,0 +1,36 @@
+{
+  "task_id": "W1_C2_V4",
+  "profile": "W1",
+  "cluster": 2,
+  "variant": 4,
+  "cluster_name": "data-structures",
+  "dataset_source": {
+    "name": "aider-polyglot",
+    "license": "Exercism Open Source (content © Exercism)",
+    "citation": "Aider-AI/polyglot-benchmark@7e0611e7",
+    "upstream_id": "grade-school",
+    "url": "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f/python/exercises/practice/grade-school"
+  },
+  "seed_files": [
+    {
+      "path": "grade_school.py",
+      "content_ref": "seeds/W1_C2_V4/grade_school.py"
+    },
+    {
+      "path": "grade_school_test.py",
+      "content_ref": "seeds/W1_C2_V4/grade_school_test.py"
+    }
+  ],
+  "prompt": "Your task is to implement the exercise `grade-school`. Open `grade_school.py` to see the function stubs you need to fill in. The tests are in `grade_school_test.py`. When you're done, run `python -m unittest grade_school_test` in the workspace. The task is complete when all tests pass (exit code 0). Do NOT modify `grade_school_test.py`.",
+  "success_criterion": {
+    "kind": "unittest_exit_zero",
+    "command": "python -m unittest grade_school_test",
+    "timeout_sec": 60
+  },
+  "max_turns": 48,
+  "max_total_tokens": 150000,
+  "meta": {
+    "exercise": "grade-school",
+    "aider_commit": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  }
+}

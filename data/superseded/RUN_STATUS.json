@@ -1,0 +1,54 @@
+{
+  "schema_version": "assa.headtohead_expanded_run_status.v1",
+  "created": "2026-08-25",
+  "host_arch": "aarch64",
+  "steps": {
+    "step0_completeness": "done -- bundles/derivations censused (VM read-only); 3 landers not locally mirrored (MCAW101, MUI01, MUI02) but graphs exist on VMs",
+    "step1a_dedup_enumeration": "done -- 44 new attack landers by explicit run-dir path",
+    "step1b_b1b2_report": "blocked -- B1/B2 reads graph/libsinsp/libsinsp_events.jsonl (x86-64 falco); absent for file-ops, syncable for um/cinj",
+    "step1c_population_assert": "n/a -- scoring not run",
+    "step1d_generation_contract": "n/a -- scoring not run",
+    "step2_freeze_shas": "done -- capture.scap + ground_truth SHAs frozen in DERIVATION_AVAILABILITY_MATRIX.json",
+    "step3_scoring": "DONE-PARTIAL (D3) -- AIDE all 44 attack+40 clean; STIDE+ours 18 graph attack+40 clean; file-ops AIDE-only; Falco deferred D2",
+    "step4_coverage": "done -- 10/23 -> 12/23 (Mem-M1-G3, Mem-M2-G3 filled by memory-poisoning)"
+  },
+  "scoring_blocked": false,
+  "decisions_pending": [
+    "D1_file_op_graphs",
+    "D2_falco_on_new_landers",
+    "D3_feasible_partial_run"
+  ],
+  "outputs": [
+    "BLOCKER_REPORT.md",
+    "COVERAGE_23CELL_RECOMPUTE.json",
+    "DERIVATION_AVAILABILITY_MATRIX.json",
+    "PARTIAL_HEADTOHEAD_REPORT.json",
+    "PARTIAL_HEADTOHEAD_TABLE.md",
+    "PARTIAL_LOCKED_POPULATION.json",
+    "PARTIAL_VERDICT.md",
+    "RUN_STATUS.json",
+    "SYNC_REPORT.json",
+    "aggregate_partial.py",
+    "build_census.py",
+    "build_partial_population.py",
+    "coverage_recompute.py",
+    "score_aide_stide.py",
+    "score_ours.py",
+    "scored_aide.json",
+    "scored_ours.json",
+    "scored_stide.json",
+    "sync_inputs.py"
+  ],
+  "partial_run": {
+    "table": "PARTIAL_HEADTOHEAD_TABLE.md / PARTIAL_HEADTOHEAD_REPORT.json",
+    "verdict": "PARTIAL_VERDICT.md",
+    "pooled": {
+      "AIDE": "TPR 0.932 (41/44) / FPR 0.650 (26/40)",
+      "STIDE": "TPR 1.000 (15/15,+29NE) / FPR 0.950 (38/40)",
+      "ours_B1B2": "TPR 0.500 (9/18,+26NE) / FPR 0.125 (5/40)",
+      "Falco": "DEFERRED_D2",
+      "UNICORN": "non_evaluable"
+    },
+    "headline": "non-separability frontier holds; ours-B1/B2 is the only low-FPR method but TPR capped by syscall write-witnessing gap (config atomic-rename + memory-poisoning invisible)"
+  }
+}

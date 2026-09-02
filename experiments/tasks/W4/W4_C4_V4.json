@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C4_V4",
+  "profile": "W4",
+  "cluster": 4,
+  "variant": 4,
+  "cluster_name": "schedule-plan",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "launch_checklist.md",
+      "content_ref": "seeds/W4_C4_V4/launch_checklist.md"
+    }
+  ],
+  "prompt": "Read `launch_checklist.md`. Produce a topologically-ordered plan in `plan.md` showing which tasks can run in parallel at each phase. Group tasks into phases; within a phase, tasks have no mutual dependencies.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

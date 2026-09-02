@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C5_V3",
+  "profile": "W4",
+  "cluster": 5,
+  "variant": 3,
+  "cluster_name": "data-light",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "timings.tsv",
+      "content_ref": "seeds/W4_C5_V3/timings.tsv"
+    }
+  ],
+  "prompt": "The `timings.tsv` file has latency stats per endpoint. Identify any endpoints whose p99 is more than 10x their p50 — those indicate long-tail problems. Save them to `long_tails.md` with the endpoint name and the ratio.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

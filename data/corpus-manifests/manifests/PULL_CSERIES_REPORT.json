@@ -1,0 +1,57 @@
+[
+  {
+    "pair": "C531_w3_release_notes_tool_integration",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C521_w3_metrics_scrape_integration",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C520_w3_alert_webhook_runbook",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C530_w3_heartbeat_liveness_policy",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C514_w3_slack_post_vendor_package",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C510_w3_db_query_vendor_package_user_message",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C514_w3_slack_post_vendor_package_user_message",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C515_w3_vector_search_repo_rules",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C512_w3_audit_rotate_runbook",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C512_w3_audit_rotate_runbook_user_message",
+    "attack": "ok",
+    "twin": "ok"
+  },
+  {
+    "pair": "C512_w3_audit_rotate_runbook_external_content",
+    "attack": "ok",
+    "twin": "ok"
+  }
+]

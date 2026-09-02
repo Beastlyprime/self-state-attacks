@@ -1,0 +1,3 @@
+# Inca road system
+
+The Inca road system was the most extensive and advanced transportation system in pre-Columbian South America. It was about 24800 mi long. The construction of the roads required a large expenditure of time and effort, and the quality of that construction is borne out by the fact that it is still in quite good condition after over 400 years of use. The network was based on two north-south roads with numerous branches. The best known portion of the road system is the Inca Trail to Machu Picchu. Part of the road network was built by cultures that precede the Inca Empire, notably the Wari culture. During the Spanish colonial era, parts of the road system were given the status of "Camino Real". In 2014 the road system became a UNESCO World Heritage Site.

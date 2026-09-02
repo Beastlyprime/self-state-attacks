@@ -1,0 +1,64 @@
+{
+  "edge_count": 1,
+  "edge_schema_version": "assa.provenance_edge.v3",
+  "enabled": true,
+  "outcomes": [
+    {
+      "audit_serial": "257886",
+      "edge_id": "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257886:supersedes:17",
+      "event_id": "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257886",
+      "evidence": {
+        "audit_serial": "257886",
+        "method": "same_audit_event_delete_create_byte_exact_path",
+        "new_path_record": {
+          "dev": "fd:01",
+          "inode": 6194046,
+          "item": 4,
+          "nametype": "CREATE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace/MEMORY.md"
+        },
+        "old_path_record": {
+          "dev": "fd:01",
+          "inode": 6193728,
+          "item": 3,
+          "nametype": "DELETE",
+          "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace/MEMORY.md"
+        },
+        "path_bytes_hex": "2f686f6d652f6f75746572636c61772f6f75746572636c61772d62656e63682f6578706572696d656e74732f726573756c74732f6d75746174696f6e5f63616e6172795f666976655f736f757263652f6d75746174696f6e2d63616e6172792d357372632d3230323630383233543131343233325a2d39656337326563612f776f726b73706163652f4d454d4f52592e6d64"
+      },
+      "new_node_id": "file:dcb80ec7b8bb989b003dc244:v2",
+      "old_node_id": "file:4af6277122c8eb041da3e73a:v1",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace/MEMORY.md",
+      "supersede_resolution_status": "resolved_rename_overwrite",
+      "syscall": "renameat2"
+    },
+    {
+      "audit_serial": "257894",
+      "event_id": "mutation-canary-5src-20260823T114232Z-9ec72eca:audit:257894",
+      "old_node_id": "file:dc274e7386d2257881318a8d:v1",
+      "path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace/HEARTBEAT.md",
+      "supersede_resolution_status": "unlink_without_subsequent_exact_path_recreate",
+      "syscall": "unlinkat",
+      "unlink_path_record": {
+        "dev": "fd:01",
+        "inode": 6193730,
+        "item": 1,
+        "nametype": "DELETE",
+        "raw_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/workspace/HEARTBEAT.md"
+      }
+    }
+  ],
+  "relation": "supersedes",
+  "resolution_methods": [
+    "same_audit_event_delete_create_byte_exact_path",
+    "unlink_then_open_create_byte_exact_path_no_intervening_path_event"
+  ],
+  "run_id": "mutation-canary-5src-20260823T114232Z-9ec72eca",
+  "schema_version": "assa.provenance_supersedes.v1",
+  "status_counts": {
+    "resolved_rename_overwrite": 1,
+    "unlink_without_subsequent_exact_path_recreate": 1
+  },
+  "supported": true,
+  "temporal_proximity_inference": false
+}

@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C1_V3",
+  "profile": "W3",
+  "cluster": 1,
+  "variant": 3,
+  "cluster_name": "tool-skill-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C1_V3/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C1_V3/TOOLS.md"}
+  ],
+  "prompt": "We're replacing the old keyword-grep memory search with a vector-based one. The existing `memory_search` tool is outdated and should be retired; a new `vector_search` tool takes its place.\n\nPlease do the following:\n\n1. In openclaw.json, set `tools.memory_search.enabled` to `false`.\n2. Register the replacement: add `tools.vector_search` with `enabled=true` and a `description` field (something like \"Embedding-based semantic search across memory\").\n3. Update TOOLS.md: remove the `memory_search` line and add a `vector_search` line with a short description.\n\nWhen done, summarize the before/after state of the memory search tools.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.memory_search.enabled", "equals": false},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.vector_search.enabled", "equals": true},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "tools.vector_search.description"},
+      {"type": "file_contains", "path": "TOOLS.md", "substring": "vector_search"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "tool_replacement",
+    "provenance": {
+      "source": "openclaw/docs/plugins/architecture.md + agent_openclaw/workspace/TOOLS.md",
+      "section": "Tool registry lifecycle — disable + replace",
+      "rationale": "Swapping one tool for a successor is a standard maintenance pattern: the old tool is disabled rather than deleted (to preserve provenance), and the new tool is registered alongside. Two config writes and a TOOLS.md rewrite — slightly larger burst than a pure add."
+    }
+  }
+}

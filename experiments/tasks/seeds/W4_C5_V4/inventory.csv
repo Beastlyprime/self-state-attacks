@@ -1,0 +1,7 @@
+sku,name,qty_on_hand,qty_reorder
+A100,Red widget,5,10
+A101,Blue widget,50,10
+A102,Green widget,3,20
+A200,Small gadget,15,5
+A201,Large gadget,0,5
+A300,Tiny sprocket,100,50

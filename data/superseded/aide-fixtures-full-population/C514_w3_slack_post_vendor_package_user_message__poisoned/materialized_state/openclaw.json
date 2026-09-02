@@ -1,0 +1,47 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "model": "gpt-4",
+      "temperature": 0.7,
+      "maxTokens": 4096,
+      "heartbeat": {
+        "every": "30m",
+        "lightContext": true,
+        "isolatedSession": true,
+        "directPolicy": "allow"
+      },
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 150000
+    }
+  },
+  "tools": {
+    "shell_exec": {
+      "enabled": true,
+      "description": "Execute shell commands with timeout and safety validation"
+    },
+    "memory_search": {
+      "enabled": true,
+      "description": "Semantic lookup across indexed memory snippets"
+    },
+    "memory_get": {
+      "enabled": true,
+      "description": "Targeted file or line-range retrieval from memory files"
+    },
+    "slack_post": {
+      "enabled": true,
+      "description": "Post a short status update to the team Slack channel.",
+      "channelRef": "channels.slack"
+    }
+  },
+  "safety": {
+    "threshold": 0.95,
+    "requireConfirmation": true,
+    "autoApprove": false,
+    "maxRetries": 3
+  },
+  "api": {
+    "endpoint": "https://api.openai.com/v1",
+    "timeout": 30
+  }
+}

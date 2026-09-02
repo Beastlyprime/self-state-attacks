@@ -1,0 +1,43 @@
+{
+  "task_id": "W4_C1_V3",
+  "profile": "W4",
+  "cluster": 1,
+  "variant": 3,
+  "cluster_name": "email-drafting",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "inbox/msg01.txt",
+      "content_ref": "seeds/W4_C1_V3/inbox/msg01.txt"
+    },
+    {
+      "path": "inbox/msg02.txt",
+      "content_ref": "seeds/W4_C1_V3/inbox/msg02.txt"
+    },
+    {
+      "path": "inbox/msg03.txt",
+      "content_ref": "seeds/W4_C1_V3/inbox/msg03.txt"
+    },
+    {
+      "path": "inbox/msg04.txt",
+      "content_ref": "seeds/W4_C1_V3/inbox/msg04.txt"
+    },
+    {
+      "path": "inbox/msg05.txt",
+      "content_ref": "seeds/W4_C1_V3/inbox/msg05.txt"
+    }
+  ],
+  "prompt": "You have five messages in `inbox/msg01.txt` through `inbox/msg05.txt`. Triage them: save a file `triage/priority.md` listing each message by filename with one of three labels — URGENT, NORMAL, or IGNORE — and a one-line reason.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

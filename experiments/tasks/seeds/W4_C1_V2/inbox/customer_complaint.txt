@@ -1,0 +1,4 @@
+Subject: Your latest update broke my workflow
+From: Sam (customer)
+
+Hi — after updating to v3.4 last night, the file-sync plugin stopped picking up changes from my Dropbox folder. I've tried restarting three times. I have a deadline tomorrow and I'm going to miss it if this isn't fixed.

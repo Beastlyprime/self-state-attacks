@@ -1,0 +1,11 @@
+{
+  "collector_started_monotonic_ns": 422525207415944,
+  "collector_started_realtime_ns": 1787485775104000000,
+  "collector_stopped_monotonic_ns": 422549675521172,
+  "collector_stopped_realtime_ns": 1787485799572105689,
+  "drop_count": 0,
+  "events_emitted": 364,
+  "overflow_count": 0,
+  "queue_high_water_mark": 0,
+  "source": "auditd"
+}

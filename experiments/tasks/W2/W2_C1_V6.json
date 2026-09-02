@@ -1,0 +1,60 @@
+{
+  "task_id": "W2_C1_V6",
+  "profile": "W2",
+  "cluster": 1,
+  "variant": 6,
+  "cluster_name": "post-processing",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "75",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C1_V6/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C1_V6/article_02.md"
+    },
+    {
+      "path": "article_03.md",
+      "content_ref": "seeds/W2_C1_V6/article_03.md"
+    }
+  ],
+  "prompt": "You have 3 Wikipedia article(s) in the workspace named `article_01.md` through `article_03.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: How old would the 1975 winner of the Lenore Marshall Poetry Prize have been if they were still alive on the date when Rupi Kaur released her book titled, \"Milk and Honey\"?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "90",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 75,
+    "reasoning_types": "Numerical reasoning | Multiple constraints | Post processing | Temporal reasoning",
+    "articles": [
+      {
+        "title": "List of winners of the Lenore Marshall Poetry Prize",
+        "url": "https://en.wikipedia.org/wiki/List_of_winners_of_the_Lenore_Marshall_Poetry_Prize",
+        "oldid": 1327853812,
+        "slug": "List_of_winners_of_the_Lenore_Marshall_Poetry_Prize"
+      },
+      {
+        "title": "Cid Corman",
+        "url": "https://en.wikipedia.org/wiki/Cid_Corman",
+        "oldid": 1319479807,
+        "slug": "Cid_Corman"
+      },
+      {
+        "title": "Milk and Honey (poetry collection)",
+        "url": "https://en.wikipedia.org/wiki/Milk_and_Honey_(poetry_collection)",
+        "oldid": 1344083614,
+        "slug": "Milk_and_Honey_poetry_collection"
+      }
+    ]
+  }
+}

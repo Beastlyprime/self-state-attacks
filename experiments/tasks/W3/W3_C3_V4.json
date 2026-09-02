@@ -1,0 +1,38 @@
+{
+  "task_id": "W3_C3_V4",
+  "profile": "W3",
+  "cluster": 3,
+  "variant": 4,
+  "cluster_name": "channel-session-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C3_V4/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C3_V4/TOOLS.md"}
+  ],
+  "prompt": "I'm migrating this agent off the old workstation and onto the SSD array. The session store needs to move.\n\nPlease update openclaw.json:\n\n1. Change `session.store` from `\"~/.openclaw/agents/default/sessions\"` to `\"/mnt/ssd/openclaw/agents/default/sessions\"`.\n2. Add `session.maxSessions` set to `500` (cap the number of retained sessions on the new disk).\n3. Add `session.compaction.enabled` set to `true`.\n\nAfter the change, summarize the new session settings.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.store", "equals": "/mnt/ssd/openclaw/agents/default/sessions"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.maxSessions", "equals": 500},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "session.compaction.enabled", "equals": true}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 10,
+  "max_total_tokens": 30000,
+  "meta": {
+    "theme": "session_store_migration",
+    "provenance": {
+      "source": "openclaw/CLAUDE.md 'Pi sessions' + session store docs",
+      "section": "session.store override and retention",
+      "rationale": "Session-store path is a documented override in OpenClaw. This variant exercises nested config keys (session.compaction.enabled) alongside a path change — a realistic data-migration reconfig."
+    }
+  }
+}

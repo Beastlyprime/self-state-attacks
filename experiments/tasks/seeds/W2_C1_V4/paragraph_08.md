@@ -1,0 +1,3 @@
+# WhatsNew Group (Orami)
+
+WhatsNew Group is a Thailand based e-commerce company that is parent to multiple e-commerce brands that include Petloft (pet care), Venbi (mom & baby), Sanoga (health), Lafema (beauty) and MOXY (women's fashion). The company leverages technology and the Internet to make home life and online shopping easier for people in Southeast Asia. Headquartered in Bangkok, WhatsNew Group sells both international and local brands under each e-commerce vertical. It is one of the portfolio companies of Ardent Capital, a venture capitalist based in Thailand. As of January 2016, the company merged with Bilna, Indonesia's e-commerce platform for mothers and announced a regional rebrand to the name Orami.

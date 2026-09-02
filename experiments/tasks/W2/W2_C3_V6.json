@@ -1,0 +1,50 @@
+{
+  "task_id": "W2_C3_V6",
+  "profile": "W2",
+  "cluster": 3,
+  "variant": 6,
+  "cluster_name": "numerical-reasoning",
+  "dataset_source": {
+    "name": "frames",
+    "license": "Apache-2.0",
+    "citation": "Krishna et al. 2024, \"Fact, Fetch, and Reason\"; FRAMES benchmark",
+    "upstream_id": "114",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark/resolve/main/test.tsv"
+  },
+  "seed_files": [
+    {
+      "path": "article_01.md",
+      "content_ref": "seeds/W2_C3_V6/article_01.md"
+    },
+    {
+      "path": "article_02.md",
+      "content_ref": "seeds/W2_C3_V6/article_02.md"
+    }
+  ],
+  "prompt": "You have 2 Wikipedia article(s) in the workspace named `article_01.md` through `article_02.md`. Each contains the lead section of one Wikipedia page. Read them and answer the following research question. The answer requires combining facts from multiple articles.\n\nQuestion: What painting was stolen from The Louvre exactly 56 years before the birth of activist and songwriter Serj Tankian?\n\nWhen you have your final answer, respond with ONLY the answer — no explanation, no preamble, no trailing punctuation. Answers are typically a short entity name, a number, a date, or a descriptive phrase.",
+  "success_criterion": {
+    "kind": "qa_answer_match",
+    "gold_answer": "The Mona Lisa",
+    "match_mode": "fuzzy"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 250000,
+  "meta": {
+    "frames_row_index": 114,
+    "reasoning_types": "Numerical reasoning | Temporal reasoning",
+    "articles": [
+      {
+        "title": "Mona Lisa",
+        "url": "https://en.wikipedia.org/wiki/Mona_Lisa#Refuge,_theft,_and_vandalism",
+        "oldid": 1350985293,
+        "slug": "Mona_Lisa"
+      },
+      {
+        "title": "Serj Tankian",
+        "url": "https://en.wikipedia.org/wiki/Serj_Tankian",
+        "oldid": 1350979837,
+        "slug": "Serj_Tankian"
+      }
+    ]
+  }
+}

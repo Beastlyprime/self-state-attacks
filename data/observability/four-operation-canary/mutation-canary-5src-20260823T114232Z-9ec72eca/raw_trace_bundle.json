@@ -1,0 +1,90 @@
+{
+  "fixture_http_access_log": null,
+  "negative_outcomes_retained": [],
+  "run_id": "mutation-canary-5src-20260823T114232Z-9ec72eca",
+  "run_time_anchor": {
+    "boot_id": "2062683d-f59b-4d64-b598-470428b33750",
+    "clocksource": "kvm-clock",
+    "estimated_boot_realtime_ns": 1787063249896581662,
+    "schema_version": "assa.run_time_anchor.v1",
+    "timestamp_boottime_ns": 422102122739351,
+    "timestamp_monotonic_ns": 422102122738309,
+    "timestamp_realtime_ns": 1787485352019321013
+  },
+  "schema_version": "assa.four_source_bundle.v1",
+  "sources": {
+    "auditd": {
+      "events_validated": 4,
+      "health": {
+        "collector_started_monotonic_ns": 422103780418274,
+        "collector_started_realtime_ns": 1787485353676999936,
+        "collector_stopped_monotonic_ns": 422127845925021,
+        "collector_stopped_realtime_ns": 1787485377742509659,
+        "drop_count": 0,
+        "events_emitted": 148,
+        "overflow_count": 0,
+        "queue_high_water_mark": 0,
+        "source": "auditd"
+      },
+      "normalized_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/normalized/auditd.jsonl",
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/auditd.jsonl",
+      "raw_stream_retained": true,
+      "version": "auditctl version 3.0.7"
+    },
+    "ebpf": {
+      "events_validated": 4,
+      "health": {
+        "capture_failure_count": 0,
+        "collector_started_monotonic_ns": 422102521280442,
+        "collector_started_realtime_ns": 1787485352417865801,
+        "collector_stopped_monotonic_ns": 422105266105514,
+        "collector_stopped_realtime_ns": 1787485355162690922,
+        "drop_count": 0,
+        "events_emitted": 22,
+        "overflow_count": 0,
+        "queue_high_water_mark": 3,
+        "source": "ebpf"
+      },
+      "normalized_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/normalized/ebpf.jsonl",
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/ebpf.jsonl",
+      "raw_stream_retained": true,
+      "version": "assa-libbpf-smoke-v1 object=789d0f8ba36ea40c82ba24ff484e6ec226df547fc27d23c3b937fe7dd65cb47e"
+    },
+    "fanotify": {
+      "events_validated": 4,
+      "health": {
+        "collector_started_monotonic_ns": 422102488180902,
+        "collector_started_realtime_ns": 1787485352384753607,
+        "collector_stopped_monotonic_ns": 422105633914486,
+        "collector_stopped_realtime_ns": 1787485355530498433,
+        "drop_count": 0,
+        "events_emitted": 6,
+        "overflow_count": 0,
+        "queue_high_water_mark": 1,
+        "source": "fanotify"
+      },
+      "normalized_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/normalized/fanotify.jsonl",
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/fanotify.jsonl",
+      "raw_stream_retained": true,
+      "version": "fanotify-metadata-v3/6.8.0-136-generic"
+    },
+    "inotify": {
+      "events_validated": 4,
+      "health": {
+        "collector_started_monotonic_ns": 422102488383253,
+        "collector_started_realtime_ns": 1787485352384959043,
+        "collector_stopped_monotonic_ns": 422105632976156,
+        "collector_stopped_realtime_ns": 1787485355529559901,
+        "drop_count": 0,
+        "events_emitted": 41,
+        "overflow_count": 0,
+        "queue_high_water_mark": 4,
+        "source": "inotify"
+      },
+      "normalized_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/normalized/inotify.jsonl",
+      "raw_stream_path": "<GUEST_HOME>/assa-bench/experiments/results/mutation_canary_five_source/mutation-canary-5src-20260823T114232Z-9ec72eca/raw/inotify.jsonl",
+      "raw_stream_retained": true,
+      "version": "linux-inotify-uapi/6.8.0-136-generic"
+    }
+  }
+}

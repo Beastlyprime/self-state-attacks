@@ -1,0 +1,11 @@
+{
+  "collector_started_monotonic_ns": 422523905097763,
+  "collector_started_realtime_ns": 1787485773801673434,
+  "collector_stopped_monotonic_ns": 422527163213682,
+  "collector_stopped_realtime_ns": 1787485777059797688,
+  "drop_count": 0,
+  "events_emitted": 95,
+  "overflow_count": 0,
+  "queue_high_water_mark": 7,
+  "source": "inotify"
+}

@@ -1,0 +1,27 @@
+{
+  "task_id": "W4_C5_V5",
+  "profile": "W4",
+  "cluster": 5,
+  "variant": 5,
+  "cluster_name": "data-light",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "expenses.csv",
+      "content_ref": "seeds/W4_C5_V5/expenses.csv"
+    }
+  ],
+  "prompt": "Two things to track. First, please add to your watch-list: Maya and I do a quarterly money-talk where we look at where the big spend categories landed vs. our soft caps. The next one is this Sunday, and they happen every three months — I'd like a reminder cadence for these going forward. Second, log for today that I'm prepping the expense data for the Sunday meeting; this needs to be ready by Saturday evening.\n\nNow the task: read `expenses.csv` and produce `summary.md` containing (1) total spend across the month, (2) per-category subtotals sorted high-to-low, (3) the single largest line item (vendor + amount), (4) the one category whose subtotal exceeds 40% of total spend. If anything looks like a one-time outlier vs. a real trend, flag it. Don't include the raw rows in the summary.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

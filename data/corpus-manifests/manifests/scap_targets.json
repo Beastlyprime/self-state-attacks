@@ -1,0 +1,1362 @@
+[
+ {
+  "role": "attack",
+  "run_id": "MSI01_w1_shell_approval_gate__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi01_v2/runs/MSI01_w1_shell_approval_gate__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MSI01_w1_shell_approval_gate__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MSI01_w1_shell_approval_gate__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi01_v2/runs/MSI01_w1_shell_approval_gate__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MSI01_w1_shell_approval_gate__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MSI02_w1_precommit_verification_disable__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi02/runs/MSI02_w1_precommit_verification_disable__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MSI02_w1_precommit_verification_disable__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MSI02_w1_precommit_verification_disable__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi02/runs/MSI02_w1_precommit_verification_disable__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MSI02_w1_precommit_verification_disable__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MSI03_w2_private_memory_prohibition_negation__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi03/runs/MSI03_w2_private_memory_prohibition_negation__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MSI03_w2_private_memory_prohibition_negation__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MSI03_w2_private_memory_prohibition_negation__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi03/runs/MSI03_w2_private_memory_prohibition_negation__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MSI03_w2_private_memory_prohibition_negation__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MSI04_w2_citation_verification_disable__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi04/runs/MSI04_w2_citation_verification_disable__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MSI04_w2_citation_verification_disable__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MSI04_w2_citation_verification_disable__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi04/runs/MSI04_w2_citation_verification_disable__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MSI04_w2_citation_verification_disable__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MSI05_w4_memory_scope_flip__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi05/runs/MSI05_w4_memory_scope_flip__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MSI05_w4_memory_scope_flip__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MSI05_w4_memory_scope_flip__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi05/runs/MSI05_w4_memory_scope_flip__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MSI05_w4_memory_scope_flip__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MSI06_w4_external_action_default_flip__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi06/runs/MSI06_w4_external_action_default_flip__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MSI06_w4_external_action_default_flip__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MSI06_w4_external_action_default_flip__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch01_msi06/runs/MSI06_w4_external_action_default_flip__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MSI06_w4_external_action_default_flip__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCH01_w1_memory_lockout__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch01/runs/MCH01_w1_memory_lockout__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCH01_w1_memory_lockout__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCH01_w1_memory_lockout__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch01/runs/MCH01_w1_memory_lockout__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCH01_w1_memory_lockout__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCH02_w1_rules_worldwrite__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch02/runs/MCH02_w1_rules_worldwrite__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCH02_w1_rules_worldwrite__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCH02_w1_rules_worldwrite__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch02/runs/MCH02_w1_rules_worldwrite__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCH02_w1_rules_worldwrite__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCH03_w2_memory_lockout__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch03/runs/MCH03_w2_memory_lockout__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCH03_w2_memory_lockout__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCH03_w2_memory_lockout__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch03/runs/MCH03_w2_memory_lockout__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCH03_w2_memory_lockout__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCH04_w2_rules_worldwrite__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch04/runs/MCH04_w2_rules_worldwrite__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCH04_w2_rules_worldwrite__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCH04_w2_rules_worldwrite__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch04/runs/MCH04_w2_rules_worldwrite__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCH04_w2_rules_worldwrite__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCH05_w4_memory_lockout__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch05/runs/MCH05_w4_memory_lockout__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCH05_w4_memory_lockout__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCH05_w4_memory_lockout__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch05/runs/MCH05_w4_memory_lockout__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCH05_w4_memory_lockout__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCH06_w4_rules_worldwrite__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch06/runs/MCH06_w4_rules_worldwrite__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCH06_w4_rules_worldwrite__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCH06_w4_rules_worldwrite__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch02_mch06/runs/MCH06_w4_rules_worldwrite__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCH06_w4_rules_worldwrite__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MTR01_w3_heartbeat_wipe__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr01/runs/MTR01_w3_heartbeat_wipe__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MTR01_w3_heartbeat_wipe__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MTR01_w3_heartbeat_wipe__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr01/runs/MTR01_w3_heartbeat_wipe__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MTR01_w3_heartbeat_wipe__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MTR02_w1_memory_wipe__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr02/runs/MTR02_w1_memory_wipe__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MTR02_w1_memory_wipe__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MTR02_w1_memory_wipe__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr02/runs/MTR02_w1_memory_wipe__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MTR02_w1_memory_wipe__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MTR03_w1_tools_wipe__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr03/runs/MTR03_w1_tools_wipe__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MTR03_w1_tools_wipe__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MTR03_w1_tools_wipe__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr03/runs/MTR03_w1_tools_wipe__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MTR03_w1_tools_wipe__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MTR04_w2_memory_wipe__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr04/runs/MTR04_w2_memory_wipe__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MTR04_w2_memory_wipe__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MTR04_w2_memory_wipe__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr04/runs/MTR04_w2_memory_wipe__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MTR04_w2_memory_wipe__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MTR05_w2_tools_wipe__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr05/runs/MTR05_w2_tools_wipe__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MTR05_w2_tools_wipe__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MTR05_w2_tools_wipe__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr05/runs/MTR05_w2_tools_wipe__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MTR05_w2_tools_wipe__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MTR06_w4_memory_wipe__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr06/runs/MTR06_w4_memory_wipe__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MTR06_w4_memory_wipe__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MTR06_w4_memory_wipe__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr06/runs/MTR06_w4_memory_wipe__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MTR06_w4_memory_wipe__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MTR07_w4_heartbeat_wipe__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr07/runs/MTR07_w4_heartbeat_wipe__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MTR07_w4_heartbeat_wipe__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MTR07_w4_heartbeat_wipe__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mtr07/runs/MTR07_w4_heartbeat_wipe__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MTR07_w4_heartbeat_wipe__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUL01_w3_tools_unlink__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul01_v2/runs/MUL01_w3_tools_unlink__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUL01_w3_tools_unlink__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUL01_w3_tools_unlink__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul01_v2/runs/MUL01_w3_tools_unlink__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUL01_w3_tools_unlink__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUL02_w1_agents_unlink__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul02/runs/MUL02_w1_agents_unlink__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUL02_w1_agents_unlink__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUL02_w1_agents_unlink__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul02/runs/MUL02_w1_agents_unlink__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUL02_w1_agents_unlink__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUL03_w1_tools_unlink__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul03/runs/MUL03_w1_tools_unlink__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUL03_w1_tools_unlink__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUL03_w1_tools_unlink__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul03/runs/MUL03_w1_tools_unlink__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUL03_w1_tools_unlink__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUL04_w2_agents_unlink__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul04/runs/MUL04_w2_agents_unlink__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUL04_w2_agents_unlink__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUL04_w2_agents_unlink__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul04/runs/MUL04_w2_agents_unlink__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUL04_w2_agents_unlink__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUL05_w2_memory_unlink__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul05/runs/MUL05_w2_memory_unlink__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUL05_w2_memory_unlink__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUL05_w2_memory_unlink__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul05/runs/MUL05_w2_memory_unlink__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUL05_w2_memory_unlink__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUL06_w4_agents_unlink__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul06/runs/MUL06_w4_agents_unlink__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUL06_w4_agents_unlink__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUL06_w4_agents_unlink__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul06/runs/MUL06_w4_agents_unlink__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUL06_w4_agents_unlink__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUL07_w4_user_unlink__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul07/runs/MUL07_w4_user_unlink__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUL07_w4_user_unlink__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUL07_w4_user_unlink__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260823/batch03_mul07/runs/MUL07_w4_user_unlink__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUL07_w4_user_unlink__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUI01_w1_tools_cred_relay_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260824/batch04_um_profile_spread_w1_limit1/runs/MUI01_w1_tools_cred_relay_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUI01_w1_tools_cred_relay_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUI01_w1_tools_cred_relay_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260824/batch04_um_profile_spread_w1_limit1/runs/MUI01_w1_tools_cred_relay_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUI01_w1_tools_cred_relay_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUC01_w1_provider_relay_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260824/batch04_w1_muc01/runs/MUC01_w1_provider_relay_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUC01_w1_provider_relay_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUC01_w1_provider_relay_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260824/batch04_w1_muc01/runs/MUC01_w1_provider_relay_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUC01_w1_provider_relay_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUI02_w1_agents_post_mirror_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260824/batch04_w1_mui02/runs/MUI02_w1_agents_post_mirror_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUI02_w1_agents_post_mirror_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUI02_w1_agents_post_mirror_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260824/batch04_w1_mui02/runs/MUI02_w1_agents_post_mirror_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUI02_w1_agents_post_mirror_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUC02_w1_schedule_mail_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC02_w1_schedule_mail_um/runs/MUC02_w1_schedule_mail_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUC02_w1_schedule_mail_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUC02_w1_schedule_mail_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC02_w1_schedule_mail_um/runs/MUC02_w1_schedule_mail_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUC02_w1_schedule_mail_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUC03_w2_provider_relay_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC03_w2_provider_relay_um/runs/MUC03_w2_provider_relay_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUC03_w2_provider_relay_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUC03_w2_provider_relay_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC03_w2_provider_relay_um/runs/MUC03_w2_provider_relay_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUC03_w2_provider_relay_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUC04_w2_schedule_mail_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC04_w2_schedule_mail_um/runs/MUC04_w2_schedule_mail_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUC04_w2_schedule_mail_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUC04_w2_schedule_mail_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC04_w2_schedule_mail_um/runs/MUC04_w2_schedule_mail_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUC04_w2_schedule_mail_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUC05_w4_provider_relay_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC05_w4_provider_relay_um/runs/MUC05_w4_provider_relay_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUC05_w4_provider_relay_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUC05_w4_provider_relay_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC05_w4_provider_relay_um/runs/MUC05_w4_provider_relay_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUC05_w4_provider_relay_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUC06_w4_schedule_mail_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC06_w4_schedule_mail_um/runs/MUC06_w4_schedule_mail_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUC06_w4_schedule_mail_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUC06_w4_schedule_mail_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUC06_w4_schedule_mail_um/runs/MUC06_w4_schedule_mail_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUC06_w4_schedule_mail_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUI03_w2_tools_cred_relay_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI03_w2_tools_cred_relay_um/runs/MUI03_w2_tools_cred_relay_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUI03_w2_tools_cred_relay_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUI03_w2_tools_cred_relay_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI03_w2_tools_cred_relay_um/runs/MUI03_w2_tools_cred_relay_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUI03_w2_tools_cred_relay_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUI04_w2_agents_post_mirror_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI04_w2_agents_post_mirror_um/runs/MUI04_w2_agents_post_mirror_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUI04_w2_agents_post_mirror_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUI04_w2_agents_post_mirror_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI04_w2_agents_post_mirror_um/runs/MUI04_w2_agents_post_mirror_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUI04_w2_agents_post_mirror_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUI05_w4_tools_cred_relay_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI05_w4_tools_cred_relay_um/runs/MUI05_w4_tools_cred_relay_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUI05_w4_tools_cred_relay_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUI05_w4_tools_cred_relay_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI05_w4_tools_cred_relay_um/runs/MUI05_w4_tools_cred_relay_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUI05_w4_tools_cred_relay_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MUI06_w4_agents_post_mirror_um__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI06_w4_agents_post_mirror_um/runs/MUI06_w4_agents_post_mirror_um__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MUI06_w4_agents_post_mirror_um__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MUI06_w4_agents_post_mirror_um__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane1_20260825/MUI06_w4_agents_post_mirror_um/runs/MUI06_w4_agents_post_mirror_um__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MUI06_w4_agents_post_mirror_um__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCAW202_w2_citation_tool_redirect__poisoned",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260825/MCAW202_w2_citation_tool_redirect/runs/MCAW202_w2_citation_tool_redirect__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCAW202_w2_citation_tool_redirect__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCAW202_w2_citation_tool_redirect__clean",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260825/MCAW202_w2_citation_tool_redirect/runs/MCAW202_w2_citation_tool_redirect__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCAW202_w2_citation_tool_redirect__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCAW102_w1_automerge_instruction_backdoor__poisoned",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260825/MCAW102_w1_automerge_instruction_backdoor/runs/MCAW102_w1_automerge_instruction_backdoor__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCAW102_w1_automerge_instruction_backdoor__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCAW102_w1_automerge_instruction_backdoor__clean",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260825/MCAW102_w1_automerge_instruction_backdoor/runs/MCAW102_w1_automerge_instruction_backdoor__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCAW102_w1_automerge_instruction_backdoor__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCAW401_w4_engagement_persona_drift__poisoned",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260825/MCAW401_w4_engagement_persona_drift/runs/MCAW401_w4_engagement_persona_drift__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCAW401_w4_engagement_persona_drift__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCAW401_w4_engagement_persona_drift__clean",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260825/MCAW401_w4_engagement_persona_drift/runs/MCAW401_w4_engagement_persona_drift__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCAW401_w4_engagement_persona_drift__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCAW402_w4_blanket_approval_false_memory__poisoned",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260824/MCAW402_w4_blanket_approval_false_memory/runs/MCAW402_w4_blanket_approval_false_memory__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCAW402_w4_blanket_approval_false_memory__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCAW402_w4_blanket_approval_false_memory__clean",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260824/MCAW402_w4_blanket_approval_false_memory/runs/MCAW402_w4_blanket_approval_false_memory__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCAW402_w4_blanket_approval_false_memory__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCAW101_w1_release_helper_tool_redirect__poisoned",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260824/MCAW101_w1_release_helper_tool_redirect/runs/MCAW101_w1_release_helper_tool_redirect__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCAW101_w1_release_helper_tool_redirect__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCAW101_w1_release_helper_tool_redirect__clean",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260824/MCAW101_w1_release_helper_tool_redirect/runs/MCAW101_w1_release_helper_tool_redirect__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCAW101_w1_release_helper_tool_redirect__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "MCAW201_w2_model_q_false_memory__poisoned",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260824/MCAW201_w2_model_q_false_memory/runs/MCAW201_w2_model_q_false_memory__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/MCAW201_w2_model_q_false_memory__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "MCAW201_w2_model_q_false_memory__clean",
+  "vm": "69",
+  "vm_ip": "<GUEST_HOST_C>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_mass_attack_lane2_20260824/MCAW201_w2_model_q_false_memory/runs/MCAW201_w2_model_q_false_memory__clean/raw/capture.scap",
+  "dest": "tier_c/twins/MCAW201_w2_model_q_false_memory__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C531_w3_release_notes_tool_integration__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C531_w3_release_notes_tool_integration/runs/C531_w3_release_notes_tool_integration__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C531_w3_release_notes_tool_integration__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C531_w3_release_notes_tool_integration__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C531_w3_release_notes_tool_integration/runs/C531_w3_release_notes_tool_integration__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C531_w3_release_notes_tool_integration__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C521_w3_metrics_scrape_integration__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C521_w3_metrics_scrape_integration/runs/C521_w3_metrics_scrape_integration__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C521_w3_metrics_scrape_integration__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C521_w3_metrics_scrape_integration__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C521_w3_metrics_scrape_integration/runs/C521_w3_metrics_scrape_integration__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C521_w3_metrics_scrape_integration__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C520_w3_alert_webhook_runbook__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_llmtrace_grok_attack_native_20260823/c520_run/runs/C520_w3_alert_webhook_runbook__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C520_w3_alert_webhook_runbook__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C520_w3_alert_webhook_runbook__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_llmtrace_grok_attack_native_20260823/c520_run/runs/C520_w3_alert_webhook_runbook__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C520_w3_alert_webhook_runbook__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C530_w3_heartbeat_liveness_policy__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C530_w3_heartbeat_liveness_policy/runs/C530_w3_heartbeat_liveness_policy__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C530_w3_heartbeat_liveness_policy__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C530_w3_heartbeat_liveness_policy__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C530_w3_heartbeat_liveness_policy/runs/C530_w3_heartbeat_liveness_policy__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C530_w3_heartbeat_liveness_policy__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C514_w3_slack_post_vendor_package__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_recollect_20260822/C514_w3_slack_post_vendor_package/runs/C514_w3_slack_post_vendor_package__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C514_w3_slack_post_vendor_package__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C514_w3_slack_post_vendor_package__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_recollect_20260822/C514_w3_slack_post_vendor_package/runs/C514_w3_slack_post_vendor_package__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C514_w3_slack_post_vendor_package__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C510_w3_db_query_vendor_package_user_message__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c510_user_message_adaptive/runs/C510_w3_db_query_vendor_package_user_message__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C510_w3_db_query_vendor_package_user_message__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C510_w3_db_query_vendor_package_user_message__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c510_user_message_adaptive/runs/C510_w3_db_query_vendor_package_user_message__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C510_w3_db_query_vendor_package_user_message__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C514_w3_slack_post_vendor_package_user_message__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c514_user_message_adaptive/runs/C514_w3_slack_post_vendor_package_user_message__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C514_w3_slack_post_vendor_package_user_message__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C514_w3_slack_post_vendor_package_user_message__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c514_user_message_adaptive/runs/C514_w3_slack_post_vendor_package_user_message__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C514_w3_slack_post_vendor_package_user_message__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C515_w3_vector_search_repo_rules__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c515_workspace_file_adaptive/runs/C515_w3_vector_search_repo_rules__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C515_w3_vector_search_repo_rules__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C515_w3_vector_search_repo_rules__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c515_workspace_file_adaptive/runs/C515_w3_vector_search_repo_rules__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C515_w3_vector_search_repo_rules__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C512_w3_audit_rotate_runbook__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_workspace_file_adaptive/runs/C512_w3_audit_rotate_runbook__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C512_w3_audit_rotate_runbook__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C512_w3_audit_rotate_runbook__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_workspace_file_adaptive/runs/C512_w3_audit_rotate_runbook__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C512_w3_audit_rotate_runbook__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C512_w3_audit_rotate_runbook_user_message__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_user_message_adaptive/runs/C512_w3_audit_rotate_runbook_user_message__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C512_w3_audit_rotate_runbook_user_message__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C512_w3_audit_rotate_runbook_user_message__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_recollect_instcfg_20260822/c512_user_message_adaptive/runs/C512_w3_audit_rotate_runbook_user_message__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C512_w3_audit_rotate_runbook_user_message__clean"
+ },
+ {
+  "role": "attack",
+  "run_id": "C512_w3_audit_rotate_runbook_external_content__poisoned",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_configclose_20260822/c512_external_content_adaptive/runs/C512_w3_audit_rotate_runbook_external_content__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C512_w3_audit_rotate_runbook_external_content__poisoned"
+ },
+ {
+  "role": "twin",
+  "run_id": "C512_w3_audit_rotate_runbook_external_content__clean",
+  "vm": "91",
+  "vm_ip": "<GUEST_HOST_B>",
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_gemini_configclose_20260822/c512_external_content_adaptive/runs/C512_w3_audit_rotate_runbook_external_content__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C512_w3_audit_rotate_runbook_external_content__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_10_W1_C5_V5__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w1_bridge_20260821_v1/runs/P2_W1_heldout_clean_10_W1_C5_V5__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_10_W1_C5_V5__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_11_W1_C4_V4__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w1_bridge_20260821_v1/runs/P2_W1_heldout_clean_11_W1_C4_V4__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_11_W1_C4_V4__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_12_W1_C1_V6__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w1_bridge_20260821_v1/runs/P2_W1_heldout_clean_12_W1_C1_V6__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_12_W1_C1_V6__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_13_W1_C5_V4__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w1_bridge_20260821_v1/runs/P2_W1_heldout_clean_13_W1_C5_V4__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_13_W1_C5_V4__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_14_W1_C5_V2__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w1_bridge_20260821_v1/runs/P2_W1_heldout_clean_14_W1_C5_V2__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_14_W1_C5_V2__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_10_W2_C5_V2__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w2_bridge_20260821_v1/runs/P2_W2_heldout_clean_10_W2_C5_V2__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_10_W2_C5_V2__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_11_W2_C5_V4__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w2_bridge_20260821_v1/runs/P2_W2_heldout_clean_11_W2_C5_V4__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_11_W2_C5_V4__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_12_W2_C3_V2__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w2_bridge_20260821_v1/runs/P2_W2_heldout_clean_12_W2_C3_V2__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_12_W2_C3_V2__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_13_W2_C4_V4__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w2_bridge_20260821_v1/runs/P2_W2_heldout_clean_13_W2_C4_V4__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_13_W2_C4_V4__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_14_W2_C1_V2__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w2_bridge_20260821_v1/runs/P2_W2_heldout_clean_14_W2_C1_V2__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_14_W2_C1_V2__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_10_W3_C3_V2__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w3_bridge_20260821_v1/runs/P2_W3_heldout_clean_10_W3_C3_V2__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_10_W3_C3_V2__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_11_W3_C2_V1__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w3_bridge_20260821_v1/runs/P2_W3_heldout_clean_11_W3_C2_V1__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_11_W3_C2_V1__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_12_W3_C3_V4__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w3_bridge_20260821_v1/runs/P2_W3_heldout_clean_12_W3_C3_V4__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_12_W3_C3_V4__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_13_W3_C4_V1__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w3_bridge_20260821_v1/runs/P2_W3_heldout_clean_13_W3_C4_V1__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_13_W3_C4_V1__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_14_W3_C5_V6__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w3_bridge_20260821_v1/runs/P2_W3_heldout_clean_14_W3_C5_V6__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_14_W3_C5_V6__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_12_W4_C2_V1__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w4_bridge_20260821_v1/runs/P2_W4_heldout_clean_12_W4_C2_V1__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_12_W4_C2_V1__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_13_W4_C1_V4__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w4_bridge_20260821_v1/runs/P2_W4_heldout_clean_13_W4_C1_V4__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_13_W4_C1_V4__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_14_W4_C2_V2__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w4_bridge_20260821_v1/runs/P2_W4_heldout_clean_14_W4_C2_V2__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_14_W4_C2_V2__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w4_bridge_20260821_v1/runs/P2_W4_heldout_clean_10_W4_C3_V5_user_message__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_10_W4_C3_V5_user_message__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_heldout_clean_w4_bridge_20260821_v1/runs/P2_W4_heldout_clean_11_W4_C3_V1_user_message__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_11_W4_C3_V1_user_message__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/heldout_pilot_v1/run-20260822T101115Z/runs/P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/heldout_pilot_v1/run-20260822T101115Z/runs/P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_10_W1_C5_V5_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v2/heldout_w1_remaining_collect_v1/runs/P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v2/heldout_w1_remaining_collect_v1/runs/P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_11_W1_C4_V4_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v2/heldout_w1_remaining_collect_v1/runs/P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v2/heldout_w1_remaining_collect_v1/runs/P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_12_W1_C1_V6_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v2/heldout_w1_remaining_collect_v1/runs/P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v2/heldout_w1_remaining_collect_v1/runs/P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_13_W1_C5_V4_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v2/heldout_w1_remaining_collect_v1/runs/P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_10_W2_C5_V2_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_11_W2_C5_V4_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_12_W2_C3_V2_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v3/heldout_w2_collect_v1/runs/P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_14_W2_C1_V2_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_10_W3_C3_V2_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_11_W3_C2_V1_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_12_W3_C3_V4_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w3_collect_v1/runs/P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_14_W3_C5_V6_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_10_W4_C3_V5_user_message_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_11_W4_C3_V1_user_message_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_12_W4_C2_V1_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r02__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r02__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r02__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r03__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_v4/heldout_w4_collect_v1/runs/P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r03__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_14_W4_C2_V2_gen2_holdout_r03__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r04__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_supplement_v1/heldout_supplement_collect_v1/runs/P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r04__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W1_heldout_clean_14_W1_C5_V2_gen2_holdout_r04__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r04__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_supplement_v1/heldout_supplement_collect_v1/runs/P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r04__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W2_heldout_clean_13_W2_C4_V4_gen2_holdout_r04__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r04__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_supplement_v1/heldout_supplement_collect_v1/runs/P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r04__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W3_heldout_clean_13_W3_C4_V1_gen2_holdout_r04__clean"
+ },
+ {
+  "role": "clean_heldout",
+  "run_id": "P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r04__clean",
+  "vm": "24",
+  "vm_ip": "<GUEST_HOST_A>",
+  "scap": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/live_gen2_collection_supplement_v1/heldout_supplement_collect_v1/runs/P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r04__clean/raw/capture.scap",
+  "dest": "tier_c/clean_heldout/P2_W4_heldout_clean_13_W4_C1_V4_gen2_holdout_r04__clean"
+ }
+]

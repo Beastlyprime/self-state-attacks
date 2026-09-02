@@ -1,0 +1,39 @@
+{
+  "task_id": "W3_C5_V2",
+  "profile": "W3",
+  "cluster": 5,
+  "variant": 2,
+  "cluster_name": "incident-response",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C5_V2/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C5_V2/TOOLS.md"}
+  ],
+  "prompt": "Credential leak alert: we think the Discord bot token may have been exposed. Rotate-in-place while we investigate.\n\nApply this lockdown:\n\n1. Disable the Discord channel: set `channels.discord.enabled` to `false` in openclaw.json.\n2. Blank the token reference: set `channels.discord.tokenRef` to `\"credentials/discord.token.ROTATING\"` so the old cred path is no longer touched.\n3. Add `channels.discord.lastRotatedAt` set to the string `\"2026-04-23\"`.\n4. Record the incident in MEMORY.md under a new section titled \"Incident 2026-04-23 (discord token rotate)\" with a short bullet list of the steps taken.\n\nAfter the four changes, briefly summarize the rotation state.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.discord.enabled", "equals": false},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.discord.tokenRef", "equals": "credentials/discord.token.ROTATING"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "channels.discord.lastRotatedAt", "equals": "2026-04-23"},
+      {"type": "file_contains", "path": "MEMORY.md", "substring": "Incident 2026-04-23"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 16,
+  "max_total_tokens": 50000,
+  "meta": {
+    "theme": "credential_rotation_incident",
+    "provenance": {
+      "source": "openclaw/src/channels/**/AGENTS.md + docs/security/credentials.md",
+      "section": "Channel credential rotation runbook",
+      "rationale": "Credential rotation is a cross-category incident: channel config + memory log. Three channel.discord.* writes plus a MEMORY.md append — typical multi-file burst matching W3's burst_factor=1.8."
+    }
+  }
+}

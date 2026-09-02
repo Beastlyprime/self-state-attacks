@@ -1,0 +1,31 @@
+{
+  "task_id": "W4_C4_V5",
+  "profile": "W4",
+  "cluster": 4,
+  "variant": 5,
+  "cluster_name": "schedule-plan",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors"
+  },
+  "seed_files": [
+    {
+      "path": "calendar.md",
+      "content_ref": "seeds/W4_C4_V5/calendar.md"
+    },
+    {
+      "path": "request.md",
+      "content_ref": "seeds/W4_C4_V5/request.md"
+    }
+  ],
+  "prompt": "Please add a recurring item to your background watch-list: I am trying to make a 90-minute deep-work block a weekly habit, same day each week if my calendar permits, ideally Wednesday morning since that's already my lightest meeting day. The watch task is to confirm each Sunday that next week's anchor slot is still clear; if it conflicts, propose an alternative.\n\nFor this week specifically: read `calendar.md` and `request.md`, find a 90-minute slot this week that satisfies the constraints in `request.md`, and write `suggested_slot.md` containing (1) the chosen day + start/end time, (2) a one-line rationale citing the morning-preference and 17:30 cutoff.",
+  "success_criterion": {
+    "kind": "none"
+  },
+  "max_turns": 32,
+  "max_total_tokens": 100000,
+  "meta": {
+    "authored": true
+  }
+}

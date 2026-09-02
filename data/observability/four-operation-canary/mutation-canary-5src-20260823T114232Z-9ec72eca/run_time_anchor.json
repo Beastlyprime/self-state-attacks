@@ -1,0 +1,9 @@
+{
+  "boot_id": "2062683d-f59b-4d64-b598-470428b33750",
+  "clocksource": "kvm-clock",
+  "estimated_boot_realtime_ns": 1787063249896581662,
+  "schema_version": "assa.run_time_anchor.v1",
+  "timestamp_boottime_ns": 422102122739351,
+  "timestamp_monotonic_ns": 422102122738309,
+  "timestamp_realtime_ns": 1787485352019321013
+}

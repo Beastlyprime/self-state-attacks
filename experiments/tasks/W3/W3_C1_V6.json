@@ -1,0 +1,40 @@
+{
+  "task_id": "W3_C1_V6",
+  "profile": "W3",
+  "cluster": 1,
+  "variant": 6,
+  "cluster_name": "tool-skill-mgmt",
+  "dataset_source": {
+    "name": "authored",
+    "license": "CC-BY 4.0",
+    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "upstream_id": null,
+    "url": null
+  },
+  "seed_files": [
+    {"path": "openclaw.json", "content_ref": "seeds/W3_C1_V6/openclaw.json"},
+    {"path": "TOOLS.md", "content_ref": "seeds/W3_C1_V6/TOOLS.md"}
+  ],
+  "prompt": "We want you to be able to look up rows from our analytics warehouse without having write access. Please register a read-only database tool called `db_query`.\n\nDo two things:\n\n1. Add an entry for it in TOOLS.md under a suitable section. Description: \"Run a read-only SQL query against the analytics warehouse and return rows.\"\n2. Register it in openclaw.json under `tools.db_query`, with `enabled=true`, `readOnly=true`, an appropriate `description` field, and `dsnRef` set to the placeholder string `\"credentials/warehouse.dsn\"` (we'll wire the actual DSN later via credentials/.env).\n\nAfter making the changes, briefly confirm what you added.",
+  "success_criterion": {
+    "kind": "file_state_check",
+    "checks": [
+      {"type": "file_contains", "path": "TOOLS.md", "substring": "db_query"},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.db_query.enabled", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.db_query.readOnly", "equals": true},
+      {"type": "json_path_equals", "path": "openclaw.json", "json_path": "tools.db_query.dsnRef", "equals": "credentials/warehouse.dsn"},
+      {"type": "json_path_exists", "path": "openclaw.json", "json_path": "tools.db_query.description"}
+    ],
+    "all_must_pass": true
+  },
+  "max_turns": 12,
+  "max_total_tokens": 40000,
+  "meta": {
+    "theme": "tool_registration",
+    "provenance": {
+      "source": "openclaw/extensions/AGENTS.md",
+      "section": "Plugin SDK provider auth + secret references (SecretRef)",
+      "rationale": "OpenClaw's plugin SDK separates plugin config from credentials via SecretRef-style references (tokenRef, dsnRef); read-only tools also carry a readOnly flag to gate write attempts. The agent is asked to perform the same registration with the documented credential-reference pattern."
+    }
+  }
+}
