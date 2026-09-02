@@ -31,11 +31,37 @@ follow.
 | **Table 8, Table 14** — B1 pooled / B2 per-profile | `DET/score_ours_3pool.py`, reusing the Eq. 1 detector math verbatim from `data/superseded/score_ours.py` | `DET/scored_ours_3pool.json`. The frozen operating points these are calibrated against are in `DET/b1b2/REPORT.json`, produced by `DET/b1b2/run_size_timing_libsinsp.py`; three `DET/supervised/*.py` scripts assert their populations against it |
 | **Table 8, Table 14** — L1 logistic / CART / FIGS | `DET/rebuild_supervised_3pool.py` | `DET/FINAL_3POOL_SUPERVISED.json` |
 | **Table 8, Table 14** — assembled comparison | `DET/final_aggregate.py` | `DET/FINAL_3POOL_REPORT.json`, and **`DET/FINAL_3POOL_HEADTOHEAD_TABLE.md`**, which carries every point estimate and interval from both tables in one place |
-| **Table 9** — provenance on 21 landings vs 21 matched clean branches | `data/provenance/p5_analyze.py` | `P5_NAMEABILITY_ATTRIBUTION_REPORT.json` / `.md` |
+| **Table 9** — provenance on 21 landings vs 21 clean branches | `data/provenance/p5_analyze.py` | `P5_NAMEABILITY_ATTRIBUTION_REPORT.json` / `.md`. **The two sides are equal in size, not pairwise matched** — see the note below. Recomputable: unpack `provenance-inputs` and re-run, the report rebuilds byte-for-byte |
 | **Table 10** — recovery repository isolation matrix | `experiments/code/measurement/p4_recovery_self_state.py`; `experiments/code/defenses/recovery/{backup_manager_v4,healthcheck_v4}.py` | `data/recovery/isolation-matrix/P4_RECOVERY_SELF_STATE_REPORT.{json,md}` — the four cases with byte-restore, health, rollback-loss and backup-availability columns |
 | **§5.3** — eight-attack protected supplement | same runner over the eight attack cells | `data/recovery/protected-supplement/P4_RECOVERY_SELF_STATE_REPORT.{json,md}` |
 | **Table 15** — distinct self-state objects modified per clean session | `data/recovery/rollback-cost/bin/p4_recovery_cost.py` | `p4_recovery_cost_result.json` — 236 scanned, 150 writing, 86 non-writing |
 | **§5.2** — matched-control validation (nested-CV AUC 0.5983) | `DET/rebuild_supervised_3pool.py`, `DET/supervised/*.py` | `DET/FINAL_3POOL_SUPERVISED_TABLEFRAG.md`, `DET/supervised/REPORT.json` |
+
+### Table 9's clean side is a size-matched control, not a paired one
+
+The paper describes Table 9 as 21 landings against 21 *matched* clean branches.
+The published population is equal in size but not paired one-to-one, and the
+release states the actual structure rather than the caption's:
+
+| Relation to the 21 attacks | Count | Which |
+|---|---|---|
+| paired with their own `__clean` twin (same run id) | 17 | |
+| no run-id twin; the clean side carries a branch of the same case, different channel variant | 2 | `C511_…_user_message`, `C513_…_user_message` |
+| no clean counterpart at any granularity | 2 | `C510_w3_db_query_vendor_package`, `C515_…_user_message` |
+| clean branch matching no unpaired attack | 1 | `C401_w4_replication_article_bias_external_content__clean` |
+
+Those last four attacks are the C-series landings whose original bundle was not
+local; the report's own `par21_note` already records that their carrier slot and
+paired clean were unavailable.
+
+**This does not move the table's numbers or its conclusion.** Every cell is a
+marginal count over each side independently — destination nameable 21/21 both
+sides, principal attributed 21/21 both sides — so nothing in it is computed as a
+within-pair difference. The finding is that OS provenance names and attributes
+attack and benign self-state writes indistinguishably; a size-matched control
+supports that as well as a paired one would. What the pairing language would
+additionally license — a per-pair comparison — the design does not support, and
+the paper does not perform one.
 
 ## Populations, catalog, and measurement quality
 
