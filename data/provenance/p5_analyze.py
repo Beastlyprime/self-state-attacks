@@ -13,6 +13,12 @@ CENSUS = INPUTS/"EXPANDED_LANDED_CENSUS_V2_20260822.json"
 FD_CHAIN = {"ebpf_fd_table","scap_fd_state","libsinsp_fd_table"}
 ABS_SYSCALL = {"audit_absolute"}
 
+def rel_input(path):
+    """Record inputs relative to the unpacked volume root, so the report is
+    byte-reproducible regardless of where the corpus was unpacked."""
+    try: return str(Path(path).relative_to(INPUTS))
+    except ValueError: return str(path)
+
 def load_graph(gdir):
     nodes={}; edges=[]
     npath=gdir/"provenance.nodes.jsonl"; epath=gdir/"provenance.edges.jsonl"
@@ -195,7 +201,7 @@ def targets_from(gt, census_marker=None):
         for p in gt["state_change_paths"]:
             # only canonical top-level self-state files (memory/*.md are daily notes)
             if p in CANON: t.add(p)
-    return [x for x in t if x]
+    return sorted(x for x in t if x)   # sorted: set order would make the report non-reproducible
 
 # ---------- ATTACK POPULATION ----------
 census=json.load(open(CENSUS))
@@ -223,7 +229,7 @@ for L in landers:
         gdir=bundle/"graph/reattributed/resolution_spine_effective"
         gt=gt_fields(bundle/"ground_truth.json")
         nodes,edges=load_graph(gdir)
-        row["graph_dir"]=str(gdir); row["paired_clean_local"]=True
+        row["graph_dir"]=rel_input(gdir); row["paired_clean_local"]=True
         tgts=targets_from(gt, marker)
         res=analyze_write_target(nodes,edges,tgts,gt["carrier_slot"] if gt else None,
                                  gt["fs_observable"] if gt else None,
@@ -265,7 +271,7 @@ for bundle in clean_bundles:
     gdir=bundle/"graph/reattributed/resolution_spine_effective"
     nodes,edges=load_graph(gdir)
     tgts=targets_from(gt)
-    row={"run_id":rid,"graph_dir":str(gdir),"observed_branch_outcome":gt["observed_branch_outcome"],
+    row={"run_id":rid,"graph_dir":rel_input(gdir),"observed_branch_outcome":gt["observed_branch_outcome"],
          "gt_channel":gt["channel"]}
     if not tgts:
         row["status"]="clean_no_self_state_write"; row["reason"]="no_canonical_self_state_write_target"
@@ -341,8 +347,17 @@ out["data_insufficient_and_flags"]={
  "carrier_axis_data_insufficient_structural":"8/21 attacks (6 user_message + 2 external_content) + matching clean pairs: carrier not filesystem-ingested => no OS read->write chain to trace (excluded from carrier separability, never imputed).",
  "clean_control_status":"paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population uses the paired __clean branches in the p2_l0_* bundles as auxiliary controls, exactly as the measurement_findings section 5.2 analysis did."
 }
-outdir=RES/"p5_nameability_attribution_libsinsp_20260822"
-outdir.mkdir(exist_ok=True)
+# Fail closed: the released population is fixed at 21 landed attacks and their 21
+# paired clean branches. A short population means the input volume is incomplete,
+# not that the finding is weaker -- refuse to emit a plausible smaller number.
+EXPECTED_ATTACK, EXPECTED_BENIGN = 21, 21
+if att_sum["n_evaluated"]!=EXPECTED_ATTACK or ben_sum["n_evaluated"]!=EXPECTED_BENIGN:
+    sys.exit(f"population mismatch: attack {att_sum['n_evaluated']}/{EXPECTED_ATTACK}, "
+             f"benign {ben_sum['n_evaluated']}/{EXPECTED_BENIGN}. "
+             f"Unpack selfstate-corpus-provenance-inputs.tar.zst into {INPUTS} "
+             f"(expects 38 dirs under bundles/ and 4 under expanded/attack/W3/).")
+
+outdir=RES/"provenance"
 json.dump(out, open(outdir/"P5_NAMEABILITY_ATTRIBUTION_REPORT.json","w"), indent=1)
 print("ATTACK:",json.dumps(att_sum,indent=1))
 print("BENIGN:",json.dumps(ben_sum,indent=1))

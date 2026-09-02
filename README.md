@@ -93,7 +93,7 @@ python3 -m pytest
 ## The raw telemetry corpus
 
 The per-run provenance graphs, state snapshots and native SCAP captures behind
-every reported number are archived separately: **22 GB in 12 volumes, 2.9 GB
+every reported number are archived separately: **22.6 GB in 12 volumes, 3.1 GB
 compressed**, scoped to what the paper's results are computed from. `data/corpus-manifests/` records their
 provenance and checksums, and [`REPRODUCE.md`](REPRODUCE.md) says where each
 volume unpacks to.

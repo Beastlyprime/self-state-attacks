@@ -78,13 +78,27 @@ record, not a manifest of shipped files.
 
 Each per-detector scorer consumes raw telemetry that is archived separately: the
 per-run detector staging trees, syscall streams, provenance graphs, SCAP captures,
-the pinned Python 2 UNICORN analyzer, and earlier frozen generations. These cannot
-re-derive their outputs here:
+the pinned Python 2 UNICORN analyzer, and earlier frozen generations. None of them
+re-derives its output from a bare clone:
 
 `data/detection/score_aide_3pool.py`, `score_stide_3pool.py`, `score_ours_3pool.py`,
 `merge_falco_3pool.py`, `score_unicorn_gen5_3pool.py`, `rebuild_supervised_3pool.py`,
 `build_manifest.py`, `data/provenance/p5_analyze.py`,
 `data/recovery/rollback-cost/bin/p4_recovery_cost.py`.
+
+One of them needs **only** the corpus, nothing else. After unpacking
+`selfstate-corpus-provenance-inputs.tar.zst`, `data/provenance/p5_analyze.py`
+rewrites `P5_NAMEABILITY_ATTRIBUTION_REPORT.json` **byte-identically** to the
+shipped file, so Table 9 is recomputed rather than merely checked:
+
+```bash
+python3 data/provenance/p5_analyze.py          # ~3 min, pure Python
+git diff --stat data/provenance/                # expect no change
+```
+
+It refuses to emit a partial result: if the volume is missing bundles it exits
+non-zero with a population mismatch rather than reporting a smaller,
+plausible-looking count.
 
 The prevention replay (`data/prevention/bin/`) is a live kernel probe, not a data
 transformation: it needs a privileged container with AppArmor enforcing and a
@@ -114,8 +128,9 @@ exception when an input path is missing, which is safe but less informative.
 
 ### Obtaining the corpus
 
-The archive is **19 GB**, scoped to the populations the paper's results are
-computed from, and published as one record of zstd volumes.
+The archive is **22.6 GB unpacked / 3.1 GB compressed in 12 volumes**, scoped to
+the populations the paper's results are computed from, and published as one
+record of zstd volumes.
 `data/corpus-manifests/ARCHIVE_MANIFEST.json` describes the tiers and
 `manifests/` records per-file acquisition provenance and checksums.
 
