@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AppArmor Profile Generator for ASSA-Bench
+AppArmor Profile Generator for SELFSTATE
 
 Generates AppArmor profiles at different restriction levels (L0-L5)
 for the self-hosted agent. Each level represents a different point

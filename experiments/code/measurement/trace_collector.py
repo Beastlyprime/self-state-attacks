@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Part A – Trace Collector for ASSA-Bench v4
+Part A – Trace Collector for SELFSTATE v4
 
 Monitors an agent workspace directory using inotify and emits one JSONL
 record per file-system event. Two modes:
@@ -382,7 +382,7 @@ Memory entries: {rng.randint(15, 30)}
 # ── CLI ──────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="ASSA-Bench Trace Collector")
+    parser = argparse.ArgumentParser(description="SELFSTATE Trace Collector")
     sub = parser.add_subparsers(dest="mode", required=True)
 
     # live mode

@@ -279,7 +279,7 @@ def _build_task(*, profile: str, task_id: str, prompt: str, seed_files: list[dic
         "cluster": cluster,
         "cluster_name": cluster_name,
         "dataset_source": {
-            "citation": "ASSA-Bench authors; P2 L0 new-case margin expansion",
+            "citation": "SELFSTATE authors; P2 L0 new-case margin expansion",
             "license": "CC-BY 4.0",
             "name": "authored",
             "upstream_id": None,

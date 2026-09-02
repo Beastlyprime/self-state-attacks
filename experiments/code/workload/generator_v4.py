@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Markdown-based Workload Generator for ASSA-Bench v4
+Markdown-based Workload Generator for SELFSTATE v4
 
 Adapted from generator.py to work with OpenClaw's markdown-based agent
 architecture instead of SQLite. Simulates realistic agent behavior accessing:

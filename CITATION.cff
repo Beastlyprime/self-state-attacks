@@ -1,17 +1,33 @@
 cff-version: 1.2.0
-message: "If you use ASSA-Bench, please cite the paper below."
-title: "ASSA-Bench: An OS-layer benchmark for self-state attacks on self-hosted AI agents"
+message: "If you use SELFSTATE, please cite the paper below."
+title: "SELFSTATE: An OS-layer benchmark for self-state attacks on self-hosted AI agents"
 abstract: >-
   Benchmark, corpus manifests and measurement pipeline for evaluating how far
   operating-system prevention, detection, provenance and recovery mechanisms can
   defend an agent's own persistent, behaviour-governing state.
 type: dataset
 license: Apache-2.0
+repository-code: "https://github.com/Beastlyprime/self-state-attacks"
+authors:
+  - family-names: Chen
+    given-names: Yimeng
+  - family-names: Denis
+    given-names: "Nathanaël"
+  - family-names: "Di Pietro"
+    given-names: Roberto
+  - family-names: Schmidhuber
+    given-names: "Jürgen"
 preferred-citation:
-  type: conference-paper
+  type: article
   title: "Self-State Attacks on Self-Hosted AI Agents: How Far Can OS Defenses Go?"
   year: 2026
+  url: "https://arxiv.org/abs/2607.17986"
   authors:
-    - name: "The ASSA-Bench Authors"
-authors:
-  - name: "The ASSA-Bench Authors"
+    - family-names: Chen
+      given-names: Yimeng
+    - family-names: Denis
+      given-names: "Nathanaël"
+    - family-names: "Di Pietro"
+      given-names: Roberto
+    - family-names: Schmidhuber
+      given-names: "Jürgen"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Workload Profiles for ASSA-Bench v4
+Workload Profiles for SELFSTATE v4
 
 Defines 4 workload profiles representing distinct agent usage patterns.
 W1 (Coding) and W4 (General) are empirically grounded from Claude Code

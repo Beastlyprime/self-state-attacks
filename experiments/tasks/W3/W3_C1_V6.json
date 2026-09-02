@@ -7,7 +7,7 @@
   "dataset_source": {
     "name": "authored",
     "license": "CC-BY 4.0",
-    "citation": "ASSA-Bench authors; W3 v2 self-configuration tasks",
+    "citation": "SELFSTATE authors; W3 v2 self-configuration tasks",
     "upstream_id": null,
     "url": null
   },

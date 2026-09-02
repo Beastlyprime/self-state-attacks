@@ -1,4 +1,4 @@
-# ASSA-Bench Task Set
+# SELFSTATE Task Set
 
 This directory holds the curated task set used to drive the four workload profiles (W1–W4) defined in `workload/profiles.py`. Each task is a single JSON file describing what the agent is asked to do, what seed files to stage in the workspace, and how success is measured.
 

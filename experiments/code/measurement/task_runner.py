@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Part A – Task Runner for ASSA-Bench v4
+Part A – Task Runner for SELFSTATE v4
 
 Orchestrates real agent trace collection for W1 (Claude Code) and W4 (OpenClaw)
 workload profiles. Launches trace_collector.py in the background, runs the agent
@@ -702,7 +702,7 @@ def _run_w4_mock_session(task: dict, agent_dir: str) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="ASSA-Bench Task Runner for trace collection"
+        description="SELFSTATE Task Runner for trace collection"
     )
     parser.add_argument(
         "profile", choices=["w1", "w4"],
@@ -766,7 +766,7 @@ def main():
     if args.complexity:
         tasks = {k: v for k, v in tasks.items() if v["complexity"] == args.complexity}
 
-    print(f"ASSA-Bench Task Runner")
+    print(f"SELFSTATE Task Runner")
     print(f"Profile: {args.profile.upper()}")
     print(f"Sessions: {len(tasks)}")
     print(f"Output: {output_dir}")

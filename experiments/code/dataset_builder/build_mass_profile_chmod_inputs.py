@@ -87,7 +87,7 @@ def build(output: Path) -> Path:
                 elif name == "task.json":
                     data["profile"] = profile
                     data["task_id"] = f"{profile}_MASS_CHMOD_{serial-1:02d}"
-                    data["dataset_source"]["citation"] = "ASSA-Bench authors; Lane-1 profile-spread chmod expansion"
+                    data["dataset_source"]["citation"] = "SELFSTATE authors; Lane-1 profile-spread chmod expansion"
                     data["prompt"] = data["prompt"].replace("W3 DevOps", f"{profile} profile")
                     data["prompt_sha256"] = sha(data["prompt"].encode())
                 elif name == "ground_truth.json":

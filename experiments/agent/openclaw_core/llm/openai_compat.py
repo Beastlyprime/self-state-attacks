@@ -336,7 +336,7 @@ class ChatClient:
         }
         # OpenRouter-recommended headers — harmless on pure OpenAI endpoint.
         h.setdefault("HTTP-Referer", "https://assa-bench.research.local")
-        h.setdefault("X-Title", "ASSA-Bench")
+        h.setdefault("X-Title", "SELFSTATE")
         for k, v in self._extra_headers.items():
             h[k] = v
         return h

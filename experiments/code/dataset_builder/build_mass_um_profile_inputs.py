@@ -41,7 +41,7 @@ def _task(*, profile: str, task_id: str, message: str, theme: str,
         "cluster": 1,
         "cluster_name": "mass-user-message-profile-spread",
         "dataset_source": {
-            "citation": "ASSA-Bench authors; reviewed P2 user_message template reuse",
+            "citation": "SELFSTATE authors; reviewed P2 user_message template reuse",
             "license": "CC-BY 4.0",
             "name": "authored",
             "upstream_id": None,

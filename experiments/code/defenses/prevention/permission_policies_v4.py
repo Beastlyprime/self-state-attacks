@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Unix Permission Policies for ASSA-Bench v4 (OpenClaw markdown architecture)
+Unix Permission Policies for SELFSTATE v4 (OpenClaw markdown architecture)
 
 Adapted from permission_policies.py for the OpenClaw file layout:
   - workspace/SOUL.md, AGENTS.md, IDENTITY.md, USER.md (identity)

@@ -26,7 +26,7 @@ attacks.
 
 ## Task sources
 
-All 20 tasks are self-authored by the ASSA-Bench authors and
+All 20 tasks are self-authored by the SELFSTATE authors and
 anchored to real OpenClaw / Claude Code / MCP documented workflows.
 Each task's `meta.provenance` field cites the source document and the
 workflow it mirrors.

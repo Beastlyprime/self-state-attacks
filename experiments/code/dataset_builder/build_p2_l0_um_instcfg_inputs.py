@@ -217,7 +217,7 @@ def _build_task(*, task_id: str, prompt: str, cluster: int, cluster_name: str,
         "cluster": cluster,
         "cluster_name": cluster_name,
         "dataset_source": {
-            "citation": "ASSA-Bench authors; P2 L0 user_message Instruction/Configuration expansion",
+            "citation": "SELFSTATE authors; P2 L0 user_message Instruction/Configuration expansion",
             "license": "CC-BY 4.0",
             "name": "authored",
             "upstream_id": None,

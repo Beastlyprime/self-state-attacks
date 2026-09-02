@@ -991,7 +991,7 @@ def _build_task(spec: dict, seeds_dir: Path) -> Task:
             name="authored",
             upstream_id=None,
             license="CC-BY 4.0",
-            citation="ASSA-Bench authors",
+            citation="SELFSTATE authors",
             url=None,
         ),
         seed_files=seed_files,

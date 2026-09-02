@@ -43,7 +43,7 @@ Original module documentation follows.
 
 ----------------------------------------------------------------------
 
-Headless Trace Collector for ASSA-Bench v4 — kernel-fidelity rev.
+Headless Trace Collector for SELFSTATE v4 — kernel-fidelity rev.
 
 Earlier revisions piped ``inotifywait`` and called ``os.stat`` at record
 time, which lost two important kernel-level signals:

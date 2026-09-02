@@ -1,6 +1,6 @@
 # W4 — General workload tasks
 
-**Source:** self-authored by the ASSA-Bench authors. No upstream
+**Source:** self-authored by the SELFSTATE authors. No upstream
 benchmark; the tasks are hand-written general-assistant scenarios
 (drafting, reading, organizing, planning, light data work) designed to
 exercise the kinds of turn-by-turn operations real Cowork / OpenClaw
@@ -52,5 +52,5 @@ W3 via `bash_state_check` for the 12 InterCode variants).
 
 ## Attribution
 
-Tasks are © ASSA-Bench authors, released under CC-BY 4.0 so
+Tasks are © SELFSTATE authors, released under CC-BY 4.0 so
 third parties can reuse or extend the workload without friction.

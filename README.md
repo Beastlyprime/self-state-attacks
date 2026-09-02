@@ -1,4 +1,4 @@
-# ASSA-Bench
+# SELFSTATE
 
 An OS-layer benchmark for **self-state attacks** on self-hosted AI agents: attacks
 in which a semantically compromised agent uses its own authority to corrupt the
@@ -11,8 +11,8 @@ contrastive legitimate workloads with a five-source Linux telemetry pipeline, an
 scores representative prevention, detection, provenance and recovery mechanisms on
 the result.
 
-This repository accompanies the paper *"Self-State Attacks on Self-Hosted AI Agents:
-How Far Can OS Defenses Go?"*
+This repository accompanies the paper [*Self-State Attacks on Self-Hosted AI Agents:
+How Far Can OS Defenses Go?*](https://arxiv.org/abs/2607.17986) (arXiv:2607.17986).
 
 ---
 

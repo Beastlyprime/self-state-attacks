@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-ASSA-Bench Self-State Taxonomy
+SELFSTATE Self-State Taxonomy
 ====================================
 
 Compatibility API for the three top-level self-state target classes used
