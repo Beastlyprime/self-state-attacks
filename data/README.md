@@ -9,7 +9,7 @@ the paper to a file here.
 | `detection/` | The primary detector comparison. `FINAL_3POOL_SPLIT_MANIFEST.json` defines all three populations and the anti-leakage assertions; `FINAL_3POOL_REPORT.json` and `FINAL_3POOL_HEADTOHEAD_TABLE.md` carry the assembled results; `scored_*.json` are the per-detector outputs; the `score_*.py` scripts produced them. |
 | `detection/unicorn/` | The role-typed provenance-graph arm: final report, per-run verdicts, and the per-run pipeline status that explains every unscored graph. |
 | `detection/supervised/` | The supervised secondary analysis — features, cross-validation outputs, and the matched-control comparison. |
-| `detection/aide-fixtures/` | Per-run materialized self-state that the AIDE arm ran on, one directory per execution. |
+| `detection/aide-fixtures/` | Per-run materialized self-state that the AIDE arm ran on, split into `attack/` (44 of the 55 attacks) and `clean-training/` (15 of the 176 fit-only runs). The held-out FPR population has no fixtures here. Its own README states the coverage — read it before counting directories. |
 | `prevention/` | The six-operation × five-configuration kernel replay and its result JSON. `bin/` holds the in-container probe. |
 | `recovery/isolation-matrix/` | Protected vs same-user backup storage, crossed with ordinary corruption vs an attack that also destroys backups. |
 | `recovery/protected-supplement/` | Restoration repeated across eight attacks spanning the state roles. |

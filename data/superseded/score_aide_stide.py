@@ -67,11 +67,11 @@ def score_aide(pop):
     # attacks: 18 graph + 26 fileop
     for r in pop["attacks_graph_present"]:
         run = STAGE / r["run_id"]; snap = snap_root(run)
-        res = aide_one(r["run_id"], snap, ROOT / "data/detection/aide-fixtures" / r["run_id"])
+        res = aide_one(r["run_id"], snap, ROOT / "data/detection/aide-fixtures/attack" / r["run_id"])
         rows.append({**meta(r), **res})
     for r in pop["attacks_aide_only_fileop"]:
         run = local_fileop_run(r["case_id"]); snap = snap_root(run) if run else None
-        res = aide_one(r["run_id"], snap, ROOT / "data/detection/aide-fixtures" / r["run_id"])
+        res = aide_one(r["run_id"], snap, ROOT / "data/detection/aide-fixtures/attack" / r["run_id"])
         rows.append({**meta(r), **res})
     # clean-40
     for r in pop["clean_heldout_40"]:
@@ -81,7 +81,7 @@ def score_aide(pop):
                          "reasons": x.get("reasons", []), "reuse": "frozen_aide_gen2", "native_score": x.get("native_score")})
         else:
             run = STAGE / r["run_id"]; snap = snap_root(run)
-            res = aide_one(r["run_id"], snap, ROOT / "data/detection/aide-fixtures" / r["run_id"])
+            res = aide_one(r["run_id"], snap, ROOT / "data/detection/aide-fixtures/attack" / r["run_id"])
             rows.append({**meta(r), **res})
     return rows
 

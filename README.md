@@ -34,7 +34,8 @@ data/            frozen experimental outputs, organised by what they measure
   detection/       detector comparison: population manifest, scored outputs, scorers
     unicorn/         role-typed provenance-graph arm
     supervised/      supervised secondary analysis
-    aide-fixtures/   per-run materialized self-state the AIDE arm ran on
+    aide-fixtures/   per-run materialized self-state, split by population
+                     (44 of 55 attacks; see its README for coverage)
   prevention/      mechanism x operation kernel replay
   recovery/        isolation matrix, protected supplement, rollback-cost analysis
   provenance/      nameability / attribution / causal-carrier analysis
