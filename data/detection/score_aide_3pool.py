@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """AIDE (train-free snapshot delta) on 3-pool: TPR 55 attacks, FPR gen2-60. Reuses p2_aide_fpr_gen2.run_one
 and the verbatim decision logic from score_full.aide_one."""
-import json, sys
+import json, os, sys
 from pathlib import Path
 from pathlib import Path as _Path
 _REPO_ROOT = str(_Path(__file__).resolve().parents[2])
 
 ROOT = Path(_REPO_ROOT)
 HH = ROOT / "data/superseded"
-OUT = HH / "final_3pool"
-SCR = Path("<SCRATCH>")
-POOLS = SCR / "pools"
+OUT = ROOT / "data/detection"
+SCR = Path(os.environ.get("ASSA_SCRATCH", "/tmp/assa-scratch"))   # scorer working area
+POOLS = ROOT / "data/corpus-manifests/tier_b"                      # unpacked corpus
 STAGE = HH / "staging"
 sys.path.insert(0, str(ROOT))
 from experiments.code.measurement.stage_g_harness.p2_aide_fpr_gen2 import run_one as aide_run_one
@@ -60,7 +60,7 @@ def aide_one(rid, snap, outdir):
 
 
 def main():
-    missing = [str(p) for p in (STAGE, POOLS / "heldout") if not p.is_dir()]
+    missing = [str(p) for p in (STAGE, POOLS / "clean_heldout") if not p.is_dir()]
     if missing:
         fail_closed("required input roots are absent: " + ", ".join(missing))
     pool2 = MAN["pools"]["pool2_clean_heldout_test_gen2_60"]["records"]
@@ -78,7 +78,7 @@ def main():
         rows.append({"run_id": rid, "side": "attack", "profile": a["profile"],
                      "op_signature": a["op_signature"], "tier": a["tier"], **res})
     for c in pool2:
-        snap = snap_root(POOLS / "heldout" / c["run_id"])
+        snap = snap_root(POOLS / "clean_heldout" / c["run_id"])
         res = aide_one(c["run_id"], snap, SCR / "aide_runs" / c["run_id"])
         rows.append({"run_id": c["run_id"], "side": "clean", "profile": c["profile"],
                      "scenario_id": c["scenario_id"], "performs_write": c["performs_self_state_write"], **res})

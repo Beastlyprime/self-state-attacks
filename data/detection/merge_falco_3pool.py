@@ -17,7 +17,7 @@ SCORED = OUT / "scored_falco_3pool.json"
 ATTACK_SOURCES = [
     ROOT / "data/corpus-manifests/tier_a/job_reports/d2_tpr_result.json",
     ROOT / "data/corpus-manifests/tier_a/job_reports/d2_tpr_result_69.json",
-    ROOT / "data/p2_attack_tpr_expanded_v2_20260822/scored/falco/tpr_result.json",
+    ROOT / "data/detection/falco-inputs/expanded_v2_falco_tpr_result.json",
 ]
 
 

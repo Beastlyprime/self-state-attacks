@@ -8,7 +8,7 @@ ROOT = Path(os.environ.get("ASSA_ROOT", str(Path(__file__).resolve().parents[2])
 SCR = Path(os.environ.get("ASSA_SCRATCH", str(ROOT / ".scratch")))
 POOLS = SCR / "pools"
 HH = ROOT / "data/superseded"
-OUT = HH / "final_3pool"
+OUT = ROOT / "data/detection"
 OUT.mkdir(exist_ok=True)
 
 TRAIN = json.load(open(SCR / "P2_CLEAN_TRAINING_FREEZE_GEN2.json"))

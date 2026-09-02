@@ -5,3 +5,16 @@ requests==2.32.5
 xxhash==3.6.0
 # Collection host only (inotify trace collector; not needed for analysis or tests):
 pyinotify==0.9.6
+# Supervised secondary analysis only (data/detection/rebuild_supervised_3pool.py
+# and data/detection/supervised/*). Not needed to check the frozen results or to
+# run the two no-corpus rebuild steps.
+#
+# These four are NOT pinned to the versions that produced the published numbers:
+# the supervised outputs do not record their library versions, so we do not know
+# what they were. The versions below are what the analysis host has now. Expect
+# small numerical drift if you refit, and treat data/detection/FINAL_3POOL_SUPERVISED.json
+# as the reference.
+numpy>=2.4.3
+scipy>=1.17.1
+scikit-learn>=1.8.0
+imodels>=3.0.0

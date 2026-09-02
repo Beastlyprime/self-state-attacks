@@ -43,6 +43,13 @@ Rebuilds the catalog from the taxonomy and the canonical attack suite:
 `paper_cells` is 23, `summary.concrete_operations` is 43, and the per-cell
 operation counts are the N column of Table 12.
 
+This is a **structural** rebuild only. Run without `--bindings`, it reports
+`gate.structural_passed = true` alongside `production_complete = false` and all
+43 operations as `unbound`, because it has been given no execution records to
+bind them to. It reproduces Tables 5 and 12; it does not attest that the catalog
+was fully realised in production. That accounting is in
+`data/superseded/COVERAGE_23CELL_RECOMPUTE.json`.
+
 ## Level 1 — what is checkable
 
 Everything else the paper reports is recorded in a frozen output you can read
@@ -83,6 +90,22 @@ The prevention replay (`data/prevention/bin/`) is a live kernel probe, not a dat
 transformation: it needs a privileged container with AppArmor enforcing and a
 Landlock-capable kernel.
 
+### After unpacking the corpus, what still blocks each scorer
+
+The scorers read repository-relative paths that the corpus volumes fill in, so
+unpacking resolves their data inputs. Three need something the corpus cannot
+supply, and we state that rather than imply otherwise:
+
+| Scorer | Still needs |
+|---|---|
+| `score_stide_3pool.py` | the pinned STIDE implementation, expected at `/tmp/assa-stage-g-lid-ds` (commit `587d1587…`, recorded in the split manifest's `monitor_versions`) |
+| `score_unicorn_gen5_3pool.py` | three pinned Python 2 checkouts at `/tmp/assa-stage-g-unicorn-{parsers,analyzer,modeler}-py2-final` and the container image `assa-stage-g/unicorn-python2:2.7.18`. The commit hashes are asserted by the scorer and recorded in `data/detection/unicorn/UNICORN_GEN5_FINAL_REPORT.json`; **we do not publish the upstream URLs or an image recipe**, so this arm is not re-runnable from this release alone |
+| `score_aide_3pool.py` | a working AIDE container (`assa-stage-g/aide:0.19.3`) and a writable scratch directory, overridable with `ASSA_SCRATCH` |
+
+`rebuild_supervised_3pool.py` additionally needs the four numerical packages at
+the end of `requirements.txt`, which are **not** pinned to the versions that
+produced the published numbers — see the note there.
+
 **Running them here is safe.** Every one exits non-zero and leaves the shipped
 outputs untouched. Three report the problem explicitly, stopping with a
 `fail-closed:` message that names the absent input — `score_aide_3pool.py`,
@@ -107,8 +130,19 @@ computed from, and published as one record of zstd volumes.
 | `staging` | the 11 W3 attack graphs the UNICORN scorer reads | `data/superseded/staging/` |
 | `aux` | STIDE stopping-rule preregistration; the landed census the provenance analysis reads | `data/aux/` |
 
+Most volumes carry a `tier_*`/`manifests` root and belong under
+`data/corpus-manifests/`, but three do not — unpack those from the repository
+root so their own top-level directory lands in the right place:
+
 ```bash
-for v in selfstate-corpus-*.tar.zst; do tar -I zstd -xf "$v" -C data/corpus-manifests/; done
+mkdir -p data/corpus-manifests
+for v in selfstate-corpus-tier_*.tar.zst selfstate-corpus-manifests.tar.zst; do
+  tar -I zstd -xf "$v" -C data/corpus-manifests/
+done
+tar -I zstd -xf selfstate-corpus-staging.tar.zst           -C data/superseded/
+tar -I zstd -xf selfstate-corpus-provenance-inputs.tar.zst -C data/provenance/ \
+  --transform 's|^provenance-inputs|inputs|'
+tar -I zstd -xf selfstate-corpus-aux.tar.zst               -C data/
 ```
 
 Redaction in the archive is confined to metadata. Every file under

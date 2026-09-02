@@ -10,11 +10,11 @@ the paper to a file here.
 | `detection/unicorn/` | The role-typed provenance-graph arm: final report, per-run verdicts, and the per-run pipeline status that explains every unscored graph. |
 | `detection/supervised/` | The supervised secondary analysis — features, cross-validation outputs, and the matched-control comparison. |
 | `detection/aide-fixtures/` | Per-run materialized self-state that the AIDE arm ran on, split into `attack/` (44 of the 55 attacks) and `clean-training/` (15 of the 176 fit-only runs). The held-out FPR population has no fixtures here. Its own README states the coverage — read it before counting directories. |
-| `prevention/` | The six-operation × five-configuration kernel replay and its result JSON. `bin/` holds the in-container probe. |
+| `prevention/` | The six-operation × five-configuration kernel replay and its result JSON — 36 cells, of which 30 are the five policy configurations of Table 7 and six are the unprotected control. `bin/` holds the in-container probe. `paired-probe/` holds the separate authorized-update experiment that supplies the selectivity half of Table 7. |
 | `recovery/isolation-matrix/` | Protected vs same-user backup storage, crossed with ordinary corruption vs an attack that also destroys backups. |
 | `recovery/protected-supplement/` | Restoration repeated across eight attacks spanning the state roles. |
 | `recovery/rollback-cost/` | How much legitimate state a rollback discards, over 236 clean sessions. |
-| `provenance/` | Nameability, principal attribution and causal-carrier analysis over 21 operational landings and their matched clean branches. |
+| `provenance/` | Nameability, principal attribution and causal-carrier analysis over 21 operational landings and their matched clean branches. `inputs/` is filled by the corpus volume of the same name and holds the graph bundles and ground truth the analysis reads. |
 | `observability/operation-matrix/` | The 16-case validation that the collection substrate witnesses every operation × target-role combination. `four-operation-canary/` is the earlier run that established the integration. |
 | `corpus-manifests/` | Provenance and checksums for the raw telemetry corpus, which is archived separately. |
 | `superseded/` | Earlier population cuts and their aggregators, retained for provenance. **Not paper estimates** — see the last section of `../docs/results.md`. |

@@ -7,7 +7,8 @@ import json, os, sys
 from pathlib import Path
 
 RES = Path("data")
-CENSUS = RES/"p2_attack_tpr_expanded_v2_20260822/EXPANDED_LANDED_CENSUS_V2_20260822.json"
+INPUTS = RES/"provenance/inputs"
+CENSUS = INPUTS/"EXPANDED_LANDED_CENSUS_V2_20260822.json"
 
 FD_CHAIN = {"ebpf_fd_table","scap_fd_state","libsinsp_fd_table"}
 ABS_SYSCALL = {"audit_absolute"}
@@ -202,15 +203,14 @@ landers=census["landers"]
 
 # locator for p2_l0 bundles (poisoned) with graph+GT
 def find_p2l0(run_id):
-    for d in ["p2_l0_gemini_configclose_20260822","p2_l0_gemini_recollect_instcfg_20260822",
-              "p2_l0_newcase_20260822","p2_l0_recollect_20260822"]:
-        for root,dirs,files in os.walk(RES/d):
+    for d in [INPUTS/"bundles"]:
+        for root,dirs,files in os.walk(d):
             if os.path.basename(root)==run_id and (Path(root)/"graph/reattributed/resolution_spine_effective").is_dir():
                 return Path(root)
     return None
 
 def find_expanded_graph(run_id):
-    p=RES/"p2_attack_tpr_expanded_v2_20260822/p2_attack_tpr_inputs_expanded_v2/attack/W3"/run_id/"graph"
+    p=INPUTS/"expanded/attack/W3"/run_id/"graph"
     return p if p.is_dir() else None
 
 attack_rows=[]
@@ -248,9 +248,8 @@ for L in landers:
 
 # ---------- BENIGN POPULATION (paired clean) ----------
 clean_bundles=[]
-for d in ["p2_l0_gemini_configclose_20260822","p2_l0_gemini_recollect_instcfg_20260822",
-          "p2_l0_newcase_20260822","p2_l0_recollect_20260822"]:
-    base=RES/d
+for d in [INPUTS/"bundles"]:
+    base=d
     for root,dirs,files in os.walk(base):
         b=os.path.basename(root)
         if b.endswith("__clean") and (Path(root)/"graph/reattributed/resolution_spine_effective").is_dir() and (Path(root)/"ground_truth.json").exists():

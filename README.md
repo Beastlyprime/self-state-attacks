@@ -36,6 +36,9 @@ data/            frozen experimental outputs, organised by what they measure
     supervised/      supervised secondary analysis
     aide-fixtures/   per-run materialized self-state, split by population
                      (44 of 55 attacks; see its README for coverage)
+    falco-inputs/    the earlier-generation Falco result the merger reads
+  prevention/
+    paired-probe/    the authorized-update selectivity arm of Table 7
   prevention/      mechanism x operation kernel replay
   recovery/        isolation matrix, protected supplement, rollback-cost analysis
   provenance/      nameability / attribution / causal-carrier analysis
@@ -50,6 +53,8 @@ experiments/
   tasks/           W1-W4 task definitions, schema, and workspace seeds
 
 docs/            dataset description, methodology, paper-to-file map, limitations
+  preregistration/ the UNICORN role-typing preregistration and execution amendment
+                   that the UNICORN scorer binds by hash
 ```
 
 ## Start here
@@ -88,8 +93,8 @@ python3 -m pytest
 ## The raw telemetry corpus
 
 The per-run provenance graphs, state snapshots and native SCAP captures behind
-every reported number are archived separately: **19 GB**, scoped to what the
-paper's results are computed from. `data/corpus-manifests/` records their
+every reported number are archived separately: **22 GB in 12 volumes, 2.9 GB
+compressed**, scoped to what the paper's results are computed from. `data/corpus-manifests/` records their
 provenance and checksums, and [`REPRODUCE.md`](REPRODUCE.md) says where each
 volume unpacks to.
 

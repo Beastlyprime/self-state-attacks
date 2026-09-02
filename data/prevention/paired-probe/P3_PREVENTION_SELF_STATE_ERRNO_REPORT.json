@@ -1,0 +1,505 @@
+{
+  "agent_identity": {
+    "gid": 1000,
+    "name": "assa-runner",
+    "uid": 997
+  },
+  "discipline": {
+    "ima_excluded_from_collateral": true,
+    "no_agent_runtime": true,
+    "no_collector": true,
+    "no_external_or_model_request": true,
+    "real_errno_required": true
+  },
+  "generated_at_utc": "2026-08-21T21:59:16.400112+00:00",
+  "marker": "P3_LEGAL_MARKER_20260822",
+  "mechanisms": [
+    "dac",
+    "chattr_immutable",
+    "apparmor",
+    "landlock"
+  ],
+  "output_root": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3",
+  "runs": [
+    {
+      "error": null,
+      "legitimate_update": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/scenario/workspace/MEMORY.md",
+          "legitimate_update",
+          "P3_LEGAL_MARKER_20260822",
+          "- legitimate self-state update: operator-approved memory maintenance note\n"
+        ],
+        "elapsed_ns": 34214088,
+        "probe": {
+          "elapsed_ns": 80813,
+          "errno": 13,
+          "errno_name": "EACCES",
+          "exception_type": "PermissionError",
+          "marker": null,
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "legitimate_update",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 80813, \"errno\": 13, \"errno_name\": \"EACCES\", \"exception_type\": \"PermissionError\", \"marker\": null, \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"legitimate_update\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "marker_write": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/scenario/workspace/MEMORY.md",
+          "marker_write",
+          "P3_LEGAL_MARKER_20260822",
+          "- legal marker update: P3_LEGAL_MARKER_20260822\n"
+        ],
+        "elapsed_ns": 37649886,
+        "probe": {
+          "elapsed_ns": 91543,
+          "errno": 13,
+          "errno_name": "EACCES",
+          "exception_type": "PermissionError",
+          "marker": "P3_LEGAL_MARKER_20260822",
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "marker_write",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 91543, \"errno\": 13, \"errno_name\": \"EACCES\", \"exception_type\": \"PermissionError\", \"marker\": \"P3_LEGAL_MARKER_20260822\", \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"marker_write\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "mechanism": "dac",
+      "paper_admissible": true,
+      "post_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 292,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 0
+      },
+      "pre_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 420,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 997
+      },
+      "run_id": "dac-38e6ad49",
+      "schema_version": "assa.p3_prevention.mechanism_run.v1",
+      "setup": {
+        "mode": 292,
+        "owner_gid": 1000,
+        "owner_uid": 0
+      },
+      "target_abs_path": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/dac-38e6ad49/scenario/workspace/MEMORY.md",
+      "target_relpath": "workspace/MEMORY.md",
+      "teardown": {
+        "ok": true
+      }
+    },
+    {
+      "error": null,
+      "legitimate_update": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/scenario/workspace/MEMORY.md",
+          "legitimate_update",
+          "P3_LEGAL_MARKER_20260822",
+          "- legitimate self-state update: operator-approved memory maintenance note\n"
+        ],
+        "elapsed_ns": 33769478,
+        "probe": {
+          "elapsed_ns": 83257,
+          "errno": 1,
+          "errno_name": "EPERM",
+          "exception_type": "PermissionError",
+          "marker": null,
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "legitimate_update",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 83257, \"errno\": 1, \"errno_name\": \"EPERM\", \"exception_type\": \"PermissionError\", \"marker\": null, \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"legitimate_update\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "marker_write": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/scenario/workspace/MEMORY.md",
+          "marker_write",
+          "P3_LEGAL_MARKER_20260822",
+          "- legal marker update: P3_LEGAL_MARKER_20260822\n"
+        ],
+        "elapsed_ns": 37576217,
+        "probe": {
+          "elapsed_ns": 85621,
+          "errno": 1,
+          "errno_name": "EPERM",
+          "exception_type": "PermissionError",
+          "marker": "P3_LEGAL_MARKER_20260822",
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "marker_write",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 85621, \"errno\": 1, \"errno_name\": \"EPERM\", \"exception_type\": \"PermissionError\", \"marker\": \"P3_LEGAL_MARKER_20260822\", \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"marker_write\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "mechanism": "chattr_immutable",
+      "paper_admissible": true,
+      "post_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 420,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 997
+      },
+      "pre_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 420,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 997
+      },
+      "run_id": "chattr_immutable-3edffa98",
+      "schema_version": "assa.p3_prevention.mechanism_run.v1",
+      "setup": {
+        "immutable": true
+      },
+      "target_abs_path": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/chattr_immutable-3edffa98/scenario/workspace/MEMORY.md",
+      "target_relpath": "workspace/MEMORY.md",
+      "teardown": {
+        "immutable_after": false,
+        "returncode": 0,
+        "stderr_tail": ""
+      }
+    },
+    {
+      "error": null,
+      "legitimate_update": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "aa-exec",
+          "-p",
+          "assa_p3_a3622fb924df",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/scenario/workspace/MEMORY.md",
+          "legitimate_update",
+          "P3_LEGAL_MARKER_20260822",
+          "- legitimate self-state update: operator-approved memory maintenance note\n"
+        ],
+        "elapsed_ns": 32233032,
+        "probe": {
+          "elapsed_ns": 101262,
+          "errno": 13,
+          "errno_name": "EACCES",
+          "exception_type": "PermissionError",
+          "marker": null,
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "legitimate_update",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 101262, \"errno\": 13, \"errno_name\": \"EACCES\", \"exception_type\": \"PermissionError\", \"marker\": null, \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"legitimate_update\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "marker_write": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "aa-exec",
+          "-p",
+          "assa_p3_a3622fb924df",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/scenario/workspace/MEMORY.md",
+          "marker_write",
+          "P3_LEGAL_MARKER_20260822",
+          "- legal marker update: P3_LEGAL_MARKER_20260822\n"
+        ],
+        "elapsed_ns": 40172382,
+        "probe": {
+          "elapsed_ns": 118934,
+          "errno": 13,
+          "errno_name": "EACCES",
+          "exception_type": "PermissionError",
+          "marker": "P3_LEGAL_MARKER_20260822",
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "marker_write",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 118934, \"errno\": 13, \"errno_name\": \"EACCES\", \"exception_type\": \"PermissionError\", \"marker\": \"P3_LEGAL_MARKER_20260822\", \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"marker_write\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "mechanism": "apparmor",
+      "paper_admissible": true,
+      "post_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 420,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 997
+      },
+      "pre_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 420,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 997
+      },
+      "run_id": "apparmor-b681873e",
+      "schema_version": "assa.p3_prevention.mechanism_run.v1",
+      "setup": {
+        "profile_name": "assa_p3_a3622fb924df",
+        "profile_path": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/assa_p3_a3622fb924df.apparmor",
+        "visible": true
+      },
+      "target_abs_path": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/apparmor-b681873e/scenario/workspace/MEMORY.md",
+      "target_relpath": "workspace/MEMORY.md",
+      "teardown": {
+        "returncode": 0,
+        "stderr_tail": ""
+      }
+    },
+    {
+      "error": null,
+      "legitimate_update": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/bin/p3_landlock_launcher",
+          "--allow-write",
+          "/tmp",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/scenario/workspace/MEMORY.md",
+          "legitimate_update",
+          "P3_LEGAL_MARKER_20260822",
+          "- legitimate self-state update: operator-approved memory maintenance note\n"
+        ],
+        "elapsed_ns": 41454739,
+        "probe": {
+          "elapsed_ns": 93998,
+          "errno": 13,
+          "errno_name": "EACCES",
+          "exception_type": "PermissionError",
+          "marker": null,
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "legitimate_update",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 93998, \"errno\": 13, \"errno_name\": \"EACCES\", \"exception_type\": \"PermissionError\", \"marker\": null, \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"legitimate_update\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "marker_write": {
+        "command": [
+          "runuser",
+          "-u",
+          "assa-runner",
+          "--",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/bin/p3_landlock_launcher",
+          "--allow-write",
+          "/tmp",
+          "--",
+          "/usr/bin/python3",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/p3_write_probe.py",
+          "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/scenario/workspace/MEMORY.md",
+          "marker_write",
+          "P3_LEGAL_MARKER_20260822",
+          "- legal marker update: P3_LEGAL_MARKER_20260822\n"
+        ],
+        "elapsed_ns": 38314649,
+        "probe": {
+          "elapsed_ns": 97513,
+          "errno": 13,
+          "errno_name": "EACCES",
+          "exception_type": "PermissionError",
+          "marker": "P3_LEGAL_MARKER_20260822",
+          "open_succeeded": false,
+          "post_bytes": 9,
+          "post_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "pre_bytes": 9,
+          "pre_sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+          "probe_kind": "marker_write",
+          "schema_version": "assa.p3.write_probe.v1",
+          "target": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/scenario/workspace/MEMORY.md",
+          "write_return": null
+        },
+        "returncode": 10,
+        "stderr_tail": "",
+        "stdout_tail": "{\"elapsed_ns\": 97513, \"errno\": 13, \"errno_name\": \"EACCES\", \"exception_type\": \"PermissionError\", \"marker\": \"P3_LEGAL_MARKER_20260822\", \"open_succeeded\": false, \"post_bytes\": 9, \"post_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"pre_bytes\": 9, \"pre_sha256\": \"d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070\", \"probe_kind\": \"marker_write\", \"schema_version\": \"assa.p3.write_probe.v1\", \"target\": \"<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/scenario/workspace/MEMORY.md\", \"write_return\": null}\n"
+      },
+      "mechanism": "landlock",
+      "paper_admissible": true,
+      "post_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 420,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 997
+      },
+      "pre_policy_state": {
+        "exists": true,
+        "gid": 1000,
+        "mode": 420,
+        "sha256": "d7870cdadd1ac3b46461cce0776275aeb54f15f19338e597fafd0f277b1f0070",
+        "size": 9,
+        "uid": 997
+      },
+      "run_id": "landlock-6a55a44b",
+      "schema_version": "assa.p3_prevention.mechanism_run.v1",
+      "setup": {
+        "launcher": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/bin/p3_landlock_launcher",
+        "probe": {
+          "abi": 4
+        }
+      },
+      "target_abs_path": "<GUEST_HOME>/assa-bench/experiments/results/p3_prevention_self_state_errno_20260822_v3/runs/landlock-6a55a44b/scenario/workspace/MEMORY.md",
+      "target_relpath": "workspace/MEMORY.md",
+      "teardown": {
+        "ok": true
+      }
+    }
+  ],
+  "schema_version": "assa.p3_prevention.self_state_errno.v1",
+  "summary": {
+    "admissible_mechanisms": 4,
+    "all_mechanisms_admissible": true,
+    "by_mechanism": [
+      {
+        "error": null,
+        "legitimate_errno": 13,
+        "legitimate_errno_name": "EACCES",
+        "legitimate_update_blocked_collateral": true,
+        "marker_blocked": true,
+        "marker_errno": 13,
+        "marker_errno_name": "EACCES",
+        "mechanism": "dac",
+        "paper_admissible": true,
+        "same_errno_for_marker_and_legitimate": true
+      },
+      {
+        "error": null,
+        "legitimate_errno": 1,
+        "legitimate_errno_name": "EPERM",
+        "legitimate_update_blocked_collateral": true,
+        "marker_blocked": true,
+        "marker_errno": 1,
+        "marker_errno_name": "EPERM",
+        "mechanism": "chattr_immutable",
+        "paper_admissible": true,
+        "same_errno_for_marker_and_legitimate": true
+      },
+      {
+        "error": null,
+        "legitimate_errno": 13,
+        "legitimate_errno_name": "EACCES",
+        "legitimate_update_blocked_collateral": true,
+        "marker_blocked": true,
+        "marker_errno": 13,
+        "marker_errno_name": "EACCES",
+        "mechanism": "apparmor",
+        "paper_admissible": true,
+        "same_errno_for_marker_and_legitimate": true
+      },
+      {
+        "error": null,
+        "legitimate_errno": 13,
+        "legitimate_errno_name": "EACCES",
+        "legitimate_update_blocked_collateral": true,
+        "marker_blocked": true,
+        "marker_errno": 13,
+        "marker_errno_name": "EACCES",
+        "mechanism": "landlock",
+        "paper_admissible": true,
+        "same_errno_for_marker_and_legitimate": true
+      }
+    ],
+    "ima_excluded_from_collateral": true,
+    "mechanism_count": 4
+  },
+  "target_relpath": "workspace/MEMORY.md"
+}

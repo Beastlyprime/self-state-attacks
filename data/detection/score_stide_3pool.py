@@ -8,7 +8,7 @@ from collections import defaultdict
 
 ROOT = Path(os.environ.get("ASSA_ROOT", str(Path(__file__).resolve().parents[2])))
 HH = ROOT / "data/superseded"
-OUT = HH / "final_3pool"
+OUT = ROOT / "data/detection"
 SCR = Path(os.environ.get("ASSA_SCRATCH", str(ROOT / ".scratch")))
 POOLS = SCR / "pools"
 STAGE = HH / "staging"

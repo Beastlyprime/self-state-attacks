@@ -1,16 +1,29 @@
 # Paper → code → file
 
-Every estimate reported in the paper, the code that produced it, and the frozen
-output it was read from. Paths are repository-relative.
+Every estimate reported in the paper, the code that produced it, and where it was
+read from. Paths are repository-relative.
+
+One entry below points outside this repository and is marked as such: the
+per-run rows of Table 11's execution environment, which are recorded in each run
+bundle in the archived corpus rather than in any single frozen file. Everything
+else resolves to a file here.
 
 `DET` below is `data/detection`.
+
+Not every table appears here, by design. Figures 1–3 and Tables 1–3 are
+definitional: the attack-space axes, the logical self-state roles, and the
+mapping from OS capability to the decision each defence dimension must make.
+They contain no measured value, so there is nothing to trace to a file. Table 13
+lists the detectors' pre-specified decision rules, which the scorers named below
+implement. Everything that reports a number is in one of the two tables that
+follow.
 
 ## Results
 
 | Paper | Produced by | Read from |
 |---|---|---|
-| **Table 7** — prevention replay, 6 operations × 5 configurations on `MEMORY.md` | `data/prevention/bin/run_p3_op_matrix.sh`, `bin/p3_op_matrix_incontainer.py` | `data/prevention/p3_op_replay_matrix_result.json` — 36 cells, 11 with the requested post-state landed |
-| **Table 7** — paired direct-write probe (authorized-update selectivity) | `experiments/code/measurement/p3_prevention_self_state_errno.py`; policies in `experiments/code/defenses/prevention/` (`backends.py`, `permission_policies_v4.py`, `apparmor_profiles.py`, `chattr_lifecycle.sh`, `landlock_launcher.c`) | same result JSON, `install_info` and errno fields |
+| **Table 7** — prevention replay, 6 operations × 5 configurations on `MEMORY.md` | `data/prevention/bin/run_p3_op_matrix.sh`, `bin/p3_op_matrix_incontainer.py` | `data/prevention/p3_op_replay_matrix_result.json` — 36 cells over six operations and six mechanisms. Thirty of those are the five policy configurations of Table 7; the other six are the unprotected `none` control, which the paper does not tabulate. Eleven cells landed their requested post-state |
+| **Table 7** — paired direct-write probe (authorized-update selectivity) | `experiments/code/measurement/p3_prevention_self_state_errno.py`; policies in `experiments/code/defenses/prevention/` (`backends.py`, `permission_policies_v4.py`, `apparmor_profiles.py`, `chattr_lifecycle.sh`, `landlock_launcher.c`) | `data/prevention/paired-probe/P3_PREVENTION_SELF_STATE_ERRNO_REPORT.json` — a separate probe, because the six-operation replay JSON has no approved-update arm. Four mechanisms, each recording `marker_blocked`, `legitimate_update_blocked_collateral` and `same_errno_for_marker_and_legitimate`: the same policy rejects the attack write and the approved update, with the same errno |
 | **Table 8, Table 14** — AIDE | `DET/score_aide_3pool.py` → `experiments/code/measurement/stage_g_harness/p2_aide_fpr_gen2.py` | `DET/scored_aide_3pool.json` |
 | **Table 8, Table 14** — Falco | `DET/falco_remote.py`, `DET/merge_falco_3pool.py`, `experiments/code/measurement/stage_g_harness/falco_rules.py` | `DET/scored_falco_3pool.json` |
 | **Table 8, Table 14** — STIDE | `DET/score_stide_3pool.py` → `stage_g_harness/{stide_bridge,stide_core_tail,stide_saturation}.py` | `DET/scored_stide_3pool.json` |
@@ -31,12 +44,12 @@ output it was read from. Paths are repository-relative.
 | **Table 4** — clean corpus by workload profile (176 train / 60 held out) | `experiments/code/dataset_builder/{build_p2_clean_split,extend_p2_clean_split,build_p2_gen2_clean_inputs,build_p2_clean_user_message_cases}.py`; frozen by `measurement/freeze_p2_{clean,gen2_clean,heldout}_accounting.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, pools 1–2 |
 | **Table 5, Table 12** — 23 structural cells → 43 executable bindings | `experiments/code/dataset_builder/canonical_matrix_audit.py`, `attacks/canonical_v4.py`, `workload/taxonomy.py` | recomputable — see [`REPRODUCE.md`](../REPRODUCE.md). `data/superseded/COVERAGE_23CELL_RECOMPUTE.json` separately records which cells the attack corpus actually fills |
 | **§4.3** — the 55 attack executions (52 folds) | user-message carriers: `build_mass_um_profile_inputs{,_w2w4}.py` (MUC/MUI); content-append: `build_mass_profile_content_append_inputs.py` (MCAW); semantic: `build_mass_profile_semantic_inputs.py` (MSI); chmod: `build_mass_profile_chmod_inputs.py` (MCH); truncate/unlink: `build_mass_profile_destructive_inputs.py` (MTR/MUL); W3 C-series: `build_p2_l0_newcase_inputs{,_b2,_b3}.py`, `build_p2_l0_um_instcfg_inputs.py`, `build_p2_l0_archetype_inputs.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, pool 3 and `fold_map_attack_loso` |
-| **Table 6** — five co-collected host views | `dataset_builder/paired_live_four_source.py`, `five_source_graph_bridge.py`, `live_trace/live_ebpf.bpf.c` | per-run collector records in the archived corpus |
+| **Table 6** — five co-collected host views | `dataset_builder/paired_live_four_source.py`, `five_source_graph_bridge.py`, `live_trace/live_ebpf.bpf.c` | the archived corpus ships the *derived* evidence — the normalized provenance graph, the libsinsp reconstruction and the native SCAP capture. The raw inotify, fanotify, auditd and eBPF streams are retained per run in the full archive, not in the reproduction corpus |
 | **Table 6 → detector inputs** — normalization and export | `measurement/stage_g_harness/{normalize,audit,scap,sidecars,libsinsp_extract,libsinsp_reattribute,libsinsp_compare,export_p2_detector_inputs}.py` | `data/superseded/DERIVATION_AVAILABILITY_MATRIX.json` |
 | **§4.4, §5 preamble** — admission gates (fd→path ≥ 0.95, zero drops, no excluded writes) | `dataset_builder/recollection_readiness.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, `anti_leakage_asserts` |
 | **§4.4** — 16-case operation-observability validation | `dataset_builder/{mutation_matrix_canary,mutation_canary_five_source,mutation_matrix_run,mutation_op_canary}.py` | `data/observability/operation-matrix/REPORT.md` — 4 mechanisms × 4 target roles, all 16 graph-witnessed, with the full run bundle. `data/observability/four-operation-canary/` is the earlier 4-operation run that established the integration |
 | **§D.4** — fail-closed cross-generation binding | `measurement/stage_g_harness/generation_contract.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, `generation_contract` |
-| **Table 11** — execution environment fingerprint | recorded per run by `paired_live_four_source.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, `generation_contract` and `uid_spotcheck` |
+| **Table 11** — execution environment | the values are set by `dataset_builder/paired_live_four_source.py` and recorded per run in the environment fingerprint inside each run bundle | `DET/FINAL_3POOL_SPLIT_MANIFEST.json` carries the `generation_contract` and `uid_spotcheck` — the auditd, eBPF-object, libsinsp, monitor-version and runner-UID entries. The remaining rows (kernel build, filesystem, cgroup limits, clock discipline) are set in the collector and recorded per run in the archived corpus, not in any single frozen file here |
 | **§4.1, Table 1** — reference adapter, state roles, role→path map | `workload/{state_schema,taxonomy}.py`, `workload/self_state_openclaw.json`, `experiments/agent/openclaw_core/` | — |
 | **§4.1, Table 4** — W1–W4 profiles and task definitions | `workload/{profiles,agent_packs,generator_v4}.py`, `measurement/{task_runner,task_runner_w2w3,task_eval}.py` | `experiments/tasks/W{1,2,3,4}/*.json`, `experiments/agent_packs/` |
 

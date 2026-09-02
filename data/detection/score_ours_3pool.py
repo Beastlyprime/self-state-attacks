@@ -2,7 +2,7 @@
 """ours-B1/B2 on the 3-pool split: FIT on gen2-176 training, TEST on 55 attacks + gen2-60 heldout.
 Reuses verbatim detector math from score_ours (fit_baseline/run_decision/score_record/self_check).
 extract_ops is reimplemented base-dir-aware (I/O plumbing only; identical logic)."""
-import json, math, os, statistics, sys, random
+import json, os, math, os, statistics, sys, random
 from collections import defaultdict
 from pathlib import Path
 from pathlib import Path as _Path
@@ -10,9 +10,9 @@ _REPO_ROOT = str(_Path(__file__).resolve().parents[2])
 
 ROOT = Path(_REPO_ROOT)
 HH = ROOT / "data/superseded"
-OUT = HH / "final_3pool"
-SCR = Path("<SCRATCH>")
-POOLS = SCR / "pools"
+OUT = ROOT / "data/detection"
+SCR = Path(os.environ.get("ASSA_SCRATCH", "/tmp/assa-scratch"))   # scorer working area
+POOLS = ROOT / "data/corpus-manifests/tier_b"                      # unpacked corpus
 STAGE = HH / "staging"
 sys.path.insert(0, str(HH))
 import importlib.util
@@ -79,14 +79,14 @@ def fail_closed(message: str):
              "  'What can be reproduced here, and what cannot'.")
 
 
-def train_dir(rid): return POOLS / "train" / rid
-def held_dir(rid): return POOLS / "heldout" / rid
+def train_dir(rid): return POOLS / "clean_train" / rid
+def held_dir(rid): return POOLS / "clean_heldout" / rid
 def attack_dir(rid): return STAGE / rid
 
 
 def main():
     sc = so.self_check(); assert sc["match"], sc
-    missing = [str(p) for p in (POOLS / "train", POOLS / "heldout", STAGE) if not p.is_dir()]
+    missing = [str(p) for p in (POOLS / "clean_train", POOLS / "clean_heldout", STAGE) if not p.is_dir()]
     if missing:
         fail_closed("required input roots are absent: " + ", ".join(missing))
     pool1 = MAN["pools"]["pool1_clean_training_gen2_176"]["records"]
