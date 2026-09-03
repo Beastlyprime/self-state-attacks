@@ -123,12 +123,14 @@ and its raw output was never archived, so Falco's false-positive rate is
 checkable but not recomputable. Apply the delete-first test and it fails
 outright — that is the honest signature of a carried-forward side.
 
-`rebuild_supervised_3pool.py` also runs to completion from the corpus, but its
-result **differs from the published figures**, because three of the 23 twins
-contributed an empty syscall stream to the original fit and the corpus ships the
-complete streams. It writes `FINAL_3POOL_SUPERVISED.recomputed.json` and leaves
-the shipped file untouched; `docs/results.md` has the four affected numbers and
-the reasoning. `score_aide_3pool.py` and `score_stide_3pool.py` resolve their
+`rebuild_supervised_3pool.py` runs to completion from the corpus. Its
+**substrate A block recomputes exactly** — nested-CV AUC .5983, its interval,
+every control and the McNemar counts. Its **substrate B AUCs do not, and cannot**:
+that block selected syscall streams with an unordered glob, and six of the 46
+streams it reads have more than one distinct copy on disk, so the copy the
+published fit used was never recorded. It writes
+`FINAL_3POOL_SUPERVISED.recomputed.json` and leaves the shipped file untouched;
+`docs/results.md` has the details. `score_aide_3pool.py` and `score_stide_3pool.py` resolve their
 full populations from the corpus but still need, respectively, the AIDE
 container image and the pinned STIDE implementation, so neither can be executed
 from this release.

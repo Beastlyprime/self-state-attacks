@@ -113,10 +113,8 @@ def main():
         }
         out["unmatched"][tag] = unmatched
 
-    # Same non-overwrite rule as rebuild_supervised_3pool.py: recomputing from
-    # the released corpus does not reproduce the shipped figures, because three
-    # twins' libsinsp streams were empty in the substrate those figures were
-    # computed from. See docs/results.md.
+    # Same non-overwrite rule as rebuild_supervised_3pool.py. See docs/results.md,
+    # "Section 5.2: substrate A reproduces exactly; substrate B cannot".
     if os.path.exists(OUT) and json.load(open(OUT)) != out:
         side = OUT.replace(".json", ".recomputed.json")
         json.dump(out, open(side, "w"), indent=2)

@@ -636,15 +636,14 @@ def main():
     # ================= SUBSTRATE B (twin base) =================
     out["substrate_b_twin_base"] = run_substrate_b()
 
-    # Never overwrite the published numbers. Recomputing from the released corpus
-    # does NOT reproduce them, and the reason is a data defect in the substrate
-    # they were computed from, not in this script: three of the 23 twins
-    # (MCAW101, MCAW201, MCAW402) had a zero-byte libsinsp stream in the
-    # collection-host trees, and C520's was shorter than the copy that was
-    # later pulled. The corpus ships the complete streams, so the recomputation
-    # is arguably the better estimate -- but it is not what the paper reports,
-    # and silently replacing a published figure is not this script's call.
-    # See docs/results.md, "Recomputing section 5.2 does not reproduce it".
+    # Never overwrite the published numbers. Substrate A recomputes exactly from
+    # the released corpus. Substrate B does not, and cannot: its stream selector
+    # was an unordered glob, and six of the 46 streams it reads have more than
+    # one distinct copy on disk -- sixteen, for C512's clean twin. Which copy the
+    # published fit used was never recorded. The selector here is deterministic
+    # now, which makes the release self-consistent but does not recover the
+    # shipped figures. See docs/results.md, "Section 5.2: substrate A reproduces
+    # exactly; substrate B cannot".
     shipped = OUTDIR / "FINAL_3POOL_SUPERVISED.json"
     if shipped.exists() and json.load(open(shipped)) != out:
         side = OUTDIR / "FINAL_3POOL_SUPERVISED.recomputed.json"
@@ -653,7 +652,8 @@ def main():
                     f"and left the published one untouched.\n"
                     f"  shipped    nested-CV AUC {json.load(open(shipped))['substrate_a_twin_base']['nested_cv_auc']}\n"
                     f"  recomputed nested-CV AUC {out['substrate_a_twin_base']['nested_cv_auc']}\n"
-                    f"  see docs/results.md, 'Recomputing section 5.2 does not reproduce it'.")
+                    f"  substrate A should match exactly; a substrate B difference is expected --\n"
+                    f"  see docs/results.md, 'Section 5.2: substrate A reproduces exactly'.")
     else:
         json.dump(out, open(shipped, "w"), indent=2)
         _verdict = "\nrecomputation matches the shipped file"
@@ -690,7 +690,21 @@ def run_substrate_b():
                         s.add(tuple(seq[i:i + N]))
         return s
     def findnorm(rid):
-        h = glob.glob(str(RES / f"**/{rid}/graph/normalized/syscalls.jsonl"), recursive=True)
+        """Deterministic, in the same order as locate().
+
+        The original was glob("**/<rid>/graph/normalized/...")[0], whose result
+        depends on directory traversal order whenever a run has more than one
+        copy on disk -- which several do. Fix the order explicitly: staging is
+        the substrate the published rows were scored from, then the corpus
+        pools, then whatever the collection-host trees still offer.
+        """
+        rel = "graph/normalized/syscalls.jsonl"
+        cands = [STAGE / rid / rel]
+        cands += [ARCHIVE / sub / rid / rel for sub in ARCHIVE_SUBDIRS]
+        for c in cands:
+            if c.is_file():
+                return str(c)
+        h = sorted(glob.glob(str(RES / f"**/{rid}/{rel}"), recursive=True))
         return h[0] if h else None
     run_sets, y, g = [], [], []
     for rid in SUB:

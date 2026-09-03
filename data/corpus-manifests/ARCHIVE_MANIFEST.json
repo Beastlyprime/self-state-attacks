@@ -5,14 +5,15 @@
  "purpose": "Durable <ANALYSIS_HOST>-local persistence of irreplaceable P2 measurement data (VM/job-tmp were ephemeral).",
  "release_totals": {
   "files": 15418,
-  "bytes": 19507718789,
-  "gb": 19.51,
+  "bytes": 19487121506,
+  "gb": 19.49,
   "checksum_index_file": "ARCHIVE_SHA256SUMS.txt",
   "measured_objects_state_snapshots": 11729,
   "compressed_volumes": 12,
-  "compressed_bytes": 3058273679,
+  "compressed_bytes": 3057997308,
   "compressed_gb": 3.06,
-  "note": "Exact file-byte sums over the published archive (tier_a/b/c + staging + provenance-inputs + aux + manifests), EXCLUDING ARCHIVE_SHA256SUMS.txt -- that index is derived from every other file, so its own size is reported separately rather than folded into a total it covers. The tier_a/b/c figures elsewhere in this file describe those tiers only."
+  "note": "Exact file-byte sums over the published archive (tier_a/b/c + staging + provenance-inputs + aux + manifests), EXCLUDING ARCHIVE_SHA256SUMS.txt -- that index is derived from every other file, so its own size is reported separately rather than folded into a total it covers. The tier_a/b/c figures elsewhere in this file describe those tiers only.",
+  "checksum_index_bytes": 2513430
  },
  "sha256sums": "ARCHIVE_SHA256SUMS.txt (covers every file in this archive)",
  "tier_a": {

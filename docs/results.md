@@ -40,67 +40,87 @@ follow.
 ### Table 9's clean side is a size-matched control, not a paired one
 
 The paper describes Table 9 as 21 landings against 21 *matched* clean branches.
-The published population is equal in size but not paired one-to-one, and the
-release states the actual structure rather than the caption's:
+The two published populations are equal in size; they are not a pairing
+assignment. The inventory:
 
-| Relation to the 21 attacks | Count | Which |
+| | Count | Which |
 |---|---|---|
-| paired with their own `__clean` twin (same run id) | 17 | |
-| no run-id twin; the clean side carries a branch of the same case, different channel variant | 2 | `C511_…_user_message`, `C513_…_user_message` |
-| no clean counterpart at any granularity | 2 | `C510_w3_db_query_vendor_package`, `C515_…_user_message` |
-| clean branch matching no unpaired attack | 1 | `C401_w4_replication_article_bias_external_content__clean` |
+| attacks paired with their own `__clean` twin (same run id) | 17 | |
+| attacks with no unused clean branch left for a one-to-one match | 2 | `C510_w3_db_query_vendor_package`, `C515_…_user_message` — a same-case clean is in the benign set, but it is already consumed as another attack's exact twin |
+| attacks matchable only at case granularity | 2 | `C511_…_user_message` (two unused same-case cleans available), `C513_…_user_message` (one) |
+| clean branches matching no unpaired attack's case | 1 | `C401_w4_replication_article_bias_external_content__clean` |
 
-Those last four attacks are the C-series landings whose original bundle was not
-local; the report's own `par21_note` already records that their carrier slot and
-paired clean were unavailable.
+Read that as a relation inventory, not an assignment: a strict one-to-one
+matching completes at most **19 pairs** and leaves two attacks and two clean
+branches over. The four unpaired attacks are exactly the C-series landings the
+report's own `par21_note` records as having no paired clean available.
 
 **This does not move the table's numbers or its conclusion.** Every cell is a
 marginal count over each side independently — destination nameable 21/21 both
 sides, principal attributed 21/21 both sides — so nothing in it is computed as a
-within-pair difference. The finding is that OS provenance names and attributes
-attack and benign self-state writes indistinguishably; a size-matched control
-supports that as well as a paired one would. What the pairing language would
-additionally license — a per-pair comparison — the design does not support, and
-the paper does not perform one.
+within-pair difference, and no paired test is performed. The supportable claim is
+that across these two equal-sized populations the attribution properties are
+identical, so they yield no attack-specific verdict. What the pairing language
+would additionally license — a per-pair comparison — the design does not support.
+The paper's caption and its "task-matched clean branches test whether…" phrasing
+are stronger than that; closing it is an arXiv revision item, not a reason to
+change any data here.
 
-### Recomputing section 5.2 does not reproduce it — and the corpus is the better data
+### Section 5.2: substrate A reproduces exactly; substrate B cannot
 
-`rebuild_supervised_3pool.py` now runs end to end from the released corpus, and
-its output **differs from the shipped figures**. The cause is in the substrate
-the published numbers were computed from, not in the script:
+Running `rebuild_supervised_3pool.py` against the corpus turned up two separate
+problems. One was a defect in this archive and is fixed; the other is a
+limitation of the original computation and is not fixable here.
 
-| Twin | libsinsp stream on the collection host | in the corpus |
+**The archive shipped the wrong C520 pair, and that is now corrected.** Of the
+22 C-series runs in `tier_b/*_lockedpop_cseries`, twenty-one were the
+`gemini-3-flash` executions the published population is defined over. The
+`C520_w3_alert_webhook_runbook` pair was the `grok-4.6` re-collection instead — a
+different execution that happened to share the run id, from
+`p2_llmtrace_grok_attack_native_20260823`. The published rows never used it: the
+detector staging tree carries the gemini execution, and so does every other
+pool. Substituting the gemini pair back makes **substrate A recompute exactly** —
+nested-CV AUC .5983, its interval, every control, the placebo and the McNemar
+counts all match the shipped file field for field.
+
+**Substrate B's two AUCs are not reproducible, and the reason predates this
+release.** Its stream selector was `glob("**/<run_id>/graph/normalized/syscalls.jsonl")[0]`,
+whose result depends on directory traversal order. Six of the 46 streams it reads
+have more than one distinct copy on disk:
+
+| Run | distinct copies | sizes |
 |---|---|---|
-| `MCAW101_w1_release_helper_tool_redirect__clean` | **0 bytes** | 5.57 MB |
-| `MCAW201_w2_model_q_false_memory__clean` | **0 bytes** | 5.16 MB |
-| `MCAW402_w4_blanket_approval_false_memory__clean` | **0 bytes** | 4.32 MB |
-| `C520_w3_alert_webhook_runbook__clean` | 7.86 MB | 8.89 MB |
-| the other 19 of 23 | — | byte-identical |
+| `C512_w3_audit_rotate_runbook__clean` | **16** | 17.4–22.3 MB — the parity-pilot replicates r1–r5 across three arms |
+| `MCAW101_w1_release_helper_tool_redirect__poisoned` | 2 | 5.9 MB, 23.4 MB |
+| `MCAW201_w2_model_q_false_memory__poisoned` | 2 | 6.0 MB, 22.6 MB |
+| `MCAW402_w4_blanket_approval_false_memory__poisoned` | 2 | 4.7 MB, 17.2 MB |
+| `C520_w3_alert_webhook_runbook__poisoned` | 2 | 25.7 MB, 28.6 MB |
+| `C520_w3_alert_webhook_runbook__clean` | 2 | 24.9 MB, 27.8 MB |
 
-Three of the 23 negative-side runs contributed an empty syscall stream to the
-published fit; a later graph pull filled them in, and the corpus ships the
-complete versions. Recomputing on complete data moves four figures the paper
-states in section 5.2:
+Which copy the published fit used was never recorded, and three deterministic
+orderings we tried give three different answers:
 
-| Paper | Published | Recomputed from the corpus |
+| | L1 logistic | RuleFit |
 |---|---|---|
-| size-and-timing nested-CV AUC on twins | .598, CI [.460, .742] | **.619, CI [.531, .755]** |
-| L1 logistic on substrate B | .499 | .439 |
-| RuleFit on substrate B | .492 | .241 |
-| workload placebo on the natural corpus | .815 | .773 |
+| shipped | .499 | .492 |
+| staging-first | .512 | .384 |
+| archive-first | .538 | .471 |
 
-The direction of the argument is unchanged — matched-pair separability stays
-weak, and substrate B gets weaker, not stronger. What does change is one
-specific claim: the published confidence interval includes chance, and the
-recomputed one does not.
+The selector is now deterministic — staging first, then the corpus pools, in the
+same order `locate()` uses — so the release at least yields the same answer every
+time. It is not the shipped answer. Every candidate lands in .38–.54, so the
+paper's characterisation of substrate B as *at chance* holds under all of them;
+the two specific figures do not reproduce and we do not claim they do.
 
-**Nothing here overwrites the published figures.** `rebuild_supervised_3pool.py`
-and `supervised/paired_vs_b1b2.py` write
-`FINAL_3POOL_SUPERVISED.recomputed.json` and `paired_vs_b1b2.recomputed.json`
-and leave the shipped files alone, so both numbers are available and the
-discrepancy is visible rather than resolved by whichever script ran last.
-Deciding which figure the paper should carry is the authors' call, not the
-artifact's.
+`rebuild_supervised_3pool.py` and `supervised/paired_vs_b1b2.py` write
+`*.recomputed.json` and never overwrite the shipped files, so both are available
+and the difference stays visible.
+
+**A correction to an earlier version of this file.** It attributed the
+discrepancy to three twins (MCAW101, MCAW201, MCAW402) having zero-byte libsinsp
+streams. Those files are indeed empty in the `p2_mass_attack_lane2` trees, but
+`locate()` checks the detector staging tree *first* and staging carries all three
+complete, so they were never read. The cause was the C520 substitution above.
 
 ## Populations, catalog, and measurement quality
 
