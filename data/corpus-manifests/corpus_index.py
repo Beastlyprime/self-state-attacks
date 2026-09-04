@@ -100,6 +100,45 @@ def check(path, root, digest=None):
     return None
 
 
+def verify_all(root, quiet=False):
+    """Check every unpacked corpus file against the index. Returns (ok, missing, bad).
+
+    `sha256sum -c` on the mirrored index does not work, and that is not a defect
+    in the index: its keys are relative to the corpus payload root, while the
+    twelve volumes unpack to four different places under `data/`. Roughly 3,000
+    of the 15,417 keys -- everything under `staging/`, `provenance-inputs/` and
+    `aux/` -- cannot resolve from the directory the index sits in. This walks
+    the mapping instead, so there is a supported way to check an unpacked
+    corpus in one command.
+    """
+    table = load(root)
+    if table is None:
+        raise SystemExit(f"{index_path(root)} is missing")
+    reverse = {}
+    for repo_prefix, payload_prefix in LAYOUT:
+        reverse[payload_prefix] = repo_prefix
+    ok, missing, bad = 0, [], []
+    for key, want in sorted(table.items()):
+        top = key.split("/", 1)[0] + "/"
+        repo_prefix = reverse.get(top if top in reverse else "")
+        rel = key[len(top):] if top in reverse else key
+        path = Path(root) / repo_prefix / rel
+        if not path.is_file():
+            missing.append(key)
+            continue
+        if sha256_file(path) != want:
+            bad.append(key)
+        else:
+            ok += 1
+    if not quiet:
+        print(f"{ok} verified, {len(missing)} not unpacked, {len(bad)} MISMATCHED")
+        for key in bad[:20]:
+            print(f"  MISMATCH {key}")
+        if missing[:5] and not bad:
+            print(f"  (not unpacked, e.g. {', '.join(missing[:3])})")
+    return ok, missing, bad
+
+
 def check_tree(root_dir, root, limit=None):
     """Every file under `root_dir` must be present in the index and match it.
 
@@ -116,3 +155,14 @@ def check_tree(root_dir, root, limit=None):
             if limit and len(bad) >= limit:
                 break
     return bad
+
+
+if __name__ == "__main__":
+    import sys as _sys
+    _root = Path(__file__).resolve().parents[2]
+    if "--verify" in _sys.argv:
+        _ok, _missing, _bad = verify_all(_root)
+        _sys.exit(1 if _bad else 0)
+    print(f"{__doc__.strip().splitlines()[0]}\n\n"
+          f"  python3 {Path(__file__).relative_to(_root)} --verify\n\n"
+          f"index: {index_path(_root)}")

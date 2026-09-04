@@ -72,10 +72,27 @@ Each result directory carries a `SHA256SUMS` over the files it ships:
 cd data/detection && sha256sum -c FINAL_3POOL_SHA256SUMS.txt
 ```
 
-One inventory is expected **not** to verify:
-`data/corpus-manifests/manifests/TIER_A_SHA256SUMS.txt` records acquisition-time
-hashes for corpus tiers that are not in this repository. It is a provenance
-record, not a manifest of shipped files.
+Two of these files are **not** directory inventories and `sha256sum -c` on them
+is the wrong tool:
+
+- `data/corpus-manifests/manifests/TIER_A_SHA256SUMS.txt` records
+  acquisition-time hashes for corpus tiers that are not in this repository. It
+  is a provenance record, not a manifest of shipped files.
+- `data/corpus-manifests/ARCHIVE_SHA256SUMS.txt` is the corpus release index,
+  mirrored here so the scorers can verify their inputs. Its 15,417 keys are
+  relative to the corpus payload root, and the twelve volumes unpack to four
+  different places under `data/`, so about 3,000 of them — everything under
+  `staging/`, `provenance-inputs/` and `aux/` — cannot resolve from the
+  directory it sits in. To check an unpacked corpus against it, use the mapping:
+
+  ```bash
+  python3 data/corpus-manifests/corpus_index.py --verify
+  # 15417 verified, 0 not unpacked, 0 MISMATCHED     (~18 s)
+  ```
+
+  It reports what is not unpacked separately from what mismatches, and exits
+  non-zero only on a mismatch, so it is also the quick way to see which volumes
+  a partial unpack is missing.
 
 ## Level 3 — what needs the corpus
 
