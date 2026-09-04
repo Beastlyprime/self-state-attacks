@@ -154,6 +154,26 @@ volumes, with no path back to the collection host: Table 9, the B1/B2 rows,
 STIDE, Falco's attack side and the aggregate all come back byte-identical there,
 and `build_manifest.py`'s fourteen anti-leakage asserts all pass.
 
+Counting inputs is still not enough, and a second review round showed why. A
+population gate that asks whether a file is *present* passes a file that is
+present and wrong. Blanking one held-out stream moved B1's false-positive rate
+from 10/60 to 9/60 and exited 0; handing `C520`'s slot another run's stream
+exited 0 with a different TPR, because the write extractor keys on the run id
+appearing in each event's path and silently skipped every event; substituting a
+training stream for `C520`'s STIDE substrate left all 115 test items
+"evaluable" and moved TPR to 54/55. All three overwrote the frozen output.
+
+Both scorers now bind each stream to the run it is supposed to describe, which
+the data supports directly: every libsinsp event and every normalized syscall
+record names its own run. Streams that are empty, or that carry another run's
+records, are refused before anything is fitted or written. Two outcome
+assertions back that up — each of the 23 b1b2-definable attacks must resolve a
+self-state write, and every clean run recorded as performing one must show it —
+and both arms must reach a decision on all 23 and all 60. For STIDE's 176
+training streams, which it hands to the backend rather than reading, only the
+first record is checked: that catches a blanked or wholly substituted file, and
+not a stream spliced together record by record. The scorers say so in the code.
+
 ## Populations, catalog, and measurement quality
 
 | Paper | Produced by | Read from |

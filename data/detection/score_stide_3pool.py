@@ -27,15 +27,51 @@ STREAM_REL = {
 }
 
 
-def idkeys(path):
+def idkeys(path, expect_rid=None):
+    """Identity keys in a stream, and -- if asked -- proof it is the right stream.
+
+    Presence of a file is not evidence that it is the right file. A blanked
+    stream and another run's stream both parse cleanly and both move the
+    numbers, so bind the stream to the run it is supposed to describe. Each
+    record names its own run; STREAM_AUDIT collects what was seen and the gate
+    in main() acts on it.
+    """
     ks = set()
+    seen = 0
+    foreign = set()
     for line in open(path):
         r = json.loads(line)
+        seen += 1
+        if expect_rid is not None and r.get("run_id") != expect_rid:
+            foreign.add(r.get("run_id"))
         if not r.get("sequence_eligible"):
             continue
         pr = r.get("process") or {}
         ks.add(pr.get("identity_key") or f"{r['run_id']}:{pr.get('pid')}:identity_incomplete")
+    if expect_rid is not None:
+        STREAM_AUDIT[expect_rid] = {"path": str(path), "records": seen, "foreign_run_ids": foreign}
     return ks
+
+
+STREAM_AUDIT: dict = {}
+
+
+def stream_head_identity(path, expect_rid):
+    """Cheap identity check for a stream this scorer hands to the backend unread.
+
+    The 176 training streams are consumed by STIDE, not by this process, so
+    reading them in full only to validate would cost several gigabytes. Check
+    the first record instead: that catches a blanked file and a whole-stream
+    substitution, which are the ways an input gets silently swapped. It does not
+    catch a stream spliced record by record, and the fit is only as trustworthy
+    as the published checksums for those files.
+    """
+    with open(path) as fh:
+        first = fh.readline()
+    if not first.strip():
+        return "empty"
+    rid = json.loads(first).get("run_id")
+    return None if rid == expect_rid else f"first record names {rid}"
 
 
 def fail_closed(message: str):
@@ -93,6 +129,18 @@ def main():
                     + "; ".join((missing_train + missing_test)[:6])
                     + (" ..." if len(missing_train) + len(missing_test) > 6 else ""))
 
+    # Bind the training streams to their runs before handing them to the backend.
+    wrong_train = []
+    for r in pool1:
+        p = POOLS / POOL_DIR["train"] / r["run_id"] / REATTR_REL
+        why = stream_head_identity(p, r["run_id"])
+        if why:
+            wrong_train.append(f"{r['run_id']} ({why})")
+    if wrong_train:
+        fail_closed(f"{len(wrong_train)} of {len(pool1)} training streams do not belong to "
+                    f"their run: " + "; ".join(wrong_train[:6])
+                    + (" ..." if len(wrong_train) > 6 else ""))
+
     rows = []
     for prof in ("W1", "W2", "W3", "W4"):
         cores = PF[prof]["core_executables"]
@@ -103,7 +151,7 @@ def main():
         key2run = {}
         for rid, _, _, path, _ in prof_tests:
             if path.is_file():
-                for k in idkeys(path):
+                for k in idkeys(path, expect_rid=rid):
                     key2run[k] = rid
         res = stide_run(STIDE_REPO, train_paths, test_paths, 6, 106)
         exres = res["results"]
@@ -144,6 +192,16 @@ def main():
     atk = [r for r in rows if r["side"] == "attack"]
     cl = [r for r in rows if r["side"] == "clean"]
     ae = [r for r in atk if r["status"] == "passed"]; ce = [r for r in cl if r["status"] == "passed"]
+
+    # Every test stream must have belonged to its own run. An emptied or
+    # substituted stream parses fine and quietly shifts TPR or FPR.
+    bad = [f"{rid} ({'empty' if a['records'] == 0 else 'carries ' + str(sorted(x for x in a['foreign_run_ids'] if x)[:2])})"
+           for rid, a in STREAM_AUDIT.items() if a["records"] == 0 or a["foreign_run_ids"]]
+    if bad:
+        fail_closed(f"{len(bad)} test substrates do not belong to their run: "
+                    + "; ".join(bad[:6]) + (" ..." if len(bad) > 6 else ""))
+    if len(STREAM_AUDIT) != len(test_runs):
+        fail_closed(f"only {len(STREAM_AUDIT)} of {len(test_runs)} test substrates were read")
 
     # The frozen generation evaluated every run on both sides -- 55/55 and 60/60,
     # zero data_insufficient. Anything short of that means an input or the STIDE

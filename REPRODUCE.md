@@ -119,6 +119,14 @@ population mismatch rather than reporting a smaller, plausible-looking count.
 training runs, 23 b1b2-definable attacks, 60 held-out clean runs — because a
 short input reads exactly like a detector that scored lower.
 
+Both it and `score_stide_3pool.py` also check that each stream *is* the run's
+stream, not merely that a file is there. Every libsinsp event and normalized
+syscall record names its own run, so an empty stream, or one carrying another
+run's records, is refused before anything is fitted or written — a blanked
+stream otherwise shifts the false-positive rate by one run and exits 0. Two
+outcome assertions come with it: each b1b2-definable attack must resolve a
+self-state write, and every clean run recorded as performing one must show it.
+
 The B1/B2 test above was re-run in a tree that contains nothing but this
 repository and the unpacked volumes, with no path back to the collection host.
 That matters because an earlier version of the corpus shipped the eleven W3
@@ -205,7 +213,7 @@ record of zstd volumes.
 | `tier_b-twins` + `tier_b-twins_lockedpop_cseries` | 55 matched clean branches | `data/corpus-manifests/` |
 | `tier_c` | SCAP captures for the Falco replay | `data/corpus-manifests/` |
 | `tier_a`, `manifests` | manifests the scorers read, acquisition provenance | `data/corpus-manifests/` |
-| `staging` | the 11 W3 attack graphs the UNICORN scorer reads | `data/superseded/staging/` |
+| `staging` | 102 detector staging runs — 44 attacks and 58 clean | `data/superseded/staging/` |
 | `aux` | STIDE stopping-rule preregistration; the landed census the provenance analysis reads | `data/aux/` |
 
 Most volumes carry a `tier_*`/`manifests` root and belong under

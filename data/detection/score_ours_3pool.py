@@ -25,15 +25,26 @@ WRITE = so.WRITE
 MAN = json.load(open(OUT / "FINAL_3POOL_SPLIT_MANIFEST.json"))
 
 
+# Per-stream audit, filled in by extract_ops_base and read by the gates in main().
+# Presence of a file is not evidence that it is the right file: an empty stream and
+# another run's stream both parse fine and both silently change the result, so bind
+# every stream to the run it is supposed to describe.
+STREAM_AUDIT: dict = {}
+
+
 def extract_ops_base(rundir: Path):
     """base-aware clone of score_ours.extract_ops."""
     f = rundir / "graph/libsinsp/libsinsp_events.jsonl"
     if not f.is_file():
         return None
     rid = rundir.name
+    audit = STREAM_AUDIT.setdefault(rid, {"path": str(f), "records": 0, "foreign_run_ids": set()})
     buckets = defaultdict(lambda: {"ts": [], "canon": None, "first_dated": None})
     for line in f.open():
         e = json.loads(line); sc = e.get("syscall", {})
+        audit["records"] += 1
+        if e.get("run_id") != rid:
+            audit["foreign_run_ids"].add(e.get("run_id"))
         if sc.get("name") not in WRITE or sc.get("result") != "SUCCESS":
             continue
         path = (e.get("file") or {}).get("path")
@@ -79,6 +90,31 @@ def fail_closed(message: str):
     sys.exit(f"fail-closed: {message}\n"
              "  Nothing was written. See REPRODUCE.md, 'Level 3 -- what needs\n"
              "  the corpus', for what this scorer still cannot reach.")
+
+
+def audit_streams(rids):
+    """Every stream read so far must be non-empty and carry only its own run id.
+
+    This is what the existence checks miss. Blanking a stream leaves a parseable
+    file and moves the numbers; handing a run another run's stream leaves every
+    record parseable and moves them differently. Both are indistinguishable from
+    a real result downstream, so refuse before fitting or writing. Each libsinsp
+    record names its own run, which is the binding used here -- it catches whole
+    -stream substitution and truncation to nothing, not a stream spliced record
+    by record from the right run's events.
+    """
+    empty, foreign = [], []
+    for rid in rids:
+        a = STREAM_AUDIT.get(rid)
+        if a is None:
+            continue
+        if a["records"] == 0:
+            empty.append(rid)
+        if a["foreign_run_ids"]:
+            foreign.append(f"{rid} carries {sorted(x for x in a['foreign_run_ids'] if x)[:2]}")
+    if empty or foreign:
+        fail_closed(("empty streams: " + ", ".join(empty[:6]) + ". " if empty else "")
+                    + ("streams belonging to another run: " + "; ".join(foreign[:6]) + "." if foreign else ""))
 
 
 def train_dir(rid): return POOLS / "clean_train" / rid
@@ -140,6 +176,7 @@ def main():
         fail_closed(f"{len(pool2) - len(missing_held)} of {len(pool2)} held-out clean runs resolved. "
                     f"Unresolved: {', '.join(missing_held[:8])}"
                     f"{' ...' if len(missing_held) > 8 else ''}")
+    audit_streams(train_recs.keys())
     B1 = so.fit_baseline(global_pool)
     B2 = {p: so.fit_baseline(by_prof[p]) for p in by_prof}
     fit_meta = {"n_train_with_libsinsp": len(global_pool), "by_profile": {p: len(v) for p, v in by_prof.items()}}
@@ -153,29 +190,55 @@ def main():
                 "tier": a["tier"], "b1b2_definable": a["b1b2_definable"]}
 
     # attacks
+    att_recs, held_recs = {}, {}
     for a in pool3:
         if not a["b1b2_definable"]:
             nev = {"status": "N/A", "binary_decision": None, "reasons": ["no_resolved_marker_write_ruling2"]}
             out["B1"]["attack"].append({**ameta(a), **nev}); out["B2"]["attack"].append({**ameta(a), **nev})
             continue
-        recs = extract_ops_base(attack_dir(a["run_id"]))
+        recs = att_recs[a["run_id"]] = extract_ops_base(attack_dir(a["run_id"]))
         out["B1"]["attack"].append({**ameta(a), **so.run_decision(recs, B1)})
         out["B2"]["attack"].append({**ameta(a), **so.run_decision(recs, B2.get(a["profile"], {}))})
 
     # clean heldout FPR (no leave-one-out)
     for c in pool2:
-        recs = extract_ops_base(held_dir(c["run_id"]))
+        recs = held_recs[c["run_id"]] = extract_ops_base(held_dir(c["run_id"]))
         cm = {"run_id": c["run_id"], "profile": c["profile"], "scenario_id": c["scenario_id"],
               "performs_write": c["performs_self_state_write"]}
         out["B1"]["clean_fpr"].append({**cm, **so.run_decision(recs, B1)})
         out["B2"]["clean_fpr"].append({**cm, **so.run_decision(recs, B2.get(c["profile"], {}))})
 
+    # Now that every stream has been read, re-audit: the attack and held-out
+    # streams were not covered by the pre-fit pass.
+    audit_streams(STREAM_AUDIT.keys())
+
+    # Bind on outcome as well as on input. A b1b2-definable attack is definable
+    # because a marker write resolves in its stream, and a clean run flagged as
+    # performing a self-state write must show one; if either yields nothing, the
+    # stream is not the one these rows were computed from, whatever it contains.
+    no_ops_att = [rid for rid, r in att_recs.items() if not r]
+    no_ops_clean = [c["run_id"] for c in pool2 if c["performs_self_state_write"]
+                    and not held_recs.get(c["run_id"])]
+    if no_ops_att or no_ops_clean:
+        fail_closed(("b1b2-definable attacks with no resolved self-state write: "
+                     + ", ".join(no_ops_att) + ". " if no_ops_att else "")
+                    + ("clean runs recorded as performing a self-state write but showing none: "
+                       + ", ".join(no_ops_clean[:6]) + "." if no_ops_clean else ""))
+    for arm in ("B1", "B2"):
+        undecided_att = [x["run_id"] for x in out[arm]["attack"]
+                         if x["b1b2_definable"] and x["status"] != "passed"]
+        undecided_clean = [x["run_id"] for x in out[arm]["clean_fpr"] if x["status"] != "passed"]
+        if undecided_att or undecided_clean:
+            fail_closed(f"{arm}: {len(undecided_att)} of {len(definable_ids)} definable attacks and "
+                        f"{len(undecided_clean)} of {len(pool2)} clean runs did not reach a decision. "
+                        + ", ".join((undecided_att + undecided_clean)[:6]))
+
     # ---- balanced ablation: 35/profile x4 = 140, reseeded
     abl = {"design": "35/profile x4 =140 reseeded; B1 pooled-140 vs B2 profile-140; TPR on 23 definable, FPR on gen2-60",
            "seeds": []}
     definable_att = [a for a in pool3 if a["b1b2_definable"]]
-    att_recs = {a["run_id"]: extract_ops_base(attack_dir(a["run_id"])) for a in definable_att}
-    held_recs = {c["run_id"]: extract_ops_base(held_dir(c["run_id"])) for c in pool2}
+    # att_recs / held_recs were built above and cover exactly these runs -- the
+    # ablation used to re-extract them, which re-read a gigabyte for no reason.
     for seed in (11, 23, 42, 101, 2026):
         rng = random.Random(seed)
         bal = []

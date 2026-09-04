@@ -4,7 +4,9 @@
 Clean provenance graphs are deterministically rebuilt from the frozen
 ``resolution_spine_effective/syscalls.jsonl`` streams.  A checked sample is
 object-identical to the previously exported gen4 graph.  Attack graphs are
-read from the durable archive (44) or the W3 staging population (11).
+read from the corpus attack pools -- the 44 in tier_b/attacks and the 11 W3
+C-series in tier_b/attacks_lockedpop_cseries -- falling back to the detector
+staging tree for any run it still carries.
 """
 from __future__ import annotations
 
