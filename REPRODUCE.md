@@ -18,9 +18,10 @@ pip install -r requirements.txt
 python3 -m pytest        # exercises the pipeline's invariants
 ```
 
-`pytest.ini` supplies the import roots. 585 tests are collected and 1 is skipped.
-Seven read frozen intermediate directories that are not shipped (see *Known
-non-passing tests* below).
+`pytest.ini` supplies the import roots. 585 tests are collected. Seven fail
+because they read frozen intermediate directories that are not shipped, and one
+more passes or fails with host timing — so 577 or 578 pass, depending on the
+run. *Known non-passing tests* below names all eight.
 
 ## Level 2 — what re-derives here
 
@@ -290,6 +291,7 @@ Seven tests read frozen intermediate directories that are too large to ship
 `measurement/tests/test_p2_attack_stide_rebless.py`.
 
 One more — `openclaw_core/tests/test_trace.py::test_truncate_rewrite_distinguishable_from_append`
-— asserts on kernel write coalescing and is host-dependent. It passes on the
-reference Linux 6.8 x86-64 configuration and is flaky on kernels that coalesce
-more aggressively.
+— is a live inotify probe, and the kernel may coalesce the two MODIFY events an
+`open(path, 'w')` produces into one. Its own docstring says so. It passes in
+isolation and fails intermittently in a full-suite run on a loaded machine; it
+is timing, not a property of the data or the code under test.
