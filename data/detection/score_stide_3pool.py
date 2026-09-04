@@ -13,6 +13,8 @@ SCR = Path(os.environ.get("ASSA_SCRATCH", str(ROOT / ".scratch")))
 POOLS = ROOT / "data/corpus-manifests/tier_b"       # unpacked corpus
 POOL_DIR = {"train": "clean_train", "heldout": "clean_heldout"}
 STAGE = HH / "staging"
+sys.path.insert(0, str(ROOT / "data/corpus-manifests"))
+import corpus_index
 sys.path.insert(0, str(ROOT))
 from experiments.code.measurement.stage_g_harness.stide_bridge import run as stide_run
 
@@ -56,22 +58,17 @@ def idkeys(path, expect_rid=None):
 STREAM_AUDIT: dict = {}
 
 
-def stream_head_identity(path, expect_rid):
-    """Cheap identity check for a stream this scorer hands to the backend unread.
+def stream_is_published(path):
+    """Hash a stream this scorer hands to the backend without reading itself.
 
-    The 176 training streams are consumed by STIDE, not by this process, so
-    reading them in full only to validate would cost several gigabytes. Check
-    the first record instead: that catches a blanked file and a whole-stream
-    substitution, which are the ways an input gets silently swapped. It does not
-    catch a stream spliced record by record, and the fit is only as trustworthy
-    as the published checksums for those files.
+    The 176 training streams are consumed by STIDE, not by this process. An
+    earlier version checked only their first record, which a truncation walks
+    straight past -- truncating one natural-write stream shifted a reported
+    false-positive count and exited 0. Hash them instead: it costs one pass
+    over the training set and it is the only check that a truncated or
+    part-copied file cannot satisfy.
     """
-    with open(path) as fh:
-        first = fh.readline()
-    if not first.strip():
-        return "empty"
-    rid = json.loads(first).get("run_id")
-    return None if rid == expect_rid else f"first record names {rid}"
+    return corpus_index.check(path, ROOT)
 
 
 def fail_closed(message: str):
@@ -129,17 +126,22 @@ def main():
                     + "; ".join((missing_train + missing_test)[:6])
                     + (" ..." if len(missing_train) + len(missing_test) > 6 else ""))
 
-    # Bind the training streams to their runs before handing them to the backend.
-    wrong_train = []
+    # Every input must be the published bytes, checked before the fit and before
+    # anything is written. The test streams are hashed here too: idkeys() binds
+    # them to their run ids as it reads, but only the hash catches a truncation.
+    wrong = []
     for r in pool1:
-        p = POOLS / POOL_DIR["train"] / r["run_id"] / REATTR_REL
-        why = stream_head_identity(p, r["run_id"])
+        why = stream_is_published(POOLS / POOL_DIR["train"] / r["run_id"] / REATTR_REL)
         if why:
-            wrong_train.append(f"{r['run_id']} ({why})")
-    if wrong_train:
-        fail_closed(f"{len(wrong_train)} of {len(pool1)} training streams do not belong to "
-                    f"their run: " + "; ".join(wrong_train[:6])
-                    + (" ..." if len(wrong_train) > 6 else ""))
+            wrong.append(why)
+    for rid, _, _, path, _ in test_runs:
+        why = stream_is_published(path)
+        if why:
+            wrong.append(why)
+    if wrong:
+        fail_closed(f"{len(wrong)} of {len(pool1) + len(test_runs)} inputs are not the "
+                    f"published bytes: " + "; ".join(wrong[:6])
+                    + (f" (and {len(wrong) - 6} more)" if len(wrong) > 6 else ""))
 
     rows = []
     for prof in ("W1", "W2", "W3", "W4"):

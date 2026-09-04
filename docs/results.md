@@ -163,16 +163,30 @@ appearing in each event's path and silently skipped every event; substituting a
 training stream for `C520`'s STIDE substrate left all 115 test items
 "evaluable" and moved TPR to 54/55. All three overwrote the frozen output.
 
-Both scorers now bind each stream to the run it is supposed to describe, which
-the data supports directly: every libsinsp event and every normalized syscall
-record names its own run. Streams that are empty, or that carry another run's
-records, are refused before anything is fitted or written. Two outcome
-assertions back that up — each of the 23 b1b2-definable attacks must resolve a
-self-state write, and every clean run recorded as performing one must show it —
-and both arms must reach a decision on all 23 and all 60. For STIDE's 176
-training streams, which it hands to the backend rather than reading, only the
-first record is checked: that catches a blanked or wholly substituted file, and
-not a stream spliced together record by record. The scorers say so in the code.
+Naming the inputs was not enough either. Binding each stream to the run id its
+records carry catches substitution and blanking, and a third round showed it
+still passes a stream that has simply been **truncated** — one natural-write
+training stream cut down to its first record has the right run id in the one
+record it has left, and it moved a B1/B2 false-positive count while exiting 0.
+
+So the check is now the content hash. `ARCHIVE_SHA256SUMS.txt`, the release
+checksum index published beside the volumes, is mirrored into the repository at
+`data/corpus-manifests/`, and both scorers verify every stream and every
+measured snapshot they read against it before fitting or writing. B1/B2 hashes
+each stream from the bytes it is already parsing, so the whole run still takes
+twelve seconds. The run-id and outcome assertions are kept for the diagnostics
+they give — a truncation and a substitution now report differently — and
+`corpus_index.py` states the limit: this is a reproduction check, not a security
+boundary, since whoever can rewrite an input can rewrite the index. What it buys
+is that a truncated, half-copied or substituted input cannot quietly republish
+different numbers under a frozen filename.
+
+Seven attempted bypasses, all from the review rounds, now fail closed with the
+frozen outputs byte-unchanged: blanking a held-out, training or attack stream;
+putting one run's stream in another's slot; splicing a correct first record onto
+another run's body; truncating a stream by a single record; and appending one
+byte to a measured snapshot — that last one nothing before this check would have
+caught, since the size features read those files.
 
 ## Populations, catalog, and measurement quality
 

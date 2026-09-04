@@ -2,13 +2,15 @@
 """ours-B1/B2 on the 3-pool split: FIT on gen2-176 training, TEST on 55 attacks + gen2-60 heldout.
 Reuses verbatim detector math from score_ours (fit_baseline/run_decision/score_record/self_check).
 extract_ops is reimplemented base-dir-aware (I/O plumbing only; identical logic)."""
-import json, os, math, os, statistics, sys, random
+import hashlib, json, os, math, os, statistics, sys, random
 from collections import defaultdict
 from pathlib import Path
 from pathlib import Path as _Path
 _REPO_ROOT = str(_Path(__file__).resolve().parents[2])
 
 ROOT = Path(_REPO_ROOT)
+sys.path.insert(0, str(ROOT / "data/corpus-manifests"))
+import corpus_index
 HH = ROOT / "data/superseded"
 OUT = ROOT / "data/detection"
 SCR = Path(os.environ.get("ASSA_SCRATCH", "/tmp/assa-scratch"))   # scorer working area
@@ -38,9 +40,18 @@ def extract_ops_base(rundir: Path):
     if not f.is_file():
         return None
     rid = rundir.name
-    audit = STREAM_AUDIT.setdefault(rid, {"path": str(f), "records": 0, "foreign_run_ids": set()})
+    # Hash the bytes we are about to parse, so the strongest check costs one read
+    # rather than two. A truncated stream survives every other check there is.
+    raw = f.read_bytes()
+    audit = STREAM_AUDIT[rid] = {
+        "path": str(f), "rundir": rundir, "records": 0, "foreign_run_ids": set(),
+        "index": corpus_index.check(f, ROOT, digest=hashlib.sha256(raw).hexdigest()),
+    }
+    lines = raw.splitlines()
     buckets = defaultdict(lambda: {"ts": [], "canon": None, "first_dated": None})
-    for line in f.open():
+    for line in lines:
+        if not line.strip():
+            continue
         e = json.loads(line); sc = e.get("syscall", {})
         audit["records"] += 1
         if e.get("run_id") != rid:
@@ -103,7 +114,7 @@ def audit_streams(rids):
     -stream substitution and truncation to nothing, not a stream spliced record
     by record from the right run's events.
     """
-    empty, foreign = [], []
+    empty, foreign, unpublished = [], [], []
     for rid in rids:
         a = STREAM_AUDIT.get(rid)
         if a is None:
@@ -112,9 +123,20 @@ def audit_streams(rids):
             empty.append(rid)
         if a["foreign_run_ids"]:
             foreign.append(f"{rid} carries {sorted(x for x in a['foreign_run_ids'] if x)[:2]}")
-    if empty or foreign:
+        if a["index"]:
+            unpublished.append(a["index"])
+        # The size features come from the snapshots, so they are inputs too --
+        # small files, so hash the whole tree rather than guessing which the
+        # bucketing will reach.
+        snaps = a["rundir"] / "state_snapshots"
+        if snaps.is_dir():
+            unpublished.extend(corpus_index.check_tree(snaps, ROOT, limit=3))
+    if empty or foreign or unpublished:
         fail_closed(("empty streams: " + ", ".join(empty[:6]) + ". " if empty else "")
-                    + ("streams belonging to another run: " + "; ".join(foreign[:6]) + "." if foreign else ""))
+                    + ("streams belonging to another run: " + "; ".join(foreign[:6]) + ". " if foreign else "")
+                    + ("inputs that are not the published bytes: " + "; ".join(unpublished[:6])
+                       + (f" (and {len(unpublished) - 6} more)" if len(unpublished) > 6 else "")
+                       if unpublished else ""))
 
 
 def train_dir(rid): return POOLS / "clean_train" / rid

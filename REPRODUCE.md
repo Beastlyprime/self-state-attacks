@@ -119,13 +119,24 @@ population mismatch rather than reporting a smaller, plausible-looking count.
 training runs, 23 b1b2-definable attacks, 60 held-out clean runs — because a
 short input reads exactly like a detector that scored lower.
 
-Both it and `score_stide_3pool.py` also check that each stream *is* the run's
-stream, not merely that a file is there. Every libsinsp event and normalized
-syscall record names its own run, so an empty stream, or one carrying another
-run's records, is refused before anything is fitted or written — a blanked
-stream otherwise shifts the false-positive rate by one run and exits 0. Two
-outcome assertions come with it: each b1b2-definable attack must resolve a
-self-state write, and every clean run recorded as performing one must show it.
+Both it and `score_stide_3pool.py` also check that each input **is the published
+input**, not merely that a file is there. They hash every stream and every
+measured snapshot they read against
+`data/corpus-manifests/ARCHIVE_SHA256SUMS.txt`, the release checksum index
+mirrored here from the corpus, and refuse before fitting or writing if anything
+differs. That is the only check a truncation cannot walk past: cutting one
+natural-write training stream down to its first record leaves a parseable file
+whose every record still names the right run, and it shifted a B1/B2
+false-positive count while exiting 0.
+
+Two weaker checks are kept for the error messages they give — an empty stream,
+or one carrying another run's records, is named as such — along with two outcome
+assertions: each b1b2-definable attack must resolve a self-state write, and
+every clean run recorded as performing one must show it. `corpus_index.py`
+states the limit plainly: this is a reproduction check, not a security
+boundary. Anyone who can rewrite the inputs can rewrite the index. What it buys
+is that a truncated, half-copied or substituted input cannot quietly republish
+different numbers under a frozen filename.
 
 The B1/B2 test above was re-run in a tree that contains nothing but this
 repository and the unpacked volumes, with no path back to the collection host.
