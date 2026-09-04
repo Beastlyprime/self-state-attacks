@@ -1,34 +1,34 @@
 {
  "archive": "<REPO_ROOT>/experiments/results/DURABLE_ARCHIVE_20260825",
  "created": "2026-08-25T14:05:07.836135Z",
- "note_superseded_totals": "The 'totals' and per-tier counts below describe the original durable archive only. The published reproduction corpus adds staging, provenance-inputs, aux and manifests, and omits the provenance-inputs raw captures; see release_totals.",
+ "note_superseded_totals": "'tiers' and 'totals' cover tier_a/b/c of the published corpus only. 'release_totals' covers every volume: those three plus staging, provenance-inputs, aux and manifests.",
  "purpose": "Durable <ANALYSIS_HOST>-local persistence of irreplaceable P2 measurement data (VM/job-tmp were ephemeral).",
  "release_totals": {
   "files": 15418,
-  "bytes": 19487121506,
-  "gb": 19.49,
+  "bytes": 19476988003,
+  "gb": 19.48,
   "checksum_index_file": "ARCHIVE_SHA256SUMS.txt",
   "measured_objects_state_snapshots": 11729,
   "compressed_volumes": 12,
-  "compressed_bytes": 3057997308,
-  "compressed_gb": 3.06,
+  "compressed_bytes": 3047895366,
+  "compressed_gb": 3.05,
   "note": "Exact file-byte sums over the published archive (tier_a/b/c + staging + provenance-inputs + aux + manifests), EXCLUDING ARCHIVE_SHA256SUMS.txt -- that index is derived from every other file, so its own size is reported separately rather than folded into a total it covers. The tier_a/b/c figures elsewhere in this file describe those tiers only.",
   "checksum_index_bytes": 2513430
  },
- "sha256sums": "ARCHIVE_SHA256SUMS.txt (covers every file in this archive)",
+ "sha256sums": "ARCHIVE_SHA256SUMS.txt (covers every other regular file in this archive; it cannot contain its own hash, and the archive holds no symlinks or special files)",
  "tier_a": {
   "drivers": {
    "files": 72,
-   "src": "$CLAUDE_JOB_DIR/tmp"
+   "src": "<SCRATCH>"
   },
   "freezes": {
    "files": 2,
    "src_host": "<GUEST_HOST_A>",
-   "src_path": "/home/outerclaw/derived_results/p2_gen2_clean_20260822/freezes/"
+   "src_path": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/freezes/"
   },
   "job_reports": {
    "files": 26,
-   "src": "$CLAUDE_JOB_DIR/tmp (<SCRATCH>)"
+   "src": "<SCRATCH>"
   },
   "local_result_refs": {
    "headtohead_files": 51,
@@ -44,7 +44,7 @@
    "subpaths": "graph/{normalized,reattributed,libsinsp}, state_snapshots, runtime_state_capture.json, ground_truth.json"
   },
   "attacks_lockedpop_cseries_11": {
-   "provenance": "best_effort: pulled from underlying source generation on .91; exact match to b1b2 locked-pop derivation input NOT verified",
+   "provenance": "pulled from the underlying source generation on <GUEST_HOST_B>. The two streams the scorers read -- graph/libsinsp/libsinsp_events.jsonl and graph/normalized/syscalls.jsonl -- are byte-identical to the detector staging trees the frozen rows were computed from, verified for all 11 runs. The C520 pair was replaced on 2026-09-04: the initial acquisition took the grok-4.6 re-collection that shares that run id, which no published row was computed from.",
    "runs": 11,
    "source_manifest": "manifests/cseries11_source_paths.json"
   },
@@ -78,33 +78,33 @@
   "scap_format": "each capture.scap streamed gzip-over-ssh -> capture.scap.gz (+ .remote_size sidecar = uncompressed remote size)",
   "scap_ok": 170,
   "scap_remote_missing": 0,
-  "total_local_gz_bytes": 2804272340,
-  "total_remote_uncompressed_bytes": 23088367244,
+  "total_local_gz_bytes": 2794139831,
+  "total_remote_uncompressed_bytes": 22976807120,
   "twins": {
    "runs": 55
   }
  },
  "tiers": {
   "tier_a": {
-   "bytes": 14125153,
+   "bytes": 14122370,
    "files": 179,
    "gb": 0.014
   },
   "tier_b": {
-   "bytes": 14999598685,
+   "bytes": 14979008043,
    "files": 11974,
-   "gb": 15.0
+   "gb": 14.979
   },
   "tier_c": {
-   "bytes": 2804273978,
+   "bytes": 2794141469,
    "files": 340,
-   "gb": 2.804
+   "gb": 2.794
   }
  },
  "totals": {
-  "bytes": 17818190854,
-  "files": 12507,
-  "gb": 17.818
+  "bytes": 17787271882,
+  "files": 12493,
+  "gb": 17.787
  },
- "two_hop_source": "<COLLECTOR_HOST> -> outerclaw@<GUEST_HOSTS> (read-only)"
+ "two_hop_source": "<COLLECTOR_HOST> -> assa@<GUEST_HOSTS> (read-only)"
 }

@@ -94,7 +94,7 @@ python3 -m pytest
 
 The per-run provenance graphs, state snapshots and native SCAP captures the
 detection, provenance and recovery results are computed from are archived
-separately: **19.5 GB in 12 volumes, 3.1 GB compressed**. `data/corpus-manifests/`
+separately: **19.5 GB in 12 volumes, 3.0 GB compressed**. `data/corpus-manifests/`
 records their provenance and checksums, and [`REPRODUCE.md`](REPRODUCE.md) says
 where each volume unpacks to and, per scorer, what the archive still does not
 supply. Some results ship only as their frozen report — the Table 7 paired probe

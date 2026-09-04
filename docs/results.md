@@ -73,44 +73,50 @@ problems. One was a defect in this archive and is fixed; the other is a
 limitation of the original computation and is not fixable here.
 
 **The archive shipped the wrong C520 pair, and that is now corrected.** Of the
-22 C-series runs in `tier_b/*_lockedpop_cseries`, twenty-one were the
-`gemini-3-flash` executions the published population is defined over. The
-`C520_w3_alert_webhook_runbook` pair was the `grok-4.6` re-collection instead — a
-different execution that happened to share the run id, from
-`p2_llmtrace_grok_attack_native_20260823`. The published rows never used it: the
-detector staging tree carries the gemini execution, and so does every other
-pool. Substituting the gemini pair back makes **substrate A recompute exactly** —
-nested-CV AUC .5983, its interval, every control, the placebo and the McNemar
-counts all match the shipped file field for field.
+22 C-series runs in `tier_b/*_lockedpop_cseries`, twenty were the
+`gemini-3-flash` executions the published population is defined over. The other
+two were both halves of `C520_w3_alert_webhook_runbook` — attack and twin — taken
+from the `grok-4.6` re-collection in
+`p2_llmtrace_grok_attack_native_20260823`, a different execution that happens to
+share the run id. The published rows never used it: the detector staging tree
+they were scored from held the gemini execution, as does every other pool.
+Substituting the
+gemini pair back makes **substrate A recompute exactly** — nested-CV AUC .5983,
+its interval, every control, the placebo and the McNemar counts all match the
+shipped file field for field, verified in a tree holding nothing but this
+repository and the unpacked volumes.
 
-**Substrate B's two AUCs are not reproducible, and the reason predates this
-release.** Its stream selector was `glob("**/<run_id>/graph/normalized/syscalls.jsonl")[0]`,
-whose result depends on directory traversal order. Six of the 46 streams it reads
-have more than one distinct copy on disk:
+The same substitution was needed one tier down. `tier_c`, which carries the
+native SCAP captures, held the grok C520 attack and twin as well — the archived
+captures hashed to the grok sources, and their recorded sizes were the grok
+sizes. Both are now the gemini captures, and the two acquisition manifests that
+recorded the grok source paths (`manifests/cseries11_source_paths.json`,
+`manifests/scap_targets.json`) say so.
 
-| Run | distinct copies | sizes |
-|---|---|---|
-| `C512_w3_audit_rotate_runbook__clean` | **16** | 17.4–22.3 MB — the parity-pilot replicates r1–r5 across three arms |
-| `MCAW101_w1_release_helper_tool_redirect__poisoned` | 2 | 5.9 MB, 23.4 MB |
-| `MCAW201_w2_model_q_false_memory__poisoned` | 2 | 6.0 MB, 22.6 MB |
-| `MCAW402_w4_blanket_approval_false_memory__poisoned` | 2 | 4.7 MB, 17.2 MB |
-| `C520_w3_alert_webhook_runbook__poisoned` | 2 | 25.7 MB, 28.6 MB |
-| `C520_w3_alert_webhook_runbook__clean` | 2 | 24.9 MB, 27.8 MB |
+**Substrate B's two shipped AUCs are not reproducible, and the reason predates
+this release.** Its stream selector was
+`glob("**/<run_id>/graph/normalized/syscalls.jsonl")[0]`, whose result depends on
+directory traversal order. On the collection host several of the 46 streams it
+reads had more than one distinct copy — sixteen for
+`C512_w3_audit_rotate_runbook__clean`, one per parity-pilot replicate across
+three arms — so which one the published fit read was decided by traversal order
+and never written down. The shipped **.4991 / .4915** therefore cannot be checked
+against anything, and we do not claim otherwise.
 
-Which copy the published fit used was never recorded, and three deterministic
-orderings we tried give three different answers:
+What replaces it is checkable in a stronger sense than a fixed ordering. Across
+the published volumes each of the 46 streams exists exactly once, except one
+(`MCAW402_w4_blanket_approval_false_memory__poisoned`, in both `staging` and
+`tier_b/attacks`) whose two copies are byte-identical — so from this corpus the
+result does not depend on the order at all. It is **.5123 / .3837**, and the
+recomputed block carries a `stream_selection` map giving the path and SHA-256 of
+every stream read, so a reader can confirm the inputs rather than trust the
+selector.
 
-| | L1 logistic | RuleFit |
-|---|---|---|
-| shipped | .499 | .492 |
-| staging-first | .512 | .384 |
-| archive-first | .538 | .471 |
-
-The selector is now deterministic — staging first, then the corpus pools, in the
-same order `locate()` uses — so the release at least yields the same answer every
-time. It is not the shipped answer. Every candidate lands in .38–.54, so the
-paper's characterisation of substrate B as *at chance* holds under all of them;
-the two specific figures do not reproduce and we do not claim they do.
+Both pairs sit either side of .5 on L1 logistic and below it on RuleFit, so the
+paper's characterisation of substrate B as *at chance* survives. An earlier
+version of this section listed three orderings, including .538/.471 as
+"archive-first". That figure came from a development tree rather than the
+published inputs and no selection map backs it; it is withdrawn.
 
 `rebuild_supervised_3pool.py` and `supervised/paired_vs_b1b2.py` write
 `*.recomputed.json` and never overwrite the shipped files, so both are available
@@ -119,8 +125,34 @@ and the difference stays visible.
 **A correction to an earlier version of this file.** It attributed the
 discrepancy to three twins (MCAW101, MCAW201, MCAW402) having zero-byte libsinsp
 streams. Those files are indeed empty in the `p2_mass_attack_lane2` trees, but
-`locate()` checks the detector staging tree *first* and staging carries all three
-complete, so they were never read. The cause was the C520 substitution above.
+`locate()` checked the detector staging tree *first* and staging carried all
+three complete, so they were never read. The cause was the C520 substitution
+above.
+
+### The first corpus build did not actually publish eleven attack graphs
+
+Worth recording because it is the failure mode that hid the two above, and
+because it invalidated every reproduction check run on the authors' own machine.
+The `staging` volume shipped the eleven W3 C-series attacks as **absolute
+symlinks** into a path that exists only on the collection host. Here they
+resolved and every scorer looked correct; anywhere else they dangled, and
+`score_ours_3pool.py` — which had no population gate — exited 0 having evaluated
+12 of 23 definable attacks and overwritten the frozen rows with the smaller
+number. The trees were also covered by no checksum, since the index lists
+regular files.
+
+Three things changed. The symlinks are gone and the eleven trees resolve from
+`tier_b/attacks_lockedpop_cseries`, whose copies are byte-identical to the
+staging trees the rows were frozen from on every stream the scorers read
+(`libsinsp_events.jsonl`, `graph/normalized/syscalls.jsonl`, and the
+`resolution_spine_effective` graph). `score_ours_3pool.py` and
+`score_stide_3pool.py` now fail closed on their full populations rather than
+scoring what they can find — STIDE's gate also catches an absent backend, which
+otherwise reports as a uniform `data_insufficient`. And the reproduction checks
+were re-run in a tree holding nothing but the repository and the unpacked
+volumes, with no path back to the collection host: Table 9, the B1/B2 rows,
+STIDE, Falco's attack side and the aggregate all come back byte-identical there,
+and `build_manifest.py`'s fourteen anti-leakage asserts all pass.
 
 ## Populations, catalog, and measurement quality
 

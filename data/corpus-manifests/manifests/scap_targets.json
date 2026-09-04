@@ -740,16 +740,18 @@
   "run_id": "C520_w3_alert_webhook_runbook__poisoned",
   "vm": "91",
   "vm_ip": "<GUEST_HOST_B>",
-  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_llmtrace_grok_attack_native_20260823/c520_run/runs/C520_w3_alert_webhook_runbook__poisoned/raw/capture.scap",
-  "dest": "tier_c/attacks/C520_w3_alert_webhook_runbook__poisoned"
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C520_w3_alert_webhook_runbook/runs/C520_w3_alert_webhook_runbook__poisoned/raw/capture.scap",
+  "dest": "tier_c/attacks/C520_w3_alert_webhook_runbook__poisoned",
+  "provenance": "gemini-3-flash execution, substituted 2026-09-04: the initial acquisition took the grok-4.6 re-collection that shares this run id, which no published row was computed from"
  },
  {
   "role": "twin",
   "run_id": "C520_w3_alert_webhook_runbook__clean",
   "vm": "91",
   "vm_ip": "<GUEST_HOST_B>",
-  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_llmtrace_grok_attack_native_20260823/c520_run/runs/C520_w3_alert_webhook_runbook__clean/raw/capture.scap",
-  "dest": "tier_c/twins/C520_w3_alert_webhook_runbook__clean"
+  "scap": "<GUEST_HOME>/assa-bench/experiments/results/p2_l0_newcase_20260822/C520_w3_alert_webhook_runbook/runs/C520_w3_alert_webhook_runbook__clean/raw/capture.scap",
+  "dest": "tier_c/twins/C520_w3_alert_webhook_runbook__clean",
+  "provenance": "gemini-3-flash execution, substituted 2026-09-04: the initial acquisition took the grok-4.6 re-collection that shares this run id, which no published row was computed from"
  },
  {
   "role": "attack",

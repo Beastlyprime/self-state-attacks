@@ -98,6 +98,9 @@ tar -I zstd -xf selfstate-corpus-provenance-inputs.tar.zst -C data/provenance/ \
   --transform 's|^provenance-inputs|inputs|'
 tar -I zstd -xf selfstate-corpus-tier_b-clean_train.tar.zst   -C data/corpus-manifests/
 tar -I zstd -xf selfstate-corpus-tier_b-clean_heldout.tar.zst -C data/corpus-manifests/
+tar -I zstd -xf selfstate-corpus-tier_b-attacks.tar.zst       -C data/corpus-manifests/
+tar -I zstd -xf selfstate-corpus-tier_b-attacks_lockedpop_cseries.tar.zst \
+                                                              -C data/corpus-manifests/
 tar -I zstd -xf selfstate-corpus-staging.tar.zst              -C data/superseded/
 
 rm data/provenance/P5_NAMEABILITY_ATTRIBUTION_REPORT.json
@@ -112,6 +115,20 @@ git diff --stat data/                           # expect no change
 Both come back byte-identical. `p5_analyze.py` additionally refuses to emit a
 partial result: if the volume is missing bundles it exits non-zero with a
 population mismatch rather than reporting a smaller, plausible-looking count.
+`score_ours_3pool.py` now does the same on all three of its populations — 176
+training runs, 23 b1b2-definable attacks, 60 held-out clean runs — because a
+short input reads exactly like a detector that scored lower.
+
+The B1/B2 test above was re-run in a tree that contains nothing but this
+repository and the unpacked volumes, with no path back to the collection host.
+That matters because an earlier version of the corpus shipped the eleven W3
+C-series attacks in the `staging` volume as **absolute symlinks** into the
+authors' own working tree: on this machine they resolved and the scorer looked
+correct, and anywhere else they dangled and it silently evaluated 12 of 23. The
+same eleven trees are published under `tier_b/attacks_lockedpop_cseries` and are
+byte-identical on both streams the scorers read, so the symlinks were dropped
+and the scorers resolve attacks from the attack pools when `staging` does not
+carry them.
 
 `merge_falco_3pool.py` is a partial case and we state the limit rather than
 imply otherwise. With `tier_a` unpacked it reassembles the **55 attack
@@ -126,9 +143,13 @@ outright — that is the honest signature of a carried-forward side.
 `rebuild_supervised_3pool.py` runs to completion from the corpus. Its
 **substrate A block recomputes exactly** — nested-CV AUC .5983, its interval,
 every control and the McNemar counts. Its **substrate B AUCs do not, and cannot**:
-that block selected syscall streams with an unordered glob, and six of the 46
-streams it reads have more than one distinct copy on disk, so the copy the
-published fit used was never recorded. It writes
+that block selected syscall streams with an unordered glob, several of the 46
+streams it reads had more than one distinct copy on the collection host, and the
+copy the published fit used was never recorded. What the corpus does yield is
+order-independent — each of the 46 streams appears once in the published volumes,
+the single duplicate is byte-identical — and the recomputed block publishes a
+`stream_selection` map of every path and SHA-256 it read, so the replacement
+figures can be checked even though the originals cannot. It writes
 `FINAL_3POOL_SUPERVISED.recomputed.json` and leaves the shipped file untouched;
 `docs/results.md` has the details. `score_aide_3pool.py` and `score_stide_3pool.py` resolve their
 full populations from the corpus but still need, respectively, the AIDE
@@ -170,7 +191,7 @@ exception when an input path is missing, which is safe but less informative.
 
 ### Obtaining the corpus
 
-The archive is **19.5 GB unpacked / 3.1 GB compressed in 12 volumes**, scoped to
+The archive is **19.5 GB unpacked / 3.0 GB compressed in 12 volumes**, scoped to
 the populations the paper's results are computed from, and published as one
 record of zstd volumes.
 `data/corpus-manifests/ARCHIVE_MANIFEST.json` describes the tiers and

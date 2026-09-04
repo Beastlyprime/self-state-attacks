@@ -127,6 +127,10 @@ def attack_graph(record: dict[str, Any]) -> Path:
     candidates = [
         ARCHIVE / "attacks" / run_id / SPINE,
         STAGING / run_id / SPINE,
+        # The eleven W3 C-series attacks resolved out of the staging tree when
+        # these rows were frozen. The staging volume no longer carries its own
+        # copy of them; the same trees ship here, spine graph byte-identical.
+        ARCHIVE / "attacks_lockedpop_cseries" / run_id / SPINE,
         STAGING / run_id / "graph/normalized",
     ]
     for candidate in candidates:

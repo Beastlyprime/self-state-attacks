@@ -67,12 +67,14 @@ def extract_ops_base(rundir: Path):
 
 
 def fail_closed(message: str):
-    """Refuse to score rather than overwrite a frozen output with an empty result.
+    """Refuse to score rather than overwrite a frozen output with a partial result.
 
-    This scorer reads per-run detector staging trees that the anonymous release
-    does not ship. Without them the clean-training fit sees no operations, every
-    decision collapses to a negative, and the 0/23 and 0/60 that follow would
-    otherwise be written out as legitimate and destroy the published evidence.
+    Every input this scorer reads is a per-run telemetry tree that travels in the
+    corpus, not in this repository. When a tree is missing, extract_ops_base
+    returns None, the decision collapses to a negative, and a short population
+    would otherwise be written out as a legitimate lower TPR -- destroying the
+    published evidence. A missing input means the corpus is incomplete, not that
+    the detector performed worse, so refuse the write instead of guessing.
     """
     sys.exit(f"fail-closed: {message}\n"
              "  Nothing was written. See REPRODUCE.md, 'Level 3 -- what needs\n"
@@ -81,7 +83,22 @@ def fail_closed(message: str):
 
 def train_dir(rid): return POOLS / "clean_train" / rid
 def held_dir(rid): return POOLS / "clean_heldout" / rid
-def attack_dir(rid): return STAGE / rid
+
+
+# The eleven W3 C-series attacks were resolved out of the detector staging tree
+# when these rows were frozen. The staging volume no longer carries its own copy
+# of them -- the same trees are published under tier_b/attacks_lockedpop_cseries,
+# byte-identical on both streams this scorer reads -- so try staging first, for
+# the runs that do live there, and fall through to the attack pools.
+ATTACK_POOL_DIRS = ("attacks", "attacks_lockedpop_cseries")
+
+
+def attack_dir(rid):
+    stream = "graph/libsinsp/libsinsp_events.jsonl"
+    for cand in (STAGE / rid, *(POOLS / sub / rid for sub in ATTACK_POOL_DIRS)):
+        if (cand / stream).is_file():
+            return cand
+    return STAGE / rid          # keep the historical path in the error message
 
 
 def main():
@@ -101,9 +118,28 @@ def main():
     for rid, rr in train_recs.items():
         if rr is not None:
             by_prof[prof[rid]].append((rid, rr))
-    if not global_pool:
-        fail_closed(f"the clean-training fit resolved 0 of {len(pool1)} runs; "
-                    "the staging trees are present but yielded no write operations")
+    # Fail closed on the whole population, not just on the empty case. The fit is
+    # defined over all 176 training runs and the test over all 23 b1b2-definable
+    # attacks and all 60 held-out clean runs; a short input is an incomplete
+    # corpus, and scoring it would silently republish different numbers under the
+    # frozen filename.
+    if len(global_pool) != len(pool1):
+        unresolved = sorted(rid for rid, rr in train_recs.items() if rr is None)
+        fail_closed(f"the clean-training fit resolved {len(global_pool)} of {len(pool1)} runs. "
+                    f"Unresolved: {', '.join(unresolved[:8])}"
+                    f"{' ...' if len(unresolved) > 8 else ''}")
+    definable_ids = [a["run_id"] for a in pool3 if a["b1b2_definable"]]
+    missing_att = [rid for rid in definable_ids
+                   if not (attack_dir(rid) / "graph/libsinsp/libsinsp_events.jsonl").is_file()]
+    if missing_att:
+        fail_closed(f"{len(definable_ids) - len(missing_att)} of {len(definable_ids)} b1b2-definable "
+                    f"attacks resolved. Unresolved: {', '.join(missing_att)}")
+    missing_held = [c["run_id"] for c in pool2
+                    if not (held_dir(c["run_id"]) / "graph/libsinsp/libsinsp_events.jsonl").is_file()]
+    if missing_held:
+        fail_closed(f"{len(pool2) - len(missing_held)} of {len(pool2)} held-out clean runs resolved. "
+                    f"Unresolved: {', '.join(missing_held[:8])}"
+                    f"{' ...' if len(missing_held) > 8 else ''}")
     B1 = so.fit_baseline(global_pool)
     B2 = {p: so.fit_baseline(by_prof[p]) for p in by_prof}
     fit_meta = {"n_train_with_libsinsp": len(global_pool), "by_profile": {p: len(v) for p, v in by_prof.items()}}

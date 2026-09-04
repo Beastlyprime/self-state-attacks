@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
 """
+FROZEN RECORD -- NOT RUNNABLE FROM THIS RELEASE.
+
+This is the script that produced the frozen generation beside it (REPORT.json,
+REPORT.md), published so the derivation is inspectable rather than asserted. Its
+paths are the ones that existed when it ran, before the release layout was
+rebuilt: `<REPO_ROOT>` was the collection host's checkout and the census sits
+elsewhere now, so executing this file here fails on a missing input by design.
+The four scorers under `data/detection/supervised/` assert their populations
+against REPORT.json instead of re-running it.
+
 B1/B2 size+timing anomaly detector recomputed on REAL pinned libsinsp traces.
 
 NEW derivation generation: p2_b1b2_size_timing_libsinsp_20260822.

@@ -38,6 +38,34 @@ def idkeys(path):
     return ks
 
 
+def fail_closed(message: str):
+    """Refuse to score rather than overwrite the frozen rows with a partial result.
+
+    Two things collapse this scorer to a uniform data_insufficient without any
+    error: a missing per-run substrate, and a STIDE backend that returns no
+    normal database (a bad STIDE_REPO checkout, or the pinned analyzer absent).
+    Both look exactly like a detector that simply never fired, so gate on the
+    population instead of trusting exit status.
+    """
+    sys.exit(f"fail-closed: {message}\n"
+             "  Nothing was written. See REPRODUCE.md, 'Level 3 -- what needs\n"
+             "  the corpus', for what this scorer needs beyond this repository.")
+
+
+# The eleven W3 C-series attacks were resolved out of the detector staging tree
+# when these rows were frozen; the staging volume no longer carries its own copy,
+# and the same trees are published under tier_b/attacks_lockedpop_cseries with
+# byte-identical streams. Try staging first, then the attack pools.
+ATTACK_POOL_DIRS = ("attacks", "attacks_lockedpop_cseries")
+
+
+def attack_substrate(rid, rel):
+    for cand in (STAGE / rid, *(POOLS / sub / rid for sub in ATTACK_POOL_DIRS)):
+        if (cand / rel).is_file():
+            return cand / rel
+    return STAGE / rid / rel    # keep the historical path in the error message
+
+
 def main():
     pool1 = MAN["pools"]["pool1_clean_training_gen2_176"]["records"]
     pool2 = MAN["pools"]["pool2_clean_heldout_test_gen2_60"]["records"]
@@ -52,10 +80,18 @@ def main():
     for a in pool3:
         stream = a["stide_stream"]
         test_runs.append((a["run_id"], a["profile"], "attack",
-                          STAGE / a["run_id"] / STREAM_REL[stream], a))
+                          attack_substrate(a["run_id"], STREAM_REL[stream]), a))
     for c in pool2:
         test_runs.append((c["run_id"], c["profile"], "clean",
                           POOLS / POOL_DIR["heldout"] / c["run_id"] / REATTR_REL, c))
+
+    missing_train = [str(p) for paths in train_by_prof.values() for p in paths if not p.is_file()]
+    missing_test = [f"{rid} ({path})" for rid, _, _, path, _ in test_runs if not path.is_file()]
+    if missing_train or missing_test:
+        fail_closed(f"{len(missing_train)} of {len(pool1)} training streams and "
+                    f"{len(missing_test)} of {len(test_runs)} test substrates are absent. "
+                    + "; ".join((missing_train + missing_test)[:6])
+                    + (" ..." if len(missing_train) + len(missing_test) > 6 else ""))
 
     rows = []
     for prof in ("W1", "W2", "W3", "W4"):
@@ -105,13 +141,26 @@ def main():
                              "scenario_id": meta.get("scenario_id"), "tier": meta.get("tier")})
         print(f"{prof}: trained {len(train_paths)} tested {len(test_paths)}")
 
+    atk = [r for r in rows if r["side"] == "attack"]
+    cl = [r for r in rows if r["side"] == "clean"]
+    ae = [r for r in atk if r["status"] == "passed"]; ce = [r for r in cl if r["status"] == "passed"]
+
+    # The frozen generation evaluated every run on both sides -- 55/55 and 60/60,
+    # zero data_insufficient. Anything short of that means an input or the STIDE
+    # backend is missing, which reads identically to a detector that never fired.
+    EXPECTED_ATTACK, EXPECTED_CLEAN = 55, 60
+    if len(ae) != EXPECTED_ATTACK or len(ce) != EXPECTED_CLEAN:
+        bad = sorted(r["run_id"] for r in rows if r["status"] != "passed")
+        fail_closed(f"evaluable population is short: attack {len(ae)}/{EXPECTED_ATTACK}, "
+                    f"clean {len(ce)}/{EXPECTED_CLEAN}. Not evaluated: "
+                    + ", ".join(bad[:8]) + (" ..." if len(bad) > 8 else "")
+                    + ".\n  A uniform data_insufficient is also what an absent STIDE backend produces --"
+                    " check that STIDE_REPO points at the pinned checkout.")
+
     (OUT / "scored_stide_3pool.json").write_text(json.dumps(
         {"detector": "STIDE", "design": "3pool: train gen2-176 per-profile / test 55+gen2-60; frozen core; n=6 minseq=106",
          "rows": rows}, indent=2) + "\n")
     # summary
-    atk = [r for r in rows if r["side"] == "attack"]
-    cl = [r for r in rows if r["side"] == "clean"]
-    ae = [r for r in atk if r["status"] == "passed"]; ce = [r for r in cl if r["status"] == "passed"]
     cw = [r for r in ce if r.get("performs_write")]; cnw = [r for r in ce if not r.get("performs_write")]
     print(f"STIDE TPR {sum(bool(r['binary_decision']) for r in ae)}/{len(ae)} evaluable (of {len(atk)})")
     print(f"STIDE FPR-all {sum(bool(r['binary_decision']) for r in ce)}/{len(ce)} evaluable (of 60)"

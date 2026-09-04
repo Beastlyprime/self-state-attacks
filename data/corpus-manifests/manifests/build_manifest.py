@@ -64,8 +64,8 @@ def main():
         "tier_a": {
             "freezes": {"src_host": "<GUEST_HOST_A>", "src_path": "<GUEST_HOME>/derived_results/p2_gen2_clean_20260822/freezes/",
                         "files": cnt("tier_a/freezes")},
-            "job_reports": {"src": "$CLAUDE_JOB_DIR/tmp (<SCRATCH>)", "files": cnt("tier_a/job_reports")},
-            "drivers": {"src": "$CLAUDE_JOB_DIR/tmp", "files": cnt("tier_a/drivers")},
+            "job_reports": {"src": "<SCRATCH>", "files": cnt("tier_a/job_reports")},
+            "drivers": {"src": "<SCRATCH>", "files": cnt("tier_a/drivers")},
             "local_result_refs": {"note": "snapshot of top-level manifests/tables from p2_headtohead_detectors_20260825 + p2_supervised_arm_expanded_20260825 (excludes FINAL_3POOL_* live files)",
                                   "headtohead_files": cnt("tier_a/local_result_refs/p2_headtohead_detectors_20260825"),
                                   "supervised_files": cnt("tier_a/local_result_refs/p2_supervised_arm_expanded_20260825")},

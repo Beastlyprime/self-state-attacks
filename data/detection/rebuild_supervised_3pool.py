@@ -706,10 +706,31 @@ def run_substrate_b():
                 return str(c)
         h = sorted(glob.glob(str(RES / f"**/{rid}/{rel}"), recursive=True))
         return h[0] if h else None
+    import hashlib
+    selection = {}
+
+    def record(rid, path):
+        """Publish which copy of a multi-copy stream this fit actually read.
+
+        The shipped figures came from an order-dependent glob and the selection
+        was never written down, which is why they cannot be checked. Emit the
+        map so this arm's numbers are verifiable even though the originals are
+        not: run id -> the stream's path under the release root, its size, and
+        its SHA-256.
+        """
+        p = Path(path)
+        try:
+            rel = str(p.relative_to(RES))
+        except ValueError:
+            rel = str(p)
+        selection[rid] = {"stream": rel, "bytes": p.stat().st_size,
+                          "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
+
     run_sets, y, g = [], [], []
     for rid in SUB:
         pp = findnorm(rid); cp = findnorm(rid.replace("__poisoned", "__clean"))
         if not pp or not cp: continue
+        record(rid, pp); record(rid.replace("__poisoned", "__clean"), cp)
         scen = FOLD.get(rid, rid)
         run_sets.append(ngr(pp)); y.append(1); g.append(scen)
         run_sets.append(ngr(cp)); y.append(0); g.append(scen)
@@ -743,7 +764,8 @@ def run_substrate_b():
         res[nm] = round(float(roc_auc_score(y[v], oof[v])), 4) if len(set(y[v])) == 2 else None
     return {"N": {"pos": int(y.sum()), "neg_twin": int((1 - y).sum()), "scenarios": len(set(g))},
             "auc": res, "brl": "NON-TERMINATING (dropped; same caveat as CORELS substitution)",
-            "note": "gen2-60 base unavailable for substrate B (pool carries reattr, not normalized stream)"}
+            "note": "gen2-60 base unavailable for substrate B (pool carries reattr, not normalized stream)",
+            "stream_selection": dict(sorted(selection.items()))}
 
 
 if __name__ == "__main__":

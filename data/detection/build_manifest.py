@@ -105,6 +105,26 @@ for r in HELD["records"]:
 
 # ---------------- POOL 3: attack TEST 55 + twins
 STAGE = HH / "staging"
+
+
+def atk_path(rid, rel):
+    """First release path holding `rel` for an attack run, or None.
+
+    Attacks were resolved out of the detector staging tree when this manifest
+    was frozen. The staging volume no longer carries the eleven W3 C-series
+    runs -- they are published under tier_b/attacks_lockedpop_cseries, with the
+    streams these asserts test byte-identical -- so fall through to the attack
+    pools rather than reporting the substrate as unavailable.
+    """
+    for base in (STAGE, *(POOLS / sub for sub in ATTACK_DIRS)):
+        p = os.path.join(str(base), rid, rel)
+        if os.path.exists(p):
+            return p
+    return None
+
+
+def atk_exists(rid, rel):
+    return atk_path(rid, rel) is not None
 definable = set(W3["b1b2_definable_run_ids"])
 pool3 = []
 twin_avail = {"full": 0, "snapshots_only": 0, "none": 0}
@@ -113,10 +133,10 @@ for a in W3["attacks"]:
     stide_stream = a["stide_stream"]
     fileop = a["aide_snapshot_source"] == "local_repo"
     # attack substrate presence
-    atk_reattr = exists(STAGE, rid, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
-    atk_norm = exists(STAGE, rid, "graph/normalized/syscalls.jsonl")
-    atk_lib = exists(STAGE, rid, "graph/libsinsp/libsinsp_events.jsonl")
-    atk_snap = exists(STAGE, rid, "state_snapshots/before_a")
+    atk_reattr = atk_exists(rid, "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
+    atk_norm = atk_exists(rid, "graph/normalized/syscalls.jsonl")
+    atk_lib = atk_exists(rid, "graph/libsinsp/libsinsp_events.jsonl")
+    atk_snap = atk_exists(rid, "state_snapshots/before_a")
     if fileop:
         lr = a["local_run_dir"]
         atk_snap = (exists(lr, "state_snapshots/before_a")
@@ -199,8 +219,9 @@ for grp, items, base in [("train", pool1[:3] + pool1[-3:], POOLS / POOL_DIR["tra
         p = base / it["run_id"] / "graph/reattributed/resolution_spine_effective/syscalls.jsonl"
         uid_checks.append({"pool": grp, "run_id": it["run_id"], "uid": uid_of_syscalls(p)})
 for it in pool3[:3] + pool3[-3:]:
-    p = STAGE / it["run_id"] / "graph/reattributed/resolution_spine_effective/syscalls.jsonl"
-    uid_checks.append({"pool": "attack", "run_id": it["run_id"], "uid": uid_of_syscalls(p)})
+    p = atk_path(it["run_id"], "graph/reattributed/resolution_spine_effective/syscalls.jsonl")
+    uid_checks.append({"pool": "attack", "run_id": it["run_id"],
+                       "uid": uid_of_syscalls(Path(p)) if p else None})
 asserts["uid_997_spotcheck_all"] = all(c["uid"] == 997 for c in uid_checks)
 
 manifest = {
