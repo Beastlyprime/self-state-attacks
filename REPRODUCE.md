@@ -136,15 +136,22 @@ population mismatch rather than reporting a smaller, plausible-looking count.
 training runs, 23 b1b2-definable attacks, 60 held-out clean runs — because a
 short input reads exactly like a detector that scored lower.
 
-Both it and `score_stide_3pool.py` also check that each input **is the published
-input**, not merely that a file is there. They hash every stream and every
-measured snapshot they read against
+All three scripts that overwrite a frozen output from corpus inputs —
+`p5_analyze.py`, `score_ours_3pool.py`, `score_stide_3pool.py` — also check that
+each input **is the published input**, not merely that a file is there. They
+hash every stream, graph and measured snapshot they read against
 `data/corpus-manifests/ARCHIVE_SHA256SUMS.txt`, the release checksum index
 mirrored here from the corpus, and refuse before fitting or writing if anything
-differs. That is the only check a truncation cannot walk past: cutting one
-natural-write training stream down to its first record leaves a parseable file
-whose every record still names the right run, and it shifted a B1/B2
-false-positive count while exiting 0.
+differs (123, 259 and 291 inputs respectively). That is the only check a
+truncation cannot walk past: cutting one natural-write training stream down to
+its first record leaves a parseable file whose every record still names the
+right run, and it shifted a B1/B2 false-positive count while exiting 0.
+
+The other corpus readers do not verify, and the reason is the same in each case:
+`build_manifest.py` and `rebuild_supervised_3pool.py` never overwrite their
+frozen outputs by construction, `merge_falco_3pool.py` carries its clean side
+forward rather than deriving it, and `score_aide_3pool.py` and
+`score_unicorn_gen5_3pool.py` cannot run from this release at all.
 
 Two weaker checks are kept for the error messages they give — an empty stream,
 or one carrying another run's records, is named as such — along with two outcome

@@ -11,6 +11,30 @@ RES = ROOT/"data"          # runnable from any cwd, like the other scorers
 INPUTS = RES/"provenance/inputs"
 CENSUS = INPUTS/"EXPANDED_LANDED_CENSUS_V2_20260822.json"
 
+sys.path.insert(0, str(ROOT/"data/corpus-manifests"))
+import corpus_index
+
+# Every file this analysis reads, verified against the published release
+# checksums before the report is written. The 21/21 population assert below
+# constrains how many bundles were found, not what is in them: a truncated or
+# substituted graph keeps the count and moves the numbers. This script does
+# overwrite its frozen report, so it gets the same content binding the two
+# detector scorers have.
+READ: list = []
+
+def _read(path):
+    READ.append(Path(path))
+    return path
+
+def verify_inputs():
+    bad = [why for why in (corpus_index.check(p, ROOT) for p in sorted(set(READ))) if why]
+    if bad:
+        sys.exit("fail-closed: " + f"{len(bad)} of {len(set(READ))} inputs are not the "
+                 "published bytes: " + "; ".join(bad[:6])
+                 + (f" (and {len(bad) - 6} more)" if len(bad) > 6 else "")
+                 + "\n  Nothing was written. Check the unpacked volume with"
+                   "\n  python3 data/corpus-manifests/corpus_index.py --verify")
+
 FD_CHAIN = {"ebpf_fd_table","scap_fd_state","libsinsp_fd_table"}
 ABS_SYSCALL = {"audit_absolute"}
 
@@ -24,6 +48,7 @@ def load_graph(gdir):
     nodes={}; edges=[]
     npath=gdir/"provenance.nodes.jsonl"; epath=gdir/"provenance.edges.jsonl"
     if not npath.exists() or not epath.exists(): return None,None
+    _read(npath); _read(epath)
     for l in open(npath):
         l=l.strip()
         if not l: continue
@@ -180,7 +205,7 @@ def analyze_write_target(nodes, edges, target_relpaths, carrier_slot, fs_observa
 
 def gt_fields(gtpath):
     if not gtpath.exists(): return None
-    d=json.load(open(gtpath))
+    d=json.load(open(_read(gtpath)))
     ing=d.get("ingestion") or {}
     return {
         "agent_pid": (d.get("agent_process_identity") or {}).get("pid"),
@@ -205,7 +230,7 @@ def targets_from(gt, census_marker=None):
     return sorted(x for x in t if x)   # sorted: set order would make the report non-reproducible
 
 # ---------- ATTACK POPULATION ----------
-census=json.load(open(CENSUS))
+census=json.load(open(_read(CENSUS)))
 landers=census["landers"]
 
 # locator for p2_l0 bundles (poisoned) with graph+GT
@@ -357,6 +382,8 @@ if att_sum["n_evaluated"]!=EXPECTED_ATTACK or ben_sum["n_evaluated"]!=EXPECTED_B
              f"benign {ben_sum['n_evaluated']}/{EXPECTED_BENIGN}. "
              f"Unpack selfstate-corpus-provenance-inputs.tar.zst into {INPUTS} "
              f"(expects 38 dirs under bundles/ and 4 under expanded/attack/W3/).")
+
+verify_inputs()
 
 outdir=RES/"provenance"
 json.dump(out, open(outdir/"P5_NAMEABILITY_ATTRIBUTION_REPORT.json","w"), indent=1)
