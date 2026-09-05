@@ -83,7 +83,7 @@ is the wrong tool:
   acquisition-time hashes for corpus tiers that are not in this repository. It
   is a provenance record, not a manifest of shipped files.
 - `data/corpus-manifests/ARCHIVE_SHA256SUMS.txt` is the corpus release index,
-  mirrored here so the scorers can verify their inputs. Its 15,417 keys are
+  mirrored here so the scorers can verify their inputs. Its 16,698 keys are
   relative to the corpus payload root, and the twelve volumes unpack to four
   different places under `data/`, so about 3,000 of them — everything under
   `staging/`, `provenance-inputs/` and `aux/` — cannot resolve from the
@@ -91,7 +91,7 @@ is the wrong tool:
 
   ```bash
   python3 data/corpus-manifests/corpus_index.py --verify
-  # 15417 verified, 0 not unpacked, 0 MISMATCHED     (~18 s)
+  # 16698 verified, 0 not unpacked, 0 MISMATCHED     (~11 s)
   ```
 
   It reports what is not unpacked separately from what mismatches, and exits
@@ -125,7 +125,7 @@ tar -I zstd -xf selfstate-corpus-tier_b-attacks_lockedpop_cseries.tar.zst \
 tar -I zstd -xf selfstate-corpus-staging.tar.zst              -C data/superseded/
 
 rm data/provenance/P5_NAMEABILITY_ATTRIBUTION_REPORT.json
-python3 data/provenance/p5_analyze.py           # Table 9, ~3 min, pure Python
+python3 data/provenance/p5_analyze.py           # Table 9, under a second, pure Python
 
 rm data/detection/scored_ours_3pool.json
 python3 data/detection/score_ours_3pool.py      # the B1/B2 rows of Tables 8 and 14

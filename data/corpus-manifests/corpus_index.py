@@ -106,7 +106,7 @@ def verify_all(root, quiet=False):
     `sha256sum -c` on the mirrored index does not work, and that is not a defect
     in the index: its keys are relative to the corpus payload root, while the
     twelve volumes unpack to four different places under `data/`. Roughly 3,000
-    of the 15,417 keys -- everything under `staging/`, `provenance-inputs/` and
+    of the 16,698 keys -- everything under `staging/`, `provenance-inputs/` and
     `aux/` -- cannot resolve from the directory the index sits in. This walks
     the mapping instead, so there is a supported way to check an unpacked
     corpus in one command.

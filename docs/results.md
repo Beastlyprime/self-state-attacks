@@ -214,7 +214,7 @@ checksum index published beside the volumes, is mirrored into the repository at
 `data/corpus-manifests/`, and both scorers verify every stream and every
 measured snapshot they read against it before fitting or writing. B1/B2 hashes
 each stream from the bytes it is already parsing, so the whole run still takes
-twelve seconds. The run-id and outcome assertions are kept for the diagnostics
+about ten seconds. The run-id and outcome assertions are kept for the diagnostics
 they give — a truncation and a substitution now report differently — and
 `corpus_index.py` states the limit: this is a reproduction check, not a security
 boundary, since whoever can rewrite an input can rewrite the index. What it buys
