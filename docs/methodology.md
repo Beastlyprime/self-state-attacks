@@ -127,4 +127,5 @@ protected supplement repeats restoration across eight attacks.
 Attack TPR is reported alongside the attack population a method is defined on, and
 natural-workload FPR on the separate held-out corpus. Natural-write and
 clean-no-write controls are reported separately. `final_aggregate.py` assembles the
-comparison and is the one step that re-runs from this repository alone.
+comparison; it and `canonical_matrix_audit.py` are the two steps that re-run from
+this repository alone.

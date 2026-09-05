@@ -278,7 +278,7 @@ for L in landers:
             row["note"]="par21: original bundle (p2_parallel_stageg_attack_20260821) not local; no same-gen ground_truth or paired clean; agent pid derived from graph; carrier slot unavailable"
     attack_rows.append(row)
 
-# ---------- BENIGN POPULATION (paired clean) ----------
+# ---------- BENIGN POPULATION (size-matched clean control) ----------
 clean_bundles=[]
 for d in [INPUTS/"bundles"]:
     base=d
@@ -329,7 +329,7 @@ def perclass(rows):
     return {k:{"n":v,"underpowered":v<8} for k,v in c.items()}
 
 att_sum=summarize(attack_rows,"attack_landed_self_state_writes")
-ben_sum=summarize(benign_rows,"benign_paired_clean_self_state_writes")
+ben_sum=summarize(benign_rows,"benign_size_matched_clean_self_state_writes")
 
 out={
  "title":"P5 nameability + attribution recompute on pinned libsinsp generation",
@@ -367,14 +367,23 @@ baseline_comparison = {
 }
 out["separability"]=separability
 out["baseline_comparison"]=baseline_comparison
+out["population_relation"]={
+ "design":"size-matched control, not a pairing assignment: the two sides are equal in size and drawn from the same task family, and every cell in this report is a marginal count over each side independently. No within-pair comparison is made or supported.",
+ "attacks_with_own_run_id_twin":17,
+ "attacks_matchable_only_at_case_granularity":["C511_w3_model_tuning_ops_ticket_user_message__poisoned","C513_w3_db_exfil_incident_report_user_message__poisoned"],
+ "attacks_with_no_unused_clean_branch":["C510_w3_db_query_vendor_package__poisoned","C515_w3_vector_search_repo_rules_user_message__poisoned"],
+ "clean_branches_matching_no_unpaired_attack":["C401_w4_replication_article_bias_external_content__clean"],
+ "strict_one_to_one_maximum_pairs":19,
+ "note":"A strict one-to-one matching completes at most 19 pairs and leaves two attacks and two clean branches over. See docs/results.md, 'Table 9's clean side is a size-matched control, not a paired one'."
+}
 out["data_insufficient_and_flags"]={
  "par21_landers_no_paired_clean_local":[r["run_id"] for r in attack_rows if r.get("paired_clean_local")==False],
  "par21_note":"4 landers (C510, C511_um, C513_um, C515_um) whose original bundle p2_parallel_stageg_attack_20260821 is NOT local; nameability+principal computed from the local expanded_v2 libsinsp graph (resolution_spine_effective), agent anchor derived from graph; carrier slot / paired clean not available (auxiliary, flagged).",
  "carrier_axis_data_insufficient_structural":"8/21 attacks (6 user_message + 2 external_content) + matching clean pairs: carrier not filesystem-ingested => no OS read->write chain to trace (excluded from carrier separability, never imputed).",
- "clean_control_status":"paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population uses the paired __clean branches in the p2_l0_* bundles as auxiliary controls, exactly as the measurement_findings section 5.2 analysis did."
+ "clean_control_status":"paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population draws natural-write __clean branches from the p2_l0_* bundles as auxiliary controls, equal in size to the attack side rather than paired to it (see population_relation), exactly as the measurement_findings section 5.2 analysis did."
 }
-# Fail closed: the released population is fixed at 21 landed attacks and their 21
-# paired clean branches. A short population means the input volume is incomplete,
+# Fail closed: the released population is fixed at 21 landed attacks and a
+# size-matched control of 21 clean branches. A short population means the input volume is incomplete,
 # not that the finding is weaker -- refuse to emit a plausible smaller number.
 EXPECTED_ATTACK, EXPECTED_BENIGN = 21, 21
 if att_sum["n_evaluated"]!=EXPECTED_ATTACK or ben_sum["n_evaluated"]!=EXPECTED_BENIGN:

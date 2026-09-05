@@ -100,9 +100,14 @@ is the wrong tool:
 
 ## Level 3 — what needs the corpus
 
-Each per-detector scorer consumes raw telemetry that is archived separately: the
-per-run detector staging trees, syscall streams, provenance graphs, SCAP captures,
-the pinned Python 2 UNICORN analyzer, and earlier frozen generations. None of them
+Each per-detector scorer consumes per-run telemetry that is archived separately —
+native SCAP captures, and the libsinsp reconstructions, normalized syscall
+streams, provenance graphs and state snapshots derived from them, plus the
+detector staging trees. No scorer reads all of those; which one reads what is in
+the table further down. Two things the archive does **not** contain: the pinned
+Python 2 UNICORN toolchain, published instead as a recipe in
+[`data/detection/toolchain/`](data/detection/toolchain/README.md), and the
+superseded generations, which are deliberately excluded. None of these scorers
 re-derives its output from a bare clone:
 
 `data/detection/score_aide_3pool.py`, `score_stide_3pool.py`, `score_ours_3pool.py`,
@@ -146,7 +151,8 @@ each input **is the published input**, not merely that a file is there. They
 hash every stream, graph and measured snapshot they read against
 `data/corpus-manifests/ARCHIVE_SHA256SUMS.txt`, the release checksum index
 mirrored here from the corpus, and refuse before fitting or writing if anything
-differs (123, 259 and 291 inputs respectively). That is the only check a
+differs — 123 inputs for Table 9, 259 streams plus 7,135 snapshot files for
+B1/B2, and 291 streams for STIDE. That is the only check a
 truncation cannot walk past: cutting one natural-write training stream down to
 its first record leaves a parseable file whose every record still names the
 right run, and it shifted a B1/B2 false-positive count while exiting 0.
@@ -261,7 +267,7 @@ Every volume carries its own top-level directory, so the column below is the
 | `tier_a`, `manifests` | manifests and the §4.4 admission evidence the scorers read, acquisition provenance | `data/corpus-manifests/` |
 | `staging` | 102 detector staging runs — 44 attacks and 58 clean | `data/superseded/` |
 | `provenance-inputs` | the graphs, ground truth and census Table 9 reads | `data/provenance/`, renamed to `inputs/` |
-| `aux` | STIDE stopping-rule preregistration; the landed census the provenance analysis reads | `data/` |
+| `aux` | STIDE stopping-rule preregistration, and a second copy of the landed census (Table 9 reads the `provenance-inputs` copy) | `data/` |
 
 Most volumes carry a `tier_*`/`manifests` root and belong under
 `data/corpus-manifests/`; three do not:

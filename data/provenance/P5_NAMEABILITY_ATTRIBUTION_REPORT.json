@@ -22,7 +22,7 @@
   "underpowered": false
  },
  "benign_summary": {
-  "label": "benign_paired_clean_self_state_writes",
+  "label": "benign_size_matched_clean_self_state_writes",
   "n_evaluated": 21,
   "n_data_insufficient": 0,
   "n_clean_no_write": 0,
@@ -1461,6 +1461,23 @@
   "UNICORN": "1/11 FP among evaluable; 9/20 data_insufficient",
   "interpretation": "On benign natural self-state writes the three file/syscall detectors alarm at 11/11 (100%) - they do not separate benign self-state writes from attacks. OUR provenance method also does not separate: it NAMES and ATTRIBUTES both arms with near-perfect reliability (21/21) but produces no attack-vs-benign discriminant. Our method is a robust naming/attribution instrument, not a self-state-attack detector; the separability failure is shared with the baselines, and for the causal axis is provably intrinsic at file-identity granularity (both arms read the same carrier slot; differ only in carrier content)."
  },
+ "population_relation": {
+  "design": "size-matched control, not a pairing assignment: the two sides are equal in size and drawn from the same task family, and every cell in this report is a marginal count over each side independently. No within-pair comparison is made or supported.",
+  "attacks_with_own_run_id_twin": 17,
+  "attacks_matchable_only_at_case_granularity": [
+   "C511_w3_model_tuning_ops_ticket_user_message__poisoned",
+   "C513_w3_db_exfil_incident_report_user_message__poisoned"
+  ],
+  "attacks_with_no_unused_clean_branch": [
+   "C510_w3_db_query_vendor_package__poisoned",
+   "C515_w3_vector_search_repo_rules_user_message__poisoned"
+  ],
+  "clean_branches_matching_no_unpaired_attack": [
+   "C401_w4_replication_article_bias_external_content__clean"
+  ],
+  "strict_one_to_one_maximum_pairs": 19,
+  "note": "A strict one-to-one matching completes at most 19 pairs and leaves two attacks and two clean branches over. See docs/results.md, 'Table 9's clean side is a size-matched control, not a paired one'."
+ },
  "data_insufficient_and_flags": {
   "par21_landers_no_paired_clean_local": [
    "C510_w3_db_query_vendor_package__poisoned",
@@ -1470,6 +1487,6 @@
   ],
   "par21_note": "4 landers (C510, C511_um, C513_um, C515_um) whose original bundle p2_parallel_stageg_attack_20260821 is NOT local; nameability+principal computed from the local expanded_v2 libsinsp graph (resolution_spine_effective), agent anchor derived from graph; carrier slot / paired clean not available (auxiliary, flagged).",
   "carrier_axis_data_insufficient_structural": "8/21 attacks (6 user_message + 2 external_content) + matching clean pairs: carrier not filesystem-ingested => no OS read->write chain to trace (excluded from carrier separability, never imputed).",
-  "clean_control_status": "paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population uses the paired __clean branches in the p2_l0_* bundles as auxiliary controls, exactly as the measurement_findings section 5.2 analysis did."
+  "clean_control_status": "paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population draws natural-write __clean branches from the p2_l0_* bundles as auxiliary controls, equal in size to the attack side rather than paired to it (see population_relation), exactly as the measurement_findings section 5.2 analysis did."
  }
 }

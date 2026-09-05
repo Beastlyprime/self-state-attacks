@@ -98,9 +98,14 @@ detector consumes all five streams. No detector does.
 A run is admitted only if required streams are non-empty, drop and overflow
 counters are zero, SCAP termination is valid, the effective file-descriptor-to-path
 resolution rate is at least 0.95, and no self-state write is excluded by the
-normalizer. All 176 training and 60 held-out executions pass with zero drops, zero
-excluded writes and a resolution rate of 1.0. The assertions are recorded in
-`anti_leakage_asserts` in the split manifest.
+normalizer. All 236 pass, with zero drops, zero overflows and zero excluded writes recorded
+for every one. The resolution rate is recorded as 1.0 for the 100 executions
+whose per-run readiness record survives; the other 136 are attested only by the
+`>= 0.95` gate they were admitted under. The per-run evidence is in the corpus at
+`tier_a/clean_admission/` and is recomputed by
+`python3 data/corpus-manifests/check_admission.py` — **not** in the split
+manifest's `anti_leakage_asserts`, which are population, disjointness and
+substrate-presence checks. `docs/results.md` has the coverage table.
 
 Observation-generation and derivation-generation identifiers, input hashes,
 commands, tool exits and output hashes are retained so that cross-generation mixing

@@ -43,8 +43,11 @@ resolver was refuted (project_status section 4).
   landers whose original bundle (`p2_parallel_stageg_attack_20260821`) is **not local** -
   their libsinsp graph is read from the local `expanded_v2` detector input, agent anchor
   derived from the graph, carrier slot / paired clean unavailable (flagged auxiliary).
-- **Benign** = the paired `__clean` branches in the same p2_l0_* bundles (21 evaluated,
-  all natural self-state writes). The spec-mandated clean-freeze corpus graphs are on remote
+- **Benign** = a size-matched control of 21 natural-write `__clean` branches, drawn
+  from the same p2_l0_* bundles. Equal in size to the attack side, **not** a pairing
+  assignment: 17 are the attacks' own run-id twins, and the report's
+  `population_relation` block gives the full inventory. Every cell below is a
+  marginal count over each side independently. The spec-mandated clean-freeze corpus graphs are on remote
   `<GUEST_HOME>/derived_results/` and are **not local**; per the task these paired clean
   branches are used as auxiliary controls, exactly as the section 5.2 analysis did.
 
@@ -115,7 +118,7 @@ naming/attribution instrument, **not** as a self-state-attack detector.
 
 - **par21 (no local paired clean):** C510_w3_db_query_vendor_package__poisoned, C515_w3_vector_search_repo_rules_user_message__poisoned, C511_w3_model_tuning_ops_ticket_user_message__poisoned, C513_w3_db_exfil_incident_report_user_message__poisoned. 4 landers (C510, C511_um, C513_um, C515_um) whose original bundle p2_parallel_stageg_attack_20260821 is NOT local; nameability+principal computed from the local expanded_v2 libsinsp graph (resolution_spine_effective), agent anchor derived from graph; carrier slot / paired clean not available (auxiliary, flagged).
 - **Carrier axis structural data_insufficient:** 8/21 attacks (6 user_message + 2 external_content) + matching clean pairs: carrier not filesystem-ingested => no OS read->write chain to trace (excluded from carrier separability, never imputed).
-- **Clean control status:** paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population uses the paired __clean branches in the p2_l0_* bundles as auxiliary controls, exactly as the measurement_findings section 5.2 analysis did.
+- **Clean control status:** paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population draws natural-write __clean branches from the p2_l0_* bundles as auxiliary controls, equal in size to the attack side rather than paired to it (see `population_relation` in the JSON), exactly as the measurement_findings section 5.2 analysis did.
 
 ## 7. Files
 
