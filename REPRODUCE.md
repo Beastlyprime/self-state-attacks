@@ -66,6 +66,9 @@ file. In particular:
 - recovery isolation matrix — `data/recovery/isolation-matrix/P4_RECOVERY_SELF_STATE_REPORT.json`
 - rollback cost — `data/recovery/rollback-cost/p4_recovery_cost_result.json`
 - operation-observability validation — `data/observability/operation-matrix/`
+- §4.4 admission gates — `tier_a/clean_admission/` in the corpus, recomputed by
+  `python3 data/corpus-manifests/check_admission.py`. Its coverage is not uniform
+  across the four quantities §4.4 reports; `docs/results.md` has the table
 
 Each result directory carries a `SHA256SUMS` over the files it ships:
 

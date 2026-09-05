@@ -63,8 +63,48 @@ that across these two equal-sized populations the attribution properties are
 identical, so they yield no attack-specific verdict. What the pairing language
 would additionally license — a per-pair comparison — the design does not support.
 The paper's caption and its "task-matched clean branches test whether…" phrasing
-are stronger than that; closing it is an arXiv revision item, not a reason to
-change any data here.
+are stronger than that; closing it is an arXiv revision item, listed below, not a
+reason to change any data here.
+
+### What the admission evidence covers, and what it does not
+
+`tier_a/clean_admission/` was recovered from the collection host after the first
+release omitted it. Its coverage is not uniform, and the paper's §4.4 sentence is
+written as though it were.
+
+| §4.4 quantity | evidence | coverage |
+|---|---|---|
+| zero recorded drop/overflow | `health/*.json` per collector | **236/236**, 1,180 streams, all zero |
+| non-empty collector inputs | `events_emitted` per collector | **236/236**, none zero |
+| no excluded writes | freeze gate (`bridge_writes_excluded_zero` / `writes_excluded_zero`) | **236/236** |
+| no invalid collector status | freeze gate (`pipeline_status_valid_attempt` / `pipeline_valid_attempt`) | **236/236** |
+| fd→path resolution rate **= 1.0** | `recollection_readiness.json` | **100/236** — 80 hash-matched to the freeze's `readiness_sha256`, 20 from older wave trees that recorded no hash |
+| fd→path resolution rate **≥ 0.95** | freeze gate (`bridge_acceptance_passed`) | the other 136 |
+
+Two things the output must not be read as saying. The five health records are five
+*collectors* — `inotify`, `fanotify`, `auditd`, `ebpf`, `ebpf_lifecycle` — and
+`ebpf_lifecycle` is a second eBPF probe, not Table 6's fifth source. SCAP is that
+fifth source and has no health record: raw captures ship in `tier_c` for the 60
+held-out clean runs and for **none** of the 176 training runs, so SCAP's
+non-emptiness is evidenced only indirectly, by the non-empty libsinsp stream every
+run has in `tier_b` and by the surviving readiness records' passing
+`scap_capture_present_and_valid`.
+
+So the honest form of the §4.4 claim is that all 236 runs passed the
+pre-specified 0.95 threshold, and that the recorded rate is 1.0 for the 100 runs
+whose readiness record still exists. Tightening the paper's "**All** 176 training
+and 60 held-out clean executions … an effective path-resolution rate of 1.0" is
+an arXiv revision item, listed below.
+
+### arXiv revision items
+
+Two sentences in the paper claim more than the artifact supports. Neither
+changes a reported number; both are wording.
+
+| Where | Now | Should be |
+|---|---|---|
+| `articleUSENIX.tex:766`, `original_article.tex:796` | "21 **task-matched** clean branches. The matched branches **test whether** actor, object, and carrier relations **are specific to** the induced write" | a size-matched control of 21 natural-write branches from the same task family; the comparison is marginal, not within pairs, and the carrier relation is decidable only for the 12/21 landings and 13/21 controls whose carrier is filesystem-ingested |
+| `articleUSENIX.tex:868`, `original_article.tex:885` and `original_article.tex:1059` | "**All** 176 training and 60 held-out clean executions have non-empty five-source inputs, zero recorded drop/overflow, no excluded writes, and an effective path-resolution rate **of 1.0**" | all 236 passed the pre-specified 0.95 threshold; among the 100 executions whose per-run readiness record remains available the recorded rate is 1.0, and the other 136 are supported only by the frozen threshold-passing gate |
 
 ### Section 5.2: substrate A reproduces exactly; substrate B cannot
 
@@ -197,7 +237,7 @@ caught, since the size features read those files.
 | **§4.3** — the 55 attack executions (52 folds) | user-message carriers: `build_mass_um_profile_inputs{,_w2w4}.py` (MUC/MUI); content-append: `build_mass_profile_content_append_inputs.py` (MCAW); semantic: `build_mass_profile_semantic_inputs.py` (MSI); chmod: `build_mass_profile_chmod_inputs.py` (MCH); truncate/unlink: `build_mass_profile_destructive_inputs.py` (MTR/MUL); W3 C-series: `build_p2_l0_newcase_inputs{,_b2,_b3}.py`, `build_p2_l0_um_instcfg_inputs.py`, `build_p2_l0_archetype_inputs.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, pool 3 and `fold_map_attack_loso` |
 | **Table 6** — five co-collected host views | `dataset_builder/paired_live_four_source.py`, `five_source_graph_bridge.py`, `live_trace/live_ebpf.bpf.c` | the archived corpus ships the *derived* evidence — the normalized provenance graph, the libsinsp reconstruction and the native SCAP capture. The raw inotify, fanotify, auditd and eBPF streams are retained per run in the full archive, not in the reproduction corpus |
 | **Table 6 → detector inputs** — normalization and export | `measurement/stage_g_harness/{normalize,audit,scap,sidecars,libsinsp_extract,libsinsp_reattribute,libsinsp_compare,export_p2_detector_inputs}.py` | `data/superseded/DERIVATION_AVAILABILITY_MATRIX.json` |
-| **§4.4, §5 preamble** — admission gates (fd→path ≥ 0.95, zero drops, no excluded writes) | `dataset_builder/recollection_readiness.py` | `tier_a/clean_admission/` in the corpus — per-run collector health for all 236 clean executions, and the readiness record for 100 of them. `python3 data/corpus-manifests/check_admission.py` adds them up: 0 drops, 0 overflows, no empty collector stream, 200 recorded resolution rates all 1.0. **Not** in `FINAL_3POOL_SPLIT_MANIFEST.json` — its `anti_leakage_asserts` are population, disjointness and substrate-presence checks, and an earlier version of this table pointed at them by mistake. The freezes in `tier_a/job_reports/` carry the per-run pass/fail gates |
+| **§4.4, §5 preamble** — admission gates (fd→path ≥ 0.95, zero drops, no excluded writes) | `dataset_builder/recollection_readiness.py` | `tier_a/clean_admission/` in the corpus, checked by `python3 data/corpus-manifests/check_admission.py`: **0 drops and 0 overflows across 1,180 collector streams, every stream non-empty, both freeze gates for all 236 runs, and a resolution rate of 1.0 from the 100 run-level readiness records that survive** — not from all 236. See the coverage note below. **Not** in `FINAL_3POOL_SPLIT_MANIFEST.json`: its `anti_leakage_asserts` are population, disjointness and substrate-presence checks and carry none of these quantities, and an earlier version of this table pointed at them by mistake |
 | **§4.4** — 16-case operation-observability validation | `dataset_builder/{mutation_matrix_canary,mutation_canary_five_source,mutation_matrix_run,mutation_op_canary}.py` | `data/observability/operation-matrix/REPORT.md` — 4 mechanisms × 4 target roles, all 16 graph-witnessed, with the full run bundle. `data/observability/four-operation-canary/` is the earlier 4-operation run that established the integration |
 | **§D.4** — fail-closed cross-generation binding | `measurement/stage_g_harness/generation_contract.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, `generation_contract` |
 | **Table 11** — execution environment | the values are set by `dataset_builder/paired_live_four_source.py` and recorded per run in the environment fingerprint inside each run bundle | `DET/FINAL_3POOL_SPLIT_MANIFEST.json` carries the `generation_contract` and `uid_spotcheck` — the auditd, eBPF-object, libsinsp, monitor-version and runner-UID entries. The remaining rows (kernel build, filesystem, cgroup limits, clock discipline) are set in the collector and recorded per run in the archived corpus, not in any single frozen file here |
