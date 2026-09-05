@@ -1,14 +1,16 @@
 # Detector runtimes
 
-Two of the detector arms need a container and, for UNICORN, three upstream
-checkouts. An earlier version of this release named the images and commit hashes
-but published neither a recipe nor the upstream URLs, which made those arms
-unbuildable from here for no good reason — both projects are public. The recipes
-below are the ones the published rows were produced with, copied verbatim.
+Three detector arms need something built first: AIDE and UNICORN a container,
+UNICORN three upstream checkouts, STIDE one. An earlier version of this release
+named the images and commit hashes but published neither the recipes nor the
+upstream URLs, which made those arms unbuildable from here for no good reason —
+all three projects are public. The recipes below are the ones the published rows
+were produced with, copied verbatim.
 
-Neither arm is byte-reproducible even with them: `apt` snapshots move, and the
-UNICORN analyzer is stochastic. What they buy is that the arms can be *built and
-run* rather than only read.
+Building them does not make all three byte-reproducible. STIDE does reproduce its
+frozen rows exactly. AIDE and UNICORN do not: `apt` snapshots move and the
+UNICORN analyzer is stochastic. What the recipes buy for those two is that the
+arms can be *built and run* rather than only read.
 
 ## AIDE — `assa-stage-g/aide:0.19.3`
 
@@ -71,6 +73,28 @@ Two things in `unicorn/Dockerfile` are worth reading before you copy it:
   that the 2.7.18 interpreter in the base image does not look for. On x86-64 the
   loop matches nothing and is harmless; if you build on another architecture,
   adjust the suffix.
+
+## STIDE — the pinned LID-DS checkout
+
+Upstream <https://github.com/LID-DS/LID-DS>, the Leipzig Intrusion Detection Data
+Set toolkit, whose `algorithms/` package provides the STIDE building block.
+`score_stide_3pool.py` expects it at `/tmp/assa-stage-g-lid-ds`, pinned to the
+commit the split manifest records under `generation_contract.monitor_versions`:
+
+| Repository | Commit | Clone to |
+|---|---|---|
+| `LID-DS/LID-DS` | `587d15870843961acb78fbb4b8fcd0ede28eabcc` | `/tmp/assa-stage-g-lid-ds` |
+
+```bash
+git clone https://github.com/LID-DS/LID-DS.git /tmp/assa-stage-g-lid-ds
+git -C /tmp/assa-stage-g-lid-ds checkout 587d15870843961acb78fbb4b8fcd0ede28eabcc
+```
+
+No container: the bridge in
+`experiments/code/measurement/stage_g_harness/stide_bridge.py` imports
+`algorithms.building_block` from the checkout directly. Unlike the other two,
+this arm *is* byte-reproducible — `score_stide_3pool.py` rebuilds
+`scored_stide_3pool.json` exactly, given the corpus and this checkout.
 
 ## Why these arms still are not reproducible from this release
 

@@ -110,8 +110,9 @@ write size/timing baselines and three small supervised models. Configurations,
 features and thresholds are selected without held-out natural executions. The unit
 of decision is one execution.
 
-**Provenance.** For each of 21 model-driven operational landings and its
-task-matched clean branch, whether the OS can resolve the destination object,
+**Provenance.** Over 21 model-driven operational landings and a size-matched
+control of 21 natural-write clean branches — equal in size, not a one-to-one
+pairing; see `docs/results.md` — whether the OS can resolve the destination object,
 attribute the writer to the agent process tree, and connect an ingested filesystem
 carrier to that writer.
 

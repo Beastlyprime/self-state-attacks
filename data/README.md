@@ -14,7 +14,7 @@ the paper to a file here.
 | `recovery/isolation-matrix/` | Protected vs same-user backup storage, crossed with ordinary corruption vs an attack that also destroys backups. |
 | `recovery/protected-supplement/` | Restoration repeated across eight attacks spanning the state roles. |
 | `recovery/rollback-cost/` | How much legitimate state a rollback discards, over 236 clean sessions. |
-| `provenance/` | Nameability, principal attribution and causal-carrier analysis over 21 operational landings and their matched clean branches. `inputs/` is filled by the corpus volume of the same name and holds the graph bundles and ground truth the analysis reads. |
+| `provenance/` | Nameability, principal attribution and causal-carrier analysis over 21 operational landings and a size-matched control of 21 clean branches (equal in size, not pairwise matched — see `docs/results.md`). `inputs/` is filled by the corpus volume of the same name and holds the graph bundles and ground truth the analysis reads. |
 | `observability/operation-matrix/` | The 16-case validation that the collection substrate witnesses every operation × target-role combination. `four-operation-canary/` is the earlier run that established the integration. |
 | `corpus-manifests/` | Provenance and checksums for the raw telemetry corpus, which is archived separately. |
 | `superseded/` | Earlier population cuts and their aggregators, retained for provenance. **Not paper estimates** — see the last section of `../docs/results.md`. |

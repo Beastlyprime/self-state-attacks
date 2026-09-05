@@ -24,7 +24,7 @@ How Far Can OS Defenses Go?*](https://arxiv.org/abs/2607.17986) (arXiv:2607.1798
 | **An adjudicated attack corpus** | 55 attack executions in 52 folds — 35 model-driven persistent writes plus 20 metadata/namespace mutations |
 | **A clean corpus** | 236 executions across four workload profiles: 176 for fitting, 60 held out for false-positive measurement, split into 32 natural-write and 28 no-write |
 | **Frozen detector results** | AIDE, Falco, STIDE, UNICORN, two write-feature baselines and three supervised models, each with attack coverage, TPR, natural-workload FPR and cluster-bootstrap intervals |
-| **Prevention, provenance and recovery results** | a six-operation × five-configuration kernel replay, a matched provenance comparison, and a recovery isolation matrix with rollback-cost analysis |
+| **Prevention, provenance and recovery results** | a six-operation × five-configuration kernel replay, a provenance comparison against a size-matched clean control, and a recovery isolation matrix with rollback-cost analysis |
 | **The measurement pipeline** | the collector, normalizer and detector-native exporters that produced all of it |
 
 ## Repository layout

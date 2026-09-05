@@ -153,6 +153,13 @@ def verify_all(root, quiet=False):
         if not path.is_file():
             missing.append(key)
             continue
+        # A symlink to the right bytes would hash correctly. The published
+        # archive has no links, so one here means the tree was rearranged, and
+        # the point of this sweep is to attest the archive as published.
+        if path.is_symlink() or any((Path(root) / repo_prefix).joinpath(*rel.split("/")[:i + 1]).is_symlink()
+                                    for i in range(len(rel.split("/")))):
+            bad.append(f"{key} (symlink)")
+            continue
         if sha256_file(path) != want:
             bad.append(key)
         else:
@@ -194,7 +201,14 @@ if __name__ == "__main__":
     _root = Path(__file__).resolve().parents[2]
     if "--verify" in _sys.argv:
         _ok, _missing, _bad = verify_all(_root)
+        # --verify alone reports a partial unpack rather than failing it, so a
+        # reader can tell "I have not unpacked everything" from "what I have is
+        # wrong". --require-complete is the form for CI, which wants one exit
+        # code covering both.
+        if "--require-complete" in _sys.argv and _missing:
+            print(f"  --require-complete: {len(_missing)} indexed files are not unpacked")
+            _sys.exit(1)
         _sys.exit(1 if _bad else 0)
     print(f"{__doc__.strip().splitlines()[0]}\n\n"
-          f"  python3 {Path(__file__).relative_to(_root)} --verify\n\n"
+          f"  python3 {Path(__file__).relative_to(_root)} --verify [--require-complete]\n\n"
           f"index: {index_path(_root)}")

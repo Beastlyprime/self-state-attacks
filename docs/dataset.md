@@ -130,7 +130,8 @@ additionally report cluster-any Wilson intervals.
 ## What is not here
 
 The raw per-run telemetry — syscall captures, provenance graphs, SCAP captures,
-detector staging trees, UNICORN sketch models — is archived separately at roughly
-18 GB. `data/corpus-manifests/` records its provenance and checksums. Upstream
+detector staging trees — is archived separately, 19.5 GB unpacked in twelve
+compressed volumes. UNICORN's sketch and profile models are **not** in it: the
+analyzer rebuilds those from the published graphs when the arm runs. `data/corpus-manifests/` records its provenance and checksums. Upstream
 task corpora (HotpotQA, Wikipedia and FRAMES caches) are cited rather than
 redistributed.

@@ -1,7 +1,7 @@
 # Reproduction
 
 This document is explicit about three different things people mean by
-"reproduce", because only Level 1 holds for every reported number. Level 2 works
+"reproduce". Level 1 holds for every reported number bar one, noted in the table. Level 2 works
 for two steps from a bare clone; Level 3 needs the archived corpus, and some arms
 need more than that.
 
@@ -201,8 +201,10 @@ figures can be checked even though the originals cannot. It writes
 `FINAL_3POOL_SUPERVISED.recomputed.json` and leaves the shipped file untouched;
 `docs/results.md` has the details. `score_aide_3pool.py` and `score_stide_3pool.py` resolve their
 full populations from the corpus but still need, respectively, the AIDE
-container image and the pinned STIDE implementation, so neither can be executed
-from this release.
+container image and the pinned STIDE checkout. Both are published as recipes in
+[`data/detection/toolchain/`](data/detection/toolchain/README.md), so both can be
+executed once they are built — and STIDE then reproduces its frozen rows
+byte-for-byte.
 
 The prevention replay (`data/prevention/bin/`) is a live kernel probe, not a data
 transformation: it needs a privileged container with AppArmor enforcing and a
@@ -216,7 +218,7 @@ supply, and we state that rather than imply otherwise:
 
 | Scorer | Still needs |
 |---|---|
-| `score_stide_3pool.py` | the pinned STIDE implementation, expected at `/tmp/assa-stage-g-lid-ds` (commit `587d1587…`, recorded in the split manifest's `monitor_versions`) |
+| `score_stide_3pool.py` | the pinned STIDE checkout at `/tmp/assa-stage-g-lid-ds` — `LID-DS/LID-DS` at commit `587d1587…`, recorded in the split manifest's `monitor_versions` and in [`data/detection/toolchain/`](data/detection/toolchain/README.md). With it the arm reproduces byte-for-byte |
 | `score_unicorn_gen5_3pool.py` | three pinned `crimson-unicorn` checkouts and the image `assa-stage-g/unicorn-python2:2.7.18` — upstream URLs, commits and the Dockerfile are in [`data/detection/toolchain/`](data/detection/toolchain/README.md). The arm then produces its own ~18 GB of sketch and profile models from the `tier_b` graphs; those are the analyzer's work product, not a missing input, and are not archived because the run regenerates them |
 | `score_aide_3pool.py` | the AIDE container `assa-stage-g/aide:0.19.3` — recipe in [`data/detection/toolchain/`](data/detection/toolchain/README.md) — and a writable scratch directory, overridable with `ASSA_SCRATCH` |
 
