@@ -212,8 +212,10 @@ record it has left, and it moved a B1/B2 false-positive count while exiting 0.
 
 So the check is now the content hash. `ARCHIVE_SHA256SUMS.txt`, the release
 checksum index published beside the volumes, is mirrored into the repository at
-`data/corpus-manifests/`, and both scorers verify every stream and every
-measured snapshot they read against it before fitting or writing. B1/B2 hashes
+`data/corpus-manifests/`. All three scripts that overwrite a frozen output from
+corpus inputs — `p5_analyze.py`, `score_ours_3pool.py` and
+`score_stide_3pool.py` — verify every stream, graph and measured snapshot they
+read against it before fitting or writing: 123, 259 and 291 inputs. B1/B2 hashes
 each stream from the bytes it is already parsing, so the whole run still takes
 about ten seconds. The run-id and outcome assertions are kept for the diagnostics
 they give — a truncation and a substitution now report differently — and

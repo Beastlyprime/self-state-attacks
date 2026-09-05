@@ -247,20 +247,24 @@ record of zstd volumes.
 `data/corpus-manifests/ARCHIVE_MANIFEST.json` describes the tiers and
 `manifests/` records per-file acquisition provenance and checksums.
 
-| Volume | Populations | Unpack to |
+Every volume carries its own top-level directory, so the column below is the
+`tar -C` target, not where the content ends up — `staging` extracted into
+`data/superseded/` produces `data/superseded/staging/`.
+
+| Volume | Populations | `tar -C` |
 |---|---|---|
 | `tier_b-clean_train` | clean training, 176/176 | `data/corpus-manifests/` |
 | `tier_b-clean_heldout` | clean held-out, 60/60 | `data/corpus-manifests/` |
 | `tier_b-attacks` + `tier_b-attacks_lockedpop_cseries` | attacks, 55/55 | `data/corpus-manifests/` |
 | `tier_b-twins` + `tier_b-twins_lockedpop_cseries` | 55 matched clean branches | `data/corpus-manifests/` |
 | `tier_c` | SCAP captures for the Falco replay | `data/corpus-manifests/` |
-| `tier_a`, `manifests` | manifests the scorers read, acquisition provenance | `data/corpus-manifests/` |
-| `staging` | 102 detector staging runs — 44 attacks and 58 clean | `data/superseded/staging/` |
-| `aux` | STIDE stopping-rule preregistration; the landed census the provenance analysis reads | `data/aux/` |
+| `tier_a`, `manifests` | manifests and the §4.4 admission evidence the scorers read, acquisition provenance | `data/corpus-manifests/` |
+| `staging` | 102 detector staging runs — 44 attacks and 58 clean | `data/superseded/` |
+| `provenance-inputs` | the graphs, ground truth and census Table 9 reads | `data/provenance/`, renamed to `inputs/` |
+| `aux` | STIDE stopping-rule preregistration; the landed census the provenance analysis reads | `data/` |
 
 Most volumes carry a `tier_*`/`manifests` root and belong under
-`data/corpus-manifests/`, but three do not — unpack those from the repository
-root so their own top-level directory lands in the right place:
+`data/corpus-manifests/`; three do not:
 
 ```bash
 mkdir -p data/corpus-manifests
