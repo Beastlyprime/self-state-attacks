@@ -3,9 +3,10 @@
 Every estimate reported in the paper, the code that produced it, and where it was
 read from. Paths are repository-relative.
 
-One entry below points outside this repository and is marked as such: the
-per-run rows of Table 11's execution environment, which are recorded in each run
-bundle in the archived corpus rather than in any single frozen file. Everything
+Two entries below point outside this repository and are marked as such: the
+per-run rows of Table 11's execution environment, recorded in each run bundle in
+the archived corpus rather than in any single frozen file, and §4.4's admission
+evidence, which lives in the corpus at `tier_a/clean_admission/`. Everything
 else resolves to a file here.
 
 `DET` below is `data/detection`.
@@ -31,7 +32,7 @@ follow.
 | **Table 8, Table 14** — B1 pooled / B2 per-profile | `DET/score_ours_3pool.py`, reusing the Eq. 1 detector math verbatim from `data/superseded/score_ours.py` | `DET/scored_ours_3pool.json`. The frozen operating points these are calibrated against are in `DET/b1b2/REPORT.json`, produced by `DET/b1b2/run_size_timing_libsinsp.py`; three `DET/supervised/*.py` scripts assert their populations against it |
 | **Table 8, Table 14** — L1 logistic / CART / FIGS | `DET/rebuild_supervised_3pool.py` | `DET/FINAL_3POOL_SUPERVISED.json` |
 | **Table 8, Table 14** — assembled comparison | `DET/final_aggregate.py` | `DET/FINAL_3POOL_REPORT.json`, and **`DET/FINAL_3POOL_HEADTOHEAD_TABLE.md`**, which carries every point estimate and interval from both tables in one place |
-| **Table 9** — provenance on 21 landings vs 21 clean branches | `data/provenance/p5_analyze.py` | `P5_NAMEABILITY_ATTRIBUTION_REPORT.json` / `.md`. **The two sides are equal in size, not pairwise matched** — see the note below. Recomputable: unpack `provenance-inputs` and re-run, the report rebuilds byte-for-byte |
+| **Table 9** — provenance on 21 landings vs 21 clean branches | `data/provenance/p5_analyze.py` | `P5_NAMEABILITY_ATTRIBUTION_REPORT.json`, and `.md` as a frozen narrative that the script does not regenerate. **The two sides are equal in size, not pairwise matched** — see the note below. Recomputable: unpack `provenance-inputs` and re-run, and the JSON rebuilds byte-for-byte |
 | **Table 10** — recovery repository isolation matrix | `experiments/code/measurement/p4_recovery_self_state.py`; `experiments/code/defenses/recovery/{backup_manager_v4,healthcheck_v4}.py` | `data/recovery/isolation-matrix/P4_RECOVERY_SELF_STATE_REPORT.{json,md}` — the four cases with byte-restore, health, rollback-loss and backup-availability columns |
 | **§5.3** — eight-attack protected supplement | same runner over the eight attack cells | `data/recovery/protected-supplement/P4_RECOVERY_SELF_STATE_REPORT.{json,md}` |
 | **Table 15** — distinct self-state objects modified per clean session | `data/recovery/rollback-cost/bin/p4_recovery_cost.py` | `p4_recovery_cost_result.json` — 236 scanned, 150 writing, 86 non-writing |

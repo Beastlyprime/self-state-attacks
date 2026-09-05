@@ -67,6 +67,34 @@ def payload_key(rel_repo_path):
     return None
 
 
+def logical_rel(path, root):
+    """The path's position under `root`, *without* following symlinks.
+
+    Resolving first would defeat the purpose. ``check`` is asked whether the
+    file at this slot is the published one; if the slot is a symlink to some
+    other indexed file, resolving turns the question into "is the target
+    published" -- which it is -- and the substitution passes. So the key comes
+    from the unresolved path, and a symlink anywhere between the root and the
+    file is refused outright: the published corpus contains none, so one here
+    means the tree has been rearranged.
+
+    Returns (relative path, None) or (None, reason).
+    """
+    p = Path(os.path.abspath(str(path)))
+    r = Path(os.path.abspath(str(root)))
+    try:
+        rel = p.relative_to(r)
+    except ValueError:
+        return None, f"{path} is outside the repository"
+    walk = r
+    for part in rel.parts:
+        walk = walk / part
+        if walk.is_symlink():
+            return None, (f"{walk.relative_to(r)} is a symlink; the published corpus has "
+                          "none, and the index binds a file at its own path")
+    return rel, None
+
+
 def sha256_file(path):
     h = hashlib.sha256()
     with open(path, "rb") as fh:
@@ -84,10 +112,9 @@ def check(path, root, digest=None):
     table = load(root)
     if table is None:
         return f"the release checksum index {INDEX_NAME} is missing"
-    try:
-        rel = Path(path).resolve().relative_to(Path(root).resolve())
-    except ValueError:
-        return f"{path} is outside the repository"
+    rel, why = logical_rel(path, root)
+    if why:
+        return why
     key = payload_key(rel)
     if key is None:
         return f"{rel} is not in a directory the corpus volumes unpack into"
@@ -147,13 +174,18 @@ def check_tree(root_dir, root, limit=None):
     """
     bad = []
     for path in sorted(Path(root_dir).rglob("*")):
-        if not path.is_file():
+        if path.is_symlink():
+            # The published trees are regular files throughout. A link here is a
+            # rearranged tree, and rglob would otherwise walk through it.
+            bad.append(f"{path} is a symlink; the published corpus has none")
+        elif not path.is_file():
             continue
-        why = check(path, root)
-        if why:
-            bad.append(why)
-            if limit and len(bad) >= limit:
-                break
+        else:
+            why = check(path, root)
+            if why:
+                bad.append(why)
+        if limit and len(bad) >= limit:
+            break
     return bad
 
 

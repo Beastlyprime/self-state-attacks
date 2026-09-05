@@ -74,9 +74,11 @@ Two things in `unicorn/Dockerfile` are worth reading before you copy it:
 
 ## Why these arms still are not reproducible from this release
 
-Building the runtime is necessary, not sufficient. `score_unicorn_gen5_3pool.py`
-also needs the sketch and profile models — ~18 GB of analyzer intermediates,
-regenerable from the provenance graphs in `tier_b` with the toolchain above, and
-not archived. The frozen rows are in `data/detection/unicorn/`, and
-`SKETCH_STATUS.json` records why 27 of the 115 runs are unscored.
-`score_aide_3pool.py` needs only the image and the corpus.
+Building the runtime is what was missing; it is not what makes the arm
+byte-reproducible. `score_unicorn_gen5_3pool.py` builds ~18 GB of sketch and
+profile models from the `tier_b` provenance graphs as it runs — those are the
+analyzer's own work product, which is why they are not archived, not a missing
+input you have to find. What you cannot get back is determinism: the analyzer is
+stochastic, so a rerun gives its own numbers rather than the frozen ones. Those
+are in `data/detection/unicorn/`, and `SKETCH_STATUS.json` records why 27 of the
+115 runs are unscored. `score_aide_3pool.py` needs only the image and the corpus.

@@ -101,10 +101,11 @@ supply. Some results ship only as their frozen report — the Table 7 paired pro
 in particular, whose per-run trees carry credentials and are not published.
 
 The analyzer's own intermediate output — the UNICORN sketch and profile models,
-another 18 GB — is not archived. It is regenerable from the shipped graphs *by
-the pinned Python 2 toolchain*, which this release does not distribute, so in
-practice that arm is checkable rather than re-runnable; the scored rows it
-produced are in `data/detection/unicorn/`.
+another 18 GB — is not archived, because the run rebuilds them from the shipped
+graphs. The pinned Python 2 toolchain that does so is published as a recipe in
+[`data/detection/toolchain/`](data/detection/toolchain/README.md), so the arm can
+be re-run; what a rerun will not give you is the frozen numbers, since the
+analyzer is stochastic. Those are in `data/detection/unicorn/`.
 
 > **Archive DOI:** _to be assigned — see [`REPRODUCE.md`](REPRODUCE.md) for the
 > current access route._

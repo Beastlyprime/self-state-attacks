@@ -7,7 +7,7 @@ need more than that.
 
 | Level | What it means | Possible here |
 |---|---|---|
-| **1. Check** | read a reported number out of a frozen output and compare it against the paper | yes, for every reported number |
+| **1. Check** | read a reported number out of a frozen output and compare it against the paper | yes, with one exception: §4.4's `= 1.0` resolution rate has per-run evidence for 100 of 236 clean executions, the rest only for the `≥ 0.95` gate it was admitted under. `docs/results.md` has the coverage table and lists the paper sentence as a revision item |
 | **2. Re-derive** | recompute a reported number from the shipped intermediate outputs | yes, for two steps |
 | **3. Re-run** | recompute from raw telemetry, or collect new telemetry | no — needs the archived corpus, or a privileged Linux host |
 
@@ -155,7 +155,8 @@ The other corpus readers do not verify, and the reason is the same in each case:
 `build_manifest.py` and `rebuild_supervised_3pool.py` never overwrite their
 frozen outputs by construction, `merge_falco_3pool.py` carries its clean side
 forward rather than deriving it, and `score_aide_3pool.py` and
-`score_unicorn_gen5_3pool.py` cannot run from this release at all.
+`score_unicorn_gen5_3pool.py` need an external toolchain built first — the
+recipes are published, so they can be run, but neither is byte-reproducible.
 
 Two weaker checks are kept for the error messages they give — an empty stream,
 or one carrying another run's records, is named as such — along with two outcome
@@ -216,7 +217,7 @@ supply, and we state that rather than imply otherwise:
 | Scorer | Still needs |
 |---|---|
 | `score_stide_3pool.py` | the pinned STIDE implementation, expected at `/tmp/assa-stage-g-lid-ds` (commit `587d1587…`, recorded in the split manifest's `monitor_versions`) |
-| `score_unicorn_gen5_3pool.py` | three pinned `crimson-unicorn` checkouts and the image `assa-stage-g/unicorn-python2:2.7.18` — upstream URLs, commits and the Dockerfile are in [`data/detection/toolchain/`](data/detection/toolchain/README.md). Even with the runtime built it also needs the ~18 GB of analyzer sketch and profile intermediates, which are regenerable from `tier_b` but not archived |
+| `score_unicorn_gen5_3pool.py` | three pinned `crimson-unicorn` checkouts and the image `assa-stage-g/unicorn-python2:2.7.18` — upstream URLs, commits and the Dockerfile are in [`data/detection/toolchain/`](data/detection/toolchain/README.md). The arm then produces its own ~18 GB of sketch and profile models from the `tier_b` graphs; those are the analyzer's work product, not a missing input, and are not archived because the run regenerates them |
 | `score_aide_3pool.py` | the AIDE container `assa-stage-g/aide:0.19.3` — recipe in [`data/detection/toolchain/`](data/detection/toolchain/README.md) — and a writable scratch directory, overridable with `ASSA_SCRATCH` |
 
 `rebuild_supervised_3pool.py` additionally needs the four numerical packages at
