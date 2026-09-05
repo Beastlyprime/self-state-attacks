@@ -213,8 +213,8 @@ supply, and we state that rather than imply otherwise:
 | Scorer | Still needs |
 |---|---|
 | `score_stide_3pool.py` | the pinned STIDE implementation, expected at `/tmp/assa-stage-g-lid-ds` (commit `587d1587…`, recorded in the split manifest's `monitor_versions`) |
-| `score_unicorn_gen5_3pool.py` | three pinned Python 2 checkouts — `/tmp/assa-stage-g-unicorn-parsers-py2-final`, `/tmp/assa-stage-g-unicorn-modeler-py2-final` and `/tmp/assa-stage-g-unicorn-analyzer` (the analyzer default carries no suffix; all three are `--*-repo` flags) and the container image `assa-stage-g/unicorn-python2:2.7.18`. The commit hashes are asserted by the scorer and recorded in `data/detection/unicorn/UNICORN_GEN5_FINAL_REPORT.json`; **we do not publish the upstream URLs or an image recipe**, so this arm is not re-runnable from this release alone |
-| `score_aide_3pool.py` | a working AIDE container (`assa-stage-g/aide:0.19.3`) and a writable scratch directory, overridable with `ASSA_SCRATCH` |
+| `score_unicorn_gen5_3pool.py` | three pinned `crimson-unicorn` checkouts and the image `assa-stage-g/unicorn-python2:2.7.18` — upstream URLs, commits and the Dockerfile are in [`data/detection/toolchain/`](data/detection/toolchain/README.md). Even with the runtime built it also needs the ~18 GB of analyzer sketch and profile intermediates, which are regenerable from `tier_b` but not archived |
+| `score_aide_3pool.py` | the AIDE container `assa-stage-g/aide:0.19.3` — recipe in [`data/detection/toolchain/`](data/detection/toolchain/README.md) — and a writable scratch directory, overridable with `ASSA_SCRATCH` |
 
 `rebuild_supervised_3pool.py` additionally needs the four numerical packages at
 the end of `requirements.txt`, which are **not** pinned to the versions that
