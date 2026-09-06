@@ -98,6 +98,12 @@ is the wrong tool:
   non-zero only on a mismatch, so it is also the quick way to see which volumes
   a partial unpack is missing.
 
+One inventory is checked from a different place. `data/detection/unicorn/SHA256SUMS.txt`
+lists its files relative to the repository root, because it also covers the
+UNICORN adapter code under `experiments/code/measurement/`; run
+`sha256sum -c data/detection/unicorn/SHA256SUMS.txt` from the root rather than
+from inside the directory.
+
 ## Level 3 — what needs the corpus
 
 Each per-detector scorer consumes per-run telemetry that is archived separately —
@@ -115,7 +121,7 @@ re-derives its output from a bare clone:
 `build_manifest.py`, `data/provenance/p5_analyze.py`,
 `data/recovery/rollback-cost/bin/p4_recovery_cost.py`.
 
-Two of them need **only** the corpus and genuinely recompute their shipped
+Three of them need **only** the corpus and genuinely recompute their shipped
 output. The test we apply is stricter than re-running: delete the output first,
 so a byte-identical result cannot come from the file itself.
 
@@ -135,34 +141,41 @@ python3 data/provenance/p5_analyze.py           # Table 9, under a second, pure 
 rm data/detection/scored_ours_3pool.json
 python3 data/detection/score_ours_3pool.py      # the B1/B2 rows of Tables 8 and 14
 
+rm data/recovery/rollback-cost/p4_recovery_cost_result.json
+python3 data/recovery/rollback-cost/bin/p4_recovery_cost.py   # Table 15, about ten seconds
+
 git diff --stat data/                           # expect no change
 ```
 
-Both come back byte-identical. `p5_analyze.py` additionally refuses to emit a
-partial result: if the volume is missing bundles it exits non-zero with a
-population mismatch rather than reporting a smaller, plausible-looking count.
-`score_ours_3pool.py` now does the same on all three of its populations — 176
-training runs, 23 b1b2-definable attacks, 60 held-out clean runs — because a
-short input reads exactly like a detector that scored lower.
+All three come back byte-identical. Each also refuses to emit a partial
+result: `p5_analyze.py` exits with a population mismatch if the volume is
+missing bundles, `score_ours_3pool.py` does the same on all three of its
+populations — 176 training runs, 23 b1b2-definable attacks, 60 held-out clean
+runs — and `p4_recovery_cost.py` requires exactly the 236 clean sessions of the
+frozen split, no fewer and no others. A short input reads exactly like a
+detector that scored lower, or a write process that was quieter.
 
-All three scripts that overwrite a frozen output from corpus inputs —
-`p5_analyze.py`, `score_ours_3pool.py`, `score_stide_3pool.py` — also check that
-each input **is the published input**, not merely that a file is there. They
-hash every stream, graph and measured snapshot they read against
-`data/corpus-manifests/ARCHIVE_SHA256SUMS.txt`, the release checksum index
-mirrored here from the corpus, and refuse before fitting or writing if anything
-differs — 123 inputs for Table 9, 259 streams plus 7,135 snapshot files for
-B1/B2, and 291 streams for STIDE. That is the only check a
-truncation cannot walk past: cutting one natural-write training stream down to
-its first record leaves a parseable file whose every record still names the
-right run, and it shifted a B1/B2 false-positive count while exiting 0.
+All four scripts that overwrite a frozen output from corpus inputs —
+`p5_analyze.py`, `score_ours_3pool.py`, `score_stide_3pool.py` and
+`p4_recovery_cost.py` — also check that each input **is the published input**,
+not merely that a file is there. They hash every stream, graph and measured
+snapshot they read against `data/corpus-manifests/ARCHIVE_SHA256SUMS.txt`, the
+release checksum index mirrored here from the corpus, and refuse before fitting
+or writing if anything differs — 123 inputs for Table 9, 259 streams plus 7,135
+snapshot files for B1/B2, 291 streams for STIDE, and 236 streams for Table 15.
+That is the only check a truncation cannot walk past: a stream cut down to its
+first record is a parseable file whose every record still names the right run.
 
-The other corpus readers do not verify, and the reason is the same in each case:
-`build_manifest.py` and `rebuild_supervised_3pool.py` never overwrite their
-frozen outputs by construction, `merge_falco_3pool.py` carries its clean side
-forward rather than deriving it, and `score_aide_3pool.py` and
-`score_unicorn_gen5_3pool.py` need an external toolchain built first — the
-recipes are published, so they can be run, but neither is byte-reproducible.
+The other corpus readers: `build_manifest.py` and `rebuild_supervised_3pool.py`
+never overwrite their frozen outputs by construction, and `merge_falco_3pool.py`
+carries its clean side forward rather than deriving it. `score_aide_3pool.py`
+does overwrite `scored_aide_3pool.json` when it completes, so it verifies every
+snapshot tree against the same index before the container runs on any of them;
+it still needs the image built from `data/detection/toolchain/`, and its rows
+are not byte-reproducible. `score_unicorn_gen5_3pool.py` needs the Python 2
+toolchain, is stochastic, and does not verify its inputs; its default `--output`
+is the frozen `data/detection/unicorn/`, so pass another directory to keep the
+published rows.
 
 Two weaker checks are kept for the error messages they give — an empty stream,
 or one carrying another run's records, is named as such — along with two outcome

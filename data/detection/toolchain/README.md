@@ -26,7 +26,8 @@ docker build -t assa-stage-g/aide:0.19.3 .
 `GIT_VERSION=v0.19.3` is passed to `autogen.sh` because the shallow clone has no
 tag history to derive the version from. The scorer invokes the image with
 `--config` and a per-run scratch directory; `score_aide_3pool.py` takes the
-image name from `--aide-image` and the scratch root from `ASSA_SCRATCH`.
+image name from the `AIDE_IMAGE` constant at the top of the file — there is no
+command-line flag — and the scratch root from `ASSA_SCRATCH`.
 
 ## UNICORN — `assa-stage-g/unicorn-python2:2.7.18` and three checkouts
 

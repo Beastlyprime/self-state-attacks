@@ -212,12 +212,14 @@ record it has left, and it moved a B1/B2 false-positive count while exiting 0.
 
 So the check is now the content hash. `ARCHIVE_SHA256SUMS.txt`, the release
 checksum index published beside the volumes, is mirrored into the repository at
-`data/corpus-manifests/`. All three scripts that overwrite a frozen output from
-corpus inputs — `p5_analyze.py`, `score_ours_3pool.py` and
-`score_stide_3pool.py` — verify every stream, graph and measured snapshot they
-read against it before fitting or writing: 123, 259 and 291 inputs. B1/B2 hashes
-each stream from the bytes it is already parsing, so the whole run still takes
-about ten seconds. The run-id and outcome assertions are kept for the diagnostics
+`data/corpus-manifests/`. All four scripts that overwrite a frozen output from
+corpus inputs — `p5_analyze.py`, `score_ours_3pool.py`, `score_stide_3pool.py`
+and `p4_recovery_cost.py` — verify every stream, graph and measured snapshot
+they read against it before fitting or writing: 123 inputs, 259 streams plus
+7,135 snapshot files, 291 streams, and 236 streams. B1/B2 hashes each stream
+from the bytes it is already parsing, so the whole run still takes about ten
+seconds; the AIDE scorer verifies its snapshot trees the same way before the
+container runs. The run-id and outcome assertions are kept for the diagnostics
 they give — a truncation and a substitution now report differently — and
 `corpus_index.py` states the limit: this is a reproduction check, not a security
 boundary, since whoever can rewrite an input can rewrite the index. What it buys

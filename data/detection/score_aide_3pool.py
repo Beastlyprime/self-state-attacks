@@ -13,6 +13,8 @@ SCR = Path(os.environ.get("ASSA_SCRATCH", "/tmp/assa-scratch"))   # scorer worki
 POOLS = ROOT / "data/corpus-manifests/tier_b"                      # unpacked corpus
 STAGE = HH / "staging"
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "data/corpus-manifests"))
+import corpus_index
 from experiments.code.measurement.stage_g_harness.p2_aide_fpr_gen2 import run_one as aide_run_one
 AIDE_IMAGE = "assa-stage-g/aide:0.19.3"
 GEN = "final_3pool_aide"
@@ -20,12 +22,13 @@ MAN = json.load(open(OUT / "FINAL_3POOL_SPLIT_MANIFEST.json"))
 
 
 def fail_closed(message: str):
-    """Refuse to score rather than overwrite a frozen output with an empty result.
+    """Refuse to score rather than overwrite a frozen output with a partial one.
 
-    This scorer reads per-run detector staging trees that the anonymous release
-    does not ship. Without them every record resolves to "not evaluable", which
-    would otherwise be written out as a legitimate 0/0 and destroy the published
-    evidence.
+    This scorer reads per-run snapshot trees that travel in the corpus volumes,
+    not in this repository. Without them every record resolves to "not
+    evaluable", which would otherwise be written out as a legitimate 0/0 and
+    destroy the published evidence. A tree that is present but not the published
+    bytes is refused the same way, before the container runs on it.
     """
     sys.exit(f"fail-closed: {message}\n"
              "  Nothing was written. See REPRODUCE.md, 'Level 3 -- what needs\n"
@@ -90,18 +93,37 @@ def main():
     rows = []
     # attacks: staging for non-fileop, local_repo for fileop
     w3atk = {a["run_id"]: a for a in json.load(open(HH / "W3THICK_POPULATION_MANIFEST.json"))["attacks"]}
+    snaps = []
     for a in pool3:
         rid = a["run_id"]
         if a["aide_snapshot_source"] == "local_repo":
             snap = attack_snap(rid, w3atk[rid].get("local_run_dir"))
         else:
             snap = snap_root(STAGE / rid) or attack_snap(rid, None)
-        res = aide_one(rid, snap, SCR / "aide_runs" / rid)
+        snaps.append((rid, snap))
+    for c in pool2:
+        snaps.append((c["run_id"], snap_root(POOLS / "clean_heldout" / c["run_id"])))
+    # The snapshots are the whole input: AIDE's row is a delta over them. Verify
+    # every tree against the release index before the container touches any of
+    # it, so a truncated or substituted snapshot stops the run here instead of
+    # becoming a different change count with exit 0. Trees that are absent are
+    # left to the population gate below, which names them.
+    unpublished = []
+    for rid, snap in snaps:
+        if snap is not None:
+            unpublished.extend(corpus_index.check_tree(snap, ROOT, limit=3))
+        if len(unpublished) >= 6:
+            break
+    if unpublished:
+        fail_closed("snapshot trees that are not the published bytes: " + "; ".join(unpublished[:6]))
+    snap_of = dict(snaps)
+    for a in pool3:
+        rid = a["run_id"]
+        res = aide_one(rid, snap_of[rid], SCR / "aide_runs" / rid)
         rows.append({"run_id": rid, "side": "attack", "profile": a["profile"],
                      "op_signature": a["op_signature"], "tier": a["tier"], **res})
     for c in pool2:
-        snap = snap_root(POOLS / "clean_heldout" / c["run_id"])
-        res = aide_one(c["run_id"], snap, SCR / "aide_runs" / c["run_id"])
+        res = aide_one(c["run_id"], snap_of[c["run_id"]], SCR / "aide_runs" / c["run_id"])
         rows.append({"run_id": c["run_id"], "side": "clean", "profile": c["profile"],
                      "scenario_id": c["scenario_id"], "performs_write": c["performs_self_state_write"], **res})
     atk = [r for r in rows if r["side"] == "attack"]; cl = [r for r in rows if r["side"] == "clean"]

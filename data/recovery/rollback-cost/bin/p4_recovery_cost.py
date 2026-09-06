@@ -14,7 +14,7 @@ Self-state write definition is identical to the head-to-head substrate
 grouped by bucket). No agent runtime, no model request; offline read of frozen
 libsinsp events.
 """
-import os, sys, json, math, statistics
+import hashlib, os, sys, json, math, statistics
 from pathlib import Path
 from collections import defaultdict
 
@@ -22,7 +22,9 @@ from collections import defaultdict
 ROOT = Path(os.environ.get("ASSA_ROOT", str(Path(__file__).resolve().parents[4])))
 OUTDIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments/code"))
+sys.path.insert(0, str(ROOT / "data/corpus-manifests"))
 from workload.taxonomy import canonical_path, bucket_key, layer_of  # noqa
+import corpus_index  # noqa
 import importlib.util
 HH = ROOT / "data/superseded"
 _spec = importlib.util.spec_from_file_location("score_ours", HH / "score_ours.py")
@@ -34,17 +36,31 @@ CLEAN = {
     "clean_heldout_gen2_60": ROOT / "data/corpus-manifests/tier_b/clean_heldout",
 }
 
-
+# The population is the one the head-to-head split froze, not whatever happens
+# to be unpacked: pool 1 (176 training) and pool 2 (60 held-out) of the 3-pool
+# manifest. Reading the directory instead would let a partial unpack -- one run,
+# say -- be summarised and written out as the legitimate write process.
+MAN = json.load(open(ROOT / "data/detection/FINAL_3POOL_SPLIT_MANIFEST.json"))
+POOL_IDS = {
+    "clean_train_gen2_176": sorted(r["run_id"] for r in MAN["pools"]["pool1_clean_training_gen2_176"]["records"]),
+    "clean_heldout_gen2_60": sorted(r["run_id"] for r in MAN["pools"]["pool2_clean_heldout_test_gen2_60"]["records"]),
+}
 EXPECTED_RUNS = 236  # 176 gen2 training + 60 held-out natural
+assert sum(map(len, POOL_IDS.values())) == EXPECTED_RUNS, {k: len(v) for k, v in POOL_IDS.items()}
+
+# Per-stream audit, filled by run_stats and checked before anything is written.
+STREAM_AUDIT: dict = {}
 
 
 def fail_closed(message):
-    """Refuse to estimate rather than overwrite a frozen output with an empty result.
+    """Refuse to estimate rather than overwrite a frozen output with a partial one.
 
-    This estimator reads the durable-archive clean-run tiers, which the anonymous
-    release does not ship. Without them no session is scanned and the resulting
-    all-zero distribution would otherwise be written out as legitimate and
-    destroy the published evidence.
+    Every session this estimator reads travels in the corpus volumes, not in
+    this repository. A missing, blanked, truncated or substituted stream does
+    not make the write process look different in any way the summary statistics
+    could tell apart from a real result, so the population is bound to the
+    frozen split, each stream to its run id, and each file to the release
+    checksum index -- and any failure stops the write.
     """
     sys.exit(f"fail-closed: {message}\n"
              "  Nothing was written. See REPRODUCE.md, 'Level 3 -- what needs\n"
@@ -63,10 +79,21 @@ def run_stats(rundir):
     if not f.is_file():
         return None
     rid = Path(rundir).name
+    # Hash the bytes being parsed, so the content check costs one read, not two.
+    raw = f.read_bytes()
+    audit = STREAM_AUDIT[rid] = {
+        "records": 0, "foreign_run_ids": set(),
+        "index": corpus_index.check(f, ROOT, digest=hashlib.sha256(raw).hexdigest()),
+    }
     bk = defaultdict(list)          # bucket -> [ts_sec,...]
     all_ts = []
-    for line in f.open():
+    for line in raw.splitlines():
+        if not line.strip():
+            continue
         e = json.loads(line); sc = e.get("syscall", {})
+        audit["records"] += 1
+        if e.get("run_id") != rid:
+            audit["foreign_run_ids"].add(e.get("run_id"))
         ts = (e.get("order") or {}).get("timestamp_realtime_ns")
         if ts is not None:
             all_ts.append(ts / 1e9)
@@ -102,24 +129,54 @@ def summ(xs):
             "median": q(0.5), "p90": q(0.9), "max": max(xs), "min": min(xs)}
 
 
+def audit_population(rows):
+    """Exactly the frozen 236 sessions, each stream non-empty, its own, and published.
+
+    Existence is not the test. A directory can be present with a blank stream,
+    another run's stream, or a stream cut short, and each of those parses and
+    changes the distribution. So: every record must name the run it sits under,
+    and the file must hash to what ARCHIVE_SHA256SUMS.txt published for it.
+    """
+    problems = []
+    if len(rows) != EXPECTED_RUNS:
+        problems.append(f"{len(rows)} of {EXPECTED_RUNS} sessions scanned")
+    empty = [r["run_id"] for r in rows if STREAM_AUDIT[r["run_id"]]["records"] == 0]
+    foreign = [f"{r['run_id']} carries {sorted(x for x in STREAM_AUDIT[r['run_id']]['foreign_run_ids'] if x)[:2]}"
+               for r in rows if STREAM_AUDIT[r["run_id"]]["foreign_run_ids"]]
+    unpublished = [STREAM_AUDIT[r["run_id"]]["index"] for r in rows if STREAM_AUDIT[r["run_id"]]["index"]]
+    if empty:
+        problems.append("empty streams: " + ", ".join(empty[:6]))
+    if foreign:
+        problems.append("streams belonging to another run: " + "; ".join(foreign[:6]))
+    if unpublished:
+        problems.append("inputs that are not the published bytes: " + "; ".join(unpublished[:6])
+                        + (f" (and {len(unpublished) - 6} more)" if len(unpublished) > 6 else ""))
+    if problems:
+        fail_closed(". ".join(problems))
+
+
 def main():
     rows = []
     absent = [str(d) for d in CLEAN.values() if not d.is_dir()]
     if absent:
         fail_closed("required clean-run tiers are absent: " + ", ".join(absent))
+    missing, extra = [], []
     for pool, d in CLEAN.items():
-        for rd in sorted(d.iterdir()):
-            if not rd.is_dir():
-                continue
-            s = run_stats(rd)
+        present = {rd.name for rd in d.iterdir() if rd.is_dir()}
+        extra.extend(sorted(present - set(POOL_IDS[pool])))
+        for rid in POOL_IDS[pool]:
+            s = run_stats(d / rid)
             if s is None:
+                missing.append(rid)
                 continue
             s["pool"] = pool
             rows.append(s)
-
-    if not rows:
-        fail_closed("the clean-run tiers are present but yielded 0 scannable sessions "
-                    f"(expected {EXPECTED_RUNS})")
+    if missing or extra:
+        fail_closed((f"{len(missing)} of {EXPECTED_RUNS} frozen sessions have no libsinsp stream "
+                     f"(e.g. {', '.join(missing[:3])}). " if missing else "")
+                    + (f"{len(extra)} directories in the clean tiers are not in the frozen split "
+                       f"(e.g. {', '.join(extra[:3])})" if extra else ""))
+    audit_population(rows)
 
     writers = [r for r in rows if r["n_objects"] > 0]      # sessions that actually wrote self-state
     # per-session loss (= objects modified per session; the per-session-backup operating point)

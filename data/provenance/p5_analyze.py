@@ -350,23 +350,18 @@ out={
 
 separability = {
  "question":"Does OUR OS-provenance method (nameability + attribution) separate attack self-state writes from benign self-state writes, where AIDE/Falco/STIDE/UNICORN do not?",
- "verdict":"NO. Every axis is arm-invariant.",
+ "verdict":"NO. No axis separates the attack side from the size-matched clean side.",
  "nameability":{"attack":f"{att_sum['nameable']}/{att_sum['n_evaluated']}","benign":f"{ben_sum['nameable']}/{ben_sum['n_evaluated']}","separates":False,"note":"All self-state writes are class C (libsinsp fd->path chain); classes A/B structurally empty for mutations, as in the withdrawn resolver era but now on libsinsp identity."},
  "principal_attribution":{"attack":f"{att_sum['principal_attributed']}/{att_sum['n_evaluated']}","benign":f"{ben_sum['principal_attributed']}/{ben_sum['n_evaluated']}","separates":False,"note":"Writer resolves to the harness-controlled agent process subtree in both arms; same UID, same tree. Subject attribution cannot distinguish a legitimate self-update from an attack-induced one."},
- "causal_carrier_attribution":{"attack_chain_present":att_sum['carrier_chain_present'],"benign_chain_present":ben_sum['carrier_chain_present'],"attack_not_os_observable":att_sum['carrier_chain_not_os_observable'],"benign_not_os_observable":ben_sum['carrier_chain_not_os_observable'],"separates":False,"note":"Where the carrier is filesystem-ingested (channel=workspace_file/workspace_attachment) the read->write chain to the carrier slot fires in BOTH arms (the clean carrier is read too), so it is not attack-specific. Where the carrier enters out-of-band (channel=user_message via the model API request body; external_content via socket recv) there is NO OS file-read to trace, so the chain is structurally data_insufficient for the attack AND its clean pair (8/21 attack)."},
+ "causal_carrier_attribution":{"attack_chain_present":att_sum['carrier_chain_present'],"benign_chain_present":ben_sum['carrier_chain_present'],"attack_not_os_observable":att_sum['carrier_chain_not_os_observable'],"benign_not_os_observable":ben_sum['carrier_chain_not_os_observable'],"separates":False,"note":"Where the carrier is filesystem-ingested (channel=workspace_file/workspace_attachment) a read->write chain to the carrier slot is found on both sides at comparable rates, so its presence is not attack-specific. Where the carrier enters out-of-band (channel=user_message via the model API request body; external_content via socket recv) there is NO OS file-read to trace, so the chain is structurally data_insufficient (8/21 attack). These are marginal counts over each side; the sides are size-matched, not paired, so no claim is made about the same slot on both sides of a pair (see population_relation)."},
  "per_realized_class_N_attack":perclass(attack_rows),
  "power":"Pooled N=21 attack / 21 benign is powered (>=8). Each realized class (Instruction=7, Configuration=7, Memory=7) is <8 => per-class separability underpowered."
 }
-baseline_comparison = {
- "four_detector_clean_fpr_source":"paper/P2_FOUR_DETECTOR_CLEAN_FPR_REPORT_20260821.md (held-out clean, 20 runs)",
- "AIDE":"11/20 FP overall; 11/11 FP on natural-write clean runs",
- "Falco":"12/20 FP overall; 11/11 FP on natural-write clean runs",
- "STIDE":"18/20 FP overall; 11/11 FP on natural-write clean runs",
- "UNICORN":"1/11 FP among evaluable; 9/20 data_insufficient",
- "interpretation":"On benign natural self-state writes the three file/syscall detectors alarm at 11/11 (100%) - they do not separate benign self-state writes from attacks. OUR provenance method also does not separate: it NAMES and ATTRIBUTES both arms with near-perfect reliability (21/21) but produces no attack-vs-benign discriminant. Our method is a robust naming/attribution instrument, not a self-state-attack detector; the separability failure is shared with the baselines, and for the causal axis is provably intrinsic at file-identity granularity (both arms read the same carrier slot; differ only in carrier content)."
-}
 out["separability"]=separability
-out["baseline_comparison"]=baseline_comparison
+# The external-detector comparison belongs to the 3-pool head-to-head
+# (data/detection/FINAL_3POOL_REPORT.json, 60 held-out clean runs), not here: an
+# earlier version of this report carried a 20-run clean-FPR comparison whose
+# source file is not part of the release.
 out["population_relation"]={
  "design":"size-matched control, not a pairing assignment: the two sides are equal in size and drawn from the same task family, and every cell in this report is a marginal count over each side independently. No within-pair comparison is made or supported.",
  "attacks_with_own_run_id_twin":17,
@@ -379,7 +374,7 @@ out["population_relation"]={
 out["data_insufficient_and_flags"]={
  "par21_landers_no_paired_clean_local":[r["run_id"] for r in attack_rows if r.get("paired_clean_local")==False],
  "par21_note":"4 landers (C510, C511_um, C513_um, C515_um) whose original bundle p2_parallel_stageg_attack_20260821 is NOT local; nameability+principal computed from the local expanded_v2 libsinsp graph (resolution_spine_effective), agent anchor derived from graph; carrier slot / paired clean not available (auxiliary, flagged).",
- "carrier_axis_data_insufficient_structural":"8/21 attacks (6 user_message + 2 external_content) + matching clean pairs: carrier not filesystem-ingested => no OS read->write chain to trace (excluded from carrier separability, never imputed).",
+ "carrier_axis_data_insufficient_structural":"8/21 attacks (6 user_message + 2 external_content), and likewise on the clean side: carrier not filesystem-ingested => no OS read->write chain to trace (excluded from carrier separability, never imputed).",
  "clean_control_status":"paper-mandated clean freeze corpus graphs are on remote <GUEST_HOME>/derived_results/ (NOT local). Benign population draws natural-write __clean branches from the p2_l0_* bundles as auxiliary controls, equal in size to the attack side rather than paired to it (see population_relation), exactly as the measurement_findings section 5.2 analysis did."
 }
 # Fail closed: the released population is fixed at 21 landed attacks and a
