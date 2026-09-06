@@ -351,7 +351,7 @@ out={
 separability = {
  "question":"Does OUR OS-provenance method (nameability + attribution) separate attack self-state writes from benign self-state writes, where AIDE/Falco/STIDE/UNICORN do not?",
  "verdict":"NO. No axis separates the attack side from the size-matched clean side.",
- "nameability":{"attack":f"{att_sum['nameable']}/{att_sum['n_evaluated']}","benign":f"{ben_sum['nameable']}/{ben_sum['n_evaluated']}","separates":False,"note":"All self-state writes are class C (libsinsp fd->path chain); classes A/B structurally empty for mutations, as in the withdrawn resolver era but now on libsinsp identity."},
+ "nameability":{"attack":f"{att_sum['nameable']}/{att_sum['n_evaluated']}","benign":f"{ben_sum['nameable']}/{ben_sum['n_evaluated']}","separates":False,"note":"All self-state writes are class C (libsinsp fd->path chain); classes A/B are structurally empty for mutations on this platform, on libsinsp identity."},
  "principal_attribution":{"attack":f"{att_sum['principal_attributed']}/{att_sum['n_evaluated']}","benign":f"{ben_sum['principal_attributed']}/{ben_sum['n_evaluated']}","separates":False,"note":"Writer resolves to the harness-controlled agent process subtree in both arms; same UID, same tree. Subject attribution cannot distinguish a legitimate self-update from an attack-induced one."},
  "causal_carrier_attribution":{"attack_chain_present":att_sum['carrier_chain_present'],"benign_chain_present":ben_sum['carrier_chain_present'],"attack_not_os_observable":att_sum['carrier_chain_not_os_observable'],"benign_not_os_observable":ben_sum['carrier_chain_not_os_observable'],"separates":False,"note":"Where the carrier is filesystem-ingested (channel=workspace_file/workspace_attachment) a read->write chain to the carrier slot is found on both sides at comparable rates, so its presence is not attack-specific. Where the carrier enters out-of-band (channel=user_message via the model API request body; external_content via socket recv) there is NO OS file-read to trace, so the chain is structurally data_insufficient (8/21 attack). These are marginal counts over each side; the sides are size-matched, not paired, so no claim is made about the same slot on both sides of a pair (see population_relation)."},
  "per_realized_class_N_attack":perclass(attack_rows),
@@ -359,9 +359,7 @@ separability = {
 }
 out["separability"]=separability
 # The external-detector comparison belongs to the 3-pool head-to-head
-# (data/detection/FINAL_3POOL_REPORT.json, 60 held-out clean runs), not here: an
-# earlier version of this report carried a 20-run clean-FPR comparison whose
-# source file is not part of the release.
+# (data/detection/FINAL_3POOL_REPORT.json, 60 held-out clean runs), not here.
 out["population_relation"]={
  "design":"size-matched control, not a pairing assignment: the two sides are equal in size and drawn from the same task family, and every cell in this report is a marginal count over each side independently. No within-pair comparison is made or supported.",
  "attacks_with_own_run_id_twin":17,

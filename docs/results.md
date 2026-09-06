@@ -69,9 +69,9 @@ reason to change any data here.
 
 ### What the admission evidence covers, and what it does not
 
-`tier_a/clean_admission/` was recovered from the collection host after the first
-release omitted it. Its coverage is not uniform, and the paper's §4.4 sentence is
-written as though it were.
+`tier_a/clean_admission/` holds the per-run collector health records and freeze
+gates. Its coverage is not uniform, and the paper's §4.4 sentence is written as
+though it were.
 
 | §4.4 quantity | evidence | coverage |
 |---|---|---|
@@ -91,7 +91,7 @@ non-emptiness is evidenced only indirectly, by the non-empty libsinsp stream eve
 run has in `tier_b` and by the surviving readiness records' passing
 `scap_capture_present_and_valid`.
 
-So the honest form of the §4.4 claim is that all 236 runs passed the
+So the supportable form of the §4.4 claim is that all 236 runs passed the
 pre-specified 0.95 threshold, and that the recorded rate is 1.0 for the 100 runs
 whose readiness record still exists. Tightening the paper's "**All** 176 training
 and 60 held-out clean executions … an effective path-resolution rate of 1.0" is
@@ -109,129 +109,48 @@ changes a reported number; both are wording.
 
 ### Section 5.2: substrate A reproduces exactly; substrate B cannot
 
-Running `rebuild_supervised_3pool.py` against the corpus turned up two separate
-problems. One was a defect in this archive and is fixed; the other is a
-limitation of the original computation and is not fixable here.
+Running `rebuild_supervised_3pool.py` against the published volumes recomputes
+the **substrate A block exactly**: nested-CV AUC .5983, its interval, every
+control, the placebo and the McNemar counts match the shipped file field for
+field, in a tree holding nothing but this repository and the unpacked volumes.
 
-**The archive shipped the wrong C520 pair, and that is now corrected.** Of the
-22 C-series runs in `tier_b/*_lockedpop_cseries`, twenty were the
-`gemini-3-flash` executions the published population is defined over. The other
-two were both halves of `C520_w3_alert_webhook_runbook` — attack and twin — taken
-from the `grok-4.6` re-collection in
-`p2_llmtrace_grok_attack_native_20260823`, a different execution that happens to
-share the run id. The published rows never used it: the detector staging tree
-they were scored from held the gemini execution, as does every other pool.
-Substituting the
-gemini pair back makes **substrate A recompute exactly** — nested-CV AUC .5983,
-its interval, every control, the placebo and the McNemar counts all match the
-shipped file field for field, verified in a tree holding nothing but this
-repository and the unpacked volumes.
-
-The same substitution was needed one tier down. `tier_c`, which carries the
-native SCAP captures, held the grok C520 attack and twin as well — the archived
-captures hashed to the grok sources, and their recorded sizes were the grok
-sizes. Both are now the gemini captures, and the two acquisition manifests that
-recorded the grok source paths (`manifests/cseries11_source_paths.json`,
-`manifests/scap_targets.json`) say so.
-
-**Substrate B's two shipped AUCs are not reproducible, and the reason predates
-this release.** Its stream selector was
-`glob("**/<run_id>/graph/normalized/syscalls.jsonl")[0]`, whose result depends on
-directory traversal order. On the collection host several of the 46 streams it
-reads had more than one distinct copy — sixteen for
+**Substrate B's two shipped AUCs, .4991 / .4915, are not reproducible.** Its
+stream selector was `glob("**/<run_id>/graph/normalized/syscalls.jsonl")[0]`,
+whose result depends on directory traversal order. On the collection host
+several of the 46 streams it reads had more than one distinct copy — sixteen for
 `C512_w3_audit_rotate_runbook__clean`, one per parity-pilot replicate across
-three arms — so which one the published fit read was decided by traversal order
-and never written down. The shipped **.4991 / .4915** therefore cannot be checked
-against anything, and we do not claim otherwise.
+three arms — so which copy the published fit read was never recorded, and the
+shipped figures cannot be checked against anything.
 
-What replaces it is checkable in a stronger sense than a fixed ordering. Across
-the published volumes each of the 46 streams exists exactly once, except one
-(`MCAW402_w4_blanket_approval_false_memory__poisoned`, in both `staging` and
-`tier_b/attacks`) whose two copies are byte-identical — so from this corpus the
-result does not depend on the order at all. It is **.5123 / .3837**, and the
-recomputed block carries a `stream_selection` map giving the path and SHA-256 of
-every stream read, so a reader can confirm the inputs rather than trust the
-selector.
-
-Both pairs sit either side of .5 on L1 logistic and below it on RuleFit, so the
-paper's characterisation of substrate B as *at chance* survives. An earlier
-version of this section listed three orderings, including .538/.471 as
-"archive-first". That figure came from a development tree rather than the
-published inputs and no selection map backs it; it is withdrawn.
-
+What the corpus yields is order-independent. Each of the 46 streams exists
+exactly once in the published volumes, except
+`MCAW402_w4_blanket_approval_false_memory__poisoned`, whose two copies (in
+`staging` and `tier_b/attacks`) are byte-identical. The recomputed block gives
+**.5123 / .3837** and carries a `stream_selection` map with the path and SHA-256
+of every stream read, so the inputs can be confirmed rather than trusted. Both
+pairs sit either side of .5 on L1 logistic and below it on RuleFit, so the
+paper's characterisation of substrate B as *at chance* survives.
 `rebuild_supervised_3pool.py` and `supervised/paired_vs_b1b2.py` write
 `*.recomputed.json` and never overwrite the shipped files, so both are available
 and the difference stays visible.
 
-**A correction to an earlier version of this file.** It attributed the
-discrepancy to three twins (MCAW101, MCAW201, MCAW402) having zero-byte libsinsp
-streams. Those files are indeed empty in the `p2_mass_attack_lane2` trees, but
-`locate()` checked the detector staging tree *first* and staging carried all
-three complete, so they were never read. The cause was the C520 substitution
-above.
+### Input verification
 
-### The first corpus build did not actually publish eleven attack graphs
-
-Worth recording because it is the failure mode that hid the two above, and
-because it invalidated every reproduction check run on the authors' own machine.
-The `staging` volume shipped the eleven W3 C-series attacks as **absolute
-symlinks** into a path that exists only on the collection host. Here they
-resolved and every scorer looked correct; anywhere else they dangled, and
-`score_ours_3pool.py` — which had no population gate — exited 0 having evaluated
-12 of 23 definable attacks and overwritten the frozen rows with the smaller
-number. The trees were also covered by no checksum, since the index lists
-regular files.
-
-Three things changed. The symlinks are gone and the eleven trees resolve from
-`tier_b/attacks_lockedpop_cseries`, whose copies are byte-identical to the
-staging trees the rows were frozen from on every stream the scorers read
-(`libsinsp_events.jsonl`, `graph/normalized/syscalls.jsonl`, and the
-`resolution_spine_effective` graph). `score_ours_3pool.py` and
-`score_stide_3pool.py` now fail closed on their full populations rather than
-scoring what they can find — STIDE's gate also catches an absent backend, which
-otherwise reports as a uniform `data_insufficient`. And the reproduction checks
-were re-run in a tree holding nothing but the repository and the unpacked
-volumes, with no path back to the collection host: Table 9, the B1/B2 rows,
-STIDE, Falco's attack side and the aggregate all come back byte-identical there,
-and `build_manifest.py`'s fourteen anti-leakage asserts all pass.
-
-Counting inputs is still not enough, and a second review round showed why. A
-population gate that asks whether a file is *present* passes a file that is
-present and wrong. Blanking one held-out stream moved B1's false-positive rate
-from 10/60 to 9/60 and exited 0; handing `C520`'s slot another run's stream
-exited 0 with a different TPR, because the write extractor keys on the run id
-appearing in each event's path and silently skipped every event; substituting a
-training stream for `C520`'s STIDE substrate left all 115 test items
-"evaluable" and moved TPR to 54/55. All three overwrote the frozen output.
-
-Naming the inputs was not enough either. Binding each stream to the run id its
-records carry catches substitution and blanking, and a third round showed it
-still passes a stream that has simply been **truncated** — one natural-write
-training stream cut down to its first record has the right run id in the one
-record it has left, and it moved a B1/B2 false-positive count while exiting 0.
-
-So the check is now the content hash. `ARCHIVE_SHA256SUMS.txt`, the release
-checksum index published beside the volumes, is mirrored into the repository at
-`data/corpus-manifests/`. All four scripts that overwrite a frozen output from
-corpus inputs — `p5_analyze.py`, `score_ours_3pool.py`, `score_stide_3pool.py`
-and `p4_recovery_cost.py` — verify every stream, graph and measured snapshot
-they read against it before fitting or writing: 123 inputs, 259 streams plus
-7,135 snapshot files, 291 streams, and 236 streams. B1/B2 hashes each stream
-from the bytes it is already parsing, so the whole run still takes about ten
-seconds; the AIDE scorer verifies its snapshot trees the same way before the
-container runs. The run-id and outcome assertions are kept for the diagnostics
-they give — a truncation and a substitution now report differently — and
-`corpus_index.py` states the limit: this is a reproduction check, not a security
-boundary, since whoever can rewrite an input can rewrite the index. What it buys
-is that a truncated, half-copied or substituted input cannot quietly republish
-different numbers under a frozen filename.
-
-Seven attempted bypasses, all from the review rounds, now fail closed with the
-frozen outputs byte-unchanged: blanking a held-out, training or attack stream;
-putting one run's stream in another's slot; splicing a correct first record onto
-another run's body; truncating a stream by a single record; and appending one
-byte to a measured snapshot — that last one nothing before this check would have
-caught, since the size features read those files.
+Four scripts overwrite a frozen output from corpus inputs — `p5_analyze.py`,
+`score_ours_3pool.py`, `score_stide_3pool.py` and `p4_recovery_cost.py`. Each
+requires its full frozen population and hashes every stream, graph and measured
+snapshot it reads against `ARCHIVE_SHA256SUMS.txt`, the release checksum index
+mirrored at `data/corpus-manifests/`, before fitting or writing: 123 inputs, 259
+streams plus 7,135 snapshot files, 291 streams, and 236 streams respectively.
+The AIDE scorer verifies its snapshot trees the same way before the container
+runs. A present file is not evidence that it is the right file — a blanked,
+substituted or truncated stream parses and moves a count — and the content hash
+is the one check none of those pass. `corpus_index.py` states the limit: this is
+a reproduction check, not a security boundary, since whoever can rewrite an
+input can rewrite the index. What it buys is that a truncated, half-copied or
+substituted input cannot quietly republish different numbers under a frozen
+filename. How the archive and these checks changed since the first release is
+in [`revision-notes.md`](revision-notes.md).
 
 ## Populations, catalog, and measurement quality
 
@@ -242,7 +161,7 @@ caught, since the size features read those files.
 | **§4.3** — the 55 attack executions (52 folds) | user-message carriers: `build_mass_um_profile_inputs{,_w2w4}.py` (MUC/MUI); content-append: `build_mass_profile_content_append_inputs.py` (MCAW); semantic: `build_mass_profile_semantic_inputs.py` (MSI); chmod: `build_mass_profile_chmod_inputs.py` (MCH); truncate/unlink: `build_mass_profile_destructive_inputs.py` (MTR/MUL); W3 C-series: `build_p2_l0_newcase_inputs{,_b2,_b3}.py`, `build_p2_l0_um_instcfg_inputs.py`, `build_p2_l0_archetype_inputs.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, pool 3 and `fold_map_attack_loso` |
 | **Table 6** — five co-collected host views | `dataset_builder/paired_live_four_source.py`, `five_source_graph_bridge.py`, `live_trace/live_ebpf.bpf.c` | the archived corpus ships the *derived* evidence — the normalized provenance graph, the libsinsp reconstruction and the native SCAP capture. The raw inotify, fanotify, auditd and eBPF streams are retained per run in the full archive, not in the reproduction corpus |
 | **Table 6 → detector inputs** — normalization and export | `measurement/stage_g_harness/{normalize,audit,scap,sidecars,libsinsp_extract,libsinsp_reattribute,libsinsp_compare,export_p2_detector_inputs}.py` | `data/superseded/DERIVATION_AVAILABILITY_MATRIX.json` |
-| **§4.4, §5 preamble** — admission gates (fd→path ≥ 0.95, zero drops, no excluded writes) | `dataset_builder/recollection_readiness.py` | `tier_a/clean_admission/` in the corpus, checked by `python3 data/corpus-manifests/check_admission.py`: **0 drops and 0 overflows across 1,180 collector streams, every stream non-empty, both freeze gates for all 236 runs, and a resolution rate of 1.0 from the 100 run-level readiness records that survive** — not from all 236. See the coverage note below. **Not** in `FINAL_3POOL_SPLIT_MANIFEST.json`: its `anti_leakage_asserts` are population, disjointness and substrate-presence checks and carry none of these quantities, and an earlier version of this table pointed at them by mistake |
+| **§4.4, §5 preamble** — admission gates (fd→path ≥ 0.95, zero drops, no excluded writes) | `dataset_builder/recollection_readiness.py` | `tier_a/clean_admission/` in the corpus, checked by `python3 data/corpus-manifests/check_admission.py`: **0 drops and 0 overflows across 1,180 collector streams, every stream non-empty, both freeze gates for all 236 runs, and a resolution rate of 1.0 from the 100 run-level readiness records that survive** — not from all 236. See the coverage note above. **Not** in `FINAL_3POOL_SPLIT_MANIFEST.json`: its `anti_leakage_asserts` are population, disjointness and substrate-presence checks and carry none of these quantities |
 | **§4.4** — 16-case operation-observability validation | `dataset_builder/{mutation_matrix_canary,mutation_canary_five_source,mutation_matrix_run,mutation_op_canary}.py` | `data/observability/operation-matrix/REPORT.md` — 4 mechanisms × 4 target roles, all 16 graph-witnessed, with the full run bundle. `data/observability/four-operation-canary/` is the earlier 4-operation run that established the integration |
 | **§D.4** — fail-closed cross-generation binding | `measurement/stage_g_harness/generation_contract.py` | `DET/FINAL_3POOL_SPLIT_MANIFEST.json`, `generation_contract` |
 | **Table 11** — execution environment | the values are set by `dataset_builder/paired_live_four_source.py` and recorded per run in the environment fingerprint inside each run bundle | `DET/FINAL_3POOL_SPLIT_MANIFEST.json` carries the `generation_contract` and `uid_spotcheck` — the auditd, eBPF-object, libsinsp, monitor-version and runner-UID entries. The remaining rows (kernel build, filesystem, cgroup limits, clock discipline) are set in the collector and recorded per run in the archived corpus, not in any single frozen file here |

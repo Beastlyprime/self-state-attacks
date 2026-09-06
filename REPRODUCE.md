@@ -186,16 +186,13 @@ boundary. Anyone who can rewrite the inputs can rewrite the index. What it buys
 is that a truncated, half-copied or substituted input cannot quietly republish
 different numbers under a frozen filename.
 
-The B1/B2 test above was re-run in a tree that contains nothing but this
+The delete-first checks above were run in a tree containing nothing but this
 repository and the unpacked volumes, with no path back to the collection host.
-That matters because an earlier version of the corpus shipped the eleven W3
-C-series attacks in the `staging` volume as **absolute symlinks** into the
-authors' own working tree: on this machine they resolved and the scorer looked
-correct, and anywhere else they dangled and it silently evaluated 12 of 23. The
-same eleven trees are published under `tier_b/attacks_lockedpop_cseries` and are
-byte-identical on both streams the scorers read, so the symlinks were dropped
-and the scorers resolve attacks from the attack pools when `staging` does not
-carry them.
+The scorers resolve an attack from `staging` when it carries the run and from
+`tier_b/attacks` or `tier_b/attacks_lockedpop_cseries` otherwise; the eleven W3
+C-series attacks are published only under the latter. The archive contains no
+symlinks. [`docs/revision-notes.md`](docs/revision-notes.md) records how the
+archive and these checks changed since the first release.
 
 `merge_falco_3pool.py` is a partial case and we state the limit rather than
 imply otherwise. With `tier_a` unpacked it reassembles the **55 attack
@@ -205,7 +202,7 @@ from the one the paper uses). The **60 clean decisions are carried forward** fro
 the shipped `scored_falco_3pool.json`: the held-out clean replay ran on the guest
 and its raw output was never archived, so Falco's false-positive rate is
 checkable but not recomputable. Apply the delete-first test and it fails
-outright — that is the honest signature of a carried-forward side.
+outright, as a carried-forward side must.
 
 `rebuild_supervised_3pool.py` runs to completion from the corpus. Its
 **substrate A block recomputes exactly** — nested-CV AUC .5983, its interval,

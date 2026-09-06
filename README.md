@@ -66,6 +66,8 @@ docs/            dataset description, methodology, paper-to-file map, limitation
   split, and what the record schemas contain.
 - **[`REPRODUCE.md`](REPRODUCE.md)** — what re-runs from this repository alone, what
   needs the raw corpus, and how to obtain it.
+- **[`docs/revision-notes.md`](docs/revision-notes.md)** — what changed in the
+  release after first publication, and why.
 - **[`docs/limitations.md`](docs/limitations.md)** — the scope boundaries. Worth
   reading before building on any of this.
 

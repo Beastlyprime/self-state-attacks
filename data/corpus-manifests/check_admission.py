@@ -3,12 +3,10 @@
 
 The paper states that all 176 training and 60 held-out clean executions have
 non-empty five-source inputs, zero recorded drop/overflow, no excluded writes,
-and an effective path-resolution rate of 1.0. An earlier version of
-``docs/results.md`` pointed at ``FINAL_3POOL_SPLIT_MANIFEST.json``'s
-``anti_leakage_asserts`` for that; those fourteen asserts are population counts,
-disjointness and substrate presence, and carry none of the four quantities. The
-numbers lived in per-run collector health records that the reproduction corpus
-did not carry. It carries them now, under ``tier_a/clean_admission/``.
+and an effective path-resolution rate of 1.0. ``FINAL_3POOL_SPLIT_MANIFEST.json``'s
+``anti_leakage_asserts`` do not carry these quantities -- they are population
+counts, disjointness and substrate presence. The numbers live in the per-run
+collector health records and freeze gates under ``tier_a/clean_admission/``.
 
 What that evidence does and does not cover, stated once so the output below can
 be read correctly:

@@ -1,6 +1,6 @@
 # Audited final three-pool detector results (2026-08-25)
 
-Manifest `44c2b92d35fc` · Report `d674629b906f`.
+Manifest `44c2b92d35fc` · Report `f8e9aff31bb5`.
 
 Point estimates use executions/attack operations; bracketed intervals are cluster bootstraps over the independent scenario/fold. Boundary cells additionally report cluster-any Wilson intervals.
 

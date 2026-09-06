@@ -64,8 +64,7 @@ resolver was refuted (project_status section 4).
 
 - **Nameability** and **principal attribution** are near-perfect (21/21 in both arms) and
   therefore carry **zero** attack-vs-benign discriminant. All self-state writes are class C:
-  classes A/B are structurally empty for mutations on this platform, now confirmed on
-  libsinsp identity (not the withdrawn resolver).
+  classes A/B are structurally empty for mutations on this platform, on libsinsp identity.
 - **Causal-carrier attribution** fires only where the carrier crossed the filesystem, and
   where it can fire it fires on **both** sides at comparable rates (12/21 and 13/21): a
   read of the carrier slot followed by a self-state write is what a clean session does

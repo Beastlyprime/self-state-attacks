@@ -13,7 +13,7 @@ POOLS = SCR / "pools"
 JUMP = "<COLLECTOR_HOST>"
 VM = "<GUEST_HOST_A>"
 KEY = "<HOME>/.ssh/assa_guest"
-os.environ["SSH_AUTH_SOCK"] = "<HOME>/.ssh/codex-agent.sock"
+os.environ["SSH_AUTH_SOCK"] = "<SSH_AUTH_SOCK>"
 
 RELS = [
     "graph/libsinsp/libsinsp_events.jsonl",

@@ -11,7 +11,7 @@ _REPO_ROOT = str(_Path(__file__).resolve().parents[3])
 ARCH = Path(_REPO_ROOT + "/data/corpus-manifests")
 JUMP = "<COLLECTOR_HOST>"
 KEY = "<HOME>/.ssh/assa_guest"
-os.environ["SSH_AUTH_SOCK"] = "<HOME>/.ssh/codex-agent.sock"
+os.environ["SSH_AUTH_SOCK"] = "<SSH_AUTH_SOCK>"
 
 def remote_size(ip, path):
     inner = f"stat -c%s {path} 2>/dev/null || echo 0"

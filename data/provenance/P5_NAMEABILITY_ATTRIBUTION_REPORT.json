@@ -1421,7 +1421,7 @@
    "attack": "21/21",
    "benign": "21/21",
    "separates": false,
-   "note": "All self-state writes are class C (libsinsp fd->path chain); classes A/B structurally empty for mutations, as in the withdrawn resolver era but now on libsinsp identity."
+   "note": "All self-state writes are class C (libsinsp fd->path chain); classes A/B are structurally empty for mutations on this platform, on libsinsp identity."
   },
   "principal_attribution": {
    "attack": "21/21",

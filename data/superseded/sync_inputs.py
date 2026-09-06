@@ -61,7 +61,7 @@ def sync_one(r) -> dict:
 
 
 def main():
-    os.environ["SSH_AUTH_SOCK"] = "<HOME>/.ssh/codex-agent.sock"
+    os.environ["SSH_AUTH_SOCK"] = "<SSH_AUTH_SOCK>"
     pop = json.loads((OUT / "PARTIAL_LOCKED_POPULATION.json").read_text())
     todo = list(rows(pop))
     results = []

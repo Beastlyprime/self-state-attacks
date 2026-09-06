@@ -2,7 +2,7 @@
   "schema_version": "assa.final_3pool_report.v3",
   "created": "2026-08-25",
   "manifest_content_address": "44c2b92d35fc",
-  "design": "user-approved codex 3-pool: clean TRAIN gen2-176 (fit only), natural clean TEST gen2-60 (FPR only, scenario-clustered), attack TEST 55 (+twins secondary). Supersedes leaky clean-40 leave-one-out.",
+  "design": "3-pool head-to-head split: clean TRAIN gen2-176 (fit only), natural clean TEST gen2-60 (FPR only, scenario-clustered), attack TEST 55 (+twins secondary). Supersedes leaky clean-40 leave-one-out.",
   "independent_units": {
     "clean": "20 held-out scenarios, 3 replicates each (60 executions)",
     "attack": "52 folds for 55 confirmed attack landings",
@@ -1536,5 +1536,5 @@
     "interpretation": "Do not infer a direction of bias by comparing this invalid set with gen2-60."
   },
   "headline": "Across held-out natural workloads, the evaluated OS baselines exhibit a coverage--false-alarm tradeoff rather than a uniformly dominant detector. AIDE is evaluable on all 55 attacks and detects 52, but flags every observed clean self-state write; Falco lowers the marginal false-positive rate while missing attack classes; STIDE detects all attacks after applying its frozen per-run stream selection but flags nearly all clean executions. UNICORN exposes a workload-dependent graph signal on 41 evaluable attacks, but its 35/41 detections coincide with 35/47 natural-clean alarms. The write-specific B1/B2 baselines have lower marginal false-positive rates but are defined for only 23 of 55 attacks. Thus OS event streams provide useful operational evidence, while the evaluated baselines do not yet combine broad attack coverage with a low false-alarm burden.",
-  "report_content_address": "d674629b906f"
+  "report_content_address": "f8e9aff31bb5"
 }

@@ -61,12 +61,11 @@ STREAM_AUDIT: dict = {}
 def stream_is_published(path):
     """Hash a stream this scorer hands to the backend without reading itself.
 
-    The 176 training streams are consumed by STIDE, not by this process. An
-    earlier version checked only their first record, which a truncation walks
-    straight past -- truncating one natural-write stream shifted a reported
-    false-positive count and exited 0. Hash them instead: it costs one pass
-    over the training set and it is the only check that a truncated or
-    part-copied file cannot satisfy.
+    The 176 training streams are consumed by STIDE, not by this process.
+    Checking their first record is not enough: a truncated stream has the
+    right run id in the records it has left and moves a reported count. Hash
+    them: it costs one pass over the training set and it is the only check
+    that a truncated or part-copied file cannot satisfy.
     """
     return corpus_index.check(path, ROOT)
 

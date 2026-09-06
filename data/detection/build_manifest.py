@@ -227,7 +227,7 @@ asserts["uid_997_spotcheck_all"] = all(c["uid"] == 997 for c in uid_checks)
 manifest = {
     "schema_version": "assa.final_3pool_split.v1",
     "created": "2026-08-25",
-    "design": "user-approved codex 3-pool: clean TRAIN gen2-176 (fit only), natural clean TEST gen2-60 (FPR only, scenario-clustered), attack TEST 55 (+twins secondary). Supersedes leaky clean-40 leave-one-out.",
+    "design": "3-pool head-to-head split: clean TRAIN gen2-176 (fit only), natural clean TEST gen2-60 (FPR only, scenario-clustered), attack TEST 55 (+twins secondary). Supersedes leaky clean-40 leave-one-out.",
     "generation_contract": CONTRACT,
     "pools": {
         "pool1_clean_training_gen2_176": {"role": "fit_only", "n": len(pool1),

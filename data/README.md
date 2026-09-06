@@ -27,9 +27,13 @@ Each directory carries a `SHA256SUMS` over the files it ships:
 cd detection && sha256sum -c FINAL_3POOL_SHA256SUMS.txt
 ```
 
-`corpus-manifests/manifests/TIER_A_SHA256SUMS.txt` is the one exception: it records
-acquisition-time hashes for corpus tiers that are not in this repository, so it is
-not expected to verify here.
+Three files are checked differently. `corpus-manifests/manifests/TIER_A_SHA256SUMS.txt`
+records acquisition-time hashes for corpus tiers that are not in this repository,
+so it is not expected to verify here. `corpus-manifests/ARCHIVE_SHA256SUMS.txt` is
+the corpus release index, checked with `corpus_index.py --verify` over an unpacked
+corpus. `detection/unicorn/SHA256SUMS.txt` lists its files relative to the
+repository root, so run `sha256sum -c` on it from there. `../REPRODUCE.md` has
+the details.
 
 ## Redaction
 

@@ -1,11 +1,9 @@
 # Detector runtimes
 
 Three detector arms need something built first: AIDE and UNICORN a container,
-UNICORN three upstream checkouts, STIDE one. An earlier version of this release
-named the images and commit hashes but published neither the recipes nor the
-upstream URLs, which made those arms unbuildable from here for no good reason —
-all three projects are public. The recipes below are the ones the published rows
-were produced with, copied verbatim.
+UNICORN three upstream checkouts, STIDE one. All three projects are public. The
+recipes below are the ones the published rows were produced with, copied
+verbatim.
 
 Building them does not make all three byte-reproducible. STIDE does reproduce its
 frozen rows exactly. AIDE and UNICORN do not: `apt` snapshots move and the

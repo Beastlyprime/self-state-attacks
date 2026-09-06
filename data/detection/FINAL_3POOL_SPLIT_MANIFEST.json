@@ -1,7 +1,7 @@
 {
   "schema_version": "assa.final_3pool_split.v1",
   "created": "2026-08-25",
-  "design": "user-approved codex 3-pool: clean TRAIN gen2-176 (fit only), natural clean TEST gen2-60 (FPR only, scenario-clustered), attack TEST 55 (+twins secondary). Supersedes leaky clean-40 leave-one-out.",
+  "design": "3-pool head-to-head split: clean TRAIN gen2-176 (fit only), natural clean TEST gen2-60 (FPR only, scenario-clustered), attack TEST 55 (+twins secondary). Supersedes leaky clean-40 leave-one-out.",
   "generation_contract": {
     "auditd_version": "3.0.7",
     "ebpf_object_sha": "95c923f1 (per-VM)",
