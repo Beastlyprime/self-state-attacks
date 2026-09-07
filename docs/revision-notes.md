@@ -10,9 +10,9 @@ Dates are commit dates on the public repository.
 
 ## 2026-09-02 — release audit
 
-- **Corpus totals corrected.** The archive is 16,698 files / 19,478,773,704
-  bytes unpacked, 3,047,989,793 bytes compressed in twelve volumes. Earlier
-  figures in the README were from a pre-redaction build.
+- **Corpus totals corrected** in the README, which had carried figures from a
+  pre-redaction build. The exact figures were first stated on 2026-09-05,
+  below.
 - **Table 9 made recomputable.** `p5_analyze.py` reads its 123 inputs from the
   `provenance-inputs` volume, unpacked to `data/provenance/inputs/`, and
   regenerates `P5_NAMEABILITY_ATTRIBUTION_REPORT.json` byte-for-byte. The `.md`
@@ -29,11 +29,8 @@ Dates are commit dates on the public repository.
 - **Section 5.2.** Substrate A of the supervised arm recomputes exactly from
   the corpus. Substrate B's shipped AUCs (.4991 / .4915) do not: the original
   selector was an unordered glob over a tree that held several distinct copies
-  of some streams, and the copy it read was not recorded. The recomputed block
-  (.5123 / .3837) carries a `stream_selection` map and is written to a
-  `*.recomputed.json`; the shipped file is untouched. An interim version of
-  `results.md` listed a third pair (.538 / .471) from a development tree with no
-  selection map behind it; that figure was withdrawn.
+  of some streams, and the copy it read was not recorded. The order-independent
+  recomputation followed on 2026-09-04, below.
 - **Falco.** The 55 attack decisions reassemble from the three published replay
   results in `tier_a`; the 60 clean decisions are carried forward from the
   shipped file because the held-out replay's raw output was never archived.
@@ -44,10 +41,10 @@ Dates are commit dates on the public repository.
 `C520_w3_alert_webhook_runbook` from a `grok-4.6` re-collection that shares the
 run id with the `gemini-3-flash` execution the published population is defined
 over. The published rows were scored from the gemini execution. The gemini
-attack, twin and SCAP captures replaced the grok ones, and the two acquisition
-manifests that recorded the grok source paths (`manifests/cseries11_source_paths.json`,
-`manifests/scap_targets.json`) were corrected. With this substitution
-substrate A recomputes exactly. An earlier version of `results.md` attributed
+attack and twin replaced the grok ones in `tier_b`; the `tier_c` SCAP captures
+and the two acquisition manifests that recorded the grok source paths
+(`manifests/cseries11_source_paths.json`, `manifests/scap_targets.json`)
+followed on 2026-09-04. With this substitution substrate A recomputes exactly. An earlier version of `results.md` attributed
 the substrate A discrepancy to three twins with zero-byte libsinsp streams in
 the `p2_mass_attack_lane2` trees; those files are empty there, but the scorer
 read the complete copies in `staging` first, so they were not the cause.
@@ -73,6 +70,13 @@ read the complete copies in `staging` first, so they were not the cause.
   `data/corpus-manifests/`, and refuse before writing on any difference;
   `corpus_index.py --verify` checks a whole unpacked corpus the same way. The
   run-id binding is kept for the diagnostics it gives.
+- **Substrate B recomputed order-independently.** Each of the 46 streams
+  exists once in the published volumes (one byte-identical duplicate), so the
+  recomputed block (.5123 / .3837) does not depend on traversal order; it
+  carries a `stream_selection` map and is written to a `*.recomputed.json`,
+  the shipped file untouched. An interim version of `results.md` had listed a
+  third pair (.538 / .471) from a development tree with no selection map behind
+  it; that figure was withdrawn.
 - **Test suite.** `REPRODUCE.md` states what a run produces: 585 collected,
   seven failing on unshipped intermediates, one timing-dependent.
 
@@ -98,6 +102,9 @@ read the complete copies in `staging` first, so they were not the cause.
   and refuses any symlink between the repository root and the file.
 - **Level 1 exception stated.** `REPRODUCE.md`'s level table carries the
   section 4.4 exception rather than claiming every number is checkable.
+- **Corpus totals stated exactly:** 16,698 files, 19,478,773,704 bytes
+  unpacked, 3,047,989,793 bytes compressed in twelve volumes (superseded on
+  2026-09-07, below).
 
 ## 2026-09-06 — Table 15 and the AIDE pre-check
 
@@ -106,14 +113,42 @@ read the complete copies in `staging` first, so they were not the cause.
   result with a one-run population. It now iterates the 236 run ids of the
   frozen split, refuses on any missing or extra directory, binds each record
   to its run id, and hashes each stream against the release index. Table 15
-  joins Table 9, B1/B2 and STIDE as an output that recomputes byte-for-byte,
-  delete-first, from the corpus alone.
+  joins Table 9 and B1/B2 as an output that recomputes byte-for-byte,
+  delete-first, from the corpus alone; STIDE does too, given its pinned checkout.
 - **`score_aide_3pool.py`** verifies every snapshot tree against the index
   before the container runs on any of them.
 - **Process identifiers removed** from published files: the split manifest's
   `design` string and four acquisition scripts' `SSH_AUTH_SOCK` value named the
   tooling used during the release process. The manifest change alters no
   population, assertion or number; `FINAL_3POOL_REPORT.json` re-derives from it
-  unchanged apart from the same string.
+  unchanged apart from the same string and its `report_content_address`. This
+  reached the repository copies only; the corpus copies followed on
+  2026-09-07, below.
 - **This file.** The audit history that had accumulated in `results.md` and
   `REPRODUCE.md` was moved here.
+
+## 2026-09-07 — tree completeness, and the corpus copies of the edited scripts
+
+- **`check_tree()` requires every indexed file to be present.** It had walked
+  the files that exist and hashed each; a snapshot tree with one file deleted
+  hashed clean on what remained, and AIDE's diff would have read the gap as a
+  deletion the session performed. The tree is now compared against the index's
+  own list of what belongs under it, in both directions. The same case is
+  closed for B1/B2's snapshot trees and for the admission evidence.
+- **Two acquisition scripts existed in both the repository and the corpus.**
+  The 2026-09-06 edit reached only the repository copies of
+  `manifests/pull_graphs.py` and `pull_scap.py`, so they no longer matched the
+  release index, and unpacking the `manifests` volume would have restored the
+  old text. The same substitution was applied across the corpus payload — 14
+  text files under `manifests/` and `tier_a/`, no measured object touched — the
+  `manifests` and `tier_a` volumes were repacked with the same flags, and the
+  index and manifest were regenerated. Totals: 16,698 files, 19,478,773,521
+  bytes unpacked, 3,047,990,495 bytes compressed in twelve volumes; the index
+  is 2,711,405 bytes as before.
+- **Generation qualifiers shortened.** The B1/B2 and supervised reports and the
+  scripts that write them still say which earlier generation their figures are
+  not comparable with, without the narrative around it. The P5 report's header
+  no longer refers to unpublished working notes.
+- **Dates in this file corrected** against the commit history: the exact
+  corpus totals, the substrate B recomputation, and the `tier_c` half of the
+  C520 correction.

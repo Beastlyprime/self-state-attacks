@@ -1,6 +1,6 @@
 # B1/B2 size+timing anomaly detector on REAL pinned libsinsp traces
 
-**Derivation generation:** `p2_b1b2_size_timing_libsinsp_20260822` — NEW generation. **NOT comparable to any prior size+timing numbers.** The prior version scored SYNTHETIC `WorkloadGeneratorV4` ops with SYNTHETIC gamma timestamps (`exp2b_temporal.generate_timestamps`) and is withdrawn-class; those numbers must not be cited. This run feeds the SAME z-score method (paper §5.1 Eq.1) REAL write syscalls + REAL nanosecond timestamps from `graph/libsinsp/libsinsp_events.jsonl` and REAL net size deltas from `state_snapshots/{before_a,after_a}`. Same fix pattern as the P5 recompute.
+**Derivation generation:** `p2_b1b2_size_timing_libsinsp_20260822`. The z-score method of paper §5.1 Eq. 1 applied to real write syscalls and nanosecond timestamps from `graph/libsinsp/libsinsp_events.jsonl` and real net size deltas from `state_snapshots/{before_a,after_a}`. Not comparable to earlier size+timing figures, which were computed on synthetic `WorkloadGeneratorV4` operations and synthetic gamma timestamps and are not paper estimates.
 
 Defensive analysis. Offline, read-only on sources, no network, no VM, no payload execution.
 
@@ -83,4 +83,4 @@ Adding the timing feature **does change decisions, weakly and mostly unfavorably
 - Timing is thus a minority feature on this corpus; the size term carries the combined score for most landings.
 
 ## 7. Discipline
-Real sizes/timestamps only; no synthetic data. Prior synthetic-data numbers discarded and not cited. Auxiliary-control deviation flagged (§2). Labeled a NEW derivation generation, not comparable to any prior generation. Read-only on all sources.
+Real sizes and timestamps only; no synthetic data. Auxiliary-control deviation flagged (§2). A distinct derivation generation, not comparable to earlier ones. Read-only on all sources.

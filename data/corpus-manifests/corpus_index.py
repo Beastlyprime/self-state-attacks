@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """Verify a corpus input against the published release checksums.
 
-Counting inputs is not enough and neither is naming them. A stream that is
-present, carries the right run id in every record, and has simply been
-truncated will pass both of those checks and still move a reported number --
-one such truncation shifted a B1/B2 false-positive count and exited 0. The only
-check that closes the class is the content hash, so the scorers verify each
-input they read against ``ARCHIVE_SHA256SUMS.txt``, the index published beside
-the corpus volumes and mirrored here.
+Counting inputs is not enough and neither is naming them: a stream that is
+present, carries the right run id in every record, and has been truncated
+passes both of those checks and still moves a reported number. The check that
+closes the class is the content hash, so the scorers verify each input they
+read against ``ARCHIVE_SHA256SUMS.txt``, the index published beside the corpus
+volumes and mirrored here.
 
 The index keys are relative to the corpus payload root; the volumes unpack to
 several different places under ``data/``, so ``payload_key`` maps a repository
 path back to its key. A file that is not in the index, or that hashes
 differently, is not the input the frozen outputs were computed from -- whatever
-else is true of it.
+else is true of it. A tree that is missing an indexed file is not the published
+tree either, and ``check_tree`` says so.
 
 This is a reproduction check, not a security boundary: anyone who can rewrite
 the inputs can rewrite this index too. What it buys is that an accidentally
@@ -174,12 +174,29 @@ def verify_all(root, quiet=False):
 
 
 def check_tree(root_dir, root, limit=None):
-    """Every file under `root_dir` must be present in the index and match it.
+    """Every file under `root_dir` must be in the index and match it, and every
+    indexed file under `root_dir` must be present.
 
-    An unlisted file is a failure too: these trees are published wholesale, so
-    a file that is not in the index was not part of what shipped.
+    Both directions matter. An unlisted file was not part of what shipped. A
+    listed file that is absent is the case a walk over existing files cannot
+    see: a snapshot tree missing one of its files hashes clean on everything
+    it still has, and a detector diffing that tree reads the gap as a deletion
+    the session performed. So the tree is compared against the index's own
+    list of what belongs under it, not only file by file.
     """
     bad = []
+    rel, why = logical_rel(root_dir, root)
+    if why:
+        return [why]
+    key = payload_key(rel)
+    if key is None:
+        return [f"{rel} is not in a directory the corpus volumes unpack into"]
+    table = load(root)
+    if table is None:
+        return [f"the release checksum index {INDEX_NAME} is missing"]
+    prefix = key if key == "" or key.endswith("/") else key + "/"
+    expected = {k for k in table if k.startswith(prefix)}
+    seen = set()
     for path in sorted(Path(root_dir).rglob("*")):
         if path.is_symlink():
             # The published trees are regular files throughout. A link here is a
@@ -191,6 +208,13 @@ def check_tree(root_dir, root, limit=None):
             why = check(path, root)
             if why:
                 bad.append(why)
+            else:
+                r, _ = logical_rel(path, root)
+                seen.add(payload_key(r))
+        if limit and len(bad) >= limit:
+            return bad
+    for k in sorted(expected - seen):
+        bad.append(f"{k} is listed in {INDEX_NAME} but absent from the tree")
         if limit and len(bad) >= limit:
             break
     return bad

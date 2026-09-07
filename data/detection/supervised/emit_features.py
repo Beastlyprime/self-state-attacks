@@ -222,7 +222,7 @@ def main():
         "derivation_generation": "p2_supervised_arm_20260823",
         "comparability": "NEW derivation. Raw features underlying the frozen "
                          "p2_b1b2_size_timing_libsinsp_20260822 scores; not comparable to "
-                         "the withdrawn synthetic V/C/I generation.",
+                         "the earlier synthetic V/C/I generation, which is not a paper estimate.",
         "analysis_kind": "defensive; offline; read-only on sources; no network/VM; no payload execution",
         "unit_of_analysis": "one per-(run,file) self-state write operation",
         "positives": "marker-file operation of each poisoned run",

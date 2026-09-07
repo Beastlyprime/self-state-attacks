@@ -12,13 +12,12 @@ against REPORT.json instead of re-running it.
 
 B1/B2 size+timing anomaly detector recomputed on REAL pinned libsinsp traces.
 
-NEW derivation generation: p2_b1b2_size_timing_libsinsp_20260822.
-NOT comparable to any prior generation. The prior size+timing numbers were
-produced on SYNTHETIC WorkloadGeneratorV4 ops + SYNTHETIC gamma timestamps
-(exp2b_temporal.generate_timestamps) and are withdrawn-class. This run feeds
-the SAME z-score method (paper §5.1 Eq.1) real write syscalls + real ns
-timestamps from graph/libsinsp/libsinsp_events.jsonl and real net size deltas
-from state_snapshots/{before_a,after_a}.
+Derivation generation: p2_b1b2_size_timing_libsinsp_20260822. The z-score
+method (paper §5.1 Eq.1) applied to real write syscalls and real ns timestamps
+from graph/libsinsp/libsinsp_events.jsonl and real net size deltas from
+state_snapshots/{before_a,after_a}. Not comparable to earlier size+timing
+figures, which were computed on synthetic WorkloadGeneratorV4 operations and
+synthetic gamma timestamps and are not paper estimates.
 
 Method fidelity: feature/threshold formulas are copied verbatim from
   experiments/code/measurement/exp2b_anomaly.py  (compute_anomaly_score)
@@ -430,9 +429,7 @@ GENERATION_CONTRACT={
 report={
  "schema_version":"assa.p2_b1b2_size_timing_libsinsp.v1",
  "derivation_generation":"p2_b1b2_size_timing_libsinsp_20260822",
- "comparability":"NEW generation. NOT comparable to any prior size+timing numbers "
-                 "(those used synthetic WorkloadGeneratorV4 ops + synthetic gamma "
-                 "timestamps and are withdrawn-class). Do not cite prior numbers.",
+ "comparability":"Distinct generation, computed on real libsinsp sizes and timestamps. Not comparable to earlier size+timing figures, which used synthetic WorkloadGeneratorV4 operations and synthetic gamma timestamps and are not paper estimates.",
  "created_at":"2026-08-22",
  "regenerated_at":"2026-08-25 (freeze prerequisite: +population-assert +basename-dedup +generation-contract)",
  "generation_contract":GENERATION_CONTRACT,

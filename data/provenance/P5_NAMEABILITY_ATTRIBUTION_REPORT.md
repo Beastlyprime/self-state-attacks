@@ -1,13 +1,12 @@
-# P5 - Nameability + Attribution, recomputed on the pinned libsinsp generation
+# P5 - Nameability + Attribution on the pinned libsinsp generation
 
-Date: 2026-08-22. READ-ONLY on all sources. No synthetic OS events/edges/identities.
+Date: 2026-08-22. Read-only on all sources; no synthetic OS events, edges or identities.
 Generation: pinned libsinsp / Falco fd-table file identity (`resolution_spine_effective`
-view); auditd retained as an independent adjudication channel only. **No figure from the
-withdrawn per-event resolver is reused.**
+view); auditd retained as an independent adjudication channel only. No figure from any
+earlier per-event resolver is reused.
 
-This recomputes the P5 method findings (nameability, principal attribution, causal-carrier
-attribution) that were withdrawn in `measurement_findings_20260818.md` when the per-event
-resolver was refuted (project_status section 4).
+This computes the P5 method findings (nameability, principal attribution, causal-carrier
+attribution) on that generation.
 
 ## 1. Method definition (as operationalized here) and code location
 
